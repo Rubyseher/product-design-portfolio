@@ -1,6 +1,6 @@
-# ShadeMatch — Case Study & Portfolio
+# Product Design Portfolio
 
-Source for my product design portfolio and the ShadeMatch case study.
+Source for my product design portfolio and case studies.
 
 **Ruby Seher** — product designer, ex full-stack engineer. Bangalore, open to remote or relocation.
 
