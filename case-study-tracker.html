@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Application Black Hole — Ruby Seher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-name">Ruby Seher</div>
+    <div class="nav-links">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+      <a class="btn-mini" href="#" data-fill="resume-link">Resume</a>
+    </div>
+  </div>
+</nav>
+
+<header class="cs-hero">
+  <div class="wrap">
+    <a class="back-link mono" href="index.html#work">← all work</a>
+    <h1 class="reveal">The Application Black Hole</h1>
+    <p class="cs-tagline reveal">Designing a single place to see where every job application actually stands.</p>
+    <div class="frontmatter reveal">
+<span class="fm-comment">// case_study_01</span><br>
+<span class="fm-key">role:</span> <span class="fm-val">product designer — research, IA, mid-fi UI</span><br>
+<span class="fm-key">method:</span> <span class="fm-val">user interviews, competitive analysis, wireframes</span><br>
+<span class="fm-key">timeline:</span> <span class="fm-val">[add timeline]</span><br>
+<span class="fm-key">status:</span> <span class="fm-status-done">complete</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap cs-body">
+  <aside class="cs-sidebar">
+    <div class="grp">
+      <div class="grp-title mono">Overview</div>
+      <a class="sub" data-target="sec-problem">Problem</a>
+      <a class="sub" data-target="sec-solution">Solution</a>
+    </div>
+    <div class="grp">
+      <div class="grp-title mono">Research</div>
+      <a class="sub" data-target="sec-comp">Competitive analysis</a>
+      <a class="sub" data-target="sec-interviews">Interviews & findings</a>
+    </div>
+    <div class="grp">
+      <div class="grp-title mono">Design</div>
+      <a class="sub" data-target="sec-goals">Design goals</a>
+      <a class="sub" data-target="sec-wireframes">Wireframes</a>
+    </div>
+    <div class="grp">
+      <div class="grp-title mono">Outcome</div>
+      <a class="sub" data-target="sec-outcome">Where it stands</a>
+    </div>
+  </aside>
+
+  <main class="cs-content">
+
+    <section class="cs-section" id="sec-problem">
+      <h2>Problem</h2>
+      <p>Job seekers track applications across a dozen browser tabs, inboxes, and half-finished spreadsheets — with no single place that shows where anything actually stands. [Add context: how many applications a typical active job seeker is juggling, and what prompted you to look into this.]</p>
+      <p class="pull-quote">The problem was never a lack of tools. It was <span class="hl">too many tools</span>, and no single source of truth.</p>
+    </section>
+
+    <section class="cs-section" id="sec-solution">
+      <h2>Solution</h2>
+      <p>A lightweight tracker purpose-built for the job search — every application in one view, status updates that take seconds, and enough structure to actually trust it. [One or two sentences on the core mechanic of your solution.]</p>
+    </section>
+
+    <section class="cs-section" id="sec-comp">
+      <h2>Competitive analysis</h2>
+      <p>Before designing anything, I looked at how people already solve this — and why those solutions fall short.</p>
+      <table class="comp-table">
+        <tr><th>Approach</th><th>Strength</th><th>Where it breaks down</th></tr>
+        <tr><td>Spreadsheets</td><td>Fully flexible</td><td>Manual upkeep, no reminders, easy to abandon</td></tr>
+        <tr><td>Notion templates</td><td>Customizable, visual</td><td>Setup overhead before it's useful</td></tr>
+        <tr><td>Dedicated tracker apps</td><td>Purpose-built</td><td>[Add your specific finding — e.g. generic fields, poor mobile experience]</td></tr>
+      </table>
+    </section>
+
+    <section class="cs-section" id="sec-interviews">
+      <h2>Interviews & findings</h2>
+      <p>I talked to [add number] active job seekers about how they currently track applications, where it breaks down, and what they wish existed.</p>
+      <ul>
+        <li>[Finding 1 — e.g. most people track applications in more than one place at once]</li>
+        <li>[Finding 2 — e.g. status updates get abandoned within the first two weeks]</li>
+        <li>[Finding 3 — e.g. the biggest anxiety wasn't the tracking itself, but not knowing what to do next]</li>
+      </ul>
+      <div class="visual-slot reveal">[ drop in affinity mapping / synthesis photo here ]</div>
+    </section>
+
+    <section class="cs-section" id="sec-goals">
+      <h2>Design goals</h2>
+      <p>I translated the research into a short list of principles that shaped every screen after this point.</p>
+      <div class="goal-grid">
+        <div class="goal-card">
+          <svg class="goal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>
+          <div>
+            <h4>One source of truth</h4>
+            <ul><li>Every application lives in exactly one place</li><li>No duplicate tracking across tools</li></ul>
+          </div>
+        </div>
+        <div class="goal-card">
+          <svg class="goal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg>
+          <div>
+            <h4>Fast status updates</h4>
+            <ul><li>Update a status in under two seconds</li><li>No form to fill out for a one-line change</li></ul>
+          </div>
+        </div>
+        <div class="goal-card">
+          <svg class="goal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/></svg>
+          <div>
+            <h4>Zero setup friction</h4>
+            <ul><li>Useful from the first application added</li><li>No template to configure before it works</li></ul>
+          </div>
+        </div>
+        <div class="goal-card">
+          <svg class="goal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v6M12 16v6M2 12h6M16 12h6"/></svg>
+          <div>
+            <h4>[Add your 4th principle]</h4>
+            <ul><li>[supporting point]</li><li>[supporting point]</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-section" id="sec-wireframes">
+      <h2>Wireframes</h2>
+      <p>Mid-fidelity flow in Figma covering the core loop: add an application → update its status → see it reflected instantly across the board.</p>
+      <div class="spotlight reveal">
+        <div class="visual-slot">[ core flow wireframe ]</div>
+        <div>
+          <h3>Add → track → update</h3>
+          <p>[Describe the flow shown in this wireframe — the key screens and the decision behind their order.]</p>
+        </div>
+      </div>
+      <div class="spotlight rev reveal">
+        <div class="visual-slot">[ status board wireframe ]</div>
+        <div>
+          <h3>The board view</h3>
+          <p>[Describe how the board surfaces status at a glance — what's emphasized and why.]</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-section" id="sec-outcome">
+      <h2>Where it stands</h2>
+      <div class="status-box">
+        <p>Published as a full write-up on LinkedIn, covering the research, wireframes, and design decisions in detail.</p>
+      </div>
+      <div class="case-links">
+        <a href="#" data-fill="linkedin-case-study-link">Read the full case study on LinkedIn ↗</a>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<div class="wrap">
+  <div class="cs-nextprev">
+    <span class="mono">← you're on the first case study</span>
+    <a class="mono" href="case-study-shadematch.html">Next: ShadeMatch →</a>
+  </div>
+</div>
+
+<footer class="site-footer" id="contact">
+  <div class="wrap">
+    <div class="eyebrow reveal">// contact</div>
+    <h2 class="reveal">Let's talk.</h2>
+    <a class="big-email reveal" href="mailto:ruby.seher000@gmail.com">ruby.seher000@gmail.com</a>
+    <div class="foot-links reveal">
+      <a href="https://www.linkedin.com/in/ruby-s-885468205/" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href="https://github.com/Rubyseher" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="#" data-fill="resume-link">Resume</a>
+    </div>
+    <div class="foot-meta reveal">Bangalore, India · open to remote & relocation</div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

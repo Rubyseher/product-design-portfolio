@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruby Seher Product Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-name">Ruby Seher</div>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#talks">Talks</a>
+      <a href="#contact">Contact</a>
+      <a class="btn-mini" href="#" data-fill="resume-link">Resume</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="tag-row reveal">
+        <span class="tag"><b>product designer</b></span>
+        <span class="tag tag-alt"><b>ex full-stack engineer</b></span>
+        <span class="tag">bangalore · will relocate</span>
+      </div>
+
+      <h1 class="reveal">Most designers hand off.<br><span class="h1-em">I ship.</span></h1>
+
+      <p class="sub reveal">I run the research, design the system, and write the React that ships it — so nothing gets lost in the last 10%.</p>
+
+      <div class="cta-row reveal">
+        <a class="btn primary" href="#" data-fill="resume-link">Download resume</a>
+        <a class="btn ghost" href="#work">See the work</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/ruby-s-885468205/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+      </div>
+
+      <div class="cred-row reveal">
+        <span class="cred-dot"></span>
+        <span>Two conference talks on <b>“The 10% Problem”</b> — the gap between design and engineering — at <span class="mono">ReactPlay</span> and <span class="mono">React n Chill</span></span>
+      </div>
+
+      <div class="brand-logos reveal">
+        <div class="brand-label">Previously worked at</div>
+        <div class="brand-row">
+          <div class="brand-logo logo-lb">LB</div>
+          <div class="brand-logo logo-tc">TC</div>
+          <div class="brand-logo logo-jpmc">JP</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-panel reveal">
+      <figure class="morph" id="morph">
+        <div class="morph-head">
+          <span class="morph-file mono">ShadeSwatch</span>
+          <div class="morph-toggle" role="tablist" aria-label="View the same component as design or as code">
+            <button class="mt-btn is-on" data-view="design" role="tab" aria-selected="true">design</button>
+            <button class="mt-btn" data-view="code" role="tab" aria-selected="false">code</button>
+          </div>
+        </div>
+
+        <div class="morph-stage">
+          <div class="morph-view v-design is-on" data-view="design">
+            <div class="fig-frame">
+              <span class="fig-label mono">ShadeSwatch / selected</span>
+              <div class="ui-card">
+                <div class="ui-title">Your match</div>
+                <div class="ui-sub mono">warm · neutral undertone</div>
+                <div class="ui-swatches">
+                  <span class="sw" style="--c:#E7C39C"></span>
+                  <span class="sw" style="--c:#D8A47F"></span>
+                  <span class="sw is-sel" style="--c:#C98B5E"></span>
+                  <span class="sw" style="--c:#B8734B"></span>
+                </div>
+              </div>
+              <span class="fig-h tl"></span><span class="fig-h tr"></span>
+              <span class="fig-h bl"></span><span class="fig-h br"></span>
+              <span class="fig-dim mono">328 × 176</span>
+            </div>
+          </div>
+
+          <div class="morph-view v-code" data-view="code" aria-hidden="true">
+<pre class="code"><code><span class="c-key">export function</span> <span class="c-fn">ShadeSwatch</span>({ shade, selected }) {
+  <span class="c-key">return</span> (
+    <span class="c-tag">&lt;button</span>
+      <span class="c-attr">aria-label</span>=<span class="c-str">{shade.name}</span>
+      <span class="c-attr">aria-pressed</span>=<span class="c-str">{selected}</span>
+      <span class="c-attr">className</span>=<span class="c-str">{selected ? "sw sw--on" : "sw"}</span>
+      <span class="c-attr">style</span>=<span class="c-str">{{ background: shade.hex }}</span>
+    <span class="c-tag">/&gt;</span>
+  );
+}</code></pre>
+          </div>
+        </div>
+
+        <figcaption class="morph-foot">
+          <span class="morph-cap mono" data-cap="design">Figma — the frame I designed</span>
+          <span class="morph-cap mono" data-cap="code">React — the component I shipped</span>
+          <a class="morph-link" href="case-study-shadematch.html">ShadeMatch, live PWA →</a>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</header>
+
+<section class="work-list" id="work">
+  <div class="wrap">
+    <div class="eyebrow reveal">// selected work</div>
+    <h2 class="reveal">Case studies</h2>
+
+    <a class="project-card reveal" href="case-study-tracker.html">
+      <div class="project-visual" style="background:var(--card-tracker);">
+        <svg class="device" viewBox="0 0 220 440" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="4" width="212" height="432" rx="28" fill="#12141C" stroke="#3A4160" stroke-width="2"/>
+          <rect x="16" y="30" width="188" height="380" rx="6" fill="#1B2036"/>
+          <rect x="30" y="48" width="90" height="10" rx="2" fill="#4A5478"/>
+          <rect x="30" y="72" width="160" height="46" rx="6" fill="#2A3050" stroke="#3A4160"/>
+          <rect x="30" y="130" width="160" height="46" rx="6" fill="#2A3050" stroke="#3A4160"/>
+          <rect x="30" y="188" width="160" height="46" rx="6" fill="#2A3050" stroke="#3A4160"/>
+          <rect x="30" y="246" width="100" height="10" rx="2" fill="#4A5478"/>
+        </svg>
+      </div>
+      <div class="project-meta">
+        <h3>The Application Black Hole</h3>
+        <div class="cat mono">UX Research · Competitive Analysis · IA · Mid Fi UI</div>
+        <p>Job seekers lose track of applications across a dozen tabs and spreadsheets. A case study on designing a single place to see where everything stands.</p>
+      </div>
+    </a>
+
+    <a class="project-card reveal" href="case-study-shadematch.html">
+      <div class="project-visual" style="background:var(--card-shadematch);">
+        <svg class="device" viewBox="0 0 220 440" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="4" width="212" height="432" rx="28" fill="#FBF3EC" stroke="#B8815C" stroke-width="2"/>
+          <rect x="16" y="30" width="188" height="380" rx="6" fill="#F3E2D2"/>
+          <circle cx="110" cy="120" r="46" fill="#C98B5E"/>
+          <rect x="40" y="188" width="140" height="10" rx="2" fill="#B8815C"/>
+          <rect x="40" y="210" width="100" height="8" rx="2" fill="#D0A17C"/>
+          <rect x="30" y="250" width="34" height="34" rx="17" fill="#E7C39C"/>
+          <rect x="72" y="250" width="34" height="34" rx="17" fill="#D8A47F"/>
+          <rect x="114" y="250" width="34" height="34" rx="17" fill="#C98B5E"/>
+          <rect x="156" y="250" width="34" height="34" rx="17" fill="#B8734B"/>
+        </svg>
+      </div>
+      <div class="project-meta">
+        <h3>ShadeMatch</h3>
+        <div class="cat mono">Product Design · React · Gemini API · Designed & built solo</div>
+        <p>A shipped PWA that finds your foundation shade match. I designed the flow and wrote the code — the clearest proof of how I actually work. Full write up in progress.</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow reveal">// about</div>
+    <h2 class="reveal">Speaker at</h2>
+    <div class="about-body reveal">
+      <p>1. MIQ Bangalore and 2. ReactPlay both featured the ten percent problem. In both talks I explained how that problem is the same signal whether I am working on a product flow or presenting a design idea on stage.</p>
+      <p>That means I do not need two separate stories for the same lesson. I show how the ten percent problem appears in real product work and in the way teams communicate across design and engineering.</p>
+    </div>
+    <div class="carousel-section reveal">
+      <div class="carousel-header">
+        <span class="eyebrow">// speaking moments</span>
+      </div>
+      <div class="carousel">
+        <div class="carousel-track">
+          <div class="carousel-item active">
+            <div class="carousel-image">🎤</div>
+          </div>
+          <div class="carousel-item">
+            <div class="carousel-image">📸</div>
+          </div>
+          <div class="carousel-item">
+            <div class="carousel-image">🎟️</div>
+          </div>
+          <div class="carousel-item">
+            <div class="carousel-image">👥</div>
+          </div>
+          <div class="carousel-item">
+            <div class="carousel-image">✨</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="duo reveal">
+      <div class="duo-cell">
+        <span class="k">$ design</span>
+        <p>User research competitive analysis IA mid to high fidelity UI in Figma design systems.</p>
+      </div>
+      <div class="duo-cell">
+        <span class="k">$ build</span>
+        <p>React AWS PWAs API integration incl LLM APIs I ship what I design front to back.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="talks">
+  <div class="wrap">
+    <div class="eyebrow reveal">// speaking</div>
+    <h2 class="reveal">Talks</h2>
+    <div class="reveal">
+      <div class="talk-row">
+        <span class="talk-title">The 10% Problem</span>
+        <span class="talk-venue mono">ReactPlay the dev and design gap in React</span>
+      </div>
+      <div class="talk-row">
+        <span class="talk-title">The 10% Problem</span>
+        <span class="talk-venue mono">React n Chill the dev and design gap in React</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" id="contact">
+  <div class="wrap">
+    <div class="eyebrow reveal">// contact</div>
+    <h2 class="reveal">Let's talk.</h2>
+    <a class="big-email reveal" href="mailto:ruby.seher000@gmail.com">ruby.seher000@gmail.com</a>
+    <div class="foot-links reveal">
+      <a href="https://www.linkedin.com/in/ruby-s-885468205/" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href="https://github.com/Rubyseher" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="#" data-fill="resume-link">Resume</a>
+    </div>
+    <div class="foot-meta reveal">Bangalore, India · open to remote & relocation</div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
