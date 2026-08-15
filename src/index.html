@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ruby Seher Product Designer</title>
+<script>
+  // claim the scroll position before the browser restores it, so the page
+  // always opens on the hero instead of wherever you last stopped reading
+  (function(){
+    var nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+    if (nav && nav.type === 'back_forward') return;
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -30,7 +39,7 @@
       <div class="tag-row reveal">
         <span class="tag"><b>product designer</b></span>
         <span class="tag tag-alt"><b>ex full stack engineer</b></span>
-        <span class="tag">bangalore · will relocate</span>
+        <span class="tag">Speaker</span>
       </div>
 
       <h1 class="reveal grad g1">Most designers hand off.<br><span class="h1-em grad g3">I ship.</span></h1>
@@ -40,10 +49,10 @@
       <div class="brand-logos reveal">
         <div class="brand-label">Previously worked at</div>
         <div class="brand-row">
-          <img src="images/logos/logo-change.png" alt="Let's Be The Change" class="brand-logo-img is-square">
-          <img src="images/logos/logo-jpmorgan.png" alt="JPMorgan Chase & Co" class="brand-logo-img">
-          <img src="images/logos/logo-nextup.png" alt="NextUp" class="brand-logo-img is-square">
-          <img src="images/logos/logo-nias.png" alt="National Institute of Advanced Studies" class="brand-logo-img">
+          <img src="../images/logos/logo-change.png" alt="Let's Be The Change" class="brand-logo-img is-square">
+          <img src="../images/logos/logo-jpmorgan.png" alt="JPMorgan Chase & Co" class="brand-logo-img">
+          <img src="../images/logos/logo-nextup.png" alt="NextUp" class="brand-logo-img is-square">
+          <img src="../images/logos/logo-nias.png" alt="National Institute of Advanced Studies" class="brand-logo-img">
         </div>
       </div>
     </div>
@@ -51,7 +60,7 @@
     <div class="hero-panel reveal">
       <figure class="hero-video">
         <video
-          src="images/rotato/portfolio-home.mp4"
+          src="../images/rotato/portfolio-home.mp4"
           autoplay muted playsinline
           preload="auto"
           aria-label="Screen recording of the ShadeMatch home screen"></video>
@@ -120,22 +129,22 @@
       <div class="carousel">
         <div class="carousel-track">
           <div class="carousel-item active">
-            <img class="carousel-image" src="images/speaker/1782558137927.jpeg" alt="Opening The 10% Problem talk in front of a full room" loading="lazy">
+            <img class="carousel-image" src="../images/speaker/1782558137927.jpeg" alt="Opening The 10% Problem talk in front of a full room" loading="lazy">
           </div>
           <div class="carousel-item">
-            <img class="carousel-image" src="images/speaker/1783017832542.jpeg" alt="Presenting the title slide of The 10% Problem" loading="lazy">
+            <img class="carousel-image" src="../images/speaker/1783017832542.jpeg" alt="Presenting the title slide of The 10% Problem" loading="lazy">
           </div>
           <div class="carousel-item">
-            <img class="carousel-image" src="images/speaker/1778783329241.jpeg" alt="Walking through a mid fidelity flow on stage" loading="lazy">
+            <img class="carousel-image" src="../images/speaker/1778783329241.jpeg" alt="Walking through a mid fidelity flow on stage" loading="lazy">
           </div>
           <div class="carousel-item">
-            <img class="carousel-image" src="images/speaker/1783017840743.jpeg" alt="The rooftop venue during the talk" loading="lazy">
+            <img class="carousel-image" src="../images/speaker/1783017840743.jpeg" alt="The rooftop venue during the talk" loading="lazy">
           </div>
           <div class="carousel-item">
-            <img class="carousel-image" src="images/speaker/1778783330762.jpeg" alt="A packed audience at the meetup" loading="lazy">
+            <img class="carousel-image" src="../images/speaker/1778783330762.jpeg" alt="A packed audience at the meetup" loading="lazy">
           </div>
           <div class="carousel-item">
-            <img class="carousel-image" src="images/speaker/1778783332410.jpeg" alt="Receiving the speaker gift after the talk" loading="lazy">
+            <img class="carousel-image" src="../images/speaker/1778783332410.jpeg" alt="Receiving the speaker gift after the talk" loading="lazy">
           </div>
         </div>
       </div>
@@ -163,10 +172,10 @@
       <a href="https://github.com/Rubyseher" target="_blank" rel="noreferrer">GitHub</a>
       <a href="#" data-fill="resume-link">Resume</a>
     </div>
-    <div class="foot-meta reveal">Bangalore, India · open to remote & relocation</div>
+    <div class="foot-meta reveal">Bangalore · will relocate</div>
   </div>
 </footer>
 
-<script src="script.js?v=4"></script>
+<script src="script.js?v=5"></script>
 </body>
 </html>

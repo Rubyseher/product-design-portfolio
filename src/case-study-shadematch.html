@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ShadeMatch | Ruby Seher</title>
+<script>
+  // claim the scroll position before the browser restores it, so the page
+  // always opens at the top instead of wherever you last stopped reading
+  (function(){
+    var nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+    if (nav && nav.type === 'back_forward') return;
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -139,10 +148,10 @@
       <a href="https://github.com/Rubyseher" target="_blank" rel="noreferrer">GitHub</a>
       <a href="#" data-fill="resume-link">Resume</a>
     </div>
-    <div class="foot-meta reveal">Bangalore, India · open to remote & relocation</div>
+    <div class="foot-meta reveal">Bangalore · will relocate</div>
   </div>
 </footer>
 
-<script src="script.js?v=4"></script>
+<script src="script.js?v=5"></script>
 </body>
 </html>

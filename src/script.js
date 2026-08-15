@@ -1,18 +1,21 @@
 // ---- open at the top of the page ----
 // a plain reload otherwise drops you back at whatever you were scrolled to,
-// which reads as the page "starting" halfway down at the case studies
+// which reads as the page "starting" halfway down at the case studies.
+// the head of each page already flips scrollRestoration to 'manual'; this
+// keeps pinning the top until the last late asset has finished laying out,
+// because browsers take another run at restoring once the page settles
 (function(){
-  if (!('scrollRestoration' in history)) return;
-
   var nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
   if (nav && nav.type === 'back_forward') return;   // the back button should land where they left off
+  if (location.hash) return;                        // a real #anchor still gets to jump
 
-  history.scrollRestoration = 'manual';
-  if (!location.hash) window.scrollTo(0, 0);        // a real #anchor still gets to jump
+  function toTop(){ window.scrollTo(0, 0); }
 
-  // hand restoration back once this load is past it, so back/forward keeps working
+  toTop();
+  document.addEventListener('DOMContentLoaded', toTop);
   window.addEventListener('load', function(){
-    setTimeout(function(){ history.scrollRestoration = 'auto'; }, 0);
+    toTop();
+    requestAnimationFrame(function(){ requestAnimationFrame(toTop); });
   });
 })();
 

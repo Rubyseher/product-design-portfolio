@@ -2,17 +2,18 @@
 
 Source for my product design portfolio and case studies.
 
-**Ruby Seher** — product designer, ex full-stack engineer. Bangalore, open to remote or relocation.
+**Ruby Seher** — product designer, ex full-stack engineer. Bangalore, will relocate.
 
 ## What's here
 
 | File | What it is |
 | --- | --- |
-| `index.html` | Portfolio home — hero, selected work, talks, contact |
-| `case-study-shadematch.html` | ShadeMatch — a shipped PWA that finds your foundation shade match |
-| `case-study-tracker.html` | The Application Black Hole — job application tracker research & IA |
-| `style.css` | All styles, single stylesheet |
-| `script.js` | Scroll reveal, case-study scroll-spy, hero design↔code toggle |
+| `src/index.html` | Portfolio home — hero, selected work, talks, contact |
+| `src/case-study-shadematch.html` | ShadeMatch — a shipped PWA that finds your foundation shade match |
+| `src/case-study-tracker.html` | The Application Black Hole — job application tracker research & IA |
+| `src/style.css` | All styles, single stylesheet |
+| `src/script.js` | Scroll reveal, case-study scroll-spy, hero design↔code toggle |
+| `images/` | Logos, speaker photos, and the hero video |
 
 ## ShadeMatch
 
@@ -30,7 +31,7 @@ No build step. Static HTML, CSS and JS:
 
 ```bash
 python3 -m http.server 8000
-# then open http://localhost:8000
+# then open http://localhost:8000/src/
 ```
 
 ## Status
