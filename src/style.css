@@ -1109,7 +1109,6 @@ figure img, figure video{ border-radius:12px; box-shadow:0 18px 40px rgba(20,21,
 /* ==================================================== */
 
 /* ---- shared: small diagram furniture ---- */
-.dgm{ margin:30px 0; }
 .dgm-lab{
   font-family:'IBM Plex Mono', monospace; font-size:10.5px; text-transform:uppercase;
   letter-spacing:0.14em; color:var(--ink-soft); margin-bottom:10px;
@@ -1208,11 +1207,6 @@ figure img, figure video{ border-radius:12px; box-shadow:0 18px 40px rgba(20,21,
 .dot-key span{ display:inline-flex; align-items:center; gap:6px; }
 .dot-key i{ width:9px; height:9px; border-radius:50%; background:var(--ink); opacity:.13; display:block; }
 .dot-key i.on{ background:var(--accent); opacity:1; }
-
-.rowstack{ display:flex; align-items:flex-end; gap:3px; height:66px; margin:6px 0 10px; }
-.rowstack i{ display:block; flex:1; background:var(--ink-soft); opacity:.22; border-radius:2px; }
-.rowstack i.tall{ opacity:.5; }
-.rowstack i.on{ background:var(--accent); opacity:1; }
 
 /* ---- 4. market deltas ---- */
 .market-stat .ms-bar{
@@ -1468,4 +1462,184 @@ figure img, figure video{ border-radius:12px; box-shadow:0 18px 40px rgba(20,21,
   .bh-void{ min-width:100%; }
   .versus{ grid-template-columns:1fr; }
   .p-stats{ grid-template-columns:1fr 1fr; }
+}
+
+/* the guardrail block styles its own spans, so the gauge scale has to say it louder */
+.guardrail .gauge-scale span{ font-size:10px; line-height:1.4; color:var(--ink-soft); }
+/* same story inside the results list: .vitem span already claims a size */
+.vitem .evid-lab{ font-size:10px; line-height:1.4; }
+
+/* ==================================================== */
+/* ============ SCROLL ANIMATION LAYER ================= */
+/* ==================================================== */
+
+/* ---- hero: the statement wipes in from the left ----
+   clip-path rather than transform, because the heading paints its colour
+   through background-clip:text and a transform can drop the gradient */
+.stage-statement{
+  clip-path:inset(0 100% 0 0);
+  transition:clip-path 1.1s cubic-bezier(.16,.84,.28,1) .15s;
+}
+.stage-statement.is-in{ clip-path:inset(0 0 0 0); }
+.stage-center .cs-eyebrow,
+.stage-center .stage-sub{
+  opacity:0; transform:translateY(12px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+.stage-center .cs-eyebrow{ transition-delay:.05s; }
+.stage-center .stage-sub{ transition-delay:.75s; }
+.stage-center .cs-eyebrow.is-in,
+.stage-center .stage-sub.is-in{ opacity:1; transform:none; }
+
+/* ---- marker sweep on key sentences ---- */
+mark.sweep{
+  background-color:transparent; color:inherit;
+  background-image:linear-gradient(rgba(214,69,93,0.22), rgba(214,69,93,0.22));
+  background-repeat:no-repeat;
+  background-position:0 92%;
+  background-size:0% 42%;
+  -webkit-box-decoration-break:clone; box-decoration-break:clone;
+  transition:background-size .85s cubic-bezier(.16,.84,.28,1) .12s;
+  padding:0 1px;
+}
+mark.sweep.is-in{ background-size:100% 42%; }
+
+/* ---- section headings draw a short accent rule ---- */
+.cs-content h2{ position:relative; padding-bottom:16px; margin-bottom:16px; }
+.cs-content h2::after{
+  content:""; position:absolute; left:0; bottom:0; height:3px; width:0;
+  background:var(--accent); border-radius:2px;
+  transition:width .7s cubic-bezier(.16,.84,.28,1) .2s;
+}
+.cs-content h2.is-in::after{ width:56px; }
+
+/* ---- staggered children ---- */
+.stagger > *{
+  opacity:0; transform:translateY(16px);
+  transition:opacity .55s ease, transform .55s cubic-bezier(.2,.7,.3,1);
+  transition-delay:calc(var(--i, 0) * 70ms);
+}
+.stagger.is-in > *{ opacity:1; transform:none; }
+
+/* ---- figures wipe open instead of just fading ---- */
+.anim-wipe{
+  clip-path:inset(0 0 100% 0);
+  transition:clip-path .9s cubic-bezier(.16,.84,.28,1);
+}
+/* the host figure is what gets observed: a self-clipped element reports an
+   intersection ratio of zero, so it would never see itself come into view */
+.wipe-host.is-in .anim-wipe{ clip-path:inset(0 0 0 0); }
+
+/* ---- positioning matrix: dots land one at a time ---- */
+.matrix .mx-pt{
+  opacity:0;
+  transition:opacity .45s ease;
+  transition-delay:calc(var(--i, 0) * 130ms + .2s);
+}
+.matrix.is-in .mx-pt{ opacity:1; }
+.matrix .mx-dot{
+  transition:transform .5s cubic-bezier(.34,1.56,.64,1);
+  transition-delay:calc(var(--i, 0) * 130ms + .2s);
+  transform:scale(.3);
+}
+.matrix.is-in .mx-dot{ transform:scale(1); }
+.matrix.is-in .mx-pt.is-us .mx-dot{ animation:us-pulse 2.6s ease-in-out 1.4s infinite; }
+@keyframes us-pulse{
+  0%,100%{ box-shadow:0 0 0 7px rgba(214,69,93,0.14), 0 0 0 14px rgba(214,69,93,0.07); }
+  50%    { box-shadow:0 0 0 11px rgba(214,69,93,0.10), 0 0 0 22px rgba(214,69,93,0.04); }
+}
+
+/* ---- excluded-group chips strike themselves out ---- */
+.chip.is-out{ text-decoration:none; position:relative; }
+.chip.is-out::after{
+  content:""; position:absolute; left:11px; right:11px; top:50%; height:1px;
+  background:currentColor; transform:scaleX(0); transform-origin:left center;
+  transition:transform .5s ease;
+  transition-delay:calc(var(--i, 0) * 70ms + .35s);
+}
+.stagger.is-in .chip.is-out::after{ transform:scaleX(1); }
+
+/* ---- main flow: the crop pins while its reasoning scrolls past ---- */
+.fb-media{ align-self:stretch; }
+.fb-media figure{ position:sticky; top:100px; margin:0; }
+.flow-block .fb-num{ transition:letter-spacing .5s ease, color .5s ease; }
+.flow-block.is-in .fb-num{ letter-spacing:0.22em; }
+
+/* ---- cards lift on hover ---- */
+.insight-card, .friction-card, .persona-card, .option{
+  transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+.insight-card:hover, .friction-card:hover{
+  transform:translateY(-3px); border-color:rgba(214,69,93,0.4);
+  box-shadow:0 14px 30px rgba(20,21,26,0.07);
+}
+.persona-card:hover{ transform:translateY(-4px); box-shadow:0 22px 46px rgba(20,21,26,0.10); }
+.option:not(.is-selected):hover{ opacity:1; transform:translateY(-3px); }
+
+/* ---- quote band: the mark scales in behind the quote ---- */
+.quote-band{ position:relative; overflow:hidden; }
+.quote-band::before{
+  content:"\201C"; position:absolute; left:26px; top:-18px;
+  font-family:'Space Grotesk', sans-serif; font-size:190px; line-height:1;
+  color:var(--accent); opacity:0; transform:scale(.7);
+  transition:opacity .8s ease, transform .8s cubic-bezier(.16,.84,.28,1);
+  pointer-events:none;
+}
+.quote-band.is-in::before{ opacity:0.10; transform:scale(1); }
+
+/* ---- north star + hmw get a soft entrance glow ---- */
+.northstar, .hmw{ transition:box-shadow .9s ease, transform .7s ease; }
+.northstar.is-in{ box-shadow:0 20px 50px rgba(214,69,93,0.13); }
+.hmw.is-in{ box-shadow:0 26px 60px rgba(20,21,26,0.20); }
+
+/* ---- guardrail bars grow from the top ---- */
+.guardrail{ position:relative; border-left-color:transparent; }
+.guardrail::before{
+  content:""; position:absolute; left:-2px; top:0; width:2px; height:0;
+  background:var(--warn); transition:height .6s ease;
+  transition-delay:calc(var(--i, 0) * 120ms + .1s);
+}
+.stagger.is-in .guardrail::before{ height:100%; }
+
+/* ---- learnings: the numeral drifts up a little slower than its text ---- */
+.learning .lnum{ transition:opacity .7s ease, transform .9s cubic-bezier(.2,.7,.3,1); }
+.stagger > .learning{ transition-delay:0ms; }
+
+/* ---- sidebar active state eases instead of snapping ---- */
+.cs-sidebar .sub, .cs-sidebar .grp-title{ transition:color .25s ease, border-color .25s ease, opacity .25s ease; }
+
+/* ---- respect reduced motion everywhere in this layer ---- */
+@media (prefers-reduced-motion:reduce){
+  .stage-statement, .stage-center .cs-eyebrow, .stage-center .stage-sub,
+  mark.sweep, .cs-content h2::after, .stagger > *, .anim-wipe,
+  .matrix .mx-pt, .matrix .mx-dot, .chip.is-out::after, .guardrail::before,
+  .quote-band::before, .insight-card, .friction-card, .persona-card, .option{
+    transition:none !important; animation:none !important;
+  }
+  .stage-statement{ clip-path:none; }
+  .anim-wipe{ clip-path:none; }
+  .stage-center .cs-eyebrow, .stage-center .stage-sub, .stagger > *,
+  .matrix .mx-pt{ opacity:1; transform:none; }
+  .matrix .mx-dot{ transform:scale(1); }
+  .cs-content h2::after{ width:56px; }
+  mark.sweep{ background-size:100% 42%; }
+  .chip.is-out::after{ transform:scaleX(1); }
+  .guardrail::before{ height:100%; }
+  .quote-band::before{ opacity:.10; transform:none; }
+  .fb-media figure{ position:static; }
+}
+
+/* a caption that stands on its own, outside a <figure>, still needs its gap */
+.cs-section > .figcap{ margin-bottom:26px; }
+/* the two-lane diagram holds one line per lane at desktop width */
+.bh-step{ font-size:13px; padding:10px 13px; }
+
+/* the coverage table has a hard min-content width that no amount of shrinking
+   will beat, and a grid item defaults to min-width:auto, so on a narrow screen
+   it was stretching the whole two-column body past the viewport. Let the table
+   scroll inside its own box and let the grid tracks collapse independently. */
+.cs-body, .cs-body > *, .cs-content{ min-width:0; }
+.tscroll{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
+@media (max-width:640px){
+  .tscroll .cover-table{ min-width:460px; }
 }

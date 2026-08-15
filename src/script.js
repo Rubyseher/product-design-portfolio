@@ -277,3 +277,98 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 })();
+
+// ---- dot grids: 100 dots, N of them lit ----
+// written by script so the markup stays a single element instead of 100 spans
+(function(){
+  var grids = document.querySelectorAll('[data-dots]');
+  Array.prototype.forEach.call(grids, function(el){
+    var total = parseInt(el.getAttribute('data-dots'), 10) || 0;
+    var on    = parseInt(el.getAttribute('data-on'), 10) || 0;
+    var frag  = document.createDocumentFragment();
+    for (var i = 0; i < total; i++){
+      var dot = document.createElement('i');
+      if (i < on) dot.className = 'on';
+      frag.appendChild(dot);
+    }
+    el.appendChild(frag);
+  });
+})();
+
+// ---- scroll animation layer (case study pages) ----
+// one observer drives everything: elements marked .anim get .is-in once they
+// enter view, and containers listed in STAGGER hand each child an index so the
+// CSS can cascade the delay. Nothing re-hides on scroll back up.
+(function(){
+  var root = document.querySelector('.cs-content');
+  if (!root && !document.querySelector('.stage-statement')) return;
+
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // containers whose children should arrive in sequence rather than together
+  var STAGGER = [
+    '.meta-grid', '.statgrid', '.feature-grid', '.insight-grid', '.friction-grid',
+    '.criteria-row', '.val-cols', '.option-grid', '.persona-grid', '.market-row',
+    '.chiprow', '.sketch-grid', '.guardrails', '.learnings', '.vlist',
+    '.qa', '.ba-grid', '.outcome-pair', '.cluster', '.tc'
+  ].join(',');
+
+  // things that get their own entrance, no children involved
+  var SOLO = [
+    '.cs-content h2', 'mark.sweep', '.matrix', '.quote-band', '.northstar',
+    '.hmw', '.flow-block', '.inset', '.band'
+  ].join(',');
+
+  var targets = [];
+
+  Array.prototype.forEach.call(document.querySelectorAll(STAGGER), function(box){
+    // a staggered box owns its children's entrance, so drop the blanket fade
+    box.classList.remove('reveal');
+    box.classList.add('stagger');
+    Array.prototype.forEach.call(box.children, function(child, i){
+      child.style.setProperty('--i', i);
+    });
+    targets.push(box);
+  });
+
+  Array.prototype.forEach.call(document.querySelectorAll(SOLO), function(el){
+    el.classList.remove('reveal');
+    targets.push(el);
+  });
+
+  // figures reveal with a wipe rather than a plain fade
+  Array.prototype.forEach.call(document.querySelectorAll('.cs-content figure > .visual-slot, .cs-content figure > img, .cs-content figure > video'), function(el){
+    var fig = el.parentNode;
+    if (fig.closest('.sketch-grid, .ba-grid, .option-grid')) return;  // already staggered by their box
+    el.classList.add('anim-wipe');
+    fig.classList.remove('reveal');
+    fig.classList.add('wipe-host');
+    targets.push(fig);
+  });
+
+  // matrix points need their index for the one-at-a-time landing
+  Array.prototype.forEach.call(document.querySelectorAll('.matrix .mx-pt'), function(pt, i){
+    pt.style.setProperty('--i', i);
+  });
+
+  if (reduced || !('IntersectionObserver' in window)) {
+    targets.forEach(function(el){ el.classList.add('is-in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting) return;
+        e.target.classList.add('is-in');
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    targets.forEach(function(el){ io.observe(el); });
+  }
+
+  // the hero sits above the fold, so it plays on load rather than on scroll
+  var heroBits = document.querySelectorAll('.stage-statement, .stage-center .cs-eyebrow, .stage-center .stage-sub');
+  requestAnimationFrame(function(){
+    requestAnimationFrame(function(){
+      Array.prototype.forEach.call(heroBits, function(el){ el.classList.add('is-in'); });
+    });
+  });
+})();
