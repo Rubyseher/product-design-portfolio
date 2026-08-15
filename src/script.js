@@ -206,3 +206,74 @@
 
   Array.prototype.forEach.call(vids, function(v){ io.observe(v); });
 })();
+
+// ---- scroll progress bar (case study pages) ----
+(function(){
+  var bar = document.getElementById('scrollProgress');
+  if (!bar) return;
+
+  var ticking = false;
+  function update(){
+    var doc = document.documentElement;
+    var max = doc.scrollHeight - doc.clientHeight;
+    var pct = max > 0 ? (doc.scrollTop / max) * 100 : 0;
+    bar.style.width = pct + '%';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+
+// ---- stat numbers: count up once, on first view ----
+// only the cells carrying data-count animate; ranges like "32-200+" are left
+// alone because counting them up would be nonsense
+(function(){
+  var nums = document.querySelectorAll('[data-count]');
+  if (!nums.length) return;
+
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced || !('IntersectionObserver' in window)) return;
+
+  function run(el){
+    var target = parseFloat(el.getAttribute('data-count'));
+    if (isNaN(target)) return;
+    var suffix   = el.getAttribute('data-suffix') || '';
+    var decimals = (String(target).split('.')[1] || '').length;
+    var start = null, DURATION = 800;
+
+    function frame(now){
+      if (start === null) start = now;
+      var t = Math.min((now - start) / DURATION, 1);
+      var eased = 1 - Math.pow(1 - t, 3);          // ease-out, lands softly
+      el.textContent = (target * eased).toFixed(decimals) + suffix;
+      if (t < 1) requestAnimationFrame(frame);
+    }
+    el.textContent = (0).toFixed(decimals) + suffix;
+    requestAnimationFrame(frame);
+  }
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (!e.isIntersecting) return;
+      run(e.target);
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.5 });
+
+  Array.prototype.forEach.call(nums, function(el){ io.observe(el); });
+})();
+
+// ---- back to top ----
+(function(){
+  var link = document.getElementById('backToTop');
+  if (!link) return;
+  link.addEventListener('click', function(e){
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();

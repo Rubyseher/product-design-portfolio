@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Application Black Hole | Ruby Seher</title>
+<meta name="description" content="Turning LinkedIn's silent post-apply experience into a self-updating job search tracker — using signals the platform already has. A product design case study by Ruby Seher.">
 <script>
   // claim the scroll position before the browser restores it, so the page
   // always opens at the top instead of wherever you last stopped reading
@@ -16,9 +17,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=11">
+<link rel="stylesheet" href="style.css?v=12">
 </head>
 <body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
 
 <nav>
   <div class="wrap">
@@ -32,25 +35,48 @@
   </div>
 </nav>
 
+<!-- ============ 0. HERO ============ -->
 <header class="cs-hero">
   <div class="wrap">
     <a class="back-link mono" href="index.html">← all work</a>
-    <h1 class="reveal grad g4">The Application Black Hole</h1>
-    <p class="cs-tagline reveal">Designing a single place to see where every job application actually stands.</p>
-    <div class="frontmatter reveal">
-<span class="fm-comment">// case_study_01</span><br>
-<span class="fm-key">role:</span> <span class="fm-val">product designer: research, IA, mid fidelity UI</span><br>
-<span class="fm-key">method:</span> <span class="fm-val">user interviews, competitive analysis, wireframes</span><br>
-<span class="fm-key">timeline:</span> <span class="fm-val">[add timeline]</span><br>
-<span class="fm-key">status:</span> <span class="fm-status-done">complete</span>
+
+    <div class="cs-hero-grid">
+      <div>
+        <div class="cs-eyebrow reveal">LinkedIn · Product Design Case Study · 2026</div>
+        <h1 class="reveal grad g4">The Application Black Hole</h1>
+        <p class="cs-deck reveal">A job search that finally talks back.</p>
+        <p class="cs-tagline reveal">Turning LinkedIn's silent post-apply experience into a self-updating job search tracker — using signals the platform already has.</p>
+
+        <div class="meta-grid reveal">
+          <div class="meta-item">
+            <span class="mk">Role</span>
+            <span class="mv">Product Designer — end-to-end: research, IA, interaction, visual, testing</span>
+          </div>
+          <div class="meta-item">
+            <span class="mk">Timeline</span>
+            <span class="mv"><span class="todo">X weeks</span></span>
+          </div>
+          <div class="meta-item">
+            <span class="mk">Type</span>
+            <span class="mv">Self-initiated concept</span>
+          </div>
+          <div class="meta-item">
+            <span class="mk">Tools</span>
+            <span class="mv">Figma, Reddit community research, Floto (AI persona testing)</span>
+          </div>
+        </div>
+      </div>
+
+      <figure class="cs-video reveal">
+        <video
+          src="images/rotato/linkedin.mp4"
+          autoplay muted loop playsinline
+          preload="metadata"
+          aria-label="Screen recording of the job search tracker: every application in one view with automatic status, surfaced signals, and a search overview bar"></video>
+      </figure>
     </div>
-    <figure class="cs-video reveal">
-      <video
-        src="images/rotato/linkedin.mp4"
-        autoplay muted loop playsinline
-        preload="metadata"
-        aria-label="Screen recording of the application tracker: every application in one table with status, links, and notes"></video>
-    </figure>
+
+    <a class="scroll-cue mono" href="#sec-problem">scroll<span>↓</span></a>
   </div>
 </header>
 
@@ -64,116 +90,1215 @@
     <div class="grp">
       <div class="grp-title mono">Research</div>
       <a class="sub" data-target="sec-comp">Competitive analysis</a>
-      <a class="sub" data-target="sec-interviews">Interviews & findings</a>
+      <a class="sub" data-target="sec-voices">Voices from the field</a>
+      <a class="sub" data-target="sec-personas">Personas</a>
     </div>
     <div class="grp">
       <div class="grp-title mono">Design</div>
-      <a class="sub" data-target="sec-goals">Design goals</a>
-      <a class="sub" data-target="sec-wireframes">Wireframes</a>
+      <a class="sub" data-target="sec-ideation">Ideation & sketches</a>
+      <a class="sub" data-target="sec-feedback">Feedback & goals</a>
+      <a class="sub" data-target="sec-flow">Main flow</a>
     </div>
     <div class="grp">
-      <div class="grp-title mono">Outcome</div>
-      <a class="sub" data-target="sec-outcome">Where it stands</a>
+      <div class="grp-title mono">Evaluation</div>
+      <a class="sub" data-target="sec-measure">Measuring success</a>
+      <a class="sub" data-target="sec-results">Results</a>
+      <a class="sub" data-target="sec-iterations">Iterations</a>
+    </div>
+    <div class="grp">
+      <div class="grp-title mono">Close</div>
+      <a class="sub" data-target="sec-learned">What I learned</a>
     </div>
   </aside>
 
   <main class="cs-content">
 
+    <!-- ============ 1. PROBLEM ============ -->
     <section class="cs-section" id="sec-problem">
-      <h2 class="grad g3">Problem</h2>
-      <p>Job seekers track applications across a dozen browser tabs, inboxes, and half finished spreadsheets, with no single place that shows where anything actually stands. [Add context: how many applications a typical active job seeker is juggling, and what prompted you to look into this.]</p>
-      <p class="pull-quote">The problem was never a lack of tools. It was <span class="hl">too many tools</span>, and no single source of truth.</p>
+      <div class="sec-eyebrow">01 — The Problem</div>
+      <h2 class="grad g3">You hit Apply. Then nothing.</h2>
+
+      <p>LinkedIn is used by over a billion people to find work. The moment you hit Apply, you go blind.</p>
+      <p>No tracking. No updates. No way to know whether a recruiter opened your profile, whether the role is still being filled, or whether the posting quietly died three weeks ago. Not because the data doesn't exist — LinkedIn holds all of it — but because none of it is ever shown to the person who applied.</p>
+      <p>For someone applying to two or three roles, that silence is annoying. For someone laid off, applying to sixty roles across four months with rent due, that silence is the entire experience of unemployment.</p>
+
+      <div class="statgrid reveal">
+        <div class="stat">
+          <div class="stat-num" data-count="1.1" data-suffix="M+">1.1M+</div>
+          <div class="stat-label">US job cuts, Jan–Oct 2025 — the highest since 2020</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">32–200+</div>
+          <div class="stat-label">applications submitted before a single offer</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" data-count="61" data-suffix="%">61%</div>
+          <div class="stat-label">of job seekers ghosted after an interview</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" data-count="72" data-suffix="%">72%</div>
+          <div class="stat-label">say the job search damages their mental health</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" data-count="70" data-suffix="%">70%</div>
+          <div class="stat-label">of repeat layoffs happen within 12 months of the first</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">1 in 3</div>
+          <div class="stat-label">tech companies ran 2+ layoff rounds between 2023 and 2025</div>
+        </div>
+      </div>
+
+      <div class="quote-band reveal">
+        <blockquote>“I've applied to 187 jobs since March. I have heard back from 4 of them. I don't know if I'm doing something wrong or if no one is reading any of it.”</blockquote>
+        <span class="qb-attr">— r/jobs, 2025</span>
+      </div>
+
+      <h3>The brief</h3>
+      <div class="inset">
+        <p>LinkedIn wants to improve the job application experience for <b>active job seekers</b> on its platform.</p>
+        <p>The goal is to help people applying to multiple roles who <b>feel lost once they hit submit</b> — users with tens of applications in progress, no visibility into where they stand, and no reliable way to track their search, even though LinkedIn already holds that data.</p>
+        <p>The post-application experience should feel <b>organised, transparent, and motivating</b>, and should reduce the anxiety of the application black hole.</p>
+        <div class="ba-pair">
+          <span class="ba-from">“I have no idea what happened to any of my applications”</span>
+          <span class="ba-arrow">→</span>
+          <span class="ba-to">“I feel in control of my job search”</span>
+        </div>
+      </div>
+
+      <h3>Unpacking the brief</h3>
+      <p>Briefs use vague language. Before designing anything, I broke down every ambiguous term — who exactly is an <em>active job seeker</em>, what does <em>feel lost</em> actually mean, what does <em>success</em> look like in measurable terms. Each term had to map to a specific user, a specific behaviour, or a specific outcome.</p>
+
+      <table class="deftable">
+        <tr>
+          <td>Active job seeker</td>
+          <td>Someone with 5+ live applications submitted in the last 30 days, checking LinkedIn 3+ times a week — not a passive browser, not a casual “open to work” profile</td>
+        </tr>
+        <tr>
+          <td>Feel lost</td>
+          <td>No memory of what was applied to, no signal on what happened after, no sense of whether effort is producing movement</td>
+        </tr>
+        <tr>
+          <td>Organised</td>
+          <td>One surface holds the entire search — no spreadsheet, no inbox archaeology</td>
+        </tr>
+        <tr>
+          <td>Transparent</td>
+          <td>The user sees the signals the system already has about their application</td>
+        </tr>
+        <tr>
+          <td>Motivating</td>
+          <td>The interface shows progress, not just accumulation</td>
+        </tr>
+        <tr>
+          <td>Success</td>
+          <td>Measurable reduction in “lost” behaviours: re-applying to the same role, abandoning the search, churning off Premium</td>
+        </tr>
+      </table>
+
+      <p class="closer">That clarity became the foundation for every decision that followed.</p>
     </section>
 
+    <!-- ============ 2. SOLUTION ============ -->
     <section class="cs-section" id="sec-solution">
-      <h2 class="grad g5">Solution</h2>
-      <p>A lightweight tracker built for the job search: every application in one view, status updates that take seconds, and enough structure to actually trust it. [One or two sentences on the core mechanic of your solution.]</p>
+      <div class="sec-eyebrow">02 — The Solution</div>
+      <h2 class="grad g5">Make visible what LinkedIn already knows.</h2>
+
+      <p>Every signal a job seeker needs already exists inside LinkedIn's infrastructure. Whether a recruiter viewed the profile. Whether the role is still open. Whether a first-degree connection works at that company. How the applicant compares to the other people who applied.</p>
+      <p>The design opportunity was never to build a new data source. It was to surface an existing one.</p>
+      <p class="pull-quote">A job search tracker built into LinkedIn, <span class="hl">that updates itself</span>.</p>
+
+      <figure class="reveal">
+        <video class="card-video"
+          data-src="images/rotato/linkedin.mp4"
+          muted loop playsinline
+          preload="none"
+          aria-label="The final tracker screen: overview bar, application list with automatic status, and the signals panel"></video>
+        <figcaption class="figcap">The final tracker — one surface holding the whole search: overview bar, application list, signals panel.</figcaption>
+      </figure>
+
+      <div class="feature-grid">
+        <div class="feature">
+          <div class="fnum">01</div>
+          <h4><a href="#flow-01">Real-time application status tracking</a></h4>
+          <p>Applications move through stages automatically, using LinkedIn's own recruiter-side events. No manual dragging, no cards to maintain.</p>
+        </div>
+        <div class="feature">
+          <div class="fnum">02</div>
+          <h4><a href="#flow-02">Surfaced application signals</a></h4>
+          <p>A side panel exposes what was previously invisible: profile viewed, role still active, response likelihood, applicant pool position.</p>
+        </div>
+        <div class="feature">
+          <div class="fnum">03</div>
+          <h4><a href="#flow-03">Persistent search history</a></h4>
+          <p>A year filter separates job search cycles, so a second or third layoff doesn't start from zero. Past searches become reference instead of loss.</p>
+        </div>
+        <div class="feature">
+          <div class="fnum">04</div>
+          <h4><a href="#flow-04">From chaos to control</a></h4>
+          <p>An overview bar — 8 applied · 3 active · 2 awaiting response · 2 closed — turns a pile of applications into a picture of a search in progress.</p>
+        </div>
+      </div>
     </section>
 
+    <!-- ============ 3. COMPETITIVE ANALYSIS ============ -->
     <section class="cs-section" id="sec-comp">
-      <h2 class="grad g2">Competitive analysis</h2>
-      <p>Before designing anything, I looked at how people already solve this, and why those solutions fall short.</p>
-      <table class="comp-table">
-        <tr><th>Approach</th><th>Strength</th><th>Where it breaks down</th></tr>
-        <tr><td>Spreadsheets</td><td>Fully flexible</td><td>Manual upkeep, no reminders, easy to abandon</td></tr>
-        <tr><td>Notion templates</td><td>Customizable, visual</td><td>Setup overhead before it's useful</td></tr>
-        <tr><td>Dedicated tracker apps</td><td>Purpose built</td><td>[Add your specific finding, e.g. generic fields, poor mobile experience]</td></tr>
+      <div class="sec-eyebrow">03 — Research / Competitive Analysis</div>
+      <h2 class="grad g2">Everyone solved a piece. Nobody connected them.</h2>
+
+      <p>Before designing anything, I mapped what already exists across the four problem areas the research surfaced. The goal was not to find something to copy. It was to find what none of them had solved.</p>
+
+      <div class="comp-row reveal">
+        <div class="comp-media">
+          <figure>
+            <div class="visual-slot">[ competitor-a-huntr.png ]</div>
+            <figcaption class="figcap">Huntr's kanban board — structure without signal. Every card moves because the user moved it.</figcaption>
+          </figure>
+        </div>
+        <div class="comp-body">
+          <div class="badge-letter">A</div>
+          <h3>Real-time application status tracking</h3>
+          <div class="tools-line">Tools looked at: Huntr, Jobscan</div>
+          <p>Both give job seekers a kanban board to log applications and move them through stages. The visual organisation is genuinely useful — it brings structure to a chaotic process, and the fact that thousands of people pay for it proves the demand is real.</p>
+          <div class="gap-callout">
+            <span class="gl">The gap</span>
+            <p>Every status update is manual. The user drags the card. There is no connection to LinkedIn, and no recruiter-side signal anywhere in the system. You can track that you applied. You cannot track what happened after.</p>
+          </div>
+          <div class="verdict">No recruiter-side signals. No LinkedIn integration.</div>
+        </div>
+      </div>
+
+      <div class="comp-row rev reveal">
+        <div class="comp-media">
+          <figure>
+            <div class="visual-slot">[ competitor-b-linkedin-myjobs.png ]</div>
+            <figcaption class="figcap">LinkedIn's current applied-jobs view — a receipt, not a status.</figcaption>
+          </figure>
+        </div>
+        <div class="comp-body">
+          <div class="badge-letter">B</div>
+          <h3>Surfacing LinkedIn's existing application signals</h3>
+          <div class="tools-line">Looked at: LinkedIn's native “My Jobs” / applied jobs view, plus published UX concept work (including Pranati Rao's LinkedIn concept study on UX Planet)</div>
+          <p>Concept explorations have imagined richer application data for candidates — viewed status, whether the role is still active, whether hiring has paused. The thinking exists. The appetite exists.</p>
+          <div class="gap-callout">
+            <span class="gl">The gap</span>
+            <p>None of it exists natively in LinkedIn today. Applicants see the stage they submitted to and nothing else. They cannot see whether a recruiter opened their profile, whether the role is still being actively considered, or whether the posting has gone dark. LinkedIn holds this data. It does not surface it.</p>
+          </div>
+          <div class="verdict">Applicants see submission status. Recruiter activity is invisible.</div>
+        </div>
+      </div>
+
+      <div class="comp-row reveal">
+        <div class="comp-media">
+          <figure>
+            <div class="visual-slot">[ competitor-c-history.png ]</div>
+            <figcaption class="figcap">Every tracker assumes this is your first search. For a third of tech workers since 2023, it isn't.</figcaption>
+          </figure>
+        </div>
+        <div class="comp-body">
+          <div class="badge-letter">C</div>
+          <h3>Persistent profile and search history across job searches</h3>
+          <div class="tools-line">Tools looked at: Huntr, Built In's tracker, autofill extensions</div>
+          <p>These tools do retain application data — nothing is deleted, and export usually exists.</p>
+          <div class="gap-callout">
+            <span class="gl">The gap</span>
+            <p>They are all designed for one active search at a time. There is no concept of a job search <em>cycle</em>, no separation of past versus current, and no way to surface a learning from a previous search. For laid-off professionals who have been through multiple rounds of displacement — 70% of whom face a second layoff within twelve months — that history is the most valuable data they own. None of the existing tools treat it that way.</p>
+          </div>
+          <div class="verdict">Data retained. Context lost. No learning across searches.</div>
+        </div>
+      </div>
+
+      <div class="comp-row rev reveal">
+        <div class="comp-media">
+          <figure>
+            <div class="visual-slot">[ competitor-d-spreadsheet.png ]</div>
+            <figcaption class="figcap">A real r/jobs spreadsheet — 500+ rows. The workaround already exists. The native solution doesn't.</figcaption>
+          </figure>
+        </div>
+        <div class="comp-body">
+          <div class="badge-letter">D</div>
+          <h3>From chaos to control</h3>
+          <div class="tools-line">Looked at: DIY solutions — r/jobs spreadsheets, Notion templates, self-built dashboards, personal automation scripts</div>
+          <p>These prove the need better than any competitor does. People are building their own tools, badly and at cost to themselves, because nothing available gives them a single view of their entire search at a glance.</p>
+          <div class="gap-callout">
+            <span class="gl">The gap</span>
+            <p>Every existing tool is functional. None are built around the emotional reality of a sustained search — the need to feel like the search is <em>going somewhere</em>, not just accumulating. A spreadsheet with 500 rows is a record of effort, not evidence of progress.</p>
+          </div>
+          <div class="verdict">No single place to see your entire job search at a glance.</div>
+        </div>
+      </div>
+
+      <h3>What this told me</h3>
+
+      <div class="matrix-wrap reveal">
+        <div class="matrix">
+          <div class="mx-axis mx-x-l">Manual ←</div>
+          <div class="mx-axis mx-x-r">→ Automatic</div>
+          <div class="mx-axis mx-y-t">Longitudinal ↑</div>
+          <div class="mx-axis mx-y-b">↓ Single search</div>
+
+          <div class="mx-pt" style="left:22%; top:74%;">
+            <div class="mx-dot"></div>
+            <div class="mx-lab">Spreadsheets</div>
+          </div>
+          <div class="mx-pt" style="left:37%; top:60%;">
+            <div class="mx-dot"></div>
+            <div class="mx-lab">Huntr</div>
+          </div>
+          <div class="mx-pt" style="left:44%; top:78%;">
+            <div class="mx-dot"></div>
+            <div class="mx-lab">Jobscan</div>
+          </div>
+          <div class="mx-pt" style="left:66%; top:66%;">
+            <div class="mx-dot"></div>
+            <div class="mx-lab">LinkedIn native</div>
+          </div>
+          <div class="mx-pt is-us" style="left:76%; top:24%;">
+            <div class="mx-dot"></div>
+            <div class="mx-lab">This solution</div>
+          </div>
+        </div>
+        <div class="figcap">Positioning matrix — the empty quadrant is automatic status plus history that survives across searches.</div>
+      </div>
+
+      <div class="centered-note">
+        <p>Huntr solved organisation. LinkedIn solved discovery. Extensions solved data entry. Not one of them connects the moment of applying to everything that follows — the status, the history, the emotional arc of the search.</p>
+        <p><strong>That is the space this solution is built for.</strong></p>
+      </div>
+    </section>
+
+    <!-- ============ 4. VOICES FROM THE FIELD ============ -->
+    <section class="cs-section" id="sec-voices">
+      <div class="sec-eyebrow">04 — Research / Voices from the Field</div>
+      <h2 class="grad g1">I couldn't interview 200 laid-off people. So I read what 200 of them already wrote.</h2>
+
+      <h3>Method — and its honest limits</h3>
+      <p>I didn't run formal interviews. What I did instead was read through hundreds of threads across r/jobs and r/recruitinghell from 2024 to 2026, looking for patterns in how laid-off professionals describe the experience of searching.</p>
+      <p>This is a real research method with a real trade-off, and I want to be direct about both sides.</p>
+
+      <div class="tc">
+        <div class="tc-col plus">
+          <div class="tc-head">+ What it gave me</div>
+          <p>Unprompted, unmoderated, emotionally honest accounts written by people with no idea a designer was reading. No interviewer bias. No performing for a researcher. Volume I could never have reached through scheduled interviews.</p>
+        </div>
+        <div class="tc-col minus">
+          <div class="tc-head">− What it cost me</div>
+          <p>I couldn't ask follow-up questions. I couldn't probe a contradiction. And Reddit skews toward people having a bad time — the quiet majority who found a job in six weeks doesn't post about it. I compensated by triangulating every emotional pattern against quantitative sources: Greenhouse's State of Job Hunting, Axios reporting on recruiter notification rates, and The Interview Guys' 2025 job search survey.</p>
+        </div>
+      </div>
+
+      <h3>Who I focused on</h3>
+      <p>To frame the research I identified the target user group first. Laid-off professionals were the clearest fit — not students, not passive browsers, not career switchers. People who had a job, lost it without warning, and were now searching at volume under real financial and emotional pressure.</p>
+
+      <div class="chiprow">
+        <span class="chip is-in">Laid-off professionals</span>
+        <span class="chip is-out">students</span>
+        <span class="chip is-out">passive browsers</span>
+        <span class="chip is-out">career switchers</span>
+        <span class="chip is-out">first-time job seekers</span>
+      </div>
+
+      <p>This group is also the fastest-growing segment of active job seekers in 2025, driven by a 65% year-over-year rise in US job cuts.</p>
+
+      <h3>Affinity mapping</h3>
+      <p>I pulled roughly <span class="todo">N</span> individual quotes into a Figma board and clustered them by what the person was actually complaining about — not by topic, but by the underlying unmet need. Three clusters emerged and held.</p>
+
+      <figure class="reveal">
+        <div class="visual-slot">[ affinity-board.png ]</div>
+        <figcaption class="figcap"><span class="todo">N</span> quotes from r/jobs and r/recruitinghell, clustered by unmet need.</figcaption>
+      </figure>
+
+      <div class="cluster reveal">
+        <div class="cluster-num">Cluster 01</div>
+        <h4>“I don't know if anything is happening.”</h4>
+        <span class="lbl">The signal</span>
+        <p>People describe applying into a void. The dominant emotion isn't rejection — it's not knowing whether they've been rejected. Several described refreshing their email at 2am for a role they applied to five weeks earlier.</p>
+        <span class="lbl">Representative voices</span>
+        <div class="qcard">“It's not the no that gets me. It's the nothing.”</div>
+        <div class="qcard">“I would genuinely rather get an automatic rejection in 24 hours than this.”</div>
+        <div class="qcard">“Is the job even still open? I have no way to know. The post is still up but that means nothing.”</div>
+        <div class="need"><b>The unmet need — feedback, or in its absence, a status.</b> Any signal at all is better than silence.</div>
+      </div>
+
+      <div class="cluster reveal">
+        <div class="cluster-num">Cluster 02</div>
+        <h4>“I can't hold my own search in my head.”</h4>
+        <span class="lbl">The signal</span>
+        <p>At volume, the search itself becomes a second job. People described losing track of what they'd applied to, accidentally re-applying to the same role, forgetting which version of their resume went where, and maintaining spreadsheets that themselves became a burden.</p>
+        <span class="lbl">Representative voices</span>
+        <div class="qcard">“I've applied to the same company twice by accident. Twice.”</div>
+        <div class="qcard">“My tracking spreadsheet has 500+ rows and I dread opening it more than I dread applying.”</div>
+        <div class="qcard">“Which resume did I send them? No idea. I have six versions.”</div>
+        <div class="need"><b>The unmet need — a single source of truth that maintains itself.</b> The tracking should not be more work than the applying.</div>
+      </div>
+
+      <div class="cluster reveal">
+        <div class="cluster-num">Cluster 03 <span class="key-badge">★ Key insight</span></div>
+        <h4>“I've done this before and I learned nothing from it.”</h4>
+        <span class="lbl">The signal</span>
+        <p>This is the cluster I nearly missed, and it became the most differentiating insight in the project. Repeat-displaced professionals — people on their second or third layoff — talked about starting completely from scratch each time. Old applications gone. Old contacts forgotten. No sense of what worked last time.</p>
+        <span class="lbl">Representative voices</span>
+        <div class="qcard">“Third layoff in four years. I'm rebuilding the same spreadsheet for the third time.”</div>
+        <div class="qcard">“I know I talked to a recruiter at that company in 2023. I have no idea who or how it went.”</div>
+        <div class="qcard">“Every search feels like the first search. That's the part that breaks you.”</div>
+        <div class="need"><b>The unmet need — continuity.</b> A search history that persists and compounds instead of resetting.</div>
+      </div>
+
+      <h3>The insights that reframed the problem</h3>
+      <div class="insight-grid">
+        <div class="insight-card">
+          <h4>The feedback gap is structural, not accidental.</h4>
+          <p>Only 4% of companies using Greenhouse notified all rejected applicants in Q2 2024. The other 96% said nothing. This is not a communication failure — it is the intended output of a hiring infrastructure that optimises for recruiter efficiency, not candidate experience. Which means: waiting for employers to start replying is not a strategy. The fix has to come from the platform.</p>
+          <div class="src">Source: Axios / Greenhouse, September 2024</div>
+        </div>
+        <div class="insight-card">
+          <h4>Silence doesn't stop at application. It follows candidates into interviews.</h4>
+          <p>61% of job seekers were ghosted after an interview, up nine points since April 2024. These are not people lost in a pile. They prepared, they showed up, they met humans, and then heard nothing. Silence isn't a top-of-funnel bug. It compounds at every stage.</p>
+          <div class="src">Source: Greenhouse State of Job Hunting, 2024</div>
+        </div>
+        <div class="insight-card">
+          <h4>The workaround already exists. The native solution doesn't.</h4>
+          <p>Job seekers are logging 500+ applications in personal spreadsheets because LinkedIn gives them no way to do it natively. The behaviour proves the need. The opportunity isn't to invent a new habit — it's to build what users are already doing by hand.</p>
+          <div class="src">Source: Community observation, r/jobs, 2025–26</div>
+        </div>
+        <div class="insight-card">
+          <h4>The damage isn't from volume. It's from silence.</h4>
+          <p>72% of job seekers say the search damages their mental health. The leading cause isn't the number of applications — 66% point directly to lack of feedback. The emotional cost of job searching is a product of uncertainty, and uncertainty is a design problem LinkedIn already has the data to solve.</p>
+          <div class="src">Source: The Interview Guys, State of Job Search 2025</div>
+        </div>
+      </div>
+
+      <div class="band">
+        <h3>The business case</h3>
+        <p>Job searching is one of the most emotionally charged interactions a user has with LinkedIn. When someone hits Apply, they are trusting the platform to connect them with opportunity. Most of the time, the platform goes silent.</p>
+        <p>That silence has a business cost. LinkedIn's job seeker revenue depends on users believing the search works. When they stop believing it, Premium Career subscribers churn, engagement drops, and the recruiter-side value proposition weakens with it. The friction doesn't just hurt users — it erodes the platform's core promise.</p>
+
+        <div class="market-row">
+          <div class="market-stat">
+            <div class="ms-num">↑ 65%</div>
+            <div class="ms-lab">more US job cuts year-over-year, 2025</div>
+          </div>
+          <div class="market-stat">
+            <div class="ms-num">↑ 45%</div>
+            <div class="ms-lab">more applications submitted, Q3 2024</div>
+          </div>
+          <div class="market-stat">
+            <div class="ms-num">↓ 10%</div>
+            <div class="ms-lab">fewer roles posted, same period</div>
+          </div>
+        </div>
+
+        <p class="punchline">More people, applying more often, to fewer jobs. Every one of those additional applications is another opportunity for the platform to go quiet — and the volume of silence is scaling faster than the volume of hiring.</p>
+      </div>
+    </section>
+
+    <!-- ============ 5. PERSONAS ============ -->
+    <section class="cs-section" id="sec-personas">
+      <div class="sec-eyebrow">05 — Research / Personas</div>
+      <h2 class="grad g6">Two people, one silence.</h2>
+
+      <p>The three affinity clusters mapped onto two distinct people. They share the same trigger — an involuntary layoff — but they experience the silence differently, and they need different things from the same product.</p>
+
+      <div class="persona-grid">
+        <div class="persona-card reveal">
+          <span class="p-badge primary">Primary</span>
+          <div class="p-avatar" role="img" aria-label="Portrait placeholder for Arjun Mehta"></div>
+          <h3>Arjun Mehta</h3>
+          <div class="p-meta">Software Engineer, 34 · Bengaluru · Laid off twice in three years</div>
+          <div class="p-quote">“Every search feels like the first search. That's the part that breaks you.”</div>
+
+          <div class="p-sec">
+            <span class="p-lbl">Context</span>
+            <ul>
+              <li>Backend engineer, 9 years experience, laid off in a company-wide 18% reduction in <span class="todo">month/year</span></li>
+              <li>Second layoff in three years — the first was in 2023</li>
+              <li>Sole earner; roughly <span class="todo">X</span> months of runway</li>
+              <li>Currently <span class="todo">N</span> live applications across LinkedIn, company sites, and referrals</li>
+            </ul>
+          </div>
+          <div class="p-sec">
+            <span class="p-lbl">Goals</span>
+            <ul>
+              <li>Land a role of equivalent seniority within four months, before runway runs out</li>
+              <li>Know which applications are still alive so effort goes to the right places</li>
+              <li>Not repeat the mistakes of the last search</li>
+            </ul>
+          </div>
+          <div class="p-sec">
+            <span class="p-lbl">Frustrations</span>
+            <ul>
+              <li>Has no memory of his 2023 search — the spreadsheet is gone, the contacts are lost</li>
+              <li>Cannot tell an “in progress” application from a dead one</li>
+              <li>Has accidentally re-applied to the same company twice</li>
+              <li>Maintains a tracker that has become its own chore</li>
+            </ul>
+          </div>
+          <div class="p-sec">
+            <span class="p-lbl">Behaviours</span>
+            <ul>
+              <li>Applies in bursts — 8 to 12 applications in a sitting, twice a week</li>
+              <li>Checks LinkedIn 4 to 6 times a day, mostly for nothing</li>
+              <li>Keeps 6 resume variants and loses track of which went where</li>
+              <li>Pays for Premium Career, and is starting to question whether it does anything</li>
+            </ul>
+          </div>
+          <div class="p-sec">
+            <span class="p-lbl">What he needs from LinkedIn</span>
+            <ul>
+              <li>Status that updates without him touching it</li>
+              <li>Proof that his effort is producing movement, not just accumulating</li>
+              <li>A search history that survives to the next layoff</li>
+            </ul>
+          </div>
+
+          <div class="p-maps">
+            <span class="ml">Maps to</span>
+            <span class="chip">Cluster 1</span>
+            <span class="chip">Cluster 2</span>
+            <span class="chip">Cluster 3</span>
+          </div>
+        </div>
+
+        <div class="persona-card reveal">
+          <span class="p-badge secondary">Secondary</span>
+          <div class="p-avatar" role="img" aria-label="Portrait placeholder for Nikita Rao"></div>
+          <h3>Nikita Rao</h3>
+          <div class="p-meta">Marketing Manager, 28 · Pune · First layoff</div>
+          <div class="p-quote">“I keep refreshing my email for a job I applied to five weeks ago. I know that's insane. I do it anyway.”</div>
+
+          <div class="p-sec">
+            <span class="p-lbl">Context</span>
+            <ul>
+              <li>Four years at one company, first time ever job searching at volume</li>
+              <li>Laid off with two weeks' notice; had never used a tracker of any kind</li>
+              <li>Applying broadly across marketing, content, and brand roles because she isn't sure what she qualifies for</li>
+              <li><span class="todo">N</span> applications in six weeks and no framework for evaluating whether that's a lot or a little</li>
+            </ul>
+          </div>
+          <div class="p-sec">
+            <span class="p-lbl">Goals</span>
+            <ul>
+              <li>Understand whether the silence means rejection or means nothing yet</li>
+              <li>Feel like she is doing this “correctly” — she has no benchmark</li>
+              <li>Reduce the daily anxiety of checking</li>
+            </ul>
+          </div>
+          <div class="p-sec">
+            <span class="p-lbl">Frustrations</span>
+            <ul>
+              <li>Interprets every silence as personal rejection</li>
+              <li>No sense of what a normal response rate looks like, so she can't tell if she's failing</li>
+              <li>Was ghosted after a second-round interview and still doesn't know what happened</li>
+              <li>Her tracking is her email inbox, which is not tracking</li>
+            </ul>
+          </div>
+          <div class="p-sec">
+            <span class="p-lbl">Behaviours</span>
+            <ul>
+              <li>Applies daily in small numbers, 2 to 3 at a time</li>
+              <li>Compulsively checks email and LinkedIn notifications</li>
+              <li>Reads r/jobs for reassurance and comes away more anxious</li>
+              <li>Has not upgraded to Premium — isn't convinced it's worth it</li>
+            </ul>
+          </div>
+          <div class="p-sec">
+            <span class="p-lbl">What she needs from LinkedIn</span>
+            <ul>
+              <li>Context and benchmarks: is this normal?</li>
+              <li>Explicit closure when an application is dead, so she can stop waiting</li>
+              <li>A reason to check once a day instead of ten times</li>
+            </ul>
+          </div>
+
+          <div class="p-maps">
+            <span class="ml">Maps to</span>
+            <span class="chip">Cluster 1</span>
+            <span class="chip">Cluster 2</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="closing-statement">
+        <h4>Why prioritise Arjun</h4>
+        <p>Nikita's needs are a subset of Arjun's, with one exception: benchmarking. Arjun needs everything Nikita needs plus longitudinal history — and that history requirement is the thing no competitor addresses. Designing for the repeat-displaced user covers the first-timer almost entirely, while the reverse is not true.</p>
+        <p>Arjun became the primary. Nikita became the check: if a feature made sense to Arjun but confused Nikita, it was too complex.</p>
+      </div>
+
+      <h3>Redefined challenge</h3>
+      <p>The research pointed somewhere specific. The problem is not that LinkedIn is bad at finding jobs. It is bad at helping people <em>manage</em> a search once it starts. Job alerts, saved jobs, the Apply button — all of it is built for the moment of discovery. Nothing is built for the weeks that follow.</p>
+
+      <div class="hmw reveal">
+        <div class="hmw-stmt">
+          <span class="lead">How might we</span> help laid-off professionals — including those experiencing repeat displacement — move from chaos to control, by eliminating post-application silence through real-time application visibility, surfacing signals LinkedIn already holds, and longitudinal progress tracking that persists across job searches?
+        </div>
+        <div class="chiprow">
+          <span class="chip is-in">Built for: managing a search</span>
+          <span class="chip is-out">Not for: finding jobs or building resumes</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 6. IDEATION ============ -->
+    <section class="cs-section" id="sec-ideation">
+      <div class="sec-eyebrow">06 — Design / Ideation</div>
+      <h2 class="grad g7">Fifteen ideas, four survived.</h2>
+
+      <h3>How I narrowed</h3>
+      <p>Every idea got measured against three questions, and had to pass all three:</p>
+
+      <div class="criteria-row">
+        <div class="criterion">
+          <div class="cnum">01</div>
+          <p><b>Does LinkedIn already have this data?</b> If it required employers to change behaviour, it was out. 96% of companies don't notify rejected applicants — a solution that depends on them starting to is not a solution.</p>
+        </div>
+        <div class="criterion">
+          <div class="cnum">02</div>
+          <p><b>Does it reduce work, or add work?</b> Anything that required the user to maintain it was out. They already have a spreadsheet they hate.</p>
+        </div>
+        <div class="criterion">
+          <div class="cnum">03</div>
+          <p><b>Does it serve Arjun's search, or just this application?</b> Features that only worked for one application in isolation were deprioritised in favour of ones that made the whole search legible.</p>
+        </div>
+      </div>
+
+      <h3>What got cut, and why</h3>
+      <table class="cut-table">
+        <thead>
+          <tr><th>Idea</th><th>Why it didn't survive</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Prompt employers to send rejection notices</td>
+            <td>Depends on employer behaviour change. Out on criterion 1.</td>
+          </tr>
+          <tr>
+            <td>Estimated response time countdown</td>
+            <td>LinkedIn can't know this reliably. A wrong number is worse than no number — it manufactures false hope.</td>
+          </tr>
+          <tr>
+            <td>Application quality score</td>
+            <td>Judges the user at their most vulnerable moment. Actively harmful to the emotional goal.</td>
+          </tr>
+          <tr>
+            <td>Auto-follow-up message to recruiters</td>
+            <td>Recruiter-side spam risk. Would have been killed in review at a real company, correctly.</td>
+          </tr>
+          <tr>
+            <td>Peer comparison (“you've applied to more roles than 80% of users”)</td>
+            <td>Tested badly against Nikita — turns anxiety into competition.</td>
+          </tr>
+          <tr class="is-deferred">
+            <td>Notes and tags per application <span class="deferred-tag">→ deferred, not cut</span></td>
+            <td>Good idea, but adds maintenance work. Deferred to v2, not cut.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Sketches</h3>
+      <p>I sketched on paper first, deliberately. Low fidelity keeps you from falling in love with a layout before you've decided what the layout is for. These are the raw pages — unedited.</p>
+
+      <div class="sketch-grid">
+        <figure>
+          <div class="visual-slot">[ sketch-01.jpg ]</div>
+          <figcaption class="figcap">First pass — a kanban board, because that's what every tracker is. Abandoned quickly: kanban requires the user to move the card, and the whole premise here is that the system moves it.</figcaption>
+        </figure>
+        <figure>
+          <div class="visual-slot">[ sketch-02.jpg ]</div>
+          <figcaption class="figcap">Exploring the list view. The question that kept recurring: what is the unit of this interface — the application, or the search?</figcaption>
+        </figure>
+        <figure>
+          <div class="visual-slot">[ sketch-03.jpg ]</div>
+          <figcaption class="figcap">Where the status panel came from. If the signals are the differentiator, they can't be buried behind a click.</figcaption>
+        </figure>
+        <figure>
+          <div class="visual-slot">[ sketch-04.jpg ]</div>
+          <figcaption class="figcap">Testing the overview bar. Started as a chart, became four numbers. The chart was more impressive and less useful.</figcaption>
+        </figure>
+        <figure>
+          <div class="visual-slot">[ sketch-05.jpg ]</div>
+          <figcaption class="figcap">The year filter, sketched last and almost cut. It became the feature I'm most confident about.</figcaption>
+        </figure>
+        <figure>
+          <div class="visual-slot">[ sketch-06.jpg ]</div>
+          <figcaption class="figcap">Layout options for the application row — how much can one line carry before it stops being scannable?</figcaption>
+        </figure>
+      </div>
+
+      <p>Three things came out of sketching that I wouldn't have found in Figma.</p>
+      <p>First, the kanban board died fast. Every competitor uses one, so I drew one — and drawing it made the contradiction obvious. A kanban board is a <em>manual</em> metaphor. The user drags the card. If the entire premise of this product is that the system updates itself, the interface can't be built on a gesture that requires the user to do the updating.</p>
+      <p>Second, the unit of the interface changed. I started designing the application. I ended up designing the search. That reframe is what produced the overview bar and the year filter.</p>
+      <p>Third, the status panel had to be persistent, not a click-away detail. The signals are the entire differentiator. Hiding them behind an interaction would have buried the thing the product is actually for.</p>
+
+      <h3>From sketch to structure</h3>
+      <p>The sketches settled <em>what</em> was on the screen. The next question was hierarchy — what the eye should hit first, second, third. I worked in greyscale to keep that decision away from colour.</p>
+      <p>The order I landed on: <strong>the search first</strong> (overview bar), <strong>the applications second</strong> (the list), <strong>the individual signals third</strong> (the panel). That order is the argument of the product in a single layout — this is a tool for managing a search, not a folder of applications.</p>
+      <div class="sketch-grid">
+        <figure>
+          <div class="visual-slot">[ wireframe-01-list.png ]</div>
+          <figcaption class="figcap">Greyscale structure: the tracker list.</figcaption>
+        </figure>
+        <figure>
+          <div class="visual-slot">[ wireframe-02-panel.png ]</div>
+          <figcaption class="figcap">Greyscale structure: the signals panel expanded.</figcaption>
+        </figure>
+        <figure>
+          <div class="visual-slot">[ wireframe-03-year.png ]</div>
+          <figcaption class="figcap">Greyscale structure: the year-filtered view.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ 7. FEEDBACK & REVISED GOALS ============ -->
+    <section class="cs-section" id="sec-feedback">
+      <div class="sec-eyebrow">07 — Design / Feedback</div>
+      <h2 class="grad g9">I tested it against the person I designed it for.</h2>
+
+      <h3>Method</h3>
+      <p>I didn't have access to a panel of laid-off professionals in active search — the honest constraint of a self-initiated project. So I ran an AI-assisted persona test using <strong>Floto</strong>, briefed with Arjun's full persona profile: two layoffs, <span class="todo">N</span> live applications, engineering background, the specific frustrations from the affinity clusters.</p>
+      <p>I asked three questions, in this order, deliberately:</p>
+
+      <div class="qa">
+        <div class="qa-row">
+          <div class="qa-q"><span class="qn mono">01</span>What do you notice first?</div>
+          <div class="qa-why">Tests hierarchy before the participant has time to rationalise.</div>
+        </div>
+        <div class="qa-row">
+          <div class="qa-q"><span class="qn mono">02</span>What confuses you?</div>
+          <div class="qa-why">Surfaces friction.</div>
+        </div>
+        <div class="qa-row">
+          <div class="qa-q"><span class="qn mono">03</span>Did you get what you came for?</div>
+          <div class="qa-why">Checks the job-to-be-done.</div>
+        </div>
+      </div>
+
+      <div class="disclaimer">AI-assisted persona testing is a proxy, not a substitute for testing with real users. It surfaces interface friction reliably; it cannot validate emotional impact.</div>
+
+      <h3>What came back</h3>
+      <p><strong>The concept landed.</strong> The tracker was immediately legible as a job search tool without explanation, and the overview bar was what he noticed first — which was the intended hierarchy. The job-to-be-done question came back clean: he could tell which applications were alive.</p>
+      <p><strong>Three friction points came out of it:</strong></p>
+
+      <div class="friction-grid">
+        <div class="friction-card">
+          <div class="fbadge">1</div>
+          <h4>The Company Site and Job Post icons were identical.</h4>
+          <p>Two different destinations, one visual. He couldn't tell them apart, and in a list of forty applications that's forty small moments of hesitation.</p>
+        </div>
+        <div class="friction-card">
+          <div class="fbadge">2</div>
+          <h4>The progress bar dots had no labels.</h4>
+          <p>He could see there were stages. He could not see <em>which</em> stage. A progress indicator that doesn't say what the progress is toward is decoration.</p>
+        </div>
+        <div class="friction-card">
+          <div class="fbadge">3</div>
+          <h4>No search. Fine at 8 applications, broken at 50.</h4>
+          <p>The design was tested at a realistic-looking density and failed at a realistic <em>actual</em> density. Arjun has <span class="todo">N</span> live applications. Nikita will have more by month three.</p>
+        </div>
+      </div>
+
+      <h3>Revised design goals</h3>
+      <p>The feedback didn't change the product. It changed three principles about how it had to behave.</p>
+
+      <table class="goals-table">
+        <thead>
+          <tr><th>Original goal</th><th></th><th>Revised goal</th><th>What triggered the change</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="g-old">Show the status of every application</td>
+            <td class="g-arrow">→</td>
+            <td class="g-new">Show status <b>at a glance, without interpretation</b> — every visual element must be self-explaining, labelled, and distinguishable at scan speed</td>
+            <td class="g-trig">Icon collision + unlabelled progress dots</td>
+          </tr>
+          <tr>
+            <td class="g-old">Make the tracker usable</td>
+            <td class="g-arrow">→</td>
+            <td class="g-new">Make the tracker usable <b>at 50+ applications</b>, not at 8 — design for the density the primary persona actually lives at</td>
+            <td class="g-trig">Missing search bar</td>
+          </tr>
+          <tr>
+            <td class="g-old">Surface LinkedIn's signals</td>
+            <td class="g-arrow">→</td>
+            <td class="g-new">Surface LinkedIn's signals <b>without adding a decision</b> — a signal the user has to interpret is another job, not a solution</td>
+            <td class="g-trig">Emerged from re-reading the friction as a set</td>
+          </tr>
+        </tbody>
       </table>
     </section>
 
-    <section class="cs-section" id="sec-interviews">
-      <h2 class="grad g1">Interviews & findings</h2>
-      <p>I talked to [add number] active job seekers about how they currently track applications, where it breaks down, and what they wish existed.</p>
-      <ul>
-        <li>[Finding 1, e.g. most people track applications in more than one place at once]</li>
-        <li>[Finding 2, e.g. status updates get abandoned within the first two weeks]</li>
-        <li>[Finding 3, e.g. the biggest anxiety wasn't the tracking itself, but not knowing what to do next]</li>
-      </ul>
-      <div class="visual-slot reveal">[ drop in affinity mapping / synthesis photo here ]</div>
-    </section>
+    <!-- ============ 8. MAIN FLOW ============ -->
+    <section class="cs-section" id="sec-flow">
+      <div class="sec-eyebrow">08 — Design / The Solution in Detail</div>
+      <h2 class="grad g10">One screen, four jobs.</h2>
 
-    <section class="cs-section" id="sec-goals">
-      <h2 class="grad g6">Design goals</h2>
-      <p>I translated the research into a short list of principles that shaped every screen after this point.</p>
-      <div class="goal-grid">
-        <div class="goal-card">
-          <svg class="goal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>
+      <p>The whole product resolves to a single surface. That was deliberate: adding a new destination to LinkedIn's navigation costs the user a habit they don't have. The tracker lives where the applications already are.</p>
+
+      <figure class="reveal">
+        <div class="visual-slot" style="min-height:300px;">[ flow-full.png — the complete tracker screen ]</div>
+        <figcaption class="figcap">The full tracker screen. Everything below is a region of this one surface.</figcaption>
+      </figure>
+
+      <div class="flow-block" id="flow-01">
+        <div class="fb-num">Feature 01</div>
+        <h3>Real-time application status tracking</h3>
+        <div class="fb-grid">
           <div>
-            <h4>One source of truth</h4>
-            <ul><li>Every application lives in exactly one place</li><li>No duplicate tracking across tools</li></ul>
+            <div class="fb-item">
+              <span class="fl">The problem it solves</span>
+              <p>Huntr and Jobscan give users a kanban board where every status update is manual. The status is always one step behind reality, because reality is on the recruiter's side of a wall the user can't see through.</p>
+            </div>
+            <div class="fb-item">
+              <span class="fl">What it does</span>
+              <p>The tracker lives inside LinkedIn, where the data already is. When a recruiter opens an application, the status moves. When a posting closes, the application is marked closed. The user does nothing.</p>
+            </div>
+            <div class="fb-item is-decision">
+              <span class="fl">The design decision</span>
+              <p>No drag interaction anywhere in the interface. Not a technical constraint — a deliberate one. The moment the user can move a card, the interface is telling them that maintaining it is their job. It isn't.</p>
+            </div>
           </div>
+          <figure style="margin:0;">
+            <div class="visual-slot">[ flow-01-status.png ]</div>
+            <figcaption class="figcap">Annotation: “Status changes without user input.”</figcaption>
+          </figure>
         </div>
-        <div class="goal-card">
-          <svg class="goal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg>
+      </div>
+
+      <div class="flow-block" id="flow-02">
+        <div class="fb-num">Feature 02</div>
+        <h3>Surface LinkedIn's existing application signals</h3>
+        <div class="fb-grid">
           <div>
-            <h4>Fast status updates</h4>
-            <ul><li>Update a status in under two seconds</li><li>No form to fill out for a one line change</li></ul>
+            <div class="fb-item">
+              <span class="fl">The problem it solves</span>
+              <p>Applicants can see that they submitted. They cannot see whether a recruiter opened their profile, whether the role is still being filled, or how they sit relative to the applicant pool.</p>
+            </div>
+            <div class="fb-item">
+              <span class="fl">What it does</span>
+              <p>A persistent right-hand panel surfaces exactly those signals, pulled from data LinkedIn already holds:</p>
+              <ul>
+                <li>Whether a recruiter has viewed the profile, and when</li>
+                <li>Whether the posting is still active or has gone dark</li>
+                <li>Position relative to the applicant pool</li>
+                <li>Whether a first-degree connection works at the company</li>
+              </ul>
+            </div>
+            <div class="fb-item is-decision">
+              <span class="fl">The design decision</span>
+              <p>Signals are stated as fact, never as prediction. “Viewed by recruiter, 2 days ago” — not “high likelihood of response.” A platform inventing optimism for someone under financial stress is a betrayal, not a feature. The panel reports; it does not reassure.</p>
+            </div>
+            <div class="fb-item">
+              <span class="fl">The constraint respected</span>
+              <p>The recruiter workflow stays completely unchanged. Nothing here requires a recruiter to do anything new, which is why it's actually shippable. Any solution requiring employer behaviour change was cut at ideation.</p>
+            </div>
           </div>
+          <figure style="margin:0;">
+            <div class="visual-slot">[ flow-02-signals.png ]</div>
+            <figcaption class="figcap">Annotations pointing to each of the four signal types in the expanded panel.</figcaption>
+          </figure>
         </div>
-        <div class="goal-card">
-          <svg class="goal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/></svg>
+      </div>
+
+      <div class="flow-block" id="flow-03">
+        <div class="fb-num">Feature 03</div>
+        <h3>Persistent profile and search history</h3>
+        <div class="fb-grid">
           <div>
-            <h4>Zero setup friction</h4>
-            <ul><li>Useful from the first application added</li><li>No template to configure before it works</li></ul>
+            <div class="fb-item">
+              <span class="fl">The problem it solves</span>
+              <p>Every existing tracker is built for one search at a time. When a laid-off professional goes through a second or third displacement, they start from zero — history gone, patterns gone, contacts gone.</p>
+            </div>
+            <div class="fb-item">
+              <span class="fl">What it does</span>
+              <p>A year filter at the top of the tracker separates search cycles. Past searches stay accessible as reference. The current search stays uncluttered.</p>
+            </div>
+            <div class="fb-item is-decision">
+              <span class="fl">The design decision</span>
+              <p>Past searches are filtered out by default, not deleted and not shown. Arjun needs 2023 available; he does not need it in his face while he's trying to get through this week. Default to the current search, one click to the past.</p>
+            </div>
+            <div class="fb-item">
+              <span class="fl">Why this matters</span>
+              <p>70% of repeat layoffs happen within twelve months of the first. This isn't an edge case — it's the primary persona's actual life.</p>
+            </div>
           </div>
+          <figure style="margin:0;">
+            <div class="visual-slot">[ flow-03-year.png ]</div>
+            <figcaption class="figcap">The year filter — default state and expanded state with past years available.</figcaption>
+          </figure>
         </div>
-        <div class="goal-card">
-          <svg class="goal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v6M12 16v6M2 12h6M16 12h6"/></svg>
+      </div>
+
+      <div class="flow-block" id="flow-04">
+        <div class="fb-num">Feature 04</div>
+        <h3>From chaos to control</h3>
+        <div class="fb-grid">
           <div>
-            <h4>[Add your 4th principle]</h4>
-            <ul><li>[supporting point]</li><li>[supporting point]</li></ul>
+            <div class="fb-item">
+              <span class="fl">The problem it solves</span>
+              <p>The emotional reality of a sustained search isn't solved by a better spreadsheet. A 500-row spreadsheet is a monument to effort with no evidence of progress.</p>
+            </div>
+            <div class="fb-item">
+              <span class="fl">What it does</span>
+              <p>The overview bar at the top of the tracker — <strong>8 applied · 3 active · 2 awaiting response · 2 closed</strong> — turns a pile of applications into a picture of a search in progress.</p>
+            </div>
+            <div class="fb-item is-decision">
+              <span class="fl">The design decision</span>
+              <p>Closed applications are counted, not hidden. The instinct is to hide the losses. But an uncounted rejection is an application the user is still unconsciously waiting on. Naming it as closed is what lets them stop. Closure is the feature.</p>
+            </div>
+            <div class="fb-item is-decision">
+              <span class="fl">The design decision that got cut</span>
+              <p>This started as a chart. The chart looked more impressive and communicated less. Four numbers, readable in under a second, beat a visualisation that requires interpretation. In a product whose entire purpose is reducing cognitive load, the more impressive option was the wrong one.</p>
+            </div>
           </div>
+          <figure style="margin:0;">
+            <div class="visual-slot">[ flow-04-overview.png ]</div>
+            <figcaption class="figcap">The overview bar — and, if useful, the rejected chart version beside it.</figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
-    <section class="cs-section" id="sec-wireframes">
-      <h2 class="grad g7">Wireframes</h2>
-      <p>Mid fidelity flow in Figma covering the core loop: add an application → update its status → see it reflected instantly across the board.</p>
-      <div class="spotlight reveal">
-        <div class="visual-slot">[ core flow wireframe ]</div>
+    <!-- ============ 9. MEASURING SUCCESS ============ -->
+    <section class="cs-section" id="sec-measure">
+      <div class="sec-eyebrow">09 — Evaluation / Measuring Success</div>
+      <h2 class="grad g8">How I'd know if this worked.</h2>
+
+      <p>This is a concept, so I don't have shipped numbers. What I do have is a definition of what I'd measure and why — because a design goal that can't be measured is a preference, not a goal.</p>
+
+      <div class="northstar reveal">
+        <div class="ns-lbl">North star metric</div>
+        <div class="ns-metric">Percentage of applications where the user views at least one post-submission signal within 7 days of applying.</div>
+        <p>Not “time in tracker.” Not “sessions per week.” Both of those go up when a product is anxiety-inducing, which is the opposite of the goal. This metric only moves if the signals exist, are found, and are worth returning for — which is precisely the value proposition.</p>
+      </div>
+
+      <h3>Supporting metrics, mapped to design goals</h3>
+      <table class="metrics-table">
+        <thead>
+          <tr><th>Design goal</th><th>Metric</th><th>Target</th><th>Why this one</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Reduce post-application uncertainty</td>
+            <td>% of live applications with a status other than “Submitted” after 14 days</td>
+            <td>&gt; 60%</td>
+            <td>Directly measures whether silence was actually broken</td>
+          </tr>
+          <tr>
+            <td>Eliminate manual tracking work</td>
+            <td>% of tracked applications requiring zero manual user input</td>
+            <td>&gt; 90%</td>
+            <td>If users are still editing rows, the automation failed</td>
+          </tr>
+          <tr>
+            <td>Give closure on dead applications</td>
+            <td>Median days between a role closing and the user seeing it marked closed</td>
+            <td>&lt; 3 days</td>
+            <td>Uncertainty is the harm; speed of closure is the cure</td>
+          </tr>
+          <tr>
+            <td>Make the search feel like progress</td>
+            <td>Self-reported “I feel in control of my job search” (5-point, in-product survey at week 4)</td>
+            <td>+2 pts</td>
+            <td>The brief's success statement, measured directly</td>
+          </tr>
+          <tr>
+            <td>Continuity across searches</td>
+            <td>% of returning users (2nd+ search) who open the year filter within their first 3 sessions</td>
+            <td>&gt; 40%</td>
+            <td>Validates the most differentiated and riskiest feature</td>
+          </tr>
+          <tr>
+            <td>Business outcome</td>
+            <td>Premium Career 6-month retention, tracker users vs. control</td>
+            <td>+8%</td>
+            <td>Ties the emotional outcome to revenue</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Counter-metrics — how I'd know it backfired</h3>
+      <p>Any product that surfaces status can make anxiety worse. I'd watch three things and treat any of them moving as a failure, regardless of what the North Star did:</p>
+
+      <div class="guardrails">
+        <div class="gr-head">Guardrails</div>
+        <div class="guardrail">
+          <b>Sessions per day above 8</b>
+          <span>That's not engagement, that's compulsive checking. The goal is to replace ten anxious checks with one informative one.</span>
+        </div>
+        <div class="guardrail">
+          <b>Increase in same-day re-applications after seeing “not viewed”</b>
+          <span>Would mean the signal is being read as a verdict and triggering panic behaviour.</span>
+        </div>
+        <div class="guardrail">
+          <b>Drop in applications submitted per week</b>
+          <span>Would mean visibility is discouraging rather than orienting. Seeing the odds shouldn't make people stop.</span>
+        </div>
+      </div>
+
+      <h3>How I'd validate before shipping</h3>
+      <div class="val-cols">
+        <div class="val-col">
+          <span class="vchip">Qual</span>
+          <p><strong>Usability study</strong> — 5 to 8 laid-off professionals in active search, moderated, two focus questions: does the status panel reduce anxiety, and does the year filter make past searches feel useful rather than painful.</p>
+        </div>
+        <div class="val-col">
+          <span class="vchip">Longitudinal</span>
+          <p><strong>Diary study</strong> — 2 weeks, 6 participants, to catch the thing usability testing can't: whether the tracker becomes a habit or a new source of dread.</p>
+        </div>
+        <div class="val-col">
+          <span class="vchip">Quant</span>
+          <p><strong>Instrumented beta</strong> — a small cohort with the counter-metrics wired up from day one, not retrofitted after launch.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 10. RESULTS ============ -->
+    <section class="cs-section" id="sec-results">
+      <div class="sec-eyebrow">10 — Evaluation / Results</div>
+      <h2 class="grad g3">What I can claim, and what I can't.</h2>
+
+      <p>This is a self-initiated concept. It hasn't shipped, so there is no engagement data, no retention curve, no A/B test. Claiming otherwise would be inventing evidence.</p>
+      <p>Here's what the work actually produced.</p>
+
+      <h3>What was validated</h3>
+      <div class="vlist">
+        <div class="vitem is-yes">
+          <div class="vmark">✓</div>
+          <div>
+            <b>The concept is self-explanatory.</b>
+            <span>In persona testing, the tracker was understood as a job search tool without any explanation, and the intended visual hierarchy held — the overview bar was the first thing noticed, which is what it was designed to be.</span>
+          </div>
+        </div>
+        <div class="vitem is-yes">
+          <div class="vmark">✓</div>
+          <div>
+            <b>The job-to-be-done is met.</b>
+            <span>The core question — “can you tell which of your applications are still alive?” — came back answered. That was the brief's entire success condition.</span>
+          </div>
+        </div>
+        <div class="vitem is-yes">
+          <div class="vmark">✓</div>
+          <div>
+            <b>Three interface failures were caught before they'd have shipped.</b>
+            <span>Identical icons, unlabelled progress states, and a search bar that becomes essential past 50 applications. All three were fixed. None of them would have been visible to me without testing, which is the actual finding: I could not see my own interface accurately.</span>
+          </div>
+        </div>
+      </div>
+
+      <h3>What is not validated</h3>
+      <div class="vlist">
+        <div class="vitem is-no">
+          <div class="vmark">○</div>
+          <div>
+            <b>The emotional outcome.</b>
+            <span>Whether this actually reduces job search anxiety is unprovable without real users in real distress. AI persona testing can find a confusing icon. It cannot feel dread.</span>
+          </div>
+        </div>
+        <div class="vitem is-no">
+          <div class="vmark">○</div>
+          <div>
+            <b>Longitudinal value.</b>
+            <span>The year filter is my most confident feature and my least tested one — validating it requires a user across two separate layoffs, which is a research timeline of years.</span>
+          </div>
+        </div>
+        <div class="vitem is-no">
+          <div class="vmark">○</div>
+          <div>
+            <b>Technical feasibility of the signals.</b>
+            <span>I've assumed LinkedIn can surface recruiter-view data to candidates. That's a defensible assumption from the data model, but it's a policy and privacy question I couldn't answer from outside the company, and it might be the thing that kills the feature.</span>
+          </div>
+        </div>
+        <div class="vitem is-no">
+          <div class="vmark">○</div>
+          <div>
+            <b>Business impact.</b>
+            <span>The Premium retention argument is reasoned, not measured.</span>
+          </div>
+        </div>
+      </div>
+
+      <h3>The outcome</h3>
+      <div class="outcome-pair">
         <div>
-          <h3 class="grad g10">Add → track → update</h3>
-          <p>[Describe the flow shown in this wireframe: the key screens and the decision behind their order.]</p>
+          <div class="ol">What this project delivered</div>
+          <p>Four feature sets taken from research to high-fidelity, a design decision record for each, a measurement framework with counter-metrics, and three validated interface fixes.</p>
         </div>
-      </div>
-      <div class="spotlight rev reveal">
-        <div class="visual-slot">[ status board wireframe ]</div>
         <div>
-          <h3 class="grad g9">The board view</h3>
-          <p>[Describe how the board surfaces status at a glance: what's emphasized and why.]</p>
+          <div class="ol">What it didn't</div>
+          <p>Proof that it works. That requires shipping it.</p>
         </div>
       </div>
     </section>
 
-    <section class="cs-section" id="sec-outcome">
-      <h2 class="grad g8">Where it stands</h2>
-      <div class="status-box">
-        <p>Published as a full writeup on LinkedIn, covering the research, wireframes, and design decisions in detail.</p>
+    <!-- ============ 11. ITERATIONS ============ -->
+    <section class="cs-section" id="sec-iterations">
+      <div class="sec-eyebrow">11 — Evaluation / Iterations</div>
+      <h2 class="grad g5">The changes that came out of testing.</h2>
+
+      <p>Each friction point from the persona test produced a specific change. Here's what moved, and the reasoning behind each.</p>
+
+      <div class="iteration">
+        <h3>Iteration 1 — Differentiating the Company Site and Job Post icons</h3>
+        <div class="ba-grid">
+          <div class="ba-cell before">
+            <div class="ba-tag">Before</div>
+            <div class="visual-slot">[ iter-01-before.png ]</div>
+          </div>
+          <div class="ba-cell after">
+            <div class="ba-tag">After</div>
+            <div class="visual-slot">[ iter-01-after.png ]</div>
+          </div>
+        </div>
+        <div class="figcap">Cropped to the icon pair, zoomed so the difference is legible.</div>
+        <div class="itrow" style="margin-top:20px;">
+          <span class="il">The problem</span>
+          <p>Two links with different destinations shared one icon. At forty applications, that's forty moments of “which one is this?”</p>
+        </div>
+        <div class="itrow">
+          <span class="il">The change</span>
+          <p><span class="todo">Describe what you actually did — e.g. distinct glyphs (globe for company site, document for job post) plus text labels on hover, and increased spacing between the two targets.</span></p>
+        </div>
+        <div class="itrow">
+          <span class="il">The reasoning</span>
+          <p>Icon-only navigation assumes the user has learned your icon vocabulary. Someone applying to their fortieth job this month has not budgeted attention for learning it. When ambiguity costs more than space does, add the label.</p>
+        </div>
       </div>
-      <div class="case-links">
-        <a href="#" data-fill="linkedin-case-study-link">Read the full case study on LinkedIn ↗</a>
+
+      <div class="iteration">
+        <h3>Iteration 2 — Labelling the progress bar stages</h3>
+        <div class="ba-grid">
+          <div class="ba-cell before">
+            <div class="ba-tag">Before</div>
+            <div class="visual-slot">[ iter-02-before.png ]</div>
+          </div>
+          <div class="ba-cell after">
+            <div class="ba-tag">After</div>
+            <div class="visual-slot">[ iter-02-after.png ]</div>
+          </div>
+        </div>
+        <div class="figcap">Cropped to the progress indicator, zoomed.</div>
+        <div class="itrow" style="margin-top:20px;">
+          <span class="il">The problem</span>
+          <p>The progress dots showed that stages existed but not which stage was which. The user could see position without meaning.</p>
+        </div>
+        <div class="itrow">
+          <span class="il">The change</span>
+          <p><span class="todo">Describe — e.g. added persistent labels beneath each dot, with the current stage in accent color and completed stages filled.</span></p>
+        </div>
+        <div class="itrow">
+          <span class="il">The reasoning</span>
+          <p>A progress indicator answers one question: how far along am I? An unlabelled one answers a different, useless question: how many things are there? The whole point of this product is removing interpretation work — an unlabelled progress bar adds it back.</p>
+        </div>
       </div>
+
+      <div class="iteration">
+        <h3>Iteration 3 — Adding search</h3>
+        <div class="ba-grid">
+          <div class="ba-cell before">
+            <div class="ba-tag">Before</div>
+            <div class="visual-slot">[ iter-03-before.png — header at 8 rows ]</div>
+          </div>
+          <div class="ba-cell after">
+            <div class="ba-tag">After</div>
+            <div class="visual-slot">[ iter-03-after.png — header with search, 40+ rows ]</div>
+          </div>
+        </div>
+        <div class="figcap">The tracker header with the search field added — shown against a realistic list density rather than the original eight rows.</div>
+        <div class="itrow" style="margin-top:20px;">
+          <span class="il">The problem</span>
+          <p>The design worked at 8 applications. Arjun has <span class="todo">N</span>. Past roughly 50, the list stops being scannable and the product's core promise — find out what's happening with a specific application — breaks.</p>
+        </div>
+        <div class="itrow">
+          <span class="il">The change</span>
+          <p><span class="todo">Describe — e.g. a persistent search field in the tracker header, filtering by company and role title, positioned to the left of the year filter.</span></p>
+        </div>
+        <div class="itrow">
+          <span class="il">The reasoning</span>
+          <p>I designed against a demo dataset instead of the primary persona's real one. That's a specific, repeatable mistake and it's the most useful thing I learned in this project: populate the design with the volume the persona actually lives at, from the first frame.</p>
+        </div>
+      </div>
+
+      <div class="iteration">
+        <h3>Iteration 4 — The button exploration</h3>
+        <div class="itrow">
+          <span class="il">The question</span>
+          <p><span class="todo">What was the button for? e.g. the primary action on an application row.</span></p>
+        </div>
+
+        <div class="option-grid">
+          <div class="option">
+            <div class="visual-slot">[ button-option-a.png ]</div>
+            <h4>Option A — <span class="todo">name</span></h4>
+            <p><span class="todo">What it looked like, why it was considered, why it lost.</span></p>
+          </div>
+          <div class="option">
+            <div class="visual-slot">[ button-option-b.png ]</div>
+            <h4>Option B — <span class="todo">name</span></h4>
+            <p><span class="todo">What it looked like, why it was considered, why it lost.</span></p>
+          </div>
+          <div class="option is-selected">
+            <span class="sel-badge">Selected</span>
+            <div class="visual-slot">[ button-option-c.png ]</div>
+            <h4>Option C — <span class="todo">name</span></h4>
+            <p><span class="todo">What it looked like, and why it won — tie it back to a research finding or design principle.</span></p>
+          </div>
+        </div>
+
+        <div class="itrow">
+          <span class="il">What decided it</span>
+          <p><span class="todo">The criterion that actually settled it — specific beats grand.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 12. WHAT I LEARNED ============ -->
+    <section class="cs-section" id="sec-learned">
+      <div class="sec-eyebrow">12 — Reflection</div>
+      <h2 class="grad g4">What I'd take into the next one.</h2>
+
+      <div class="learnings">
+        <div class="learning">
+          <div class="lnum">01</div>
+          <div>
+            <h3>Scope is a design decision, not a constraint on one.</h3>
+            <p>This started as a broad LinkedIn redesign and became something specific: a tracker for laid-off professionals in repeat displacement. Every time I narrowed the user group, the design decisions got easier — not because there was less to do, but because there was finally something to decide against. A tool for everyone is a tool with no opinions.</p>
+          </div>
+        </div>
+        <div class="learning">
+          <div class="lnum">02</div>
+          <div>
+            <h3>Research without access is still research, if you're honest about the trade.</h3>
+            <p>I didn't run formal interviews or usability tests. What I had was hundreds of unprompted accounts on Reddit, verified quantitative data from Greenhouse and The Interview Guys, and a pattern that held across both. Community research isn't a shortcut version of interviews — it's a different method with a different bias profile, and it's honest as long as you say which one you used and what it couldn't tell you. What I'd add next time: even three real conversations would have let me probe the contradictions I could only observe.</p>
+          </div>
+        </div>
+        <div class="learning">
+          <div class="lnum">03</div>
+          <div>
+            <h3>The emotional layer is a feature, not a nice-to-have.</h3>
+            <p>Every competitor I looked at solved the functional problem and ignored the emotional one. The overview bar — 8 applied, 3 active, 2 awaiting response — is not just information architecture. It's the difference between a search that feels like a void and one that feels like it's going somewhere. And the specific decision to <em>count</em> closed applications rather than hide them was the moment I understood this: closure isn't a negative state to be minimised, it's the thing that lets someone stop waiting.</p>
+          </div>
+        </div>
+        <div class="learning">
+          <div class="lnum">04</div>
+          <div>
+            <h3>I cannot see my own interface.</h3>
+            <p>Three friction points came out of persona testing, and all three were invisible to me after weeks of looking at the same screen. Identical icons I'd stopped seeing as identical. Progress dots I could read because I knew what they meant. A list that worked beautifully at the eight rows I'd populated it with. The last one is the real lesson: I designed against a demo dataset instead of my primary persona's actual volume. Now I populate every design with the density the user really lives at, from the first frame.</p>
+          </div>
+        </div>
+        <div class="learning">
+          <div class="lnum">05</div>
+          <div>
+            <h3>Constraints are the argument.</h3>
+            <p>The strongest thing about this solution isn't a feature — it's that nothing in it requires a recruiter to change their behaviour or an employer to start replying. That constraint, set at ideation, is what killed half my ideas and what makes the surviving half actually shippable. 96% of companies don't notify rejected candidates. A design that waits for that to change isn't a design; it's a wish.</p>
+          </div>
+        </div>
+      </div>
+
+      <hr class="rule">
+
+      <h3>What I'd do next</h3>
+      <p>Four feature sets taken to high-fidelity is a concept, not a product. The next step is the one I couldn't take from outside: a moderated usability study with 5 to 8 laid-off professionals in active search, focused on the two questions I can't answer myself — does the status panel actually reduce anxiety, and does the year filter make a past search feel useful rather than painful?</p>
+
+      <p class="final-word">The second question is the one I'm least sure about. Showing someone the record of a search that ended in a layoff could be a resource or a wound. I designed it as a resource. I'd want to find out.</p>
     </section>
 
   </main>
@@ -189,17 +1314,20 @@
 <footer class="site-footer" id="contact">
   <div class="wrap">
     <div class="eyebrow reveal">// contact</div>
-    <h2 class="reveal grad g8">Let's talk.</h2>
+    <h2 class="reveal grad g8">Thanks for reading.</h2>
+    <p class="reveal" style="color:var(--ink-soft); margin-bottom:22px;">Ruby Seher — Product Designer. Currently open to opportunities.</p>
     <a class="big-email reveal" href="mailto:ruby.seher000@gmail.com">ruby.seher000@gmail.com</a>
     <div class="foot-links reveal">
       <a href="https://www.linkedin.com/in/ruby-s-885468205/" target="_blank" rel="noreferrer">LinkedIn</a>
       <a href="https://github.com/Rubyseher" target="_blank" rel="noreferrer">GitHub</a>
       <a href="docs/RubySeher_ProductDesign_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a href="index.html">Portfolio</a>
+      <a href="#" id="backToTop">Back to top ↑</a>
     </div>
     <div class="foot-meta reveal">Bangalore · will relocate</div>
   </div>
 </footer>
 
-<script src="script.js?v=6"></script>
+<script src="script.js?v=7"></script>
 </body>
 </html>
