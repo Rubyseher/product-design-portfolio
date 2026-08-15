@@ -496,17 +496,44 @@ footer.site-footer h2{ font-size:34px; margin-bottom:20px; }
   background:var(--accent); z-index:60; transition:width .1s linear;
 }
 
-/* ---- hero ---- */
-.cs-hero-grid{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:48px; align-items:center; }
+/* ---- hero: one full-screen statement, nothing else competing with it ---- */
+.cs-stage{ border-bottom:1px solid var(--line); }
+.cs-stage .stage-inner{
+  /* svh so mobile browser chrome can't push the scroll cue off-screen */
+  min-height:calc(100svh - 58px);
+  display:flex; flex-direction:column;
+  padding-top:26px; padding-bottom:26px;
+}
+.cs-stage .back-link{
+  font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--ink-soft);
+  align-self:flex-start;
+}
+.cs-stage .back-link:hover{ color:var(--accent); }
+.stage-center{
+  flex:1; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; text-align:center;
+}
 .cs-eyebrow{
   font-family:'IBM Plex Mono', monospace; font-size:12px; text-transform:uppercase;
-  letter-spacing:0.16em; color:var(--ink-soft); margin-bottom:14px;
+  letter-spacing:0.16em; color:var(--ink-soft); margin-bottom:22px;
 }
-.cs-hero .cs-deck{
-  font-family:'Space Grotesk', sans-serif; font-size:clamp(19px,2.4vw,23px); font-weight:500;
-  line-height:1.35; color:var(--ink); max-width:22ch; margin-bottom:14px;
+.stage-statement{
+  font-family:'Space Grotesk', sans-serif; font-weight:700;
+  font-size:clamp(42px,8.2vw,104px); line-height:1.02; letter-spacing:-0.03em;
+  max-width:15ch; margin:0 auto;
 }
-.meta-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px 28px; margin-top:26px; max-width:520px; }
+.stage-sub{
+  font-size:clamp(16px,1.5vw,19px); line-height:1.6; color:var(--ink-soft);
+  max-width:60ch; margin:30px auto 0;
+}
+
+/* the product shot + frontmatter, one screen down */
+.cs-intro{ padding:80px 0 72px; border-bottom:1px solid var(--line); }
+.cs-intro .cs-video{ margin:0 auto; max-width:900px; }
+.meta-grid{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:26px 32px;
+  margin:56px auto 0; max-width:1000px;
+}
 .meta-item .mk{
   font-family:'IBM Plex Mono', monospace; font-size:11px; text-transform:uppercase;
   letter-spacing:0.14em; color:var(--accent); display:block; margin-bottom:5px;
@@ -514,9 +541,10 @@ footer.site-footer h2{ font-size:34px; margin-bottom:20px; }
 .meta-item .mv{ font-size:14.5px; color:var(--ink-soft); line-height:1.5; }
 .cs-hero .cs-video{ margin:0; }
 .scroll-cue{
-  display:block; text-align:center; margin-top:34px;
+  display:block; text-align:center; align-self:center;
   font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-soft);
 }
+.scroll-cue:hover{ color:var(--accent); }
 .scroll-cue span{ display:block; font-size:16px; margin-top:2px; animation:cue 1.9s ease-in-out infinite; }
 @keyframes cue{ 0%,100%{ transform:translateY(0); opacity:.5 } 50%{ transform:translateY(4px); opacity:1 } }
 
@@ -1018,7 +1046,8 @@ figure img, figure video{ border-radius:12px; box-shadow:0 18px 40px rgba(20,21,
 
 /* ---- responsive ---- */
 @media (max-width:900px){
-  .cs-hero-grid{ grid-template-columns:1fr; gap:32px; }
+  .meta-grid{ grid-template-columns:1fr 1fr; }
+  .cs-intro{ padding:56px 0 52px; }
   .statgrid{ grid-template-columns:1fr 1fr; }
   /* reset the 3-col nth rules before re-cutting the dividers for two columns */
   .statgrid .stat,
@@ -1062,7 +1091,9 @@ figure img, figure video{ border-radius:12px; box-shadow:0 18px 40px rgba(20,21,
   .cluster{ padding:24px 22px; }
 }
 @media (max-width:640px){
-  .meta-grid{ grid-template-columns:1fr; gap:16px; }
+  .meta-grid{ grid-template-columns:1fr; gap:18px; margin-top:40px; }
+  .stage-statement{ max-width:none; }
+  .cs-stage .stage-inner{ padding-top:18px; padding-bottom:18px; }
   .statgrid{ grid-template-columns:1fr; }
   .statgrid .stat,
   .statgrid .stat:nth-child(2n),
