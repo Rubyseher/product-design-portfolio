@@ -175,3 +175,34 @@
     if (p && p.catch) p.catch(function(){});
   });
 })();
+
+// ---- card videos: only fetch once the card is nearly in view ----
+// these sit below the fold and weigh several MB each, so the src stays
+// parked in data-src until it's worth spending the bandwidth
+(function(){
+  var vids = document.querySelectorAll('.card-video[data-src]');
+  if (!vids.length) return;
+
+  function load(v){
+    if (!v.dataset.src) return;
+    v.src = v.dataset.src;
+    delete v.dataset.src;
+    var p = v.play();
+    if (p && p.catch) p.catch(function(){});
+  }
+
+  if (!('IntersectionObserver' in window)){
+    Array.prototype.forEach.call(vids, load);
+    return;
+  }
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (!e.isIntersecting) return;
+      load(e.target);
+      io.unobserve(e.target);
+    });
+  }, { rootMargin: '300px 0px' });
+
+  Array.prototype.forEach.call(vids, function(v){ io.observe(v); });
+})();
