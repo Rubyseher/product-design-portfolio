@@ -1,3 +1,6 @@
 .DS_Store
 node_modules/
 *.log
+
+# raw screen-recording exports (the .mp4 is what ships)
+*.mov

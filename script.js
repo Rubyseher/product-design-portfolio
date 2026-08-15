@@ -132,3 +132,18 @@
     setTimeout(start, 1800);
   }
 })();
+
+// ---- hero video: one play per page load ----
+(function(){
+  var vid = document.querySelector('.hero-video video');
+  if (!vid) return;
+
+  // returning via the back button restores the page from cache with the video
+  // parked on its last frame, so replay it as if this were a fresh load
+  window.addEventListener('pageshow', function(e){
+    if (!e.persisted) return;
+    vid.currentTime = 0;
+    var p = vid.play();
+    if (p && p.catch) p.catch(function(){});
+  });
+})();

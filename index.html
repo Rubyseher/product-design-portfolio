@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
 
@@ -15,8 +15,8 @@
   <div class="wrap">
     <div class="nav-name">Ruby Seher</div>
     <div class="nav-links">
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
+      <a href="https://rubyseher.vercel.app" target="_blank" rel="noopener">Dev Portfolio</a>
+      <a href="https://github.com/Rubyseher" target="_blank" rel="noopener">GitHub</a>
       <a href="#talks">Talks</a>
       <a href="#contact">Contact</a>
       <a class="btn-mini" href="#" data-fill="resume-link">Resume</a>
@@ -29,13 +29,13 @@
     <div class="hero-copy">
       <div class="tag-row reveal">
         <span class="tag"><b>product designer</b></span>
-        <span class="tag tag-alt"><b>ex full-stack engineer</b></span>
+        <span class="tag tag-alt"><b>ex full stack engineer</b></span>
         <span class="tag">bangalore · will relocate</span>
       </div>
 
-      <h1 class="reveal">Most designers hand off.<br><span class="h1-em">I ship.</span></h1>
+      <h1 class="reveal grad g1">Most designers hand off.<br><span class="h1-em grad g3">I ship.</span></h1>
 
-      <p class="sub reveal">I run the research, design the system, and write the React that ships it — so nothing gets lost in the last 10%.</p>
+      <p class="sub reveal">I run the research, design the system, and write the React that ships it, so nothing gets lost in the last 10%.</p>
 
       <div class="cta-row reveal">
         <a class="btn primary" href="#" data-fill="resume-link">Download resume</a>
@@ -45,68 +45,26 @@
 
       <div class="cred-row reveal">
         <span class="cred-dot"></span>
-        <span>Two conference talks on <b>“The 10% Problem”</b> — the gap between design and engineering — at <span class="mono">ReactPlay</span> and <span class="mono">React n Chill</span></span>
+        <span>Two conference talks on <b>“The 10% Problem”</b> (the gap between design and engineering) at <span class="mono">ReactPlay</span> and <span class="mono">React n Chill</span></span>
       </div>
 
       <div class="brand-logos reveal">
         <div class="brand-label">Previously worked at</div>
         <div class="brand-row">
-          <div class="brand-logo logo-lb">LB</div>
-          <div class="brand-logo logo-tc">TC</div>
-          <div class="brand-logo logo-jpmc">JP</div>
+          <img src="logo-change.png" alt="Let's Be The Change" class="brand-logo-img is-square">
+          <img src="logo-jpmorgan.png" alt="JPMorgan Chase & Co" class="brand-logo-img">
+          <img src="logo-nextup.png" alt="NextUp" class="brand-logo-img is-square">
         </div>
       </div>
     </div>
 
     <div class="hero-panel reveal">
-      <figure class="morph" id="morph">
-        <div class="morph-head">
-          <span class="morph-file mono">ShadeSwatch</span>
-          <div class="morph-toggle" role="tablist" aria-label="View the same component as design or as code">
-            <button class="mt-btn is-on" data-view="design" role="tab" aria-selected="true">design</button>
-            <button class="mt-btn" data-view="code" role="tab" aria-selected="false">code</button>
-          </div>
-        </div>
-
-        <div class="morph-stage">
-          <div class="morph-view v-design is-on" data-view="design">
-            <div class="fig-frame">
-              <span class="fig-label mono">ShadeSwatch / selected</span>
-              <div class="ui-card">
-                <div class="ui-title">Your match</div>
-                <div class="ui-sub mono">warm · neutral undertone</div>
-                <div class="ui-swatches">
-                  <span class="sw" style="--c:#E7C39C"></span>
-                  <span class="sw" style="--c:#D8A47F"></span>
-                  <span class="sw is-sel" style="--c:#C98B5E"></span>
-                  <span class="sw" style="--c:#B8734B"></span>
-                </div>
-              </div>
-              <span class="fig-h tl"></span><span class="fig-h tr"></span>
-              <span class="fig-h bl"></span><span class="fig-h br"></span>
-              <span class="fig-dim mono">328 × 176</span>
-            </div>
-          </div>
-
-          <div class="morph-view v-code" data-view="code" aria-hidden="true">
-<pre class="code"><code><span class="c-key">export function</span> <span class="c-fn">ShadeSwatch</span>({ shade, selected }) {
-  <span class="c-key">return</span> (
-    <span class="c-tag">&lt;button</span>
-      <span class="c-attr">aria-label</span>=<span class="c-str">{shade.name}</span>
-      <span class="c-attr">aria-pressed</span>=<span class="c-str">{selected}</span>
-      <span class="c-attr">className</span>=<span class="c-str">{selected ? "sw sw--on" : "sw"}</span>
-      <span class="c-attr">style</span>=<span class="c-str">{{ background: shade.hex }}</span>
-    <span class="c-tag">/&gt;</span>
-  );
-}</code></pre>
-          </div>
-        </div>
-
-        <figcaption class="morph-foot">
-          <span class="morph-cap mono" data-cap="design">Figma — the frame I designed</span>
-          <span class="morph-cap mono" data-cap="code">React — the component I shipped</span>
-          <a class="morph-link" href="case-study-shadematch.html">ShadeMatch, live PWA →</a>
-        </figcaption>
+      <figure class="hero-video">
+        <video
+          src="portfolio-home.mp4"
+          autoplay muted playsinline
+          preload="auto"
+          aria-label="Screen recording of the ShadeMatch home screen"></video>
       </figure>
     </div>
   </div>
@@ -114,8 +72,7 @@
 
 <section class="work-list" id="work">
   <div class="wrap">
-    <div class="eyebrow reveal">// selected work</div>
-    <h2 class="reveal">Case studies</h2>
+    <h2 class="reveal grad g2">Case studies</h2>
 
     <a class="project-card reveal" href="case-study-tracker.html">
       <div class="project-visual" style="background:var(--card-tracker);">
@@ -130,7 +87,7 @@
         </svg>
       </div>
       <div class="project-meta">
-        <h3>The Application Black Hole</h3>
+        <h3 class="grad g4">The Application Black Hole</h3>
         <div class="cat mono">UX Research · Competitive Analysis · IA · Mid Fi UI</div>
         <p>Job seekers lose track of applications across a dozen tabs and spreadsheets. A case study on designing a single place to see where everything stands.</p>
       </div>
@@ -151,9 +108,9 @@
         </svg>
       </div>
       <div class="project-meta">
-        <h3>ShadeMatch</h3>
+        <h3 class="grad g5">ShadeMatch</h3>
         <div class="cat mono">Product Design · React · Gemini API · Designed & built solo</div>
-        <p>A shipped PWA that finds your foundation shade match. I designed the flow and wrote the code — the clearest proof of how I actually work. Full write up in progress.</p>
+        <p>A shipped PWA that finds your foundation shade match. I designed the flow and wrote the code. The clearest proof of how I actually work. Full write up in progress.</p>
       </div>
     </a>
   </div>
@@ -162,7 +119,7 @@
 <section id="about">
   <div class="wrap">
     <div class="eyebrow reveal">// about</div>
-    <h2 class="reveal">Speaker at</h2>
+    <h2 class="reveal grad g6">Speaker at</h2>
     <div class="about-body reveal">
       <p>1. MIQ Bangalore and 2. ReactPlay both featured the ten percent problem. In both talks I explained how that problem is the same signal whether I am working on a product flow or presenting a design idea on stage.</p>
       <p>That means I do not need two separate stories for the same lesson. I show how the ten percent problem appears in real product work and in the way teams communicate across design and engineering.</p>
@@ -207,7 +164,7 @@
 <section id="talks">
   <div class="wrap">
     <div class="eyebrow reveal">// speaking</div>
-    <h2 class="reveal">Talks</h2>
+    <h2 class="reveal grad g7">Talks</h2>
     <div class="reveal">
       <div class="talk-row">
         <span class="talk-title">The 10% Problem</span>
@@ -224,7 +181,7 @@
 <footer class="site-footer" id="contact">
   <div class="wrap">
     <div class="eyebrow reveal">// contact</div>
-    <h2 class="reveal">Let's talk.</h2>
+    <h2 class="reveal grad g8">Let's talk.</h2>
     <a class="big-email reveal" href="mailto:ruby.seher000@gmail.com">ruby.seher000@gmail.com</a>
     <div class="foot-links reveal">
       <a href="https://www.linkedin.com/in/ruby-s-885468205/" target="_blank" rel="noreferrer">LinkedIn</a>
@@ -235,6 +192,6 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="script.js?v=2"></script>
 </body>
 </html>
