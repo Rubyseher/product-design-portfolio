@@ -4,3 +4,6 @@ node_modules/
 
 # raw screen-recording exports (the .mp4 is what ships)
 *.mov
+
+# scratch renders
+src/_*.html
