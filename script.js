@@ -1,3 +1,21 @@
+// ---- open at the top of the page ----
+// a plain reload otherwise drops you back at whatever you were scrolled to,
+// which reads as the page "starting" halfway down at the case studies
+(function(){
+  if (!('scrollRestoration' in history)) return;
+
+  var nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+  if (nav && nav.type === 'back_forward') return;   // the back button should land where they left off
+
+  history.scrollRestoration = 'manual';
+  if (!location.hash) window.scrollTo(0, 0);        // a real #anchor still gets to jump
+
+  // hand restoration back once this load is past it, so back/forward keeps working
+  window.addEventListener('load', function(){
+    setTimeout(function(){ history.scrollRestoration = 'auto'; }, 0);
+  });
+})();
+
 // ---- scroll reveal ----
 (function(){
   var items = document.querySelectorAll('.reveal');
@@ -46,30 +64,37 @@
   });
 })();
 
-// ---- carousel controls ----
+// ---- carousel: continuous auto scroller ----
 (function(){
   var track = document.querySelector('.carousel-track');
   if (!track) return;
   var items = Array.from(track.querySelectorAll('.carousel-item'));
   if (!items.length) return;
-  var activeIndex = 0;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  function scrollToActive(){
-    var target = items[activeIndex];
-    if (target) {
-      track.scrollTo({ left: target.offsetLeft - track.offsetLeft, behavior: 'smooth' });
-    }
+  // duplicate the set so the loop can wrap seamlessly
+  items.forEach(function(item){
+    var clone = item.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    var img = clone.querySelector('img');
+    if (img) img.setAttribute('alt', '');
+    track.appendChild(clone);
+  });
+
+  var SPEED = 60; // px per second
+
+  function sync(){
+    var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+    var shift = items.reduce(function(sum, item){
+      return sum + item.getBoundingClientRect().width + gap;
+    }, 0);
+    track.style.setProperty('--marquee-shift', shift + 'px');
+    track.style.setProperty('--marquee-duration', (shift / SPEED) + 's');
   }
 
-  function advance(){
-    activeIndex = (activeIndex + 1) % items.length;
-    scrollToActive();
-  }
-
-  var interval = setInterval(advance, 3000);
-  track.addEventListener('mouseenter', function(){ clearInterval(interval); });
-  track.addEventListener('mouseleave', function(){ interval = setInterval(advance, 3000); });
-  scrollToActive();
+  sync();
+  window.addEventListener('resize', sync);
+  window.addEventListener('load', sync);
 })();
 
 // ---- hero: design <-> code morph ----

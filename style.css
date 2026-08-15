@@ -74,14 +74,17 @@ header.hero{ padding:84px 0 56px; border-bottom:1px solid var(--line); }
 .pill{ display:inline-flex; align-items:center; padding:8px 14px; background:var(--paper-raised); border-radius:999px; border:1px solid var(--line); font-family:'IBM Plex Mono', monospace; letter-spacing:0.02em; }
 .brand-logos{ margin-top:24px; }
 .brand-label{ font-family:'IBM Plex Mono', monospace; text-transform:uppercase; letter-spacing:0.18em; color:var(--ink-soft); font-size:12px; margin-bottom:14px; }
-.brand-row{ display:flex; flex-wrap:wrap; gap:40px; align-items:center; }
+/* sized so all four marks hold one line inside the 1.1fr copy column */
+.brand-row{ display:flex; flex-wrap:wrap; gap:30px; align-items:center; }
 .brand-row img{ border:0; outline:0; box-shadow:none; background:none; padding:0; border-radius:0; }
-.brand-logo-img{ height:64px; width:auto; max-width:200px; object-fit:contain; }
-.brand-logo-img.is-square{ width:64px; }
+.brand-logo-img{ height:56px; width:auto; max-width:172px; object-fit:contain; }
+.brand-logo-img.is-square{ width:56px; }
 .hero-panel{ display:flex; justify-content:flex-end; }
 .hero-video{
   width:100%; max-width:320px; border-radius:28px; overflow:hidden;
   border:0; background:transparent; box-shadow:none; line-height:0;
+  /* lift off the centred position; transform so it doesn't reflow the grid */
+  transform:translateY(-34px);
 }
 .hero-video video{ display:block; width:100%; height:auto; }
 .panel-card{
@@ -152,17 +155,13 @@ section h2{ font-size:28px; margin-bottom:24px; }
 
 .carousel-section{ margin:32px 0 0; }
 .carousel-header{ display:flex; flex-wrap:wrap; align-items:center; gap:16px; margin-bottom:16px; }
-.carousel{ display:block; }
-.carousel-track{ display:grid; grid-auto-flow:column; grid-auto-columns:minmax(260px, 1fr); gap:16px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:10px; }
-.carousel-item{ scroll-snap-align:center; min-width:260px; border-radius:20px; background:var(--paper-raised); border:1px solid var(--line); padding:18px; display:flex; align-items:center; justify-content:center; }
-.carousel-image{ width:100%; min-height:220px; border-radius:16px; background:#FFFFFF; color:var(--ink-soft); display:flex; align-items:center; justify-content:center; font-size:48px; }
+.carousel{ display:block; overflow:hidden; -webkit-mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.carousel-track{ display:flex; flex-wrap:nowrap; width:max-content; gap:16px; padding-bottom:10px; animation:carousel-marquee var(--marquee-duration, 40s) linear infinite; }
+.carousel:hover .carousel-track{ animation-play-state:paused; }
+@keyframes carousel-marquee{ from{ transform:translate3d(0,0,0); } to{ transform:translate3d(calc(-1 * var(--marquee-shift, 50%)), 0, 0); } }
+.carousel-item{ flex:0 0 auto; width:360px; border-radius:16px; display:flex; align-items:center; justify-content:center; }
+.carousel-image{ width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:16px; background:var(--paper); display:block; }
 .carousel-control{ display:none; }
-
-/* ============ TALKS ============ */
-.talk-row{ display:flex; justify-content:space-between; align-items:baseline; padding:16px 0; border-top:1px solid var(--line); gap:16px; flex-wrap:wrap; }
-.talk-row:last-child{ border-bottom:none; }
-.talk-title{ font-weight:600; font-size:16px; }
-.talk-venue{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--ink-soft); }
 
 /* ============ FOOTER ============ */
 footer.site-footer{ padding:76px 0 56px; border-bottom:none; }
@@ -176,7 +175,7 @@ footer.site-footer h2{ font-size:34px; margin-bottom:20px; }
 /* ============ REVEAL ============ */
 .reveal{ opacity:0; transform:translateY(16px); transition:opacity .55s ease, transform .55s ease; }
 .reveal.in{ opacity:1; transform:translateY(0); }
-@media (prefers-reduced-motion:reduce){ .reveal{ opacity:1; transform:none; transition:none; } html{ scroll-behavior:auto; } }
+@media (prefers-reduced-motion:reduce){ .reveal{ opacity:1; transform:none; transition:none; } html{ scroll-behavior:auto; } .carousel-track{ animation:none; } .carousel{ overflow-x:auto; } }
 
 /* ==================================================== */
 /* ============ CASE STUDY PAGE ============ */
@@ -434,7 +433,14 @@ footer.site-footer h2{ font-size:34px; margin-bottom:20px; }
   .morph-view, .morph-cap{ transition:none; }
 }
 
+/* the copy column narrows faster than the logos do — tighten before it wraps */
+@media (max-width:1040px){
+  .brand-row{ gap:24px; }
+  .brand-logo-img{ height:50px; max-width:150px; }
+  .brand-logo-img.is-square{ width:50px; }
+}
 @media (max-width:900px){
+  .hero-video{ transform:none; }
   .hero-grid{ grid-template-columns:1fr; gap:40px; }
   .hero-panel{ justify-content:center; }
   .hero-video{ max-width:280px; }
@@ -449,6 +455,7 @@ footer.site-footer h2{ font-size:34px; margin-bottom:20px; }
   .brand-logo-img.is-square{ width:52px; }
   .morph-stage{ min-height:250px; }
   .code{ font-size:11px; }
+  .carousel-item{ width:280px; }
 }
 .nav-name{ white-space:nowrap; }
 .hero .tag-row{ gap:8px; }

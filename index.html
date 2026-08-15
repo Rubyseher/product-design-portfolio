@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=7">
+<link rel="stylesheet" href="style.css?v=9">
 </head>
 <body>
 
@@ -16,8 +16,8 @@
     <div class="nav-name">Ruby Seher</div>
     <div class="nav-links">
       <a href="https://rubyseher.vercel.app" target="_blank" rel="noopener">Dev Portfolio</a>
+      <a href="https://www.linkedin.com/in/ruby-s-885468205/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://github.com/Rubyseher" target="_blank" rel="noopener">GitHub</a>
-      <a href="#talks">Talks</a>
       <a href="#contact">Contact</a>
       <a class="btn-mini" href="#" data-fill="resume-link">Resume</a>
     </div>
@@ -37,23 +37,13 @@
 
       <p class="sub reveal">I run the research, design the system, and write the React that ships it, so nothing gets lost in the last 10%.</p>
 
-      <div class="cta-row reveal">
-        <a class="btn primary" href="#" data-fill="resume-link">Download resume</a>
-        <a class="btn ghost" href="#work">See the work</a>
-        <a class="btn ghost" href="https://www.linkedin.com/in/ruby-s-885468205/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-      </div>
-
-      <div class="cred-row reveal">
-        <span class="cred-dot"></span>
-        <span>Two conference talks on <b>“The 10% Problem”</b> (the gap between design and engineering) at <span class="mono">ReactPlay</span> and <span class="mono">React n Chill</span></span>
-      </div>
-
       <div class="brand-logos reveal">
         <div class="brand-label">Previously worked at</div>
         <div class="brand-row">
-          <img src="logo-change.png" alt="Let's Be The Change" class="brand-logo-img is-square">
-          <img src="logo-jpmorgan.png" alt="JPMorgan Chase & Co" class="brand-logo-img">
-          <img src="logo-nextup.png" alt="NextUp" class="brand-logo-img is-square">
+          <img src="images/logos/logo-change.png" alt="Let's Be The Change" class="brand-logo-img is-square">
+          <img src="images/logos/logo-jpmorgan.png" alt="JPMorgan Chase & Co" class="brand-logo-img">
+          <img src="images/logos/logo-nextup.png" alt="NextUp" class="brand-logo-img is-square">
+          <img src="images/logos/logo-nias.png" alt="National Institute of Advanced Studies" class="brand-logo-img">
         </div>
       </div>
     </div>
@@ -61,7 +51,7 @@
     <div class="hero-panel reveal">
       <figure class="hero-video">
         <video
-          src="portfolio-home.mp4"
+          src="images/rotato/portfolio-home.mp4"
           autoplay muted playsinline
           preload="auto"
           aria-label="Screen recording of the ShadeMatch home screen"></video>
@@ -126,24 +116,26 @@
     </div>
     <div class="carousel-section reveal">
       <div class="carousel-header">
-        <span class="eyebrow">// speaking moments</span>
       </div>
       <div class="carousel">
         <div class="carousel-track">
           <div class="carousel-item active">
-            <div class="carousel-image">🎤</div>
+            <img class="carousel-image" src="images/speaker/1782558137927.jpeg" alt="Opening The 10% Problem talk in front of a full room" loading="lazy">
           </div>
           <div class="carousel-item">
-            <div class="carousel-image">📸</div>
+            <img class="carousel-image" src="images/speaker/1783017832542.jpeg" alt="Presenting the title slide of The 10% Problem" loading="lazy">
           </div>
           <div class="carousel-item">
-            <div class="carousel-image">🎟️</div>
+            <img class="carousel-image" src="images/speaker/1778783329241.jpeg" alt="Walking through a mid fidelity flow on stage" loading="lazy">
           </div>
           <div class="carousel-item">
-            <div class="carousel-image">👥</div>
+            <img class="carousel-image" src="images/speaker/1783017840743.jpeg" alt="The rooftop venue during the talk" loading="lazy">
           </div>
           <div class="carousel-item">
-            <div class="carousel-image">✨</div>
+            <img class="carousel-image" src="images/speaker/1778783330762.jpeg" alt="A packed audience at the meetup" loading="lazy">
+          </div>
+          <div class="carousel-item">
+            <img class="carousel-image" src="images/speaker/1778783332410.jpeg" alt="Receiving the speaker gift after the talk" loading="lazy">
           </div>
         </div>
       </div>
@@ -156,23 +148,6 @@
       <div class="duo-cell">
         <span class="k">$ build</span>
         <p>React AWS PWAs API integration incl LLM APIs I ship what I design front to back.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="talks">
-  <div class="wrap">
-    <div class="eyebrow reveal">// speaking</div>
-    <h2 class="reveal grad g7">Talks</h2>
-    <div class="reveal">
-      <div class="talk-row">
-        <span class="talk-title">The 10% Problem</span>
-        <span class="talk-venue mono">ReactPlay the dev and design gap in React</span>
-      </div>
-      <div class="talk-row">
-        <span class="talk-title">The 10% Problem</span>
-        <span class="talk-venue mono">React n Chill the dev and design gap in React</span>
       </div>
     </div>
   </div>
@@ -192,6 +167,6 @@
   </div>
 </footer>
 
-<script src="script.js?v=2"></script>
+<script src="script.js?v=4"></script>
 </body>
 </html>
