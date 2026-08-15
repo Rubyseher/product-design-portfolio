@@ -13,7 +13,7 @@ Source for my product design portfolio and case studies.
 | `src/case-study-tracker.html` | The Application Black Hole — job application tracker research & IA |
 | `src/style.css` | All styles, single stylesheet |
 | `src/script.js` | Scroll reveal, case-study scroll-spy, hero design↔code toggle |
-| `images/` | Logos, speaker photos, and the hero video |
+| `src/images/` | Logos, speaker photos, and the hero video |
 
 ## ShadeMatch
 
@@ -33,6 +33,12 @@ No build step. Static HTML, CSS and JS:
 python3 -m http.server 8000
 # then open http://localhost:8000/src/
 ```
+
+## Deploying
+
+Hosted on GitHub Pages at <https://rubyseher.github.io/product-design-portfolio/>.
+
+Every push to `main` runs `.github/workflows/deploy.yml`, which publishes `src/` as the site root. No build step — the workflow just uploads the folder.
 
 ## Status
 
