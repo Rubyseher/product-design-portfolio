@@ -637,6 +637,14 @@ figure a:has(> img){ display:block; }
 .comp-row{ display:grid; grid-template-columns:40% 1fr; gap:40px; align-items:start; margin:44px 0; }
 .comp-row.rev .comp-media{ order:2; }
 .comp-row .comp-media figure{ margin:0; }
+/* a 2x2 contact sheet of competitor screenshots, sized for the narrow media column */
+.comp-grid{ display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.comp-grid a{ display:block; }
+.comp-grid img{
+  width:100%; aspect-ratio:4/3; object-fit:contain; display:block;
+  background:var(--paper-raised); border:1px solid var(--line); border-radius:8px;
+  box-shadow:0 8px 20px rgba(20,21,26,0.07);
+}
 .badge-letter{
   display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;
   border-radius:50%; border:1.5px solid var(--accent); color:var(--accent);
