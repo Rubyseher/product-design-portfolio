@@ -7,3 +7,6 @@ node_modules/
 
 # scratch renders
 src/_*.html
+
+# local working notes, stays off github
+src/docs/prompt-log-24h.md
