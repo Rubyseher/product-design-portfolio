@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ShadeMatch | Ruby Seher</title>
+<meta name="description" content="ShadeMatch is a live AI outfit colour matcher. This is the product thinking applied to it after launch: the research, the competitive position, and the two features that got cut.">
 <script>
   // claim the scroll position before the browser restores it, so the page
   // always opens at the top instead of wherever you last stopped reading
@@ -16,13 +17,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=16">
+<link rel="stylesheet" href="style.css?v=17">
 </head>
-<body>
+<body class="cs-shadematch">
+
+<div class="scroll-progress" id="scrollProgress"></div>
 
 <nav>
   <div class="wrap">
-    <a class="nav-name" href="index.html">Ruby Seher</a>
+    <div class="nav-name">Ruby Seher</div>
     <div class="nav-links">
       <a href="https://rubyseher.vercel.app" target="_blank" rel="noopener">Dev Portfolio</a>
       <a href="https://github.com/Rubyseher" target="_blank" rel="noopener">GitHub</a>
@@ -32,100 +35,1400 @@
   </div>
 </nav>
 
-<header class="cs-hero">
-  <div class="wrap">
+<!-- ============ 0. HERO: full screen opening statement ============ -->
+<header class="cs-stage">
+  <div class="wrap stage-inner">
     <a class="back-link mono" href="index.html">← all work</a>
-    <h1 class="reveal grad g5">ShadeMatch</h1>
-    <p class="cs-tagline reveal">A PWA that finds your foundation shade match, designed and built end to end.</p>
-    <div class="frontmatter reveal">
-<span class="fm-comment">// case_study_02</span><br>
-<span class="fm-key">role:</span> <span class="fm-val">product designer + engineer</span><br>
-<span class="fm-key">stack:</span> <span class="fm-val">react, gemini api</span><br>
-<span class="fm-key">status:</span> <span class="fm-status-wip">shipped, writeup in progress</span>
+
+    <div class="stage-center">
+      <div class="cs-eyebrow">ShadeMatch · Product Design Case Study · 2026</div>
+      <h1 class="stage-statement grad g11">I shipped the product. Then I audited every decision in it.</h1>
+      <p class="stage-sub">ShadeMatch is a live AI outfit colour matcher. This is the product thinking I applied to it after launch: the research, the competitive position, and the two features I cut.</p>
+      <a class="live-btn" href="https://redux-ready-shadematch.onrender.com" target="_blank" rel="noopener">View the live app →</a>
     </div>
+
+    <a class="scroll-cue mono" href="#cs-intro">scroll<span>↓</span></a>
   </div>
 </header>
+
+<!-- the colours the app actually returns, as the page's signature -->
+<div class="swatch-strip" role="img" aria-label="A strip of the colour combinations the app generates">
+  <span style="background:#C1613C"></span><span style="background:#9CA986"></span>
+  <span style="background:#EFE3D2"></span><span style="background:#2F3A52"></span>
+  <span style="background:#D8A47F"></span><span style="background:#6C3CE0"></span>
+  <span style="background:#7E8C6B"></span><span style="background:#E8C4C0"></span>
+  <span style="background:#3E4A3D"></span><span style="background:#B8734B"></span>
+  <span style="background:#F2EDE6"></span><span style="background:#1F2430"></span>
+</div>
+
+<section class="cs-intro" id="cs-intro">
+  <div class="wrap">
+    <figure class="phone reveal">
+      <div class="phone-screen">[ hero-shadematch.png<br>the result screen ]</div>
+    </figure>
+
+    <div class="meta-grid reveal">
+      <div class="meta-item">
+        <span class="mk">Role</span>
+        <span class="mv">Product Designer, solo: problem framing, research, IA, interaction, visual</span>
+      </div>
+      <div class="meta-item">
+        <span class="mk">Type</span>
+        <span class="mv">Self initiated · Live product</span>
+      </div>
+      <div class="meta-item">
+        <span class="mk">Focus</span>
+        <span class="mv">Post launch product audit and redesign</span>
+      </div>
+      <div class="meta-item">
+        <span class="mk">Tools</span>
+        <span class="mv">Figma, community research, App Store review mining</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <div class="wrap cs-body">
   <aside class="cs-sidebar">
     <div class="grp">
       <div class="grp-title mono">Overview</div>
-      <a class="sub" data-target="sec-overview">The idea</a>
+      <a class="sub" data-target="sec-problem">Problem</a>
+      <a class="sub" data-target="sec-solution">Solution</a>
     </div>
     <div class="grp">
-      <div class="grp-title mono">Product</div>
-      <a class="sub" data-target="sec-feature1">Shade matching</a>
-      <a class="sub" data-target="sec-feature2">Fast, low friction input</a>
+      <div class="grp-title mono">Research</div>
+      <a class="sub" data-target="sec-comp">Competitive analysis</a>
+      <a class="sub" data-target="sec-voices">Voices</a>
+      <a class="sub" data-target="sec-personas">Personas</a>
     </div>
     <div class="grp">
-      <div class="grp-title mono">Build</div>
-      <a class="sub" data-target="sec-build">How it's built</a>
+      <div class="grp-title mono">Design</div>
+      <a class="sub" data-target="sec-ideation">Ideation & subtraction</a>
+      <a class="sub" data-target="sec-evaluation">Evaluation</a>
+      <a class="sub" data-target="sec-flow">Main flow</a>
     </div>
     <div class="grp">
-      <div class="grp-title mono">Status</div>
-      <a class="sub" data-target="sec-next">What's next</a>
+      <div class="grp-title mono">Evaluation</div>
+      <a class="sub" data-target="sec-measure">Measuring success</a>
+      <a class="sub" data-target="sec-results">Results</a>
+      <a class="sub" data-target="sec-iterations">Iterations</a>
+    </div>
+    <div class="grp">
+      <div class="grp-title mono">Close</div>
+      <a class="sub" data-target="sec-learned">What I learned</a>
     </div>
   </aside>
 
   <main class="cs-content">
 
-    <section class="cs-section" id="sec-overview">
-      <h2 class="grad g1">The idea</h2>
-      <p>Finding the right foundation shade online is mostly guesswork. Undertones and finishes vary wildly between brands, and swatch photos rarely match reality. ShadeMatch uses the Gemini API to help people find a shade match without a store visit. [Add a sentence on what specifically prompted this project.]</p>
-      <p class="pull-quote">This one is <span class="hl-code">designed and built</span> by me, front to back. The clearest proof of how I actually work.</p>
-    </section>
+    <!-- ============ 1. PROBLEM ============ -->
+    <section class="cs-section" id="sec-problem">
+      <div class="sec-eyebrow">01 / The Problem</div>
+      <h2 class="grad g12">A full wardrobe and nothing to wear is not a joke. It's a design failure.</h2>
 
-    <section class="cs-section" id="sec-feature1">
-      <h2 class="grad g2">Shade matching</h2>
-      <div class="spotlight reveal">
-        <div class="visual-slot">[ shade match result screen ]</div>
-        <div>
-          <h3 class="grad g9">From photo to match</h3>
-          <p>[Describe the matching flow: what the user provides and how a recommendation comes back.]</p>
+      <p>People own far more clothing than they wear, and the reason isn't that they bought badly. It's that they can't see the combinations. A garment sits unworn not because it's disliked, but because nothing in the wardrobe has been identified as its partner, and identifying that partner takes a skill most people were never taught and don't believe they have.</p>
+      <p>The cost is daily, small and relentless. It's the same five outfits on rotation while most of the wardrobe stays folded. It's buying a new top because the one you own “doesn't go with anything”, which is almost never true, just unproven.</p>
+
+      <div class="statgrid reveal">
+        <div class="stat">
+          <div class="stat-num" data-count="82" data-suffix="%">82%</div>
+          <div class="stat-label">of the average US wardrobe goes unworn, from a study of 18,000 households across 20 countries</div>
         </div>
+        <div class="stat">
+          <div class="stat-num" data-count="5" data-suffix=" mo">5 mo</div>
+          <div class="stat-label">of a working life spent deciding what to wear, around an hour a week</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" data-count="45" data-suffix="%">45%</div>
+          <div class="stat-label">find deciding what to wear for work actively stressful</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">20 to 40%</div>
+          <div class="stat-label">online apparel return rate, against a 20% ecommerce average</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" data-count="120" data-suffix="">120</div>
+          <div class="stat-label">garments owned by the primary persona, of which she wears about fifteen</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" data-count="1" data-suffix=" photo">1 photo</div>
+          <div class="stat-label">the entire setup cost of the product, and its whole competitive position</div>
+        </div>
+      </div>
+
+      <h3>The insight that reframes it</h3>
+      <p>The most useful number here isn't 82%. It's the gap between the two.</p>
+
+      <div class="gap-stat reveal">
+        <div class="gs-side">
+          <div class="gs-small" data-count="26" data-suffix="%">26%</div>
+          <div class="gs-lab">what people estimate goes unworn</div>
+        </div>
+        <div class="gs-vs">versus</div>
+        <div class="gs-side">
+          <div class="gs-big" data-count="88" data-suffix="%">88%</div>
+          <div class="gs-lab">what actually goes unworn</div>
+        </div>
+      </div>
+      <div class="figcap">The distance between these two numbers is the product problem. Source: Movinga, 2018.</div>
+
+      <p>When Movinga surveyed 18,000 households across 20 countries, people estimated roughly a quarter of their wardrobe went unworn. The real figure in some countries approached nine tenths. People are not walking around aware of this problem and shopping for a solution. They've absorbed it as a personality trait, <em>I'm just bad at clothes</em>, rather than a solvable information problem.</p>
+
+      <div class="inset">
+        <p>That has a hard product consequence, and it shapes everything downstream: <mark class="sweep"><b>nobody is searching for this app</b></mark>. There is no query for “help me see what goes with my green shirt.” The product cannot rely on intent driven discovery. <b>It has to prove its value inside the first thirty seconds of the first session, before the user has consciously agreed they have a problem at all.</b></p>
+      </div>
+
+      <h3>What ShadeMatch was, before any of this</h3>
+      <p>ShadeMatch does five things. Photograph a garment, and it returns colour combinations that work with it, a filter to narrow them, shopping links to Amazon, Myntra and Flipkart, and a Pinterest button that opens a search for the combination.</p>
+      <p>It works, and it's live. But building something and understanding it are different exercises, and when I sat down to evaluate it properly, five questions had no answer.</p>
+
+      <ul class="qlist">
+        <li><span class="qm">?</span><span>Who is this for, specifically?</span></li>
+        <li><span class="qm">?</span><span>What is the moment they'd open it?</span></li>
+        <li><span class="qm">?</span><span>Why would they open it a second time?</span></li>
+        <li><span class="qm">?</span><span>Which of these five features is the product, and which are decoration?</span></li>
+        <li><span class="qm">?</span><span>What would I cut?</span></li>
+      </ul>
+
+      <p class="closer">This case study is how I answered them, and what changed as a result.</p>
+
+      <h3>The brief, written after the fact</h3>
+      <div class="inset">
+        <p>Help people wear more of what they already own, by removing the single decision that stops them, <em>what goes with this?</em>, in the moment they're standing in front of their wardrobe, in under thirty seconds, with no setup.</p>
+        <p><b><mark class="sweep">Success is not engagement. Success is a garment leaving the shelf.</mark></b></p>
       </div>
     </section>
 
-    <section class="cs-section" id="sec-feature2">
-      <h2 class="grad g6">Fast, low friction input</h2>
-      <div class="spotlight rev reveal">
-        <div class="visual-slot">[ input / onboarding screen ]</div>
-        <div>
-          <h3 class="grad g10">No signup wall</h3>
-          <p>[Describe the input experience and any design decisions around reducing friction before the first result.]</p>
+    <!-- ============ 2. SOLUTION ============ -->
+    <section class="cs-section" id="sec-solution">
+      <div class="sec-eyebrow">02 / The Solution</div>
+      <h2 class="grad g10">One item in. A wearable answer out. No setup.</h2>
+
+      <p>The scoped product does one thing: you photograph a single garment you own, and it tells you what will work with it, instantly, with no account, no wardrobe upload, no onboarding.</p>
+      <p>Everything else was either supporting that job or competing with it. Sorting out which was which was the entire design exercise.</p>
+
+      <figure class="reveal">
+        <div class="phone"><div class="phone-screen">[ flow-03-recommendation.png<br>the redesigned core screen ]</div></div>
+        <figcaption class="figcap">The redesigned result screen: three ranked combinations, each stated as a sentence with a reason.</figcaption>
+      </figure>
+
+      <div class="feature-grid">
+        <div class="feature">
+          <div class="fnum">01</div>
+          <h4><a href="#flow-01">Single item capture</a></h4>
+          <p>Photograph one garment. That's the whole input. No wardrobe digitisation, no tagging, no account. It's the lowest effort entry point in the category, and the thing that makes a first session possible for someone who hasn't agreed they have a problem yet.</p>
         </div>
+        <div class="feature">
+          <div class="fnum">02</div>
+          <h4><a href="#flow-03">Explained colour matches</a></h4>
+          <p>The app returns combinations that work with the detected colour, and says <em>why</em> in one line. A recommendation the user doesn't understand is one they can't reuse tomorrow without opening the app again.</p>
+        </div>
+        <div class="feature">
+          <div class="fnum">03</div>
+          <h4><a href="#flow-04">Visualise before committing</a></h4>
+          <p>The Pinterest link answers the question a colour swatch structurally cannot: <em>but what does that actually look like on a person?</em> It's the cheapest possible bridge between an abstract palette and a real outfit.</p>
+        </div>
+      </div>
+
+      <div class="cut-block reveal">
+        <h4><s>The cut: marketplace links, removed from the core flow.</s></h4>
+        <p>Amazon, Myntra and Flipkart links sat beside every result in the original build. They're now gone from the primary path. <a href="#sec-ideation" style="color:var(--accent); border-bottom:1px solid rgba(var(--accent-rgb), 0.4);">The reasoning is in Ideation</a>, and it's the most consequential decision in this project.</p>
       </div>
     </section>
 
-    <section class="cs-section" id="sec-build">
-      <h2 class="grad g4">How it's built</h2>
-      <p>Built as a installable PWA in React, with the Gemini API handling the matching logic. [Add a sentence or two on any interesting build decisions: offline handling, image processing, state management, etc.]</p>
-      <div class="goal-grid">
-        <div class="goal-card">
-          <svg class="goal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 3 4 12l4 9M16 3l4 9-4 9"/></svg>
-          <div>
-            <h4>React</h4>
-            <ul><li>Component structure and UI logic</li></ul>
+    <!-- ============ 3. COMPETITIVE ANALYSIS ============ -->
+    <section class="cs-section" id="sec-comp">
+      <div class="sec-eyebrow">03 / Research / Competitive Analysis</div>
+      <h2 class="grad g4">Everything either costs too much to start, or shows you clothes you don't own.</h2>
+
+      <p>There's no shortage of products in this space. What's missing is a product that answers the question at the moment it's actually asked. I mapped five categories of alternative, including the one most people actually use, which is no product at all.</p>
+
+      <div class="comp-row reveal">
+        <div class="comp-media">
+          <figure>
+            <div class="visual-slot">[ comp-a-whering.png ]</div>
+            <figcaption class="figcap">The digitisation wall. Hours of upload demanded before the first useful output.</figcaption>
+          </figure>
+        </div>
+        <div class="comp-body">
+          <div class="badge-letter">A</div>
+          <h3>Wardrobe apps</h3>
+          <div class="tools-line">Looked at: Whering, Acloset, Indyx, Stylebook</div>
+          <p>These are the most complete answer that exists. Digitise your wardrobe and the app generates full outfits from things you genuinely own, tracks wear frequency, plans ahead. When someone sticks with one, it works well.</p>
+          <div class="gap-callout">
+            <span class="gl">The gap</span>
+            <p>The setup cost is enormous and entirely front loaded. Photographing, cropping and tagging fifty to two hundred garments is hours of labour demanded <em>before</em> the product delivers anything. Read the two and three star reviews and the pattern repeats across every app in the category: people love the idea, upload twenty items, and never open it again. The product asks for the largest possible commitment from a user who hasn't yet been shown a single moment of value.</p>
+          </div>
+          <div class="verdict">Highest ceiling in the category. Highest wall in front of it.</div>
+        </div>
+      </div>
+
+      <div class="comp-row rev reveal">
+        <div class="comp-media">
+          <figure>
+            <div class="visual-slot">[ comp-b-pinterest.png ]</div>
+            <figcaption class="figcap">Aspiration without ownership. Beautiful, and unwearable.</figcaption>
+          </figure>
+        </div>
+        <div class="comp-body">
+          <div class="badge-letter">B</div>
+          <h3>Pinterest</h3>
+          <div class="tools-line">Looked at: Pinterest search and boards</div>
+          <p>Unmatched for inspiration, and the only place that answers “what does this combination look like on a real person.” It's a visual reference layer nothing else provides.</p>
+          <div class="gap-callout">
+            <span class="gl">The gap</span>
+            <p>Everything on Pinterest is a garment you don't own. It answers <em>what looks good</em> and never <em>what you can wear tonight.</em> The distance between a saved pin and an actual outfit is exactly the distance ShadeMatch exists to close, which is why the redesign links out to Pinterest rather than trying to replace it.</p>
+          </div>
+          <div class="verdict">Perfect at inspiration. Structurally incapable of personalisation.</div>
+        </div>
+      </div>
+
+      <div class="comp-row reveal">
+        <div class="comp-media">
+          <figure>
+            <div class="visual-slot">[ comp-c-myntra.png ]</div>
+            <figcaption class="figcap">A recommendation you can't fully trust, because you know what it's for.</figcaption>
+          </figure>
+        </div>
+        <div class="comp-body">
+          <div class="badge-letter">C</div>
+          <h3>Marketplace styling</h3>
+          <div class="tools-line">Looked at: Myntra “Complete the Look”, Amazon “Style with”</div>
+          <p>Genuinely good recommendations, well merchandised, shown at the exact moment a user is receptive to them.</p>
+          <div class="gap-callout">
+            <span class="gl">The gap</span>
+            <p>Every recommendation is an item for sale. The engine isn't answering <em>what goes with this</em>, it's answering <em>what else can we sell this person</em>, and the two only coincide by accident. Users know this. A styling recommendation attached to a buy button carries a permanent trust discount, and no amount of accuracy removes it.</p>
+          </div>
+          <div class="verdict"><mark class="sweep">Advice with a commercial motive is advertising.</mark></div>
+        </div>
+      </div>
+
+      <div class="comp-row rev reveal">
+        <div class="comp-media">
+          <figure>
+            <div class="visual-slot">[ comp-d-aichat.png ]</div>
+            <figcaption class="figcap">The real competitor. Free, decent, and gone the moment you close the tab.</figcaption>
+          </figure>
+        </div>
+        <div class="comp-body">
+          <div class="badge-letter">D</div>
+          <h3>General AI chat</h3>
+          <div class="tools-line">Looked at: ChatGPT and Gemini with a photo</div>
+          <p>Free, immediate, capable. Upload a photo of a shirt, ask what goes with it, get a reasonable answer. This is the strongest competitor in the category and the least discussed.</p>
+          <div class="gap-callout">
+            <span class="gl">The gap</span>
+            <p>Nothing persists. No memory of your wardrobe, no record of yesterday's question, no visual output, just text. It also requires the user to already know they can ask, and to phrase it well. A capable tool with no product around it.</p>
+          </div>
+          <div class="verdict">Capable, generic, forgettable. The bar ShadeMatch has to clear.</div>
+        </div>
+      </div>
+
+      <div class="comp-row reveal">
+        <div class="comp-media">
+          <figure>
+            <div class="visual-slot">[ comp-e-mirror.png ]</div>
+            <figcaption class="figcap">The most used competitor in the category has no interface.</figcaption>
+          </figure>
+        </div>
+        <div class="comp-body">
+          <div class="badge-letter">E</div>
+          <h3>The actual status quo</h3>
+          <div class="tools-line">Looked at: a mirror, a friend, and giving up</div>
+          <p>Free, instant, no download. Holding two items up and squinting is what almost everyone actually does, and for confident dressers it's enough.</p>
+          <div class="gap-callout">
+            <span class="gl">The gap</span>
+            <p>It doesn't scale past what you can physically hold, it depends on confidence the user may not have, and it fails at precisely the moment it matters, when you're unsure. “Ask a friend with good taste” is the most used feature in this category and it isn't available at 8am on a Tuesday.</p>
+          </div>
+          <div class="verdict">The default. Free, fast, and unreliable exactly when you need it.</div>
+        </div>
+      </div>
+
+      <h3>What this told me</h3>
+
+      <div class="matrix-wrap reveal">
+        <div class="matrix">
+          <div class="mx-axis mx-x-l">Zero setup ←</div>
+          <div class="mx-axis mx-x-r">→ High setup</div>
+          <div class="mx-axis mx-y-t">Clothes you own ↑</div>
+          <div class="mx-axis mx-y-b">↓ Clothes you don't own</div>
+
+          <div class="mx-pt is-us" style="left:23%; top:24%;">
+            <div class="mx-dot"></div>
+            <div class="mx-lab">ShadeMatch</div>
+          </div>
+          <div class="mx-pt" style="left:78%; top:30%;">
+            <div class="mx-dot"></div>
+            <div class="mx-lab">Wardrobe apps</div>
+          </div>
+          <div class="mx-pt" style="left:20%; top:70%;">
+            <div class="mx-dot"></div>
+            <div class="mx-lab">Pinterest</div>
+          </div>
+          <div class="mx-pt" style="left:40%; top:82%;">
+            <div class="mx-dot"></div>
+            <div class="mx-lab">Marketplaces</div>
+          </div>
+          <div class="mx-pt" style="left:33%; top:60%;">
+            <div class="mx-dot"></div>
+            <div class="mx-lab">AI chat</div>
+          </div>
+          <div class="mx-pt" style="left:13%; top:88%;">
+            <div class="mx-dot"></div>
+            <div class="mx-lab">Mirror and a friend</div>
           </div>
         </div>
-        <div class="goal-card">
-          <svg class="goal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <div class="figcap">The top left quadrant was unoccupied. Near zero setup, and an answer about clothes you already own.</div>
+      </div>
+
+      <p>The landscape splits along one axis: <strong>setup cost.</strong> Wardrobe apps demand everything upfront and deliver the best answer. Pinterest and marketplaces demand nothing and answer about clothes you don't own. AI chat demands nothing and leaves nothing behind.</p>
+      <p>Nobody occupies the space of <em>near zero setup, answer about what you already have.</em> That's a real position, and it's the one ShadeMatch already occupied, because it only ever asked for one photo.</p>
+
+      <div class="centered-note">
+        <p><mark class="sweep">The product had the right entry point. The work was figuring out what else had to be true for that to matter.</mark></p>
+      </div>
+    </section>
+
+    <!-- ============ 4. VOICES ============ -->
+    <section class="cs-section" id="sec-voices">
+      <div class="sec-eyebrow">04 / Research / Voices</div>
+      <h2 class="grad g7">I read the reviews of every app that failed at this.</h2>
+
+      <h3>Method</h3>
+      <p>No recruited panel, the honest constraint of a self initiated project. What I did instead had two halves.</p>
+      <p><strong>Community research.</strong> Threads across fashion advice communities, read specifically for how people describe the moment of not knowing what goes with something. Not general complaints about clothes, but that particular stuck moment.</p>
+      <p><strong>Review mining.</strong> This was the more valuable half. I read the two and three star App Store and Play Store reviews of every wardrobe app in the category. One and five star reviews are mostly noise. The middle band is where people explain, in detail and unprompted, exactly what made them abandon a product they wanted to like.</p>
+
+      <p class="pull-quote"><mark class="sweep">Two and three star reviews are <span class="hl">churn research written by the churned</span>.</mark></p>
+
+      <div class="tc">
+        <div class="tc-col plus">
+          <div class="tc-head">+ What it gave me</div>
+          <p>Unprompted honesty at volume, and direct evidence about the failure mode of my closest competitors, something I could never have obtained by interviewing my own users.</p>
+        </div>
+        <div class="tc-col minus">
+          <div class="tc-head">− What it cost me</div>
+          <p>No follow up questions, no ability to probe a contradiction, and a self selection skew toward people motivated enough to post publicly. I have no data on the quiet majority who used a wardrobe app happily and never wrote about it.</p>
+        </div>
+      </div>
+
+      <figure class="reveal">
+        <div class="visual-slot">[ reviews-cluster.png ]</div>
+        <figcaption class="figcap">App Store reviews showing the same abandonment pattern across four different wardrobe apps.</figcaption>
+      </figure>
+
+      <h3>Three clusters</h3>
+
+      <div class="cluster reveal">
+        <div class="cluster-num">Cluster 01</div>
+        <h4>“I don't trust my own eye.”</h4>
+        <span class="lbl">The signal</span>
+        <p>The dominant emotion isn't confusion, it's self doubt. People don't describe missing information, they describe missing a skill they believe others have and they don't. The recurring pattern: owning items they genuinely like, in isolation, that they have never once worn, and no vocabulary for why.</p>
+        <div class="need"><b>The unmet need: a second opinion with a reason attached.</b> Not a verdict, an explanation they can carry forward.</div>
+      </div>
+
+      <div class="cluster reveal">
+        <div class="cluster-num">Cluster 02 <span class="key-badge">★ Key insight</span></div>
+        <h4>“The setup costs more than the problem.”</h4>
+        <span class="lbl">The signal</span>
+        <p>This came almost entirely from review mining, and it's the most actionable finding in the project. The abandonment pattern is remarkably consistent: genuine enthusiasm, fifteen to thirty items uploaded, then nothing, always before the app has produced anything useful. The labour arrives before the value, every time.</p>
+        <div class="need"><b>The unmet need: <mark class="sweep">value before commitment</mark>.</b> The product must be useful at item one, not item one hundred.</div>
+      </div>
+
+      <div class="cluster reveal">
+        <div class="cluster-num">Cluster 03 <span class="key-badge">★ Key insight</span></div>
+        <h4>“Everything is trying to sell me something.”</h4>
+        <span class="lbl">The signal</span>
+        <p>A consistent, weary suspicion of styling advice attached to commerce. People describe discounting recommendations automatically when a buy button is present, not because the advice is wrong, but because they can't tell whether it's for them or for the retailer. The suspicion is applied before the recommendation is even evaluated.</p>
+        <div class="need"><b>The unmet need: advice with no motive.</b> The recommendation has to be visibly disinterested to be usable at all. This cluster directly contradicts a decision in the original build.</div>
+      </div>
+
+      <h3>The three findings that broke the original build</h3>
+      <div class="insight-grid">
+        <div class="insight-card">
+          <h4>Nobody is looking for this product.</h4>
+          <div class="minichart">
+            <div class="dotgrid" data-dots="100" data-on="82" role="img" aria-label="Eighty two dots in a hundred are highlighted: 82% of the average wardrobe goes unworn"></div>
+            <div class="dot-key">
+              <span><i class="on"></i> 82 go unworn</span>
+              <span><i></i> 18 actually worn</span>
+            </div>
+          </div>
+          <p>82% of the average wardrobe goes unworn, but people estimate around 26%. They don't experience this as a problem with a solution, they experience it as a fact about themselves. Nothing in the funnel can assume intent.</p>
+          <div class="src">Source: Movinga wardrobe study, 2018</div>
+        </div>
+        <div class="insight-card">
+          <h4>Setup cost is the category's cause of death.</h4>
+          <p>Every serious competitor loses users at the same wall. The most valuable property ShadeMatch already had, one photo and no account, turned out to be the moat, and it had never been identified as a decision.</p>
+          <div class="src">Source: App Store and Play Store review mining, 2025 and 2026</div>
+        </div>
+        <div class="insight-card">
+          <h4>Commerce contaminates advice.</h4>
+          <p>Users apply an automatic trust discount to any recommendation adjacent to a buy button. The original build placed Amazon, Myntra and Flipkart links directly beside every result, attaching a motive to the one thing that only works without one. This is the finding that indicts the existing product.</p>
+          <div class="src">Source: Community observation and review mining</div>
+        </div>
+      </div>
+
+      <div class="band">
+        <h3>The business case</h3>
+        <p>India's fashion ecommerce market was worth roughly <strong>$25.6B in 2025</strong>, apparel at <strong>54%</strong> of it, Myntra alone at about <strong>$12.5B GMV</strong>. It's not a small pond, and there's obvious money in sending qualified traffic into it.</p>
+
+        <div class="market-row">
+          <div class="market-stat">
+            <div class="ms-num">$25.6B</div>
+            <div class="ms-lab">India fashion ecommerce, 2025</div>
+          </div>
+          <div class="market-stat">
+            <div class="ms-num">54%</div>
+            <div class="ms-lab">of that market is apparel</div>
+          </div>
+          <div class="market-stat">
+            <div class="ms-num">20 to 40%</div>
+            <div class="ms-lab">apparel return rate against a 20% ecommerce average</div>
+          </div>
+        </div>
+
+        <p>That's exactly the trap. Affiliate revenue is the fastest monetisation path available to a product like this, and taking it early destroys the asset that makes the product worth using. A styling engine that is trusted can eventually monetise almost any way it likes: subscription, brand partnership, retailer licensing. A styling engine that is <em>suspected</em> has no second act.</p>
+        <p>There's a stronger commercial argument available on the retailer's own side. Online apparel returns run 20 to 40% against a 20% ecommerce average, and fit and sizing drives about half of them. A meaningful share of the remainder is the other failure: the item arrived, it was fine, and it went with nothing the buyer owned. A tool that tells someone what they can actually wear a garment with is a returns reduction tool wearing a styling app's clothes. That's a far better pitch to a retailer than affiliate clicks.</p>
+
+        <p class="punchline">Sequencing, stated plainly: earn trust with disinterested advice first. Monetise the trust second. Never the reverse.</p>
+      </div>
+    </section>
+
+    <!-- ============ 5. PERSONAS ============ -->
+    <section class="cs-section" id="sec-personas">
+      <div class="sec-eyebrow">05 / Research / Personas</div>
+      <h2 class="grad g11">Two people. One wardrobe problem, arrived at from opposite directions.</h2>
+
+      <p>The clusters resolved into two people. One owns too much and wears too little. The other keeps buying to solve a problem buying can't solve. They meet at the same moment, standing in front of a cupboard, holding one item, stuck.</p>
+
+      <div class="persona-grid">
+        <div class="persona-card reveal">
+          <div class="swatch-strip" aria-hidden="true" style="position:absolute; top:0; left:0; border-radius:16px 16px 0 0; overflow:hidden;">
+            <span style="background:#2F3A52"></span><span style="background:#EFE3D2"></span>
+            <span style="background:#C1613C"></span><span style="background:#9CA986"></span>
+          </div>
+          <span class="p-badge primary">Primary</span>
+          <div class="p-avatar" role="img" aria-label="Portrait placeholder for Aditi Sharma"></div>
+          <h3>Aditi Sharma</h3>
+          <div class="p-meta">Consultant, 26 · Bengaluru · Owns around 120 garments, wears about 15</div>
+          <div class="p-quote">“I can tell when someone else looks good. I've never been able to do it for myself.”</div>
+
+          <div class="p-stats">
+            <div class="p-stat"><b>120</b><span>garments owned</span></div>
+            <div class="p-stat"><b>15</b><span>actually worn</span></div>
+            <div class="p-stat"><b>10 min</b><span>to get dressed</span></div>
+            <div class="p-stat"><b>20</b><span>items uploaded, then quit</span></div>
+          </div>
+
+          <div class="p-sec">
+            <span class="p-lbl">Context</span>
+            <ul>
+              <li>Four years into a corporate job with a soft dress code, which is harder to dress for than a strict one</li>
+              <li>Buys online regularly: Myntra, Zara, a few Instagram brands</li>
+              <li>Wardrobe has accumulated rather than been assembled, with no organising logic behind it</li>
+              <li>Gets dressed in a ten minute window before leaving, usually running late</li>
+            </ul>
+          </div>
+          <div class="p-sec">
+            <span class="p-lbl">Goals</span>
+            <ul>
+              <li>Look put together without spending time or thought on it</li>
+              <li>Wear the things she liked enough to buy and has never worn</li>
+              <li>Stop buying replacements for problems she already owns the solution to</li>
+            </ul>
+          </div>
+          <div class="p-sec">
+            <span class="p-lbl">Frustrations</span>
+            <ul>
+              <li>Owns items she loves in isolation and has never once put on</li>
+              <li>Defaults to the same five safe outfits and is bored of all of them</li>
+              <li>Downloaded a wardrobe app, uploaded around twenty items, abandoned it</li>
+              <li>Doesn't trust her own colour judgement, and doesn't trust advice that's selling her something</li>
+            </ul>
+          </div>
+          <div class="p-sec">
+            <span class="p-lbl">Behaviours</span>
+            <ul>
+              <li>Decides in front of the open cupboard, holding one item, in under two minutes</li>
+              <li>Sends photos to one friend with good taste when genuinely stuck</li>
+              <li>Saves Pinterest outfits she never recreates, because she doesn't own the pieces</li>
+              <li>Shops when stuck, which is why she owns 120 garments and wears 15</li>
+            </ul>
+          </div>
+          <div class="p-sec">
+            <span class="p-lbl">What she needs</span>
+            <ul>
+              <li>An answer in seconds, not a system to maintain</li>
+              <li>A reason attached to the answer, so it compounds instead of resetting</li>
+              <li>Advice she can tell isn't trying to sell her anything</li>
+            </ul>
+          </div>
+
+          <div class="p-maps">
+            <span class="ml">Maps to</span>
+            <span class="chip">Cluster 1</span>
+            <span class="chip">Cluster 2</span>
+            <span class="chip">Cluster 3</span>
+          </div>
+        </div>
+
+        <div class="persona-card reveal">
+          <div class="swatch-strip" aria-hidden="true" style="position:absolute; top:0; left:0; border-radius:16px 16px 0 0; overflow:hidden;">
+            <span style="background:#1F2430"></span><span style="background:#3E4A3D"></span>
+            <span style="background:#F2EDE6"></span><span style="background:#55575E"></span>
+          </div>
+          <span class="p-badge secondary">Secondary</span>
+          <div class="p-avatar" role="img" aria-label="Portrait placeholder for Rohan Iyer"></div>
+          <h3>Rohan Iyer</h3>
+          <div class="p-meta">Product Manager, 31 · Pune · Buys often, returns often</div>
+          <div class="p-quote">“I keep buying stuff that doesn't go with anything. Then I buy more stuff to fix it.”</div>
+
+          <div class="p-stats">
+            <div class="p-stat"><b>Bulk</b><span>how he orders</span></div>
+            <div class="p-stat"><b>High</b><span>return rate</span></div>
+            <div class="p-stat"><b>0</b><span>wardrobe photos</span></div>
+            <div class="p-stat"><b>Once</b><span>at checkout, not daily</span></div>
+          </div>
+
+          <div class="p-sec">
+            <span class="p-lbl">Context</span>
+            <ul>
+              <li>Comfortable spending on clothes, uncomfortable with the results</li>
+              <li>Orders in bulk from Myntra and Amazon, returns a meaningful share</li>
+              <li>Confident in most domains, specifically not this one, and slightly embarrassed by that</li>
+              <li>Would never describe himself as someone who cares about fashion, but does</li>
+            </ul>
+          </div>
+          <div class="p-sec">
+            <span class="p-lbl">Goals</span>
+            <ul>
+              <li>Stop wasting money on items that end up unworn</li>
+              <li>Reduce returns, which he finds tedious rather than free</li>
+              <li>Look deliberate without having to develop an interest in clothes</li>
+            </ul>
+          </div>
+          <div class="p-sec">
+            <span class="p-lbl">Frustrations</span>
+            <ul>
+              <li>Buys individual items with no plan for what they pair with</li>
+              <li>Ignores marketplace “complete the look” suggestions as transparently commercial</li>
+              <li>Has no way to check a purchase against what he already owns</li>
+              <li>His fix for “nothing goes together” is buying more, which makes it worse</li>
+            </ul>
+          </div>
+          <div class="p-sec">
+            <span class="p-lbl">Behaviours</span>
+            <ul>
+              <li>Decides at the point of purchase more than at the point of dressing</li>
+              <li>Sorts by rating and buys the safe option: navy, black, white</li>
+              <li>Has never photographed his wardrobe and never will</li>
+              <li>Would use a tool once at checkout, not daily</li>
+            </ul>
+          </div>
+          <div class="p-sec">
+            <span class="p-lbl">What he needs</span>
+            <ul>
+              <li>A check before buying: does this work with what I own?</li>
+              <li>Confidence at the point of spending</li>
+              <li>Something that takes seconds, because he won't invest more than that</li>
+            </ul>
+          </div>
+
+          <div class="p-maps">
+            <span class="ml">Maps to</span>
+            <span class="chip">Cluster 1</span>
+            <span class="chip">Cluster 3</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="closing-statement">
+        <h4>Why Aditi is primary</h4>
+        <p>Rohan is, on the face of it, the more commercially attractive user. He's at the point of purchase, already spending, one click from an affiliate link. Designing for him monetises immediately.</p>
+        <p>I prioritised Aditi anyway, for three reasons.</p>
+        <p><strong>Frequency.</strong> Aditi has the problem every morning. Rohan has it when he shops. A daily problem builds a habit, an occasional one builds a bookmark.</p>
+        <p><strong>Trust.</strong> Designing for Rohan pulls the product toward commerce, and Cluster 3 says <mark class="sweep">commerce is exactly what makes styling advice unusable</mark>. Optimising for the buying moment would have degraded the thing that makes the product work at all.</p>
+        <p><strong>Coverage.</strong> Aditi's needs contain most of Rohan's. A product that answers “what goes with this thing I own” can answer “what would go with this thing I'm about to buy” with almost no additional design. The reverse isn't true. A purchase time tool has nothing useful to say at 8am on a Tuesday.</p>
+        <p>Aditi became the design target. Rohan became the expansion case: deliberately not designed for now, deliberately not designed <em>against</em>.</p>
+      </div>
+
+      <h3>Redefined challenge</h3>
+      <p>The original build treated this as a colour problem and solved it with a colour algorithm. The research says it isn't a colour problem. It's a <strong>confidence</strong> problem with a colour shaped surface, and confidence isn't restored by an answer, it's restored by an answer you understand.</p>
+
+      <div class="hmw reveal">
+        <div class="hmw-stmt">
+          <span class="lead">How might we</span> help people wear more of what they already own, by giving them a trustworthy, instantly available second opinion on a single garment, one that explains its reasoning, requires no setup, and has nothing to sell them?
+        </div>
+        <div class="chiprow">
+          <span class="chip is-in">Built for: the moment of getting dressed, holding one item</span>
+          <span class="chip is-out">Not for: wardrobe management, shopping, or building a styling habit</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 6. IDEATION ============ -->
+    <section class="cs-section" id="sec-ideation">
+      <div class="sec-eyebrow">06 / Design / Ideation</div>
+      <h2 class="grad g1">The hardest part was subtraction.</h2>
+
+      <p>Most design projects start empty and add. This one started full. ShadeMatch already did five things, and the work was almost entirely deciding which were the product and which were noise wearing a feature's clothes.</p>
+
+      <h3>The three questions everything had to pass</h3>
+      <div class="criteria-row">
+        <div class="criterion">
+          <div class="cnum">01</div>
+          <p><b>Does this serve the moment of getting dressed?</b> Not the moment of shopping, not browsing. If a feature's best use case was “while browsing Myntra,” it was out of the core regardless of how well it worked.</p>
+        </div>
+        <div class="criterion">
+          <div class="cnum">02</div>
+          <p><b>Does it cost the user anything before it gives them something?</b> Cluster 2 killed the category through setup cost. Anything adding upfront work, accounts, uploads, preference quizzes, onboarding, was out unless it earned its cost inside the same session.</p>
+        </div>
+        <div class="criterion">
+          <div class="cnum">03</div>
+          <p><b>Does it survive the trust test?</b> Would Aditi believe this recommendation if she knew exactly how the product made money? If not, the feature was damaging the product even while working correctly.</p>
+        </div>
+      </div>
+
+      <h3>Auditing what already existed</h3>
+      <table class="audit-table">
+        <thead>
+          <tr><th>Feature, as built</th><th>Verdict</th><th>Reasoning</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Single garment photo capture</td>
+            <td><span class="vchip-keep">Core, keep</span></td>
+            <td>The strongest thing in the product. Near zero setup is the entire competitive position.</td>
+          </tr>
+          <tr>
+            <td>Colour combination suggestions</td>
+            <td><span class="vchip-mid">Rebuild output</span></td>
+            <td>Right feature, wrong presentation. Returned colours without reasons, which answers the question once instead of teaching the user to answer it themselves.</td>
+          </tr>
+          <tr>
+            <td>The filter control</td>
+            <td><span class="vchip-mid">Rename</span></td>
+            <td>Failed on naming alone. The label was internal sounding language no user standing at a wardrobe would recognise, and a filter nobody understands is a filter nobody uses.</td>
+          </tr>
+          <tr>
+            <td>Amazon, Myntra and Flipkart links</td>
+            <td><span class="vchip-cut">Cut from core</span></td>
+            <td>Fails question 3 outright. Attaches a commercial motive to advice that only works without one. The most consequential cut in the project.</td>
+          </tr>
+          <tr>
+            <td>Pinterest link</td>
+            <td><span class="vchip-keep">Keep, promote</span></td>
+            <td>Underrated in the original build. The only thing answering “what does this look like on a person,” which a colour swatch structurally cannot.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Why cutting the marketplace links was the right call</h3>
+      <p>This was the decision I argued with myself about most, so here's the full reasoning.</p>
+
+      <div class="tc">
+        <div class="tc-col plus">
+          <div class="tc-head">The case for keeping them</div>
+          <p>They're the only revenue in the product. India's fashion ecommerce market is around $25.6B and affiliate programmes are trivially easy to join. They're also occasionally useful, because sometimes the honest answer is that you don't own anything that works.</p>
+        </div>
+        <div class="tc-col minus">
+          <div class="tc-head">The case for cutting them, which won</div>
+          <p>Cluster 3 is unambiguous. Users apply a trust discount to any styling advice sitting next to a buy button, and that discount doesn't depend on whether the advice is good. Trust in this product isn't a nice to have, it <em>is</em> the product.</p>
+        </div>
+      </div>
+
+      <div class="inset">
+        <p>The entire reason Aditi would choose this over Myntra's “Complete the Look” is the absence of a motive.</p>
+        <p>There's a compounding problem too. The moment revenue depends on outbound clicks, every future design decision gets a thumb on the scale. The recommendation that earns nothing starts quietly losing to the recommendation that earns something, slowly, in ways nobody explicitly decides. Cutting the links now isn't only about the current experience, it removes a pressure that would have bent every subsequent decision.</p>
+        <p><b>Where they went instead:</b> a secondary path, entered deliberately. When a user's own wardrobe genuinely doesn't contain a match, <em>then</em> the option to see what does exist commercially is a service rather than an ad, because the user asked for it.</p>
+      </div>
+
+      <p class="pull-quote"><mark class="sweep">The same feature can be helpful or manipulative depending only on <span class="hl">who initiated the interaction</span>.</mark></p>
+
+      <h3>What got cut, and what never made it in</h3>
+      <table class="cut-table">
+        <thead>
+          <tr><th>Idea</th><th>Why it didn't survive</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Full wardrobe upload and outfit generation</td>
+            <td>The category's cause of death. Would have converted the product's one advantage into its competitors' one weakness.</td>
+          </tr>
+          <tr>
+            <td>Account and login before first use</td>
+            <td>Fails question 2. Value has to arrive before commitment, not after.</td>
+          </tr>
+          <tr>
+            <td>Style quiz onboarding</td>
+            <td>Six taps before a single useful output, for a user who hasn't agreed she has a problem. Every tap here is a leak.</td>
+          </tr>
+          <tr>
+            <td>Social feed and outfit sharing</td>
+            <td>Solves a problem Aditi doesn't have. She isn't short of inspiration, she's short of confidence about her own cupboard.</td>
+          </tr>
+          <tr class="is-deferred">
+            <td>Skin tone colour analysis <span class="deferred-tag">→ deferred, not cut</span></td>
+            <td>Genuinely valuable, and genuinely a different product. Requires accuracy I can't validate and carries real harm risk if wrong.</td>
+          </tr>
+          <tr class="is-deferred">
+            <td>Occasion filter for work, casual and evening <span class="deferred-tag">→ deferred, not cut</span></td>
+            <td>Good idea, but adds a decision to a flow whose whole promise is removing one. Second version.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Sketches</h3>
+      <p>I sketched on paper before touching Figma. Low fidelity keeps you from committing to a layout before deciding what the layout is for. These are the raw pages.</p>
+
+      <div class="sketch-grid">
+        <figure>
+          <div class="visual-slot">[ sketch-01.jpg ]</div>
+          <figcaption class="figcap">First pass at the result screen. The question that kept returning: is the output a colour, or an instruction?</figcaption>
+        </figure>
+        <figure>
+          <div class="visual-slot">[ sketch-02.jpg ]</div>
+          <figcaption class="figcap">Working out how much to show. Three suggestions or twelve? Twelve is more impressive and less useful.</figcaption>
+        </figure>
+        <figure>
+          <div class="visual-slot">[ sketch-03.jpg ]</div>
+          <figcaption class="figcap">Where the “why” line came from. A palette without a reason gets used once. A palette with a reason gets remembered.</figcaption>
+        </figure>
+        <figure>
+          <div class="visual-slot">[ sketch-04.jpg ]</div>
+          <figcaption class="figcap">Placing the Pinterest link so it reads as “see it” rather than “leave”.</figcaption>
+        </figure>
+        <figure>
+          <div class="visual-slot">[ sketch-05.jpg ]</div>
+          <figcaption class="figcap">Capture screen. Counting taps between opening the app and having an answer, trying to get to two.</figcaption>
+        </figure>
+        <figure>
+          <div class="visual-slot">[ sketch-06.jpg ]</div>
+          <figcaption class="figcap">The empty state. Sketched last, and became one of the most important screens in the product.</figcaption>
+        </figure>
+      </div>
+
+      <p>Three things came out of sketching that the original build had skipped entirely.</p>
+      <p><strong>The output changed from a colour to an instruction.</strong> The build returned swatches. A swatch is data, and it hands the interpretation work back to a user who has just told us she doesn't trust her interpretation. The sketches moved toward stating the recommendation in words, with colour supporting it rather than the reverse.</p>
+      <p><strong>The count came down.</strong> Early sketches showed a full palette of eight, ten, twelve options. It looked far more capable and performed far worse. Aditi has a two minute window and low confidence, and twelve options hands the same decision problem back in a new wrapper. Three, ranked, with reasons.</p>
+      <p><strong>The empty state became a real screen.</strong> What happens when nothing you own works with this? The build had no answer, and it isn't an edge case. For an accumulated, unplanned wardrobe it may be the most common outcome. It's also the only place a shopping link is genuinely a service. Designing that screen properly is what turned the marketplace links from a contaminant into a feature.</p>
+    </section>
+
+    <!-- ============ 7. EVALUATION ============ -->
+    <section class="cs-section" id="sec-evaluation">
+      <div class="sec-eyebrow">07 / Design / Evaluation</div>
+      <h2 class="grad g9">Auditing a live product against its own research.</h2>
+
+      <h3>Method</h3>
+      <p>ShadeMatch had one advantage over a concept project: it already existed and could be used. So rather than testing a prototype, I ran a structured evaluation of the live product against the research findings, going through the real flow, screen by screen, and asking three questions at every step.</p>
+
+      <div class="qa">
+        <div class="qa-row">
+          <div class="qa-q"><span class="qn mono">01</span>What does a first time user expect before opening this?</div>
+          <div class="qa-why">Tests whether the value proposition survives contact.</div>
+        </div>
+        <div class="qa-row">
+          <div class="qa-q"><span class="qn mono">02</span>Can they say what the app just told them, in their own words?</div>
+          <div class="qa-why">Tests comprehension, not correctness.</div>
+        </div>
+        <div class="qa-row">
+          <div class="qa-q"><span class="qn mono">03</span>Would they actually wear it?</div>
+          <div class="qa-why">Tests the only thing that matters. Not “is this right,” but “did it change what someone did.” The obvious question, “are the suggestions nice,” measures nothing.</div>
+        </div>
+      </div>
+
+      <div class="disclaimer">Stated plainly: this is a heuristic evaluation against documented research, not a moderated usability study with recruited participants. It is good at finding structural and comprehension failures. It cannot tell me whether anyone's behaviour changed, and that requires the diary study described in Measuring success.</div>
+
+      <h3>Four failures it surfaced</h3>
+      <div class="friction-grid">
+        <div class="friction-card">
+          <div class="fbadge">1</div>
+          <h4>The output gives an answer but no reason.</h4>
+          <p>A suggestion arrives as a bare colour combination. Nothing explains why it works. For a user whose underlying problem is confidence rather than information, an unexplained answer solves today and nothing else. Confidence doesn't transfer between sessions. A reason does.</p>
+        </div>
+        <div class="friction-card">
+          <div class="fbadge">2</div>
+          <h4>The filter label is internal language.</h4>
+          <p>The filter control used a phrase that made sense somewhere inside the build process and means nothing to someone standing at a wardrobe. A control that has to be explained has already failed.</p>
+        </div>
+        <div class="friction-card">
+          <div class="fbadge">3</div>
+          <h4>The shopping links change how the whole app reads.</h4>
+          <p>Once the Amazon and Myntra links are visible, the <em>suggestions themselves</em> start reading as advertising. The commercial framing propagates backwards onto output that was working perfectly well on its own. The links don't just fail to add value. They devalue what's already there.</p>
+        </div>
+        <div class="friction-card">
+          <div class="fbadge">4</div>
+          <h4>A swatch doesn't answer the real question.</h4>
+          <p>Even a well explained colour combination doesn't tell you what it looks like on a person. The Pinterest link, treated as a minor extra in the build, is the only thing addressing the question users are actually asking. The hierarchy was backwards.</p>
+        </div>
+      </div>
+
+      <h3>Revised design goals</h3>
+      <p>The evaluation didn't change what the product is. It changed four things about how it has to behave.</p>
+
+      <table class="goals-table">
+        <thead>
+          <tr><th>Original goal</th><th></th><th>Revised goal</th><th>Trigger</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="g-old">Suggest colours that match</td>
+            <td class="g-arrow">→</td>
+            <td class="g-new">Suggest colours that match <b>and say why in one line</b>. Every output must teach, not just answer</td>
+            <td class="g-trig">Failure 1</td>
+          </tr>
+          <tr>
+            <td class="g-old">Give the user control via filters</td>
+            <td class="g-arrow">→</td>
+            <td class="g-new">Give the user control <b>in language they already use</b>. No term that needs explaining survives</td>
+            <td class="g-trig">Failure 2</td>
+          </tr>
+          <tr>
+            <td class="g-old">Help users find matching items</td>
+            <td class="g-arrow">→</td>
+            <td class="g-new">Help users find matching items <b>they already own</b>. Commerce only on request, never volunteered</td>
+            <td class="g-trig">Failure 3</td>
+          </tr>
+          <tr>
+            <td class="g-old">Show the recommended combination</td>
+            <td class="g-arrow">→</td>
+            <td class="g-new"><b>Let them see it on a person</b> before committing. Abstract palettes don't convert to worn outfits</td>
+            <td class="g-trig">Failure 4</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ============ 8. MAIN FLOW ============ -->
+    <section class="cs-section" id="sec-flow">
+      <div class="sec-eyebrow">08 / Design / The Flow</div>
+      <h2 class="grad g12">Two taps to an answer.</h2>
+
+      <p>The entire product is one loop, and its quality is measured in how few steps it takes. Aditi is standing at a cupboard with about two minutes. Every screen between her and an answer is a place to lose her.</p>
+
+      <div class="phone-row reveal">
+        <div class="phone-step">
+          <div class="phone"><div class="phone-screen">[ flow-01-capture ]</div></div>
+          <div class="ps-lab"><span class="ps-num">01</span> Capture</div>
+        </div>
+        <div class="phone-step">
+          <div class="phone"><div class="phone-screen">[ flow-02-detect ]</div></div>
+          <div class="ps-lab"><span class="ps-num">02</span> Detect</div>
+        </div>
+        <div class="phone-step">
+          <div class="phone"><div class="phone-screen">[ flow-03-recommend ]</div></div>
+          <div class="ps-lab"><span class="ps-num">03</span> Recommend</div>
+        </div>
+        <div class="phone-step">
+          <div class="phone"><div class="phone-screen">[ flow-04-visualise ]</div></div>
+          <div class="ps-lab"><span class="ps-num">04</span> Visualise</div>
+        </div>
+        <div class="phone-step">
+          <div class="phone"><div class="phone-screen">[ flow-05-empty ]</div></div>
+          <div class="ps-lab"><span class="ps-num">05</span> Empty state</div>
+        </div>
+      </div>
+      <div class="figcap">The whole product in one row. Five screens, and only two taps between opening the app and an answer.</div>
+
+      <div class="flow-block" id="flow-01">
+        <div class="fb-num">Step 01</div>
+        <h3>Capture</h3>
+        <div class="fb-grid">
           <div>
-            <h4>Gemini API</h4>
-            <ul><li>Shade recommendation logic</li></ul>
+            <div class="fb-item">
+              <span class="fl">What happens</span>
+              <p>The app opens directly to the camera. No home screen, no login, no splash. Point at a garment, tap once.</p>
+            </div>
+            <div class="fb-item is-decision">
+              <span class="fl">The design decision</span>
+              <p>No account, ever, until the user has a reason to want one. Every screen before the camera is a leak, and the users leaking out are exactly the ones who haven't yet agreed they have a problem. Opening straight to the camera is a statement: this costs you nothing to try.</p>
+            </div>
+            <div class="fb-item">
+              <span class="fl">What it protects</span>
+              <p>The only structural advantage the product has over wardrobe apps. That advantage is worth more than everything an account would enable.</p>
+            </div>
+          </div>
+          <div class="fb-media">
+            <figure>
+              <div class="phone"><div class="phone-screen">[ flow-01-capture.png ]</div></div>
+              <figcaption class="figcap">Annotation: “Zero screens before value.”</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-block" id="flow-02">
+        <div class="fb-num">Step 02</div>
+        <h3>Detection</h3>
+        <div class="fb-grid">
+          <div>
+            <div class="fb-item">
+              <span class="fl">What happens</span>
+              <p>The garment's dominant colour is identified and shown back to the user, named rather than just swatched. “Rust orange.” “Sage.”</p>
+            </div>
+            <div class="fb-item is-decision">
+              <span class="fl">The design decision</span>
+              <p>Show the detection before the recommendation, and make it correctable. Two reasons. If the detection is wrong, everything downstream is wrong, and the user needs to see that before investing belief in a bad answer. And naming the colour is quietly the most educational moment in the product. A user who learns her shirt is “rust” rather than “orange ish” has gained something she keeps.</p>
+            </div>
+            <div class="fb-item">
+              <span class="fl">What it protects</span>
+              <p>Trust. An AI product that shows its work when the work is cheap to show buys credibility for the moments when it can't.</p>
+            </div>
+          </div>
+          <div class="fb-media">
+            <figure>
+              <div class="phone"><div class="phone-screen">[ flow-02-detect.png ]</div></div>
+              <figcaption class="figcap">Annotation: “Show the input before the output.”</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-block" id="flow-03">
+        <div class="fb-num">Step 03</div>
+        <h3>Recommendation</h3>
+        <div class="fb-grid">
+          <div>
+            <div class="fb-item">
+              <span class="fl">What happens</span>
+              <p>Three combinations, ranked, each stated as a sentence with colour supporting it rather than a swatch grid. Each carries a one line reason.</p>
+            </div>
+            <div class="fb-item is-decision">
+              <span class="fl">The decision: three, not twelve</span>
+              <p>A full palette looks more capable and performs worse. The user came here because a decision was hard, and twelve options hands the same problem back in a new wrapper. <mark class="sweep">Three ranked options with reasons is a recommendation. Twelve is a colour picker.</mark></p>
+            </div>
+            <div class="fb-item is-decision">
+              <span class="fl">The decision: the reason line isn't optional</span>
+              <p>This is the difference between a product used once and one that compounds. An unexplained answer solves today. An explained one starts building the confidence that was the actual problem, and the honest long term success state here is a user who needs the app less over time.</p>
+            </div>
+          </div>
+          <div class="fb-media">
+            <figure>
+              <div class="phone"><div class="phone-screen">[ flow-03-recommend.png ]</div></div>
+              <figcaption class="figcap">One recommendation card: sentence, colours, reason line.</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="ba-grid">
+          <div class="ba-cell before">
+            <div class="ba-tag">Before</div>
+            <div class="visual-slot">[ iter-01-before.png, the swatch grid ]</div>
+          </div>
+          <div class="ba-cell after">
+            <div class="ba-tag">After</div>
+            <div class="visual-slot">[ iter-01-after.png, the recommendation card ]</div>
+          </div>
+        </div>
+        <div class="figcap">The original swatch grid against the redesigned recommendation card.</div>
+      </div>
+
+      <div class="flow-block" id="flow-04">
+        <div class="fb-num">Step 04</div>
+        <h3>Visualise</h3>
+        <div class="fb-grid">
+          <div>
+            <div class="fb-item">
+              <span class="fl">What happens</span>
+              <p>One tap opens Pinterest, already searched for the specific combination, showing real people wearing it.</p>
+            </div>
+            <div class="fb-item is-decision">
+              <span class="fl">The decision: link out rather than build</span>
+              <p>In house outfit visualisation would be the most expensive feature in the product by an order of magnitude, and Pinterest already does it better than a solo project could. Sending the user out isn't a failure of ambition, it's an accurate read of where the value is. <mark class="sweep">The product's job is the decision. Pinterest's job is the picture.</mark> Neither needs to do both.</p>
+            </div>
+            <div class="fb-item">
+              <span class="fl">The risk, acknowledged</span>
+              <p>This hands the user to another app at the moment of highest engagement, and some won't come back. That's a real cost, and it's worth it. The alternative is a worse answer to the question people most want answered, and a product that answers the wrong question well still loses.</p>
+            </div>
+          </div>
+          <div class="fb-media">
+            <figure>
+              <div class="phone"><div class="phone-screen">[ flow-04-visualise.png ]</div></div>
+              <figcaption class="figcap">Annotation: “The cheapest possible answer to but what does it look like.”</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-block" id="flow-05">
+        <div class="fb-num">Step 05</div>
+        <h3>The empty state</h3>
+        <div class="fb-grid">
+          <div>
+            <div class="fb-item">
+              <span class="fl">What happens</span>
+              <p>When nothing in the user's wardrobe works, the app says so plainly, and <em>then</em> offers the option to see what would.</p>
+            </div>
+            <div class="fb-item is-decision">
+              <span class="fl">The design decision</span>
+              <p>This is the only place commerce belongs, and it belongs here entirely. The user has been given the honest answer first, that nothing they own works with this, so the shopping option arrives as a response to a problem they now have rather than an unprompted suggestion attached to advice.</p>
+            </div>
+            <div class="fb-item">
+              <span class="fl">Why it matters more than it looks</span>
+              <p>This is the same feature cut in Ideation, reinstated in a different position, with completely different meaning. <mark class="sweep">Volunteered, it's an ad. Requested, it's a service.</mark> The feature didn't change. The initiator did.</p>
+            </div>
+          </div>
+          <div class="fb-media">
+            <figure>
+              <div class="phone"><div class="phone-screen">[ flow-05-empty.png ]</div></div>
+              <figcaption class="figcap">The empty state, with the shopping affordance clearly subordinate in the hierarchy.</figcaption>
+            </figure>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="cs-section" id="sec-next">
-      <h2 class="grad g7">What's next</h2>
-      <div class="status-box">
-        <p>The product is shipped and working. The full case study, covering research, iterations, and the decisions behind them, is what I'm building next, applying real product thinking rigor to a project I originally moved fast on.</p>
+    <!-- ============ 9. MEASURING SUCCESS ============ -->
+    <section class="cs-section" id="sec-measure">
+      <div class="sec-eyebrow">09 / Evaluation / Measuring Success</div>
+      <h2 class="grad g4">The metric that would have destroyed this product.</h2>
+
+      <div class="band">
+        <p>The easiest metric to instrument here is clicks to Amazon, Myntra and Flipkart. It's precise, attributable, maps directly to revenue, and optimising for it would have systematically dismantled everything that makes the product work.</p>
+        <p class="punchline">Every incentive points at measuring commerce, and commerce is the thing the research says corrodes it.</p>
       </div>
-      <div class="case-links">
-        <a href="#" data-fill="shadematch-live-link">Try the live app ↗</a>
+
+      <h3>North star metric</h3>
+      <div class="northstar reveal">
+        <div class="ns-lbl">North star metric</div>
+        <div class="ns-metric">Percentage of sessions where the user wears an outfit they wouldn't otherwise have worn.</div>
+        <p>Not sessions. Not time in app. Not suggestions generated. All of those rise when a product is confusing, and the goal is a garment leaving the shelf.</p>
       </div>
+
+      <div class="disclaimer">The honest caveat: this is hard to instrument. You can't observe what someone wore. The usable proxy is a lightweight “wore this” confirmation on a return visit, which is itself a design problem, because adding a check in to a product whose promise is zero friction is a contradiction. My current answer is a single optional tap surfaced only on return, accepting incomplete data over a degraded experience. It's a compromise, and I'd want to test it.</div>
+
+      <h3>Supporting metrics</h3>
+      <table class="metrics-table">
+        <thead>
+          <tr><th>Design goal</th><th>Metric</th><th>Target</th><th>Why this one</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Value before commitment</td>
+            <td>% of first sessions reaching a recommendation</td>
+            <td>&gt; 85%</td>
+            <td>If people drop before the first answer, the zero setup promise failed at its only job</td>
+          </tr>
+          <tr>
+            <td>Speed of answer</td>
+            <td>Median seconds, launch to first recommendation</td>
+            <td>&lt; 30s</td>
+            <td>Aditi's window is two minutes. Slower than this loses to the mirror.</td>
+          </tr>
+          <tr>
+            <td>Comprehension, not correctness</td>
+            <td>% of sessions where the reason line is read or expanded</td>
+            <td>&gt; 50%</td>
+            <td>A reason nobody reads is a reason that isn't working</td>
+          </tr>
+          <tr>
+            <td>Confidence compounding</td>
+            <td>% of returning users applying a past combination without rescanning</td>
+            <td>&gt; 25%</td>
+            <td>The strongest signal available, because the user learned something and kept it</td>
+          </tr>
+          <tr>
+            <td>Trust</td>
+            <td>Suggestion acceptance rate, with against without commerce present</td>
+            <td>&lt; 5%</td>
+            <td>Directly measures the Cluster 3 contamination effect</td>
+          </tr>
+          <tr>
+            <td>★ Real value</td>
+            <td>Distinct garments involved in accepted suggestions, per user, per month</td>
+            <td>Rising</td>
+            <td>The only metric that measures the actual problem moving rather than a proxy for it</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Counter metrics, how I'd know it backfired</h3>
+      <p>Three things I'd treat as failure regardless of what the North Star did.</p>
+
+      <div class="guardrails">
+        <div class="gr-head">Guardrails</div>
+        <div class="guardrail">
+          <b>Sessions per day above 3</b>
+          <div class="gauge">
+            <div class="gauge-track" role="img" aria-label="Sessions per day: healthy up to 3, failure above 3">
+              <div class="gauge-mark" style="left:38%"></div>
+            </div>
+            <div class="gauge-scale"><span>0</span><span>healthy 1 to 3</span><span>trip line 3</span><span>10</span></div>
+          </div>
+          <span>This isn't a product that should be used often. Rising usage means either it isn't answering the question or it's become a browsing toy. <mark class="sweep">The long term success state is a user who needs it less.</mark> An uncomfortable thing to build a business on, and the honest thing to measure.</span>
+        </div>
+        <div class="guardrail">
+          <b>Rising outbound commerce clicks as a share of sessions</b>
+          <div class="trend">↑ any rise = failure</div>
+          <span>Means either the empty state is being reached too often, or the boundary between advice and commerce has eroded. Either way the thing worth protecting is going.</span>
+        </div>
+        <div class="guardrail">
+          <b>Falling acceptance rate over a user's lifetime</b>
+          <div class="trend">↓ any fall = failure</div>
+          <span>Means recommendations aren't fitting a real wardrobe and the user is learning to discount them. Slow, quiet, fatal.</span>
+        </div>
+      </div>
+
+      <h3>How I'd validate</h3>
+      <div class="val-cols">
+        <div class="val-col">
+          <span class="vchip">Qual</span>
+          <p><strong>Usability, moderated.</strong> 5 to 8 people matching Aditi, using the live app on their own wardrobe. Two questions: does the reason line change whether they'd wear it, and do they notice the absence of shopping links.</p>
+        </div>
+        <div class="val-col">
+          <span class="vchip">Longitudinal</span>
+          <p><strong>Diary study, 2 weeks.</strong> 6 participants logging what they wore. The only method that can answer whether unworn garments actually moved, which is the entire point.</p>
+        </div>
+        <div class="val-col">
+          <span class="vchip">Quant</span>
+          <p><strong>A/B on commerce placement.</strong> The highest value test available: volunteered shopping links against empty state only, measured on acceptance rate rather than clicks. It's the decision in this project I'd most want proven right or wrong.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 10. RESULTS ============ -->
+    <section class="cs-section" id="sec-results">
+      <div class="sec-eyebrow">10 / Evaluation / Results</div>
+      <h2 class="grad g7">What I can claim, and what I can't.</h2>
+
+      <p>ShadeMatch is live but it isn't a business, and there's no meaningful usage data behind it. Here's what the work actually produced.</p>
+
+      <h3>What the audit established</h3>
+      <div class="vlist">
+        <div class="vitem is-yes">
+          <div class="vmark">✓</div>
+          <div>
+            <b>The zero setup entry point is the competitive position.</b>
+            <span>It survived the full landscape analysis as the one thing no competitor offers, and it's the property every design decision downstream now protects.</span>
+          </div>
+        </div>
+        <div class="vitem is-yes">
+          <div class="vmark">✓</div>
+          <div>
+            <b>The output needed a reason, not just an answer.</b>
+            <span>The strongest structural finding in the evaluation, and the change I'd defend hardest, because it addresses the actual problem, confidence, rather than the surface one, colour.</span>
+          </div>
+        </div>
+        <div class="vitem is-yes">
+          <div class="vmark">✓</div>
+          <div>
+            <b>The commerce contamination effect is real, and stronger than expected.</b>
+            <span>The presence of shopping links doesn't just add nothing. It propagates backwards and devalues recommendations that were working. This finding cut a feature.</span>
+          </div>
+        </div>
+        <div class="vitem is-yes">
+          <div class="vmark">✓</div>
+          <div>
+            <b>Two of five features were misjudged in the original build.</b>
+            <span>Pinterest visualisation was treated as an extra and is central. Marketplace links were treated as central and are harmful. That's a reasonable hit rate for a build made without a research base, and precisely the gap this exercise existed to close.</span>
+          </div>
+        </div>
+      </div>
+
+      <h3>What is not validated</h3>
+      <div class="vlist">
+        <div class="vitem is-no">
+          <div class="vmark">○</div>
+          <div>
+            <b>That anyone wears anything differently.</b>
+            <span>The entire premise, that this moves garments from unworn to worn, is unproven and needs a two week diary study. It's the only thing that would truly matter, and the thing I don't have.</span>
+          </div>
+        </div>
+        <div class="vitem is-no">
+          <div class="vmark">○</div>
+          <div>
+            <b>The colour matching itself.</b>
+            <span>I've assessed the recommendations as plausible. I haven't validated them rigorously against colour theory, or tested across skin tones, lighting conditions and fabric textures, all of which affect the answer.</span>
+          </div>
+        </div>
+        <div class="vitem is-no">
+          <div class="vmark">○</div>
+          <div>
+            <b>The business model.</b>
+            <span>Removing the only revenue in the product is defensible on trust grounds and completely untested commercially. Trust first and monetise later is a strategy, not a plan.</span>
+          </div>
+        </div>
+        <div class="vitem is-no">
+          <div class="vmark">○</div>
+          <div>
+            <b>Retention.</b>
+            <span>A product designed to be needed less over time has a retention problem built into its own definition of success. I've named that tension rather than resolved it.</span>
+          </div>
+        </div>
+      </div>
+
+      <h3>The outcome</h3>
+      <div class="outcome-pair">
+        <div>
+          <div class="ol">What this project delivered</div>
+          <p>A defensible competitive position, a feature audit that cut two of five features and reordered the rest, a decision record for every call, and a measurement framework with counter metrics.</p>
+        </div>
+        <div>
+          <div class="ol">What it didn't</div>
+          <p>Proof that anyone's wardrobe changed. That takes a diary study I haven't run.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 11. ITERATIONS ============ -->
+    <section class="cs-section" id="sec-iterations">
+      <div class="sec-eyebrow">11 / Evaluation / Iterations</div>
+      <h2 class="grad g10">Three changes, and one of them deleted a feature.</h2>
+
+      <p>Each failure from the evaluation produced a specific change. Here's what moved, and the reasoning behind each.</p>
+
+      <div class="iteration">
+        <h3>Iteration 1: Adding the reason line</h3>
+        <div class="ba-grid">
+          <div class="ba-cell before">
+            <div class="ba-tag">Before</div>
+            <div class="visual-slot">[ iter-01-before.png ]</div>
+          </div>
+          <div class="ba-cell after">
+            <div class="ba-tag">After</div>
+            <div class="visual-slot">[ iter-01-after.png ]</div>
+          </div>
+        </div>
+        <div class="figcap">One recommendation card, cropped and zoomed.</div>
+        <div class="itrow" style="margin-top:20px;">
+          <span class="il">The problem</span>
+          <p>Suggestions arrived as bare colour combinations with no justification. For a user whose problem is confidence rather than information, that answers today's question and nothing else.</p>
+        </div>
+        <div class="itrow">
+          <span class="il">The change</span>
+          <p>Each recommendation now leads with a one sentence rationale in plain language, with the colour relationship named, and the swatches supporting it rather than carrying it.</p>
+        </div>
+        <div class="itrow">
+          <span class="il">The reasoning</span>
+          <p>A recommendation the user understands is one they can reuse without the app. A recommendation they don't understand is a dependency. Since the underlying problem is confidence, building the dependency would have been solving the symptom and protecting the metric, the wrong trade even when it's the profitable one.</p>
+        </div>
+      </div>
+
+      <div class="iteration">
+        <h3>Iteration 2: Renaming the filter</h3>
+        <div class="ba-grid">
+          <div class="ba-cell before">
+            <div class="ba-tag">Before</div>
+            <div class="visual-slot">[ iter-02-before.png ]</div>
+          </div>
+          <div class="ba-cell after">
+            <div class="ba-tag">After</div>
+            <div class="visual-slot">[ iter-02-after.png ]</div>
+          </div>
+        </div>
+        <div class="figcap">The filter control, cropped and zoomed.</div>
+        <div class="itrow" style="margin-top:20px;">
+          <span class="il">The problem</span>
+          <p>The filter used internal sounding language that means nothing to a user standing at a wardrobe. It read as a system term rather than a human one, and a control that has to be explained has already failed.</p>
+        </div>
+        <div class="itrow">
+          <span class="il">The change</span>
+          <p>Renamed to plain language describing what it actually does, with the default state made explicit so the control explains itself at a glance.</p>
+        </div>
+        <div class="itrow">
+          <span class="il">The reasoning</span>
+          <p>Small fix, disproportionately diagnostic. It's exactly the class of error that survives when nobody in the loop is asking “would a user say this?”, and catching it required the whole research process, which is more or less the argument of this case study in miniature.</p>
+        </div>
+      </div>
+
+      <div class="iteration">
+        <h3>Iteration 3: Removing marketplace links from the core flow</h3>
+        <div class="ba-grid">
+          <div class="ba-cell before">
+            <div class="ba-tag">Before</div>
+            <div class="visual-slot" style="min-height:240px;">[ iter-03-before.png, result with the commerce block ]</div>
+          </div>
+          <div class="ba-cell after">
+            <div class="ba-tag">After</div>
+            <div class="visual-slot" style="min-height:240px;">[ iter-03-after.png, result without it ]</div>
+          </div>
+        </div>
+        <div class="figcap">The most consequential change in the project. The links moved to the empty state only.</div>
+        <div class="itrow" style="margin-top:20px;">
+          <span class="il">The problem</span>
+          <p>Amazon, Myntra and Flipkart links appeared alongside every result, and their presence caused the suggestions themselves to read as advertising.</p>
+        </div>
+        <div class="itrow">
+          <span class="il">The change</span>
+          <p>Removed entirely from the primary path. Reinstated in the empty state only, where the user has already been told nothing they own works, and the option answers a problem they now have.</p>
+        </div>
+        <div class="itrow">
+          <span class="il">The reasoning</span>
+          <p>The full argument is in Ideation. In short: this is the product's only revenue and its biggest liability, and it can't be both. The same feature is helpful or manipulative depending only on who initiated the interaction, so I changed the initiator rather than the feature.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 12. WHAT I LEARNED ============ -->
+    <section class="cs-section" id="sec-learned">
+      <div class="sec-eyebrow">12 / Reflection</div>
+      <h2 class="grad g11">What auditing my own product taught me.</h2>
+
+      <div class="learnings">
+        <div class="learning">
+          <div class="lnum">01</div>
+          <div>
+            <h3>When building gets cheap, the thinking has to be deliberately added back.</h3>
+            <p>Several decisions in ShadeMatch were made by default rather than badly. The marketplace links weren't a monetisation strategy, they were the obvious thing to include. The filter label was never a naming decision. When building is expensive, the expense forces justification, and you don't spend three weeks on a feature you can't defend. When building takes an afternoon, nothing forces it. The rigour has to come from somewhere else, on purpose. That's the main thing this project taught me, and I don't think I'd have learned it in the abstract.</p>
+          </div>
+        </div>
+        <div class="learning">
+          <div class="lnum">02</div>
+          <div>
+            <h3>I had a moat and hadn't identified it.</h3>
+            <p>The strongest thing about ShadeMatch is that it only asks for one photo. That's precisely what every competitor gets wrong, and why they lose users at the digitisation wall. But it hadn't been a decision, which cuts both ways. Getting it right by default is indistinguishable from getting it right on purpose, until someone asks you why. The research is what turned an accident into a position I can defend and, more importantly, know not to trade away.</p>
+          </div>
+        </div>
+        <div class="learning">
+          <div class="lnum">03</div>
+          <div>
+            <h3>The same feature is helpful or manipulative depending on who starts the conversation.</h3>
+            <p>Shopping links beside a recommendation are an ad. The identical links, after the app has honestly said nothing you own works, are a service. Nothing about the feature changes, only the initiator. I used to evaluate features on what they do. Now the first question is who asked for it, because that determines the meaning more than the function does.</p>
+          </div>
+        </div>
+        <div class="learning">
+          <div class="lnum">04</div>
+          <div>
+            <h3>The easiest metric to measure is often the one that kills the product.</h3>
+            <p>Outbound clicks were right there: precise, attributable, revenue linked. <mark class="sweep">Optimising for them would have degraded the trust the product runs on, one small reasonable decision at a time, with nobody ever choosing it.</mark> Picking a harder, blurrier metric that actually maps to value is a decision you have to make early, because once the easy one is instrumented, it starts winning arguments on its own.</p>
+          </div>
+        </div>
+        <div class="learning">
+          <div class="lnum">05</div>
+          <div>
+            <h3>Success here means the user needs me less.</h3>
+            <p>The real outcome is that Aditi learns which colours work and gradually stops opening the app. That's good for her and structurally terrible for a retention metric, and I don't have a clean answer. I've stopped treating it as a flaw in my reasoning and started treating it as the actual product question: what does a tool designed to make itself unnecessary sell, and to whom? Naming that honestly seems better than designing around it.</p>
+          </div>
+        </div>
+      </div>
+
+      <hr class="rule">
+
+      <h3>What I'd do next</h3>
+      <p>The gap between this case study and a real product is one study: two weeks, six people, a diary of what they actually wore. Everything here is reasoning, and <mark class="sweep">reasoning is cheap</mark>. The only question that matters is whether a garment that sat unworn for two years came off the shelf, and no amount of framework answers that.</p>
+
+      <p class="final-word">The second thing I'd do is audit the colour engine itself. Writing this, I noticed I'd spent weeks interrogating every decision <em>around</em> the recommendation and none on whether the recommendation is any good. That's a fairly pointed lesson about where I'm comfortable thinking and where I'm not.</p>
+
+      <details class="sources">
+        <summary>Sources for the statistics</summary>
+        <table>
+          <tr>
+            <td>82% of US wardrobes unworn, 26% estimated against 88% actual</td>
+            <td>Movinga wardrobe study, 2018. 18,000 households across 20 countries.</td>
+          </tr>
+          <tr>
+            <td>About an hour a week deciding what to wear, five months of a working life. 45% find it stressful</td>
+            <td>Simon Jersey survey, 2019. 2,000 respondents, UK.</td>
+          </tr>
+          <tr>
+            <td>Online apparel returns 20 to 40% against a 20% ecommerce average. Fit and sizing is about half of returns</td>
+            <td>NRF 2025 Retail Returns Landscape.</td>
+          </tr>
+          <tr>
+            <td>India fashion ecommerce around $25.6B in 2025, apparel 54%, Myntra around $12.5B GMV</td>
+            <td>ECDB, 2025.</td>
+          </tr>
+        </table>
+      </details>
     </section>
 
   </main>
@@ -134,24 +1437,28 @@
 <div class="wrap">
   <div class="cs-nextprev">
     <a class="mono" href="case-study-tracker.html">← Previous: The Application Black Hole</a>
-    <span class="mono">you're on the latest case study →</span>
+    <a class="mono" href="https://redux-ready-shadematch.onrender.com" target="_blank" rel="noopener">View the live app →</a>
   </div>
 </div>
 
 <footer class="site-footer" id="contact">
   <div class="wrap">
     <div class="eyebrow reveal">// contact</div>
-    <h2 class="reveal grad g8">Let's talk.</h2>
+    <h2 class="reveal grad g12">Thanks for reading.</h2>
+    <p class="reveal" style="color:var(--ink-soft); margin-bottom:22px;">Ruby Seher, Product Designer. Currently open to opportunities.</p>
     <a class="big-email reveal" href="mailto:ruby.seher000@gmail.com">ruby.seher000@gmail.com</a>
     <div class="foot-links reveal">
       <a href="https://www.linkedin.com/in/ruby-s-885468205/" target="_blank" rel="noreferrer">LinkedIn</a>
       <a href="https://github.com/Rubyseher" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="https://redux-ready-shadematch.onrender.com" target="_blank" rel="noopener">Live app</a>
       <a href="docs/RubySeher_ProductDesign_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a href="index.html">Portfolio</a>
+      <a href="#" id="backToTop">Back to top ↑</a>
     </div>
     <div class="foot-meta reveal">Bangalore · will relocate</div>
   </div>
 </footer>
 
-<script src="script.js?v=9"></script>
+<script src="script.js?v=10"></script>
 </body>
 </html>

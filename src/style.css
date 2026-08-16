@@ -123,9 +123,12 @@ section.work-list{ padding:64px 0 20px; }
 .project-visual .device{ width:220px; transform:rotate(-8deg) translateY(10px); filter:drop-shadow(0 22px 30px rgba(0,0,0,0.18)); }
 /* landscape clip centred on the card colour, same footprint as the .device it replaces */
 .project-visual .card-video{
-  display:block; width:88%; height:auto; border-radius:10px;
+  display:block; width:92%; height:auto; border-radius:10px;
   filter:drop-shadow(0 18px 28px rgba(0,0,0,0.30));
 }
+/* a card carrying a video leads with the clip, so the visual gets the wider column */
+.project-card:has(.card-video){ grid-template-columns:1.25fr 1fr; }
+.project-card:has(.card-video) .project-visual{ min-height:400px; padding:24px 0; }
 .project-meta{ padding:28px 32px; }
 .project-meta h3{ font-size:25px; margin-bottom:10px; }
 .project-meta .cat{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--ink-soft); margin-bottom:14px; text-transform:uppercase; letter-spacing:0.05em; }
@@ -152,6 +155,8 @@ section.work-list{ padding:64px 0 20px; }
 .g8{ --grad:linear-gradient(96deg,#0E9AA7 0%,#1F3A5E 100%); }
 .g9{ --grad:linear-gradient(96deg,#B8734B 0%,#8E2D8B 100%); }
 .g10{ --grad:linear-gradient(96deg,#2D8CB8 0%,#6C4AB6 100%); }
+.g11{ --grad:linear-gradient(96deg,#6C3CE0 0%,#B14AC8 100%); }
+.g12{ --grad:linear-gradient(96deg,#4A2FB8 0%,#7B5BE8 100%); }
 
 /* ============ ABOUT / DUO ============ */
 section{ padding:64px 0; border-bottom:1px solid var(--line); }
@@ -301,7 +306,8 @@ footer.site-footer h2{ font-size:34px; margin-bottom:20px; }
   .nav-links::-webkit-scrollbar{ display:none; }
   .duo{ grid-template-columns:1fr; }
   section{ padding:48px 0; }
-  .project-visual{ height:260px; }
+  .project-card, .project-card:has(.card-video){ grid-template-columns:1fr; }
+  .project-visual, .project-card:has(.card-video) .project-visual{ min-height:0; height:260px; padding:0; }
 }
 
 /* ==================================================== */
@@ -1777,3 +1783,7 @@ body.cs-shadematch .cs-sidebar .sub.active{ border-left-color:var(--accent); }
   .phone-row{ grid-template-columns:1fr; }
   .gap-stat{ gap:14px; padding:26px 18px; }
 }
+
+/* this headline is longer than the tracker's, so it needs a smaller ceiling to
+   stay inside the first screen instead of running to five lines */
+body.cs-shadematch .stage-statement{ font-size:clamp(34px,6vw,74px); max-width:17ch; }
