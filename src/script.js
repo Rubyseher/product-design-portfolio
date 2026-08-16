@@ -176,9 +176,11 @@
   });
 })();
 
-// ---- card videos: only fetch once the card is nearly in view ----
+// ---- card videos: fetch just ahead of the card, run once it's on screen ----
 // these sit below the fold and weigh several MB each, so the src stays
-// parked in data-src until it's worth spending the bandwidth
+// parked in data-src until it's worth spending the bandwidth. playback is
+// a separate, later trigger: the clip runs a single time when the reader
+// actually reaches it, instead of looping away out of sight
 (function(){
   var vids = document.querySelectorAll('.card-video[data-src]');
   if (!vids.length) return;
@@ -187,24 +189,41 @@
     if (!v.dataset.src) return;
     v.src = v.dataset.src;
     delete v.dataset.src;
+  }
+
+  function play(v){
+    load(v);
     var p = v.play();
     if (p && p.catch) p.catch(function(){});
   }
 
   if (!('IntersectionObserver' in window)){
-    Array.prototype.forEach.call(vids, load);
+    Array.prototype.forEach.call(vids, play);
     return;
   }
 
-  var io = new IntersectionObserver(function(entries){
+  // buffer early, so the clip is ready by the time it comes into view
+  var preload = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       if (!e.isIntersecting) return;
       load(e.target);
-      io.unobserve(e.target);
+      preload.unobserve(e.target);
     });
   }, { rootMargin: '300px 0px' });
 
-  Array.prototype.forEach.call(vids, function(v){ io.observe(v); });
+  // then let it play through once, the first time it's properly visible
+  var playOnce = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (!e.isIntersecting) return;
+      play(e.target);
+      playOnce.unobserve(e.target);
+    });
+  }, { threshold: 0.5 });
+
+  Array.prototype.forEach.call(vids, function(v){
+    preload.observe(v);
+    playOnce.observe(v);
+  });
 })();
 
 // ---- scroll progress bar (case study pages) ----
