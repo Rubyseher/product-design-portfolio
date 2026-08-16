@@ -561,15 +561,6 @@
           </div>
 
           <div class="p-sec">
-            <span class="p-lbl">Context</span>
-            <ul>
-              <li>Four years into a corporate job with a soft dress code, harder to dress for than a strict one</li>
-              <li>Buys online regularly: Myntra, Zara, a few Instagram brands</li>
-              <li>A wardrobe that accumulated rather than got assembled, with no organising logic</li>
-              <li>Gets dressed in a ten minute window, usually running late</li>
-            </ul>
-          </div>
-          <div class="p-sec">
             <span class="p-lbl">Goals</span>
             <ul>
               <li>Look put together without spending time or thought on it</li>
@@ -582,17 +573,7 @@
             <ul>
               <li>Owns items she loves in isolation and has never once put on</li>
               <li>Defaults to the same five safe outfits, bored of all of them</li>
-              <li>Downloaded a wardrobe app, uploaded twenty items, abandoned it</li>
               <li>Doesn't trust her own colour judgement, or advice that's selling her something</li>
-            </ul>
-          </div>
-          <div class="p-sec">
-            <span class="p-lbl">Behaviours</span>
-            <ul>
-              <li>Decides at the open cupboard, holding one item, in under two minutes</li>
-              <li>Sends photos to one friend with good taste when genuinely stuck</li>
-              <li>Saves Pinterest outfits she never recreates, having none of the pieces</li>
-              <li>Shops when stuck, which is why she owns 120 garments and wears 15</li>
             </ul>
           </div>
           <div class="p-sec">
@@ -632,15 +613,6 @@
           </div>
 
           <div class="p-sec">
-            <span class="p-lbl">Context</span>
-            <ul>
-              <li>Comfortable spending on clothes, uncomfortable with the results</li>
-              <li>Orders in bulk from Myntra and Amazon, returns a good share</li>
-              <li>Confident in most domains, not this one, and slightly embarrassed by that</li>
-              <li>Would never say he cares about fashion, but does</li>
-            </ul>
-          </div>
-          <div class="p-sec">
             <span class="p-lbl">Goals</span>
             <ul>
               <li>Stop wasting money on items that end up unworn</li>
@@ -653,17 +625,7 @@
             <ul>
               <li>Buys individual items with no plan for what they pair with</li>
               <li>Ignores marketplace “complete the look” as transparently commercial</li>
-              <li>Has no way to check a purchase against what he already owns</li>
               <li>His fix for “nothing goes together” is buying more, which makes it worse</li>
-            </ul>
-          </div>
-          <div class="p-sec">
-            <span class="p-lbl">Behaviours</span>
-            <ul>
-              <li>Decides at the point of purchase more than at the point of dressing</li>
-              <li>Sorts by rating and buys the safe option: navy, black, white</li>
-              <li>Has never photographed his wardrobe and never will</li>
-              <li>Would use a tool once at checkout, not daily</li>
             </ul>
           </div>
           <div class="p-sec">
@@ -683,7 +645,7 @@
         </div>
       </div>
 
-      <div class="disclaimer">Both portraits are stock photography. The faces stand in for composites built from the review research, not for people I interviewed.</div>
+      <div class="disclaimer">Both portraits are illustrations. They stand in for composites built from the review research, not for people I interviewed.</div>
 
       <div class="closing-statement">
         <h4>Why Aditi is primary</h4>
@@ -847,39 +809,10 @@
         </tbody>
       </table>
 
-      <h3>Sketches</h3>
-      <p>I sketched on paper before touching Figma. Low fidelity keeps you from committing to a layout before deciding what it's for. These are the raw pages.</p>
-
-      <div class="sketch-grid">
-        <figure>
-          <div class="visual-slot">[ sketch-01.jpg ]</div>
-          <figcaption class="figcap">First pass at the result screen. The question that kept returning: is the output a colour, or an instruction?</figcaption>
-        </figure>
-        <figure>
-          <div class="visual-slot">[ sketch-02.jpg ]</div>
-          <figcaption class="figcap">Working out how much to show. Three suggestions or twelve? Twelve is more impressive and less useful.</figcaption>
-        </figure>
-        <figure>
-          <div class="visual-slot">[ sketch-03.jpg ]</div>
-          <figcaption class="figcap">Where the “why” line came from. A palette without a reason gets used once. A palette with a reason gets remembered.</figcaption>
-        </figure>
-        <figure>
-          <div class="visual-slot">[ sketch-04.jpg ]</div>
-          <figcaption class="figcap">Placing the Pinterest link so it reads as “see it” rather than “leave”.</figcaption>
-        </figure>
-        <figure>
-          <div class="visual-slot">[ sketch-05.jpg ]</div>
-          <figcaption class="figcap">Capture screen. Counting taps between opening the app and having an answer, trying to get to two.</figcaption>
-        </figure>
-        <figure>
-          <div class="visual-slot">[ sketch-06.jpg ]</div>
-          <figcaption class="figcap">The empty state. Sketched last, and became one of the most important screens in the product.</figcaption>
-        </figure>
-      </div>
-
-      <p>Three things came out of sketching that the original build had skipped.</p>
-      <p><strong>The output changed from a colour to an instruction.</strong> The build returned swatches. A swatch is data, and it hands interpretation back to a user who just told us she doesn't trust her interpretation. The sketches moved toward stating the recommendation in words, with colour supporting it.</p>
-      <p><strong>The count came down.</strong> Early sketches showed eight, ten, twelve options. It looked more capable and performed worse. Aditi has a two minute window and low confidence, and twelve options hands the same decision back in a new wrapper. Three, ranked, with reasons.</p>
+      <h3>What the ideation changed</h3>
+      <p>Three decisions came out of this pass that the original build had skipped.</p>
+      <p><strong>The output changed from a colour to an instruction.</strong> The build returned swatches. A swatch is data, and it hands interpretation back to a user who just told us she doesn't trust her interpretation. The redesign moved toward stating the recommendation in words, with colour supporting it.</p>
+      <p><strong>The count came down.</strong> Early versions showed eight, ten, twelve options. It looked more capable and performed worse. Aditi has a two minute window and low confidence, and twelve options hands the same decision back in a new wrapper. Three, ranked, with reasons.</p>
       <p><strong>The empty state became a real screen.</strong> What happens when nothing you own works? The build had no answer, and it isn't an edge case. For an accumulated wardrobe it may be the most common outcome. It's also the only place a shopping link is genuinely a service, which is what turned the marketplace links from a contaminant into a feature.</p>
     </section>
 
@@ -888,47 +821,46 @@
       <div class="sec-eyebrow">07 / Design / Evaluation</div>
       <h2 class="grad g9">Auditing a live product against its own research.</h2>
 
-      <h3>Method</h3>
-      <p>ShadeMatch had one advantage over a concept project: it already existed and could be used. So instead of testing a prototype, I ran a structured evaluation of the live product against the research, screen by screen, asking three questions at every step.</p>
+      <p>ShadeMatch had no recruited testers behind this section either. What I ran was a structured self evaluation, walking through the live app screen by screen and checking it against the research findings from the competitive analysis, the voices, and the personas.</p>
 
-      <div class="qa">
+      <h3>Method</h3>
+      <p>Three questions per screen:</p>
+
+      <div class="qa is-plain">
         <div class="qa-row">
-          <div class="qa-q"><span class="qn mono">01</span>What does a first time user expect before opening this?</div>
-          <div class="qa-why">Tests whether the value proposition survives contact.</div>
+          <div class="qa-q"><span class="qn mono">01</span>What would a first time user expect before opening this?</div>
         </div>
         <div class="qa-row">
-          <div class="qa-q"><span class="qn mono">02</span>Can they say what the app just told them, in their own words?</div>
-          <div class="qa-why">Tests comprehension, not correctness.</div>
+          <div class="qa-q"><span class="qn mono">02</span>Could they say what the app just told them, in their own words?</div>
         </div>
         <div class="qa-row">
-          <div class="qa-q"><span class="qn mono">03</span>Would they actually wear it?</div>
-          <div class="qa-why">Tests the only thing that matters. Not “is this right,” but “did it change what someone did.” The obvious question, “are the suggestions nice,” measures nothing.</div>
+          <div class="qa-q"><span class="qn mono">03</span>Would they actually wear it? Not “is this correct,” but “did it change what someone would do.”</div>
         </div>
       </div>
 
-      <div class="disclaimer">Stated plainly: a heuristic evaluation against documented research, not a moderated study with recruited participants. Good at finding structural and comprehension failures. It cannot tell me whether anyone's behaviour changed, which needs the diary study in Measuring success.</div>
+      <div class="disclaimer">Stated plainly: this is a heuristic evaluation against documented research, not a usability study with recruited participants. It is good at finding structural and comprehension failures. It cannot tell me whether anyone's actual behaviour changed. That needs the diary study in Measuring success.</div>
 
-      <h3>Four failures it surfaced</h3>
-      <div class="friction-grid dimgroup">
+      <h3>What it caught</h3>
+      <div class="friction-grid is-two dimgroup">
         <div class="friction-card">
           <div class="fbadge">1</div>
-          <h4>The output gives an answer but no reason.</h4>
-          <p>A suggestion arrives as a bare colour combination with nothing to explain why it works. For a user whose problem is confidence rather than information, an unexplained answer solves today and nothing else. Confidence doesn't transfer between sessions. A reason does.</p>
+          <h4>The output gives an answer with no reason attached.</h4>
+          <p>A combination arrives with no explanation. For a user whose real problem is confidence, an unexplained answer solves today and nothing else.</p>
         </div>
         <div class="friction-card">
           <div class="fbadge">2</div>
           <h4>The filter label is internal language.</h4>
-          <p>The filter used a phrase that made sense inside the build process and means nothing to someone at a wardrobe. A control that has to be explained has already failed.</p>
+          <p>The control uses a phrase that made sense during the build and means nothing standing at a wardrobe.</p>
         </div>
         <div class="friction-card">
           <div class="fbadge">3</div>
           <h4>The shopping links change how the whole app reads.</h4>
-          <p>Once the Amazon and Myntra links are visible, the <em>suggestions themselves</em> start reading as advertising. The commercial framing propagates backwards onto output that was working fine. The links don't just fail to add value, they devalue what's already there.</p>
+          <p>Once visible, they retroactively make the <em>suggestions themselves</em> look like ads. This is Cluster 3's prediction, confirmed by re-reading my own product with fresh eyes.</p>
         </div>
         <div class="friction-card">
           <div class="fbadge">4</div>
-          <h4>A swatch doesn't answer the real question.</h4>
-          <p>Even a well explained combination doesn't tell you what it looks like on a person. The Pinterest link, treated as a minor extra, is the only thing addressing the question users are actually asking. The hierarchy was backwards.</p>
+          <h4>A swatch doesn't answer “what does that look like on me.”</h4>
+          <p>The Pinterest link, treated as a minor extra, is the only thing that actually answers this.</p>
         </div>
       </div>
 

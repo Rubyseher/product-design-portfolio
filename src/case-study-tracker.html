@@ -72,7 +72,7 @@
       </div>
       <div class="meta-item">
         <span class="mk">Tools</span>
-        <span class="mv">Figma, Reddit community research, Floto (AI persona testing)</span>
+        <span class="mv">Figma, Reddit community research, heuristic walkthrough</span>
       </div>
     </div>
   </div>
@@ -94,7 +94,7 @@
     <div class="grp">
       <div class="grp-title mono">Design</div>
       <a class="sub" data-target="sec-ideation">Ideation & structure</a>
-      <a class="sub" data-target="sec-feedback">Feedback & goals</a>
+      <a class="sub" data-target="sec-evaluation">Evaluation</a>
       <a class="sub" data-target="sec-flow">Main flow</a>
     </div>
     <div class="grp">
@@ -704,15 +704,6 @@
           </div>
 
           <div class="p-sec">
-            <span class="p-lbl">Context</span>
-            <ul>
-              <li>Backend engineer, 9 years in, laid off in an 18% company wide cut in <span class="todo">month/year</span></li>
-              <li>Second layoff in three years. The first was 2023</li>
-              <li>Sole earner, roughly <span class="todo">X</span> months of runway</li>
-              <li><span class="todo">N</span> live applications across LinkedIn, company sites, and referrals</li>
-            </ul>
-          </div>
-          <div class="p-sec">
             <span class="p-lbl">Goals</span>
             <ul>
               <li>Land an equivalent role within four months, before runway runs out</li>
@@ -725,17 +716,7 @@
             <ul>
               <li>No memory of his 2023 search. Spreadsheet gone, contacts lost</li>
               <li>Cannot tell an “in progress” application from a dead one</li>
-              <li>Has reapplied to the same company by accident</li>
               <li>Maintains a tracker that became its own chore</li>
-            </ul>
-          </div>
-          <div class="p-sec">
-            <span class="p-lbl">Behaviours</span>
-            <ul>
-              <li>Applies in bursts of 8 to 12 in a sitting, twice a week</li>
-              <li>Checks LinkedIn 4 to 6 times a day, mostly for nothing</li>
-              <li>Keeps 6 resume variants, loses track of which went where</li>
-              <li>Pays for Premium Career, questions whether it does anything</li>
             </ul>
           </div>
           <div class="p-sec">
@@ -771,15 +752,6 @@
           </div>
 
           <div class="p-sec">
-            <span class="p-lbl">Context</span>
-            <ul>
-              <li>Four years at one company, first time searching at volume</li>
-              <li>Laid off with two weeks' notice, never used a tracker of any kind</li>
-              <li>Applying broadly across marketing, content, and brand, unsure what she qualifies for</li>
-              <li><span class="todo">N</span> applications in six weeks, no way to tell if that's a lot or a little</li>
-            </ul>
-          </div>
-          <div class="p-sec">
             <span class="p-lbl">Goals</span>
             <ul>
               <li>Understand whether the silence means rejection or nothing yet</li>
@@ -792,17 +764,7 @@
             <ul>
               <li>Reads every silence as personal rejection</li>
               <li>No sense of a normal response rate, so she can't tell if she's failing</li>
-              <li>Ghosted after a second round interview, still doesn't know why</li>
               <li>Her tracking is her email inbox, which is not tracking</li>
-            </ul>
-          </div>
-          <div class="p-sec">
-            <span class="p-lbl">Behaviours</span>
-            <ul>
-              <li>Applies daily, 2 to 3 at a time</li>
-              <li>Compulsively checks email and LinkedIn notifications</li>
-              <li>Reads r/jobs for reassurance, comes away more anxious</li>
-              <li>Hasn't upgraded to Premium, isn't convinced it's worth it</li>
             </ul>
           </div>
           <div class="p-sec">
@@ -822,7 +784,7 @@
         </div>
       </div>
 
-      <div class="disclaimer">Both portraits are stock photography. The faces stand in for composites built from the community research, not for people I interviewed.</div>
+      <div class="disclaimer">Both portraits are illustrations. They stand in for composites built from the community research, not for people I interviewed.</div>
 
       <div class="closing-statement">
         <h4>Why prioritise Arjun</h4>
@@ -984,37 +946,32 @@
       <div class="figcap">Search first, applications second, signals third. That order is the argument of the product in one layout: a tool for managing a search, not a folder of applications.</div>
     </section>
 
-    <!-- ============ 7. FEEDBACK & REVISED GOALS ============ -->
-    <section class="cs-section" id="sec-feedback">
-      <div class="sec-eyebrow">07 / Design / Feedback</div>
-      <h2 class="grad g9">I tested it against the person I designed it for.</h2>
+    <!-- ============ 7. EVALUATION & REVISED GOALS ============ -->
+    <section class="cs-section" id="sec-evaluation">
+      <div class="sec-eyebrow">07 / Design / Evaluation</div>
+      <h2 class="grad g9">Auditing the design against the person it was built for.</h2>
+
+      <p>I didn't recruit anyone to test this. No persona testing tool, no usability session. What I did instead was walk through the finished screens myself, deliberately using Arjun's persona as the lens rather than my own judgment: what would he notice first, what would confuse him, would this actually get him what he came for.</p>
 
       <h3>Method</h3>
-      <p>With no access to a panel of laid off professionals in active search, the honest constraint of a self initiated project, I ran an AI assisted persona test in <strong>Floto</strong>, briefed with Arjun's full profile: two layoffs, <span class="todo">N</span> live applications, engineering background, the frustrations from the affinity clusters.</p>
-      <p>Three questions, in this order, deliberately:</p>
+      <p>Three questions, asked screen by screen:</p>
 
-      <div class="qa">
+      <div class="qa is-plain">
         <div class="qa-row">
-          <div class="qa-q"><span class="qn mono">01</span>What do you notice first?</div>
-          <div class="qa-why">Tests hierarchy before the participant has time to rationalise.</div>
+          <div class="qa-q"><span class="qn mono">01</span>What does Arjun notice first, before he's had time to interpret anything?</div>
         </div>
         <div class="qa-row">
-          <div class="qa-q"><span class="qn mono">02</span>What confuses you?</div>
-          <div class="qa-why">Surfaces friction.</div>
+          <div class="qa-q"><span class="qn mono">02</span>Can he tell what each element means without it being explained?</div>
         </div>
         <div class="qa-row">
-          <div class="qa-q"><span class="qn mono">03</span>Did you get what you came for?</div>
-          <div class="qa-why">Checks the job to be done.</div>
+          <div class="qa-q"><span class="qn mono">03</span>Does this get him to “I know which of my applications are still alive” faster than what LinkedIn gives him today?</div>
         </div>
       </div>
 
-      <div class="disclaimer">AI assisted persona testing is a proxy, not a substitute for real users. It surfaces interface friction reliably. It cannot validate emotional impact.</div>
+      <div class="disclaimer">Stated plainly: this is a self conducted heuristic walkthrough, not a moderated usability study with recruited participants. It is good at catching things that don't hold up to scrutiny, like icon ambiguity or a control that breaks at scale. It cannot tell me whether a real user's anxiety actually goes down. That needs the usability study in Measuring success.</div>
 
-      <h3>What came back</h3>
-      <p><strong>The concept landed.</strong> The tracker read as a job search tool without explanation, the overview bar was noticed first as intended, and the job to be done came back clean: he could tell which applications were alive.</p>
-      <p><strong>Three friction points came out of it:</strong></p>
-
-      <div class="friction-grid dimgroup">
+      <h3>Two things it caught</h3>
+      <div class="friction-grid is-two dimgroup">
         <div class="friction-card">
           <div class="fbadge">1</div>
           <svg class="fsvg" viewBox="0 0 240 88" role="img" aria-label="Two links with different destinations drawn with the same icon">
@@ -1026,28 +983,11 @@
             <text class="fs-cap" x="70" y="72" text-anchor="middle">COMPANY SITE</text>
             <text class="fs-cap" x="170" y="72" text-anchor="middle">JOB POST</text>
           </svg>
-          <h4>The Company Site and Job Post icons were identical.</h4>
-          <p>Two destinations, one visual. In a list of forty applications, that's forty small moments of hesitation.</p>
+          <h4>The Company Site and Job Post icons are identical.</h4>
+          <p>Both use the same link glyph. In a list of four applications that's invisible. In a list of forty, it's forty small moments of “which one is this.”</p>
         </div>
         <div class="friction-card">
           <div class="fbadge">2</div>
-          <svg class="fsvg" viewBox="0 0 240 88" role="img" aria-label="Four progress dots with no labels underneath">
-            <line class="fs-line" x1="30" y1="30" x2="210" y2="30"/>
-            <circle class="fs-accent" cx="30" cy="30" r="7"/>
-            <circle class="fs-accent" cx="90" cy="30" r="7"/>
-            <circle class="fs-ink" cx="150" cy="30" r="7" opacity="0.25"/>
-            <circle class="fs-ink" cx="210" cy="30" r="7" opacity="0.25"/>
-            <text class="fs-q" x="30" y="58" text-anchor="middle">?</text>
-            <text class="fs-q" x="90" y="58" text-anchor="middle">?</text>
-            <text class="fs-q" x="150" y="58" text-anchor="middle">?</text>
-            <text class="fs-q" x="210" y="58" text-anchor="middle">?</text>
-            <text class="fs-cap" x="120" y="78" text-anchor="middle">POSITION WITHOUT MEANING</text>
-          </svg>
-          <h4>The progress bar dots had no labels.</h4>
-          <p>He could see there were stages, not <em>which</em> stage. A progress indicator that doesn't say what the progress is toward is decoration.</p>
-        </div>
-        <div class="friction-card">
-          <div class="fbadge">3</div>
           <svg class="fsvg" viewBox="0 0 240 88" role="img" aria-label="A tracker header with no search field above a list that runs off the bottom">
             <rect class="fs-box" x="20" y="8" width="200" height="16" rx="4"/>
             <rect x="24" y="11" width="92" height="10" rx="5" fill="none" class="fs-accent-stroke" stroke-dasharray="3 3"/>
@@ -1055,36 +995,29 @@
             <rect class="fs-box" x="20" y="34" width="200" height="6" rx="3" opacity="1.00"/><rect class="fs-box" x="20" y="45" width="200" height="6" rx="3" opacity="0.82"/><rect class="fs-box" x="20" y="56" width="200" height="6" rx="3" opacity="0.64"/><rect class="fs-box" x="20" y="67" width="200" height="6" rx="3" opacity="0.46"/>
             <text class="fs-cap" x="20" y="84">40+ ROWS, ALL SCANNED BY EYE</text>
           </svg>
-          <h4>No search. Fine at 8 applications, broken at 50.</h4>
-          <p>Tested at a realistic looking density, failed at a realistic <em>actual</em> one. Arjun has <span class="todo">N</span> live applications, and Nikita will have more by month three.</p>
+          <h4>There's no search, and the list won't survive real volume.</h4>
+          <p>At four rows it looks complete. Arjun has dozens of live applications at once. Past roughly fifty rows the list stops being scannable, and the tracker's entire premise, finding out what's happening with a specific application, breaks.</p>
         </div>
       </div>
 
       <h3>Revised design goals</h3>
-      <p>The feedback didn't change the product. It changed three principles about how it had to behave.</p>
 
       <table class="goals-table">
         <thead>
-          <tr><th>Original goal</th><th></th><th>Revised goal</th><th>What triggered the change</th></tr>
+          <tr><th>Original goal</th><th></th><th>Revised goal</th><th>Trigger</th></tr>
         </thead>
         <tbody>
           <tr>
-            <td class="g-old">Show the status of every application</td>
+            <td class="g-old">Show a link to the company site and the job post</td>
             <td class="g-arrow">→</td>
-            <td class="g-new">Show status <b>at a glance, without interpretation</b>. Every visual element must be self explaining, labelled, and distinguishable at scan speed</td>
-            <td class="g-trig">Icon collision + unlabelled progress dots</td>
+            <td class="g-new">Make the two links <b>visually distinct at a glance</b>, a different icon rather than just a different position</td>
+            <td class="g-trig">Icon collision</td>
           </tr>
           <tr>
-            <td class="g-old">Make the tracker usable</td>
+            <td class="g-old">Show every application in one list</td>
             <td class="g-arrow">→</td>
-            <td class="g-new">Make the tracker usable <b>at 50+ applications</b>, not at 8. Design for the density the primary persona actually lives at</td>
-            <td class="g-trig">Missing search bar</td>
-          </tr>
-          <tr>
-            <td class="g-old">Surface LinkedIn's signals</td>
-            <td class="g-arrow">→</td>
-            <td class="g-new">Surface LinkedIn's signals <b>without adding a decision</b>. A signal the user has to interpret is another job, not a solution</td>
-            <td class="g-trig">Emerged from reading the friction back as a set</td>
+            <td class="g-new">Make the list usable <b>at real volume, not demo volume</b>. Search has to exist before row 50, not after</td>
+            <td class="g-trig">No search bar</td>
           </tr>
         </tbody>
       </table>
@@ -1410,25 +1343,25 @@
         <div class="vitem is-yes">
           <div class="vmark">✓</div>
           <div>
-            <b>The concept is self explanatory.</b>
-            <span>In persona testing the tracker read as a job search tool with no explanation, and the intended hierarchy held. The overview bar was noticed first, exactly as designed.</span>
-            <div class="evid"><span class="evid-bars" role="img" aria-label="Evidence strength 2 of 3"><i class="on"></i><i class="on"></i><i></i></span><span class="evid-lab">Persona test · not real users</span></div>
+            <b>The concept holds up to a structured read.</b>
+            <span>Walking the screens as Arjun, the tracker reads as a job search tool without explanation and the intended hierarchy holds. This is my own read of my own design, which is the weakest version of this claim.</span>
+            <div class="evid"><span class="evid-bars" role="img" aria-label="Evidence strength 1 of 3"><i class="on"></i><i></i><i></i></span><span class="evid-lab">Self audit · needs real users</span></div>
           </div>
         </div>
         <div class="vitem is-yes">
           <div class="vmark">✓</div>
           <div>
-            <b>The job to be done is met.</b>
-            <span>The core question, “can you tell which of your applications are still alive?”, came back answered. That was the brief's entire success condition.</span>
-            <div class="evid"><span class="evid-bars" role="img" aria-label="Evidence strength 2 of 3"><i class="on"></i><i class="on"></i><i></i></span><span class="evid-lab">Persona test · not real users</span></div>
+            <b>The job to be done is answerable from the interface.</b>
+            <span>The core question, “can you tell which of your applications are still alive?”, can be answered off the screen without interpretation. Whether it <em>feels</em> answered to someone in the middle of a real search is untested.</span>
+            <div class="evid"><span class="evid-bars" role="img" aria-label="Evidence strength 1 of 3"><i class="on"></i><i></i><i></i></span><span class="evid-lab">Self audit · needs real users</span></div>
           </div>
         </div>
         <div class="vitem is-yes">
           <div class="vmark">✓</div>
           <div>
-            <b>Three interface failures were caught before they'd have shipped.</b>
-            <span>Identical icons, unlabelled progress states, and a search bar that becomes essential past 50 applications. All three fixed, and none of them visible to me without testing: <mark class="sweep">I could not see my own interface accurately.</mark></span>
-            <div class="evid"><span class="evid-bars" role="img" aria-label="Evidence strength 2 of 3"><i class="on"></i><i class="on"></i><i></i></span><span class="evid-lab">Persona test · fixes shipped into the design</span></div>
+            <b>Two interface failures were caught before they'd have shipped.</b>
+            <span>Identical icons, and a missing search bar that becomes essential past 50 applications. Both fixed, and neither visible to me until I read the screens as someone else: <mark class="sweep">I could not see my own interface accurately.</mark></span>
+            <div class="evid"><span class="evid-bars" role="img" aria-label="Evidence strength 2 of 3"><i class="on"></i><i class="on"></i><i></i></span><span class="evid-lab">Self audit · fixes shipped into the design</span></div>
           </div>
         </div>
       </div>
@@ -1439,7 +1372,7 @@
           <div class="vmark">○</div>
           <div>
             <b>The emotional outcome.</b>
-            <span>Unprovable without real users in real distress. AI persona testing can find a confusing icon. It cannot feel dread.</span>
+            <span>Unprovable without real users in real distress. A self audit can find a confusing icon. It cannot feel dread.</span>
             <div class="evid"><span class="evid-bars" role="img" aria-label="Evidence strength 0 of 3"><i></i><i></i><i></i></span><span class="evid-lab">No evidence · needs users in real distress</span></div>
           </div>
         </div>
@@ -1473,7 +1406,7 @@
       <div class="outcome-pair">
         <div>
           <div class="ol">What this project delivered</div>
-          <p>Four feature sets from research to high fidelity, a decision record for each, a measurement framework with counter metrics, and three validated interface fixes.</p>
+          <p>Four feature sets from research to high fidelity, a decision record for each, a measurement framework with counter metrics, and two interface fixes caught before they shipped.</p>
         </div>
         <div>
           <div class="ol">What it didn't</div>
@@ -1513,7 +1446,7 @@
           <div class="lnum">04</div>
           <div>
             <h3>I cannot see my own interface.</h3>
-            <p>All three friction points were invisible to me after weeks on the same screen. Identical icons I'd stopped seeing as identical. Progress dots I could read because I knew what they meant. A list that worked beautifully at the eight rows I'd populated it with. That last one is the real lesson, and now I populate every design with the density the user actually lives at, from the first frame.</p>
+            <p>Both friction points were invisible to me after weeks on the same screen. Identical icons I'd stopped seeing as identical. A list that worked beautifully at the four rows I'd populated it with. They only surfaced when I stopped reading the screens as their designer and read them as Arjun, which is a cheap thing to do and I had not once done it. That second one is the real lesson, and now I populate every design with the density the user actually lives at, from the first frame.</p>
           </div>
         </div>
         <div class="learning">

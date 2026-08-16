@@ -645,7 +645,10 @@ figure a:has(> img){ display:block; }
 .feature p{ font-size:15px; margin-bottom:0; max-width:42ch; }
 
 /* ---- competitor rows ---- */
-.comp-row{ display:grid; grid-template-columns:40% 1fr; gap:40px; align-items:start; margin:44px 0; }
+/* each row is a self contained comparison, so it gets a full band of space and a
+   hairline instead of the tighter margin that ran them together */
+.comp-row{ display:grid; grid-template-columns:40% 1fr; gap:56px; align-items:start; padding:72px 0; margin:0; }
+.comp-row + .comp-row{ border-top:1px solid var(--line); }
 .comp-row.rev .comp-media{ order:2; }
 .comp-row .comp-media figure{ margin:0; }
 /* a 2x2 contact sheet of competitor screenshots, sized for the narrow media column */
@@ -664,14 +667,14 @@ figure a:has(> img){ display:block; }
   border-radius:50%; border:1.5px solid var(--accent); color:var(--accent);
   font-family:'IBM Plex Mono', monospace; font-size:13px; font-weight:500; margin-bottom:12px;
 }
-.comp-body h3{ margin-top:0; }
+.comp-body h3{ margin-top:0; margin-bottom:12px; }
 .tools-line{
   font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-soft);
-  margin-bottom:14px; letter-spacing:0.02em;
+  margin-bottom:18px; letter-spacing:0.02em;
 }
 .gap-callout{
   border-left:3px solid var(--accent); background:rgba(var(--accent-rgb), 0.06);
-  padding:16px 20px; border-radius:0 8px 8px 0; margin:16px 0;
+  padding:20px 24px; border-radius:0 8px 8px 0; margin:24px 0;
 }
 .gap-callout p{ margin-bottom:0; font-size:15px; }
 .gap-callout .gl{
@@ -680,7 +683,7 @@ figure a:has(> img){ display:block; }
 }
 .verdict{
   font-family:'IBM Plex Mono', monospace; font-size:11.5px; text-transform:uppercase;
-  letter-spacing:0.12em; color:var(--ink-soft); margin-top:14px;
+  letter-spacing:0.12em; color:var(--ink-soft); margin-top:18px;
 }
 
 /* ---- positioning matrix ---- */
@@ -884,13 +887,10 @@ figure a:has(> img){ display:block; }
 }
 .cut-table tr.is-deferred td:first-child{ opacity:1; }
 
-/* ---- sketch gallery ---- */
-.sketch-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin:28px 0; }
-.sketch-grid figure{ margin:0; }
-.sketch-grid .visual-slot{ min-height:220px; }
-
 /* ---- friction cards ---- */
 .friction-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin:26px 0; }
+/* two or four findings read better paired than left hanging in a three column row */
+.friction-grid.is-two{ grid-template-columns:repeat(2,1fr); }
 .friction-card{ border:1px solid var(--line); border-radius:12px; padding:24px; background:var(--paper); }
 .friction-card .fbadge{
   display:inline-flex; align-items:center; justify-content:center; width:26px; height:26px;
@@ -912,6 +912,8 @@ figure a:has(> img){ display:block; }
 .qa-q{ font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:16px; color:var(--ink); }
 .qa-q .qn{ color:var(--accent); margin-right:8px; }
 .qa-why{ font-size:14.5px; color:var(--ink-soft); line-height:1.6; }
+/* questions that carry no rationale column get the full width */
+.qa.is-plain .qa-row{ grid-template-columns:1fr; }
 
 /* ---- revised goals table ---- */
 .goals-table{ width:100%; border-collapse:collapse; margin:26px 0; }
@@ -1083,7 +1085,7 @@ figure a:has(> img){ display:block; }
   .statgrid .stat:nth-child(3n){ padding:20px 18px 18px 0; padding-left:0; border-left:0; }
   .statgrid .stat:nth-child(2n){ padding-left:18px; border-left:1px solid var(--line); }
   .feature-grid{ grid-template-columns:1fr; gap:32px; }
-  .comp-row{ grid-template-columns:1fr; gap:22px; }
+  .comp-row{ grid-template-columns:1fr; gap:28px; padding:48px 0; }
   .comp-row.rev .comp-media{ order:0; }
   .insight-grid{ grid-template-columns:1fr; }
   .persona-grid{ grid-template-columns:1fr; gap:26px; }
@@ -1092,8 +1094,7 @@ figure a:has(> img){ display:block; }
   .friction-grid{ grid-template-columns:1fr; }
   .val-cols{ grid-template-columns:1fr; }
   .option-grid{ grid-template-columns:1fr; }
-  .sketch-grid{ grid-template-columns:1fr 1fr; }
-  .fb-grid{ grid-template-columns:1fr; gap:24px; }
+    .fb-grid{ grid-template-columns:1fr; gap:24px; }
   .outcome-pair{ grid-template-columns:1fr; gap:22px; }
   .qa-row{ grid-template-columns:1fr; gap:6px; }
   .qa-why{ font-style:italic; }
@@ -1127,8 +1128,7 @@ figure a:has(> img){ display:block; }
   .statgrid .stat:nth-child(2n),
   .statgrid .stat:nth-child(3n+2),
   .statgrid .stat:nth-child(3n){ padding:18px 0; border-left:0; }
-  .sketch-grid{ grid-template-columns:1fr; }
-  .inset{ padding:22px 20px; }
+    .inset{ padding:22px 20px; }
   .band{ padding:26px 22px; }
 }
 
@@ -1179,7 +1179,7 @@ figure a:has(> img){ display:block; }
 }
 
 /* ---- 2. coverage grid (who solves what) ---- */
-.cover-table{ width:100%; border-collapse:collapse; margin:26px 0 10px; }
+.cover-table{ width:100%; border-collapse:collapse; margin:34px 0 12px; }
 .cover-table th{
   font-family:'IBM Plex Mono', monospace; font-size:10.5px; font-weight:500; text-transform:uppercase;
   letter-spacing:0.11em; color:var(--ink-soft); padding:0 8px 12px; border-bottom:1px solid var(--line);
