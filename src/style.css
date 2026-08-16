@@ -573,7 +573,9 @@ footer.site-footer h2{ font-size:34px; margin-bottom:20px; }
   line-height:1.6; margin-top:10px; max-width:60ch;
 }
 figure{ margin:26px 0; }
-figure img, figure video{ border-radius:12px; box-shadow:0 18px 40px rgba(20,21,26,0.10); width:100%; }
+figure img, figure video{ display:block; border-radius:12px; box-shadow:0 18px 40px rgba(20,21,26,0.10); width:100%; }
+/* a figure image that links to its own full size copy */
+figure a:has(> img){ display:block; }
 .rule{ border:0; border-top:1px solid var(--line); margin:44px 0; }
 .closer{
   font-family:'Space Grotesk', sans-serif; font-size:18px; font-weight:500;
