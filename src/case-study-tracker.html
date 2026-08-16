@@ -93,7 +93,7 @@
     </div>
     <div class="grp">
       <div class="grp-title mono">Design</div>
-      <a class="sub" data-target="sec-ideation">Ideation & sketches</a>
+      <a class="sub" data-target="sec-ideation">Ideation & structure</a>
       <a class="sub" data-target="sec-feedback">Feedback & goals</a>
       <a class="sub" data-target="sec-flow">Main flow</a>
     </div>
@@ -547,13 +547,8 @@
 
       <p>This group is also the fastest growing segment of active job seekers in 2025, driven by a 65% year over year rise in US job cuts.</p>
 
-      <h3>Affinity mapping</h3>
-      <p>I pulled roughly <span class="todo">N</span> quotes into a Figma board and clustered them by underlying unmet need rather than topic. Three clusters emerged and held.</p>
-
-      <figure class="reveal">
-        <div class="visual-slot">[ affinity-board.png ]</div>
-        <figcaption class="figcap"><span class="todo">N</span> quotes from r/jobs and r/recruitinghell, clustered by unmet need.</figcaption>
-      </figure>
+      <h3>Three patterns that held</h3>
+      <p>Reading across the threads, I grouped what people said by the unmet need underneath it rather than the topic they were complaining about. Three groups came back again and again, and almost everything else was a variation on one of them.</p>
 
       <div class="cluster reveal">
         <div class="cluster-num">Cluster 01</div>
@@ -953,43 +948,14 @@
         </tbody>
       </table>
 
-      <h3>Sketches</h3>
-      <p>I sketched on paper first. Low fidelity keeps you from falling in love with a layout before you've decided what it's for. These are the raw pages.</p>
+      <h3>Three decisions that set the structure</h3>
+      <p>Before any layout existed, three questions had to be settled. Each one changed what the screen would be.</p>
+      <p><strong>Kanban died first.</strong> Every competitor uses a board, so it was the obvious starting point, and working it through made the contradiction immediate. Kanban is a <em>manual</em> metaphor. If the premise is that the system updates itself, <mark class="sweep">the interface can't be built on a gesture that requires the user to do the updating</mark>.</p>
+      <p><strong>The unit changed.</strong> I started out on the application and ended up on the search. That reframe is what produced the overview bar and the year filter. Neither exists if the application stays the unit.</p>
+      <p><strong>The signals panel had to be persistent.</strong> The signals are the entire differentiator, so putting them behind a click would bury the thing the product is for.</p>
 
-      <div class="sketch-grid">
-        <figure>
-          <div class="visual-slot">[ sketch-01.jpg ]</div>
-          <figcaption class="figcap">First pass at a kanban board, because that's what every tracker is. Abandoned fast: kanban needs the user to move the card, and here the system moves it.</figcaption>
-        </figure>
-        <figure>
-          <div class="visual-slot">[ sketch-02.jpg ]</div>
-          <figcaption class="figcap">Exploring the list view. The question that kept recurring: what is the unit of this interface, the application or the search?</figcaption>
-        </figure>
-        <figure>
-          <div class="visual-slot">[ sketch-03.jpg ]</div>
-          <figcaption class="figcap">Where the status panel came from. If the signals are the differentiator, they can't be buried behind a click.</figcaption>
-        </figure>
-        <figure>
-          <div class="visual-slot">[ sketch-04.jpg ]</div>
-          <figcaption class="figcap">Testing the overview bar. Started as a chart, became four numbers. The chart was more impressive and less useful.</figcaption>
-        </figure>
-        <figure>
-          <div class="visual-slot">[ sketch-05.jpg ]</div>
-          <figcaption class="figcap">The year filter, sketched last and almost cut. It became the feature I'm most confident about.</figcaption>
-        </figure>
-        <figure>
-          <div class="visual-slot">[ sketch-06.jpg ]</div>
-          <figcaption class="figcap">Layout options for the application row. How much can one line carry before it stops being scannable?</figcaption>
-        </figure>
-      </div>
-
-      <p>Three things came out of sketching that I wouldn't have found in Figma.</p>
-      <p>First, the kanban board died fast. Every competitor uses one, so I drew one, and drawing it made the contradiction obvious. Kanban is a <em>manual</em> metaphor. If the premise is that the system updates itself, <mark class="sweep">the interface can't be built on a gesture that requires the user to do the updating</mark>.</p>
-      <p>Second, the unit changed. I started designing the application and ended up designing the search. That reframe produced the overview bar and the year filter.</p>
-      <p>Third, the status panel had to be persistent rather than a click away. The signals are the entire differentiator, so hiding them would bury the thing the product is for.</p>
-
-      <h3>From sketch to structure</h3>
-      <p>The sketches settled <em>what</em> was on screen. Next was hierarchy: what the eye hits first, second, third. I worked in greyscale to keep that decision away from colour.</p>
+      <h3>Getting the hierarchy right</h3>
+      <p>With <em>what</em> settled, the remaining question was order: what the eye hits first, second, third. I worked that out in greyscale, to keep it away from colour.</p>
       <div class="hierarchy reveal">
         <div class="hz-main">
           <div class="hz-block">
@@ -1013,21 +979,6 @@
         </div>
       </div>
       <div class="figcap">Search first, applications second, signals third. That order is the argument of the product in one layout: a tool for managing a search, not a folder of applications.</div>
-
-      <div class="sketch-grid">
-        <figure>
-          <div class="visual-slot">[ wireframe-01-list.png ]</div>
-          <figcaption class="figcap">Greyscale structure: the tracker list.</figcaption>
-        </figure>
-        <figure>
-          <div class="visual-slot">[ wireframe-02-panel.png ]</div>
-          <figcaption class="figcap">Greyscale structure: the signals panel expanded.</figcaption>
-        </figure>
-        <figure>
-          <div class="visual-slot">[ wireframe-03-year.png ]</div>
-          <figcaption class="figcap">Greyscale structure: the year filtered view.</figcaption>
-        </figure>
-      </div>
     </section>
 
     <!-- ============ 7. FEEDBACK & REVISED GOALS ============ -->
