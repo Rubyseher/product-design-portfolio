@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=17">
+<link rel="stylesheet" href="style.css?v=18">
 </head>
 <body>
 
@@ -153,37 +153,57 @@
 
       <p>For someone applying to two or three roles, that silence is annoying. For someone laid off, applying to sixty roles across four months with rent due, <mark class="sweep">that silence is the entire experience of unemployment</mark>.</p>
 
-      <div class="statgrid reveal">
+      <div class="statgrid dimgroup reveal">
         <div class="stat">
           <div class="stat-num" data-count="1.1" data-suffix="M+">1.1M+</div>
           <div class="stat-label">US job cuts, Jan to Oct 2025, the highest since 2020</div>
+          <div class="stat-src no-src">Source to be added</div>
         </div>
         <div class="stat">
           <div class="stat-num">32 to 200+</div>
           <div class="stat-label">applications submitted before a single offer</div>
+          <div class="stat-src no-src">Source to be added</div>
         </div>
         <div class="stat">
           <div class="stat-num" data-count="61" data-suffix="%">61%</div>
           <div class="stat-label">of job seekers ghosted after an interview</div>
+          <div class="stat-src">Greenhouse, State of Job Hunting, 2024</div>
         </div>
         <div class="stat">
           <div class="stat-num" data-count="72" data-suffix="%">72%</div>
           <div class="stat-label">say the job search damages their mental health</div>
+          <div class="stat-src">The Interview Guys, State of Job Search 2025</div>
         </div>
         <div class="stat">
           <div class="stat-num" data-count="70" data-suffix="%">70%</div>
           <div class="stat-label">of repeat layoffs happen within 12 months of the first</div>
+          <div class="stat-src no-src">Source to be added</div>
         </div>
         <div class="stat">
           <div class="stat-num">1 in 3</div>
           <div class="stat-label">tech companies ran 2+ layoff rounds between 2023 and 2025</div>
+          <div class="stat-src no-src">Source to be added</div>
         </div>
       </div>
+      <div class="figcap">Hover any figure to see where it came from.</div>
 
       <div class="quote-band reveal">
         <blockquote>“I've applied to 187 jobs since March. I have heard back from 4 of them. I don't know if I'm doing something wrong or if no one is reading any of it.”</blockquote>
         <span class="qb-attr">r/jobs, 2025</span>
       </div>
+
+      <div class="rate-funnel reveal" role="img" aria-label="Of 187 applications sent, 4 received a reply of any kind, a response rate of 2.1 percent">
+        <div class="rf-row">
+          <div class="rf-lab">Applications sent</div>
+          <div class="rf-bar"><i style="--w:100%"></i><b>187</b></div>
+        </div>
+        <div class="rf-row is-thin">
+          <div class="rf-lab">Replies of any kind</div>
+          <div class="rf-bar"><i style="--w:2.1%"></i><b>4</b></div>
+        </div>
+        <div class="rf-note">A 2.1 percent response rate, drawn from the quote above</div>
+      </div>
+      <div class="figcap">One person's search, at the scale they described it. The second bar is the entire feedback they received in six months.</div>
 
       <h3>The brief</h3>
       <div class="inset">
@@ -248,7 +268,7 @@
         <figcaption class="figcap">The final tracker, one surface holding the whole search: overview bar, application list, signals panel.</figcaption>
       </figure>
 
-      <div class="feature-grid">
+      <div class="feature-grid dimgroup">
         <div class="feature">
           <div class="fnum">01</div>
           <h4><a href="#flow-01">Real time application status tracking</a></h4>
@@ -470,7 +490,7 @@
         </div>
         <div class="tc-col minus">
           <div class="tc-head">− What it cost me</div>
-          <p>I couldn't ask follow up questions. I couldn't probe a contradiction. And Reddit skews toward people having a bad time. The quiet majority who found a job in six weeks doesn't post about it. I compensated by triangulating every emotional pattern against quantitative sources: Greenhouse's State of Job Hunting, Axios reporting on recruiter notification rates, and The Interview Guys' 2025 job search survey.</p>
+          <p>I couldn't ask follow up questions. I couldn't probe a contradiction. And Reddit skews toward people having a bad time. The quiet majority who found a job in six weeks doesn't post about it. I compensated by triangulating every emotional pattern against quantitative sources: <span class="cite" tabindex="0" data-cite="Greenhouse, State of Job Hunting, 2024. The 61% ghosted after interview figure, and the rise from 52% a year earlier.">Greenhouse's State of Job Hunting</span>, <span class="cite" tabindex="0" data-cite="Axios / Greenhouse, September 2024. The 4 in 100 companies that notify every rejected applicant.">Axios reporting on recruiter notification rates</span>, and <span class="cite c-end" tabindex="0" data-cite="The Interview Guys, State of Job Search 2025. The 72% reporting mental health damage, and the 66% of those blaming silence rather than volume.">The Interview Guys' 2025 job search survey</span>.</p>
         </div>
       </div>
 
@@ -532,7 +552,7 @@
       </div>
 
       <h3>The insights that reframed the problem</h3>
-      <div class="insight-grid">
+      <div class="insight-grid dimgroup">
         <div class="insight-card">
           <h4>The feedback gap is structural, not accidental.</h4>
           <div class="minichart">
@@ -597,7 +617,7 @@
         <p>Job searching is one of the most emotionally charged interactions a user has with LinkedIn. When someone hits Apply, they are trusting the platform to connect them with opportunity. Most of the time, the platform goes silent.</p>
         <p>That silence has a business cost. LinkedIn's job seeker revenue depends on users believing the search works. When they stop believing it, Premium Career subscribers churn, engagement drops, and the recruiter side value proposition weakens with it. The friction doesn't just hurt users. It erodes the platform's core promise.</p>
 
-        <div class="market-row">
+        <div class="market-row dimgroup">
           <div class="market-stat">
             <div class="ms-num">↑ 65%</div>
             <div class="ms-bar"><div class="ms-fill up" style="width:32.5%"></div></div>
@@ -629,7 +649,7 @@
 
       <p>The three affinity clusters mapped onto two distinct people. They share the same trigger, an involuntary layoff, but they experience the silence differently, and they need different things from the same product.</p>
 
-      <div class="persona-grid">
+      <div class="persona-grid dimgroup">
         <div class="persona-card reveal">
           <span class="p-badge primary">Primary</span>
           <div class="p-avatar" role="img" aria-label="Portrait placeholder for Arjun Mehta"></div>
@@ -853,10 +873,10 @@
       </div>
       <div class="figcap">Every idea had to clear all three gates. One failure anywhere ended it.</div>
 
-      <div class="criteria-row">
+      <div class="criteria-row dimgroup">
         <div class="criterion">
           <div class="cnum">01</div>
-          <p><b>Does LinkedIn already have this data?</b> If it required employers to change behaviour, it was out. 96% of companies don't notify rejected applicants, so a solution that depends on them starting to is not a solution.</p>
+          <p><b>Does LinkedIn already have this data?</b> If it required employers to change behaviour, it was out. <span class="cite" tabindex="0" data-cite="Axios / Greenhouse, September 2024. Every 100 companies hiring through Greenhouse in Q2 2024.">96% of companies</span> don't notify rejected applicants, so a solution that depends on them starting to is not a solution.</p>
         </div>
         <div class="criterion">
           <div class="cnum">02</div>
@@ -1008,7 +1028,7 @@
       <p><strong>The concept landed.</strong> The tracker was immediately legible as a job search tool without explanation, and the overview bar was what he noticed first, which was the intended hierarchy. The job to be done question came back clean: he could tell which applications were alive.</p>
       <p><strong>Three friction points came out of it:</strong></p>
 
-      <div class="friction-grid">
+      <div class="friction-grid dimgroup">
         <div class="friction-card">
           <div class="fbadge">1</div>
           <svg class="fsvg" viewBox="0 0 240 88" role="img" aria-label="Two links with different destinations drawn with the same icon">
@@ -1599,7 +1619,7 @@
       <div class="sec-eyebrow">12 / Reflection</div>
       <h2 class="grad g4">What I'd take into the next one.</h2>
 
-      <div class="learnings">
+      <div class="learnings dimgroup">
         <div class="learning">
           <div class="lnum">01</div>
           <div>
@@ -1643,6 +1663,32 @@
       <p>Four feature sets taken to high fidelity is a concept, not a product. The next step is the one I couldn't take from outside: a moderated usability study with 5 to 8 laid off professionals in active search, focused on the two questions I can't answer myself: does the status panel actually reduce anxiety, and does the year filter make a past search feel useful rather than painful?</p>
 
       <p class="final-word">The second question is the one I'm least sure about. Showing someone the record of a search that ended in a layoff could be a resource or a wound. I designed it as a resource. I'd want to find out.</p>
+
+      <details class="sources">
+        <summary>Sources for the statistics</summary>
+        <table>
+          <tr>
+            <td>4 in 100 companies notify every rejected applicant, so 96% say nothing</td>
+            <td>Axios / Greenhouse, September 2024. Companies hiring through Greenhouse in Q2 2024.</td>
+          </tr>
+          <tr>
+            <td>61% ghosted after an interview, up from 52% a year earlier</td>
+            <td>Greenhouse, State of Job Hunting, 2024.</td>
+          </tr>
+          <tr>
+            <td>72% say the search damaged their mental health, 66% of those blame the silence rather than the volume</td>
+            <td>The Interview Guys, State of Job Search 2025.</td>
+          </tr>
+          <tr>
+            <td>Spreadsheets running past 500 rows, and the language people use about them</td>
+            <td>Community observation, r/jobs and r/recruitinghell, 2025 and 2026.</td>
+          </tr>
+          <tr>
+            <td>1.1M+ US job cuts, the 32 to 200+ application range, 70% repeat layoffs within 12 months, 1 in 3 tech companies running multiple rounds, and the 65% year over year rise in cuts</td>
+            <td><span class="todo">Source to be added</span></td>
+          </tr>
+        </table>
+      </details>
     </section>
 
   </main>
@@ -1672,6 +1718,6 @@
   </div>
 </footer>
 
-<script src="script.js?v=10"></script>
+<script src="script.js?v=11"></script>
 </body>
 </html>

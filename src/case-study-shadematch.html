@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=17">
+<link rel="stylesheet" href="style.css?v=18">
 </head>
 <body class="cs-shadematch">
 
@@ -129,32 +129,39 @@
       <p>People own far more clothing than they wear, and the reason isn't that they bought badly. It's that they can't see the combinations. A garment sits unworn not because it's disliked, but because nothing in the wardrobe has been identified as its partner, and identifying that partner takes a skill most people were never taught and don't believe they have.</p>
       <p>The cost is daily, small and relentless. It's the same five outfits on rotation while most of the wardrobe stays folded. It's buying a new top because the one you own “doesn't go with anything”, which is almost never true, just unproven.</p>
 
-      <div class="statgrid reveal">
+      <div class="statgrid dimgroup reveal">
         <div class="stat">
           <div class="stat-num" data-count="82" data-suffix="%">82%</div>
           <div class="stat-label">of the average US wardrobe goes unworn, from a study of 18,000 households across 20 countries</div>
+          <div class="stat-src">Movinga wardrobe study, 2018</div>
         </div>
         <div class="stat">
           <div class="stat-num" data-count="5" data-suffix=" mo">5 mo</div>
           <div class="stat-label">of a working life spent deciding what to wear, around an hour a week</div>
+          <div class="stat-src">Simon Jersey survey, 2019</div>
         </div>
         <div class="stat">
           <div class="stat-num" data-count="45" data-suffix="%">45%</div>
           <div class="stat-label">find deciding what to wear for work actively stressful</div>
+          <div class="stat-src">Simon Jersey survey, 2019</div>
         </div>
         <div class="stat">
           <div class="stat-num">20 to 40%</div>
           <div class="stat-label">online apparel return rate, against a 20% ecommerce average</div>
+          <div class="stat-src">NRF 2025 Retail Returns Landscape</div>
         </div>
         <div class="stat">
           <div class="stat-num" data-count="120" data-suffix="">120</div>
           <div class="stat-label">garments owned by the primary persona, of which she wears about fifteen</div>
+          <div class="stat-src">Persona composite, built from the review research</div>
         </div>
         <div class="stat">
           <div class="stat-num" data-count="1" data-suffix=" photo">1 photo</div>
           <div class="stat-label">the entire setup cost of the product, and its whole competitive position</div>
+          <div class="stat-src">The product as built</div>
         </div>
       </div>
+      <div class="figcap">Hover any figure to see where it came from.</div>
 
       <h3>The insight that reframes it</h3>
       <p>The most useful number here isn't 82%. It's the gap between the two.</p>
@@ -212,7 +219,7 @@
         <figcaption class="figcap">The redesigned result screen: three ranked combinations, each stated as a sentence with a reason.</figcaption>
       </figure>
 
-      <div class="feature-grid">
+      <div class="feature-grid dimgroup">
         <div class="feature">
           <div class="fnum">01</div>
           <h4><a href="#flow-01">Single item capture</a></h4>
@@ -443,7 +450,7 @@
       </div>
 
       <h3>The three findings that broke the original build</h3>
-      <div class="insight-grid">
+      <div class="insight-grid dimgroup">
         <div class="insight-card">
           <h4>Nobody is looking for this product.</h4>
           <div class="minichart">
@@ -470,9 +477,9 @@
 
       <div class="band">
         <h3>The business case</h3>
-        <p>India's fashion ecommerce market was worth roughly <strong>$25.6B in 2025</strong>, apparel at <strong>54%</strong> of it, Myntra alone at about <strong>$12.5B GMV</strong>. It's not a small pond, and there's obvious money in sending qualified traffic into it.</p>
+        <p>India's fashion ecommerce market was worth roughly <span class="cite" tabindex="0" data-cite="ECDB, 2025. India fashion ecommerce market value."><strong>$25.6B in 2025</strong></span>, apparel at <span class="cite" tabindex="0" data-cite="ECDB, 2025. Apparel share of the India fashion ecommerce market."><strong>54%</strong></span> of it, Myntra alone at about <span class="cite" tabindex="0" data-cite="ECDB, 2025. Myntra gross merchandise value."><strong>$12.5B GMV</strong></span>. It's not a small pond, and there's obvious money in sending qualified traffic into it.</p>
 
-        <div class="market-row">
+        <div class="market-row dimgroup">
           <div class="market-stat">
             <div class="ms-num">$25.6B</div>
             <div class="ms-lab">India fashion ecommerce, 2025</div>
@@ -490,6 +497,38 @@
         <p>That's exactly the trap. Affiliate revenue is the fastest monetisation path available to a product like this, and taking it early destroys the asset that makes the product worth using. A styling engine that is trusted can eventually monetise almost any way it likes: subscription, brand partnership, retailer licensing. A styling engine that is <em>suspected</em> has no second act.</p>
         <p>There's a stronger commercial argument available on the retailer's own side. Online apparel returns run 20 to 40% against a 20% ecommerce average, and fit and sizing drives about half of them. A meaningful share of the remainder is the other failure: the item arrived, it was fine, and it went with nothing the buyer owned. A tool that tells someone what they can actually wear a garment with is a returns reduction tool wearing a styling app's clothes. That's a far better pitch to a retailer than affiliate clicks.</p>
 
+        <div class="donut-row">
+          <div class="donut-card">
+            <div class="donut">
+              <svg viewBox="0 0 42 42" role="img" aria-label="Apparel is 54 percent of India's fashion ecommerce market">
+                <circle class="dn-track" cx="21" cy="21" r="15.9155"></circle>
+                <circle class="dn-arc" cx="21" cy="21" r="15.9155" style="--pct:54"></circle>
+              </svg>
+              <div class="dn-mid"><b>54%</b><span>apparel</span></div>
+            </div>
+            <div class="dn-body">
+              <h4>Apparel's share of a $25.6B market</h4>
+              <p>The addressable side of the pitch. Sending qualified traffic into it is the obvious business model, and the one this project deliberately does not take.</p>
+              <div class="src">Source: ECDB, 2025</div>
+            </div>
+          </div>
+          <div class="donut-card">
+            <div class="donut">
+              <svg viewBox="0 0 42 42" role="img" aria-label="Fit and sizing drives about half of all apparel returns">
+                <circle class="dn-track" cx="21" cy="21" r="15.9155"></circle>
+                <circle class="dn-arc is-warn" cx="21" cy="21" r="15.9155" style="--pct:50"></circle>
+              </svg>
+              <div class="dn-mid"><b>~50%</b><span>fit, sizing</span></div>
+            </div>
+            <div class="dn-body">
+              <h4>What drives apparel returns</h4>
+              <p>Fit and sizing is about half. The other half is the failure this product speaks to, an item that arrived, was fine, and went with nothing the buyer already owned.</p>
+              <div class="src">Source: NRF 2025 Retail Returns Landscape</div>
+            </div>
+          </div>
+        </div>
+        <div class="figcap">Two ratios, because the returns half is the stronger pitch and it is the half nobody builds for.</div>
+
         <p class="punchline">Sequencing, stated plainly: earn trust with disinterested advice first. Monetise the trust second. Never the reverse.</p>
       </div>
     </section>
@@ -501,7 +540,7 @@
 
       <p>The clusters resolved into two people. One owns too much and wears too little. The other keeps buying to solve a problem buying can't solve. They meet at the same moment, standing in front of a cupboard, holding one item, stuck.</p>
 
-      <div class="persona-grid">
+      <div class="persona-grid dimgroup">
         <div class="persona-card reveal">
           <div class="swatch-strip" aria-hidden="true" style="position:absolute; top:0; left:0; border-radius:16px 16px 0 0; overflow:hidden;">
             <span style="background:#2F3A52"></span><span style="background:#EFE3D2"></span>
@@ -674,7 +713,34 @@
       <p>Most design projects start empty and add. This one started full. ShadeMatch already did five things, and the work was almost entirely deciding which were the product and which were noise wearing a feature's clothes.</p>
 
       <h3>The three questions everything had to pass</h3>
-      <div class="criteria-row">
+
+      <div class="funnel reveal">
+        <div class="fn-end">
+          <b>5</b>
+          <span>features as built</span>
+        </div>
+        <div class="fn-gates">
+          <div class="fn-gate">
+            <span class="gn">Gate 01</span>
+            <p>Does it serve the moment of getting dressed?</p>
+          </div>
+          <div class="fn-gate">
+            <span class="gn">Gate 02</span>
+            <p>Does it cost the user anything before it gives them something?</p>
+          </div>
+          <div class="fn-gate">
+            <span class="gn">Gate 03</span>
+            <p>Does it survive the trust test?</p>
+          </div>
+        </div>
+        <div class="fn-end out">
+          <b>4</b>
+          <span>kept, two of them rebuilt</span>
+        </div>
+      </div>
+      <div class="figcap">The audit below is these three gates applied to what already shipped. One feature failed outright and left the core.</div>
+
+      <div class="criteria-row dimgroup">
         <div class="criterion">
           <div class="cnum">01</div>
           <p><b>Does this serve the moment of getting dressed?</b> Not the moment of shopping, not browsing. If a feature's best use case was “while browsing Myntra,” it was out of the core regardless of how well it worked.</p>
@@ -840,7 +906,7 @@
       <div class="disclaimer">Stated plainly: this is a heuristic evaluation against documented research, not a moderated usability study with recruited participants. It is good at finding structural and comprehension failures. It cannot tell me whether anyone's behaviour changed, and that requires the diary study described in Measuring success.</div>
 
       <h3>Four failures it surfaced</h3>
-      <div class="friction-grid">
+      <div class="friction-grid dimgroup">
         <div class="friction-card">
           <div class="fbadge">1</div>
           <h4>The output gives an answer but no reason.</h4>
@@ -1363,7 +1429,7 @@
       <div class="sec-eyebrow">12 / Reflection</div>
       <h2 class="grad g11">What auditing my own product taught me.</h2>
 
-      <div class="learnings">
+      <div class="learnings dimgroup">
         <div class="learning">
           <div class="lnum">01</div>
           <div>
@@ -1459,6 +1525,6 @@
   </div>
 </footer>
 
-<script src="script.js?v=10"></script>
+<script src="script.js?v=11"></script>
 </body>
 </html>

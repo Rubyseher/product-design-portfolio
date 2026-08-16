@@ -316,7 +316,9 @@
   // things that get their own entrance, no children involved
   var SOLO = [
     '.cs-content h2', 'mark.sweep', '.matrix', '.quote-band', '.northstar',
-    '.hmw', '.flow-block', '.inset', '.band'
+    '.hmw', '.flow-block', '.inset', '.band',
+    // charts draw themselves once they are on screen
+    '.rate-funnel', '.donut-row'
   ].join(',');
 
   var targets = [];
