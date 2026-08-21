@@ -1702,21 +1702,12 @@ body.cs-shadematch .cs-sidebar .sub.active{ border-left-color:var(--accent); }
 .swatch-strip span{ flex:1; }
 
 /* phone frames: this is a mobile PWA, so nothing is shown in a browser chrome */
-.phone{
-  width:100%; max-width:290px; margin:0 auto;
-  border:9px solid #16171C; border-radius:32px; background:#16171C;
-  box-shadow:0 22px 48px rgba(20,21,26,0.16);
-}
-.phone-screen{
-  border-radius:24px; overflow:hidden; background:var(--tint-2);
-  aspect-ratio:9/19.5; display:flex; align-items:center; justify-content:center;
-  text-align:center; padding:18px;
-  font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--ink-soft);
-  background-image:repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.02) 10px, rgba(0,0,0,0.02) 20px);
-}
+/* the screens carry their own device mockup, so nothing here draws a frame */
 .phone-row{ display:grid; grid-template-columns:repeat(5,1fr); gap:14px; align-items:start; margin:30px 0 6px; }
-.phone-row .phone{ max-width:none; border-width:6px; border-radius:22px; }
-.phone-row .phone-screen{ border-radius:16px; font-size:9.5px; padding:8px; }
+.phone-row .visual-slot{ min-height:0; aspect-ratio:16/10; padding:8px; font-size:9.5px; }
+.phone-step img, .phone-step video{
+  width:100%; height:auto; display:block; border-radius:8px;
+}
 .phone-step{ text-align:center; }
 .phone-step .ps-lab{
   font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:0.1em;
@@ -1910,8 +1901,8 @@ body.cs-shadematch .stage-statement{ font-size:clamp(34px,6vw,74px); max-width:1
 .fn-gates:has(.fn-gate:hover) .fn-gate:not(:hover){ opacity:.55; }
 
 /* ---- flow screens come forward one at a time ---- */
-.phone-step .phone{ transition:transform .3s ease, box-shadow .3s ease; }
-.phone-step:hover .phone{ transform:translateY(-6px); box-shadow:0 22px 44px rgba(20,21,26,0.14); }
+.phone-step .visual-slot, .phone-step img, .phone-step video{ transition:transform .3s ease, box-shadow .3s ease; }
+.phone-step:hover .visual-slot, .phone-step:hover img, .phone-step:hover video{ transform:translateY(-6px); box-shadow:0 22px 44px rgba(20,21,26,0.14); }
 .phone-row:has(.phone-step:hover) .phone-step:not(:hover){ opacity:.5; }
 .phone-row .phone-step{ transition:opacity .3s ease; }
 
@@ -2023,7 +2014,7 @@ body.cs-shadematch .stage-statement{ font-size:clamp(34px,6vw,74px); max-width:1
 @media (prefers-reduced-motion:reduce){
   .dimgroup > * > *, .stat-num, .stat-label, .stat-src, .cite::after, .cite::before,
   .cover-table .mark, .matrix .mx-dot, .matrix .mx-lab, .fn-gate,
-  .phone-step .phone, .phone-row .phone-step, .donut-card,
+  .phone-step .visual-slot, .phone-step img, .phone-step video, .phone-row .phone-step, .donut-card,
   .rf-grid i, .dn-arc{
     transition:none !important;
   }
