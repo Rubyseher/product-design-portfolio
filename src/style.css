@@ -208,6 +208,13 @@ footer.site-footer h2{ font-size:34px; margin-bottom:20px; }
 }
 .cs-video video{ display:block; width:100%; height:auto; }
 
+/* a landscape screen recording that already carries its own device mockup,
+   so it gets no .phone frame around it, only a corner radius */
+.shot-video{
+  display:block; width:100%; height:auto;
+  border-radius:12px; background:var(--paper-raised);
+}
+
 .frontmatter{
   font-family:'IBM Plex Mono', monospace; font-size:13px; line-height:1.9;
   background:var(--ink); color:#D8D5CB; padding:18px 22px; border-radius:6px; display:inline-block; min-width:320px;
@@ -662,6 +669,16 @@ figure a:has(> img){ display:block; }
   background:var(--paper-raised); border:1px solid var(--line); border-radius:8px;
   box-shadow:0 8px 20px rgba(20,21,26,0.07);
 }
+/* one screenshot rather than a set. these arrive at wildly different shapes,
+   from tall app store portraits to wide desktop captures, so each sits at its
+   own ratio inside a capped frame instead of being letterboxed into a shared box */
+.comp-shot{ display:block; }
+.comp-shot img{
+  max-width:100%; max-height:440px; width:auto; height:auto; display:block; margin:0 auto;
+  background:var(--paper-raised); border:1px solid var(--line); border-radius:8px;
+  box-shadow:0 8px 20px rgba(20,21,26,0.07);
+}
+
 .badge-letter{
   display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;
   border-radius:50%; border:1.5px solid var(--accent); color:var(--accent);
