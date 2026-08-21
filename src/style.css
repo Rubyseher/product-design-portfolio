@@ -210,7 +210,7 @@ footer.site-footer h2{ font-size:34px; margin-bottom:20px; }
 
 /* a landscape screen recording that already carries its own device mockup,
    so it gets no .phone frame around it, only a corner radius */
-.shot-video{
+.shot-video, .shot-img{
   display:block; width:100%; height:auto;
   border-radius:12px; background:var(--paper-raised);
 }
