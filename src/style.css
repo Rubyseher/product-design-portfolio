@@ -1039,25 +1039,6 @@ figure a:has(> img){ display:block; }
   letter-spacing:0.13em; color:var(--ink); margin-bottom:8px;
 }
 
-/* ---- iterations: before / after ---- */
-.iteration{ border-top:1px solid var(--line); padding-top:36px; margin-top:36px; }
-.iteration h3{ margin-top:0; }
-.ba-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; margin:22px 0; }
-.ba-cell .ba-tag{
-  font-family:'IBM Plex Mono', monospace; font-size:10.5px; text-transform:uppercase;
-  letter-spacing:0.14em; margin-bottom:8px;
-}
-.ba-cell.before .ba-tag{ color:var(--ink-soft); }
-.ba-cell.after .ba-tag{ color:var(--accent); }
-.ba-cell .visual-slot{ min-height:170px; }
-.ba-cell.after .visual-slot{ border-color:rgba(var(--accent-rgb), 0.45); }
-.itrow{ margin-bottom:14px; }
-.itrow .il{
-  font-family:'IBM Plex Mono', monospace; font-size:10.5px; text-transform:uppercase;
-  letter-spacing:0.13em; color:var(--ink-soft); display:block; margin-bottom:5px;
-}
-.itrow p{ margin-bottom:0; font-size:15px; }
-
 /* ---- button options ---- */
 .option-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin:26px 0; }
 .option{
@@ -1131,7 +1112,6 @@ figure a:has(> img){ display:block; }
   .deftable tr{ display:block; border-bottom:1px solid var(--line); padding:14px 0; }
   .learning{ grid-template-columns:1fr; gap:2px; }
   .learning .lnum{ font-size:26px; }
-  .ba-grid{ grid-template-columns:1fr; }
   .hmw{ padding:44px 26px; }
   .quote-band{ padding:44px 24px; }
   .cluster{ padding:24px 22px; }

@@ -329,7 +329,7 @@
     '.meta-grid', '.statgrid', '.feature-grid', '.insight-grid', '.friction-grid',
     '.criteria-row', '.val-cols', '.option-grid', '.persona-grid', '.market-row',
     '.chiprow', '.sketch-grid', '.guardrails', '.learnings', '.vlist',
-    '.qa', '.ba-grid', '.outcome-pair', '.cluster', '.tc'
+    '.qa', '.outcome-pair', '.cluster', '.tc'
   ].join(',');
 
   // things that get their own entrance, no children involved
@@ -360,7 +360,7 @@
   // figures reveal with a wipe rather than a plain fade
   Array.prototype.forEach.call(document.querySelectorAll('.cs-content figure > .visual-slot, .cs-content figure > img, .cs-content figure > video'), function(el){
     var fig = el.parentNode;
-    if (fig.closest('.sketch-grid, .ba-grid, .option-grid')) return;  // already staggered by their box
+    if (fig.closest('.sketch-grid, .option-grid')) return;  // already staggered by their box
     el.classList.add('anim-wipe');
     fig.classList.remove('reveal');
     fig.classList.add('wipe-host');
