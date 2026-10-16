@@ -1110,58 +1110,39 @@
       </div>
 
       <h3>North star metric</h3>
-      <div class="northstar reveal">
-        <div class="ns-lbl">The one number that matters most</div>
-        <div class="ns-metric">Percentage of sessions where the user wears an outfit they wouldn't otherwise have worn.</div>
-        <p>Not sessions. Not time in app. Not suggestions generated. All of those rise when a product is confusing, and the goal is a garment leaving the shelf.</p>
+      <div class="nsm reveal">
+        <div class="nsm-lbl">The one number that matters most</div>
+        <div class="nsm-metric">Out of every 100 visits, how many end with someone wearing something they would not otherwise have worn?</div>
+
+        <div class="nsm-dont"><span class="nsm-small">I don't count</span><span class="nsm-strike"><s>Visits</s> · <s>Time in the app</s> · <s>Number of suggestions</s></span></div>
+        <p>Those all go up when an app is confusing. The goal is a shirt leaving the cupboard.</p>
+
+        <div class="nsm-catch-lbl">The honest catch</div>
+        <p>I can't see what someone actually wears. So the best stand-in is one optional tap when they come back: “Did you wear it?” Asking costs a little effort, and this app promises no effort. So I would only ask on a return visit, and never block anything. I'd accept some missing answers to keep it effortless. It's a trade-off I'd want to test.</p>
+
+        <div class="nsm-steps">
+          <div class="nsm-step"><svg class="nsm-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5A1.5 1.5 0 0 1 4.5 7H7l1.3-2h7.4L17 7h2.5A1.5 1.5 0 0 1 21 8.5v9a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5z"/><circle cx="12" cy="13" r="3.5"/></svg><div class="nsm-st">Photo</div><div class="nsm-sm">Gets a suggestion</div></div>
+          <span class="nsm-arrow" aria-hidden="true">→</span>
+          <div class="nsm-step"><svg class="nsm-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="M9 14.5l2 2 4-4"/></svg><div class="nsm-st">Next visit</div><div class="nsm-sm">One optional tap</div></div>
+          <span class="nsm-arrow" aria-hidden="true">→</span>
+          <div class="nsm-step"><svg class="nsm-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5a2 2 0 1 0-2-2"/><path d="M12 6.5V9"/><path d="M12 9L3 15.2c-.7.5-.4 1.6.5 1.6h17c.9 0 1.2-1.1.5-1.6z"/></svg><div class="nsm-st">Did you wear it?</div><div class="nsm-sm">Yes counts toward the number</div></div>
+        </div>
       </div>
 
-      <div class="disclaimer">The honest caveat: this is hard to instrument, because you can't observe what someone wore. The usable proxy is a “wore this” confirmation on a return visit, which is its own design problem, since adding a check in to a product promising zero friction is a contradiction. My answer is one optional tap surfaced only on return, accepting incomplete data over a degraded experience. A compromise I'd want to test.</div>
-
       <h3>Supporting metrics</h3>
-      <table class="metrics-table">
-        <thead>
-          <tr><th>Design goal</th><th>Metric</th><th>Target</th><th>Why this one</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Value before commitment</td>
-            <td>% of first sessions reaching a recommendation</td>
-            <td>&gt; 85%</td>
-            <td>If people drop before the first answer, the zero setup promise failed at its only job</td>
-          </tr>
-          <tr>
-            <td>Speed of answer</td>
-            <td>Median seconds, launch to first recommendation</td>
-            <td>&lt; 30s</td>
-            <td>Aditi's window is two minutes. Slower than this loses to the mirror.</td>
-          </tr>
-          <tr>
-            <td>Comprehension, not correctness</td>
-            <td>% of sessions where the reason line is read or expanded</td>
-            <td>&gt; 50%</td>
-            <td>A reason nobody reads is a reason that isn't working</td>
-          </tr>
-          <tr>
-            <td>Confidence compounding</td>
-            <td>% of returning users applying a past combination without rescanning</td>
-            <td>&gt; 25%</td>
-            <td>The strongest signal available, because the user learned something and kept it</td>
-          </tr>
-          <tr>
-            <td>Trust</td>
-            <td>Suggestion acceptance rate, with against without commerce present</td>
-            <td>&lt; 5%</td>
-            <td>Directly measures the Cluster 3 contamination effect</td>
-          </tr>
-          <tr>
-            <td>★ Real value</td>
-            <td>Distinct garments involved in accepted suggestions, per user, per month</td>
-            <td>Rising</td>
-            <td>The only metric that measures the actual problem moving rather than a proxy for it</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="sm-cols">
+          <div class="sm-col"><div class="sm-num">&gt; 85%</div><div class="sm-name">Gets a suggestion</div><p>Share of first visits that get a suggestion. If people leave before the first answer, the “no setup” promise failed.</p></div>
+          <div class="sm-col"><div class="sm-num">&lt; 30s</div><div class="sm-name">Fast enough</div><p>Typical time from opening the app to the first suggestion. Aditi has two minutes. Slower than that and the mirror wins.</p></div>
+          <div class="sm-col"><div class="sm-num">Rising</div><div class="sm-name">★ Real value</div><p>Number of different garments used in accepted suggestions, per person, per month. The only measure of the real problem, not a stand-in for it.</p></div>
+      </div>
+      <details class="sm-more">
+        <summary><span class="sm-open">Show 3 more measures</span><span class="sm-close">Hide</span></summary>
+        <div class="sm-rows">
+            <div class="sm-row"><div class="sm-rname">Understood</div><div class="sm-goal">&gt; 50%</div><p>Share of visits where people read the reason, once reasons are built. A reason nobody reads isn't working.</p></div>
+            <div class="sm-row"><div class="sm-rname">Learning sticks</div><div class="sm-goal">&gt; 25%</div><p>Share of returning users who reuse a saved combination without a new photo. The strongest sign: they learned something and kept it.</p></div>
+            <div class="sm-row"><div class="sm-rname">Trust</div><div class="sm-goal">&lt; 5%</div><p>How often people accept a suggestion, with shopping links versus without. Shows whether shopping links hurt trust (Cluster 3).</p></div>
+        </div>
+      </details>
 
       <h3>Warning signs: how I'd know it's going wrong</h3>
       <p>Three things I'd treat as failure regardless of what the North Star did.</p>
