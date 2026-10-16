@@ -2464,3 +2464,6 @@ body:has(.cs-body) .statgrid .stat-src{ bottom:28px; }
 
 /* cluster titles fill their column rather than shrink to the text */
 .cl-title{ align-self:stretch; }
+
+/* no divider between the comp analysis closing line and Voices */
+body.cs-shadematch:has(.cs-body) .cs-content section#sec-voices{ border-top:0; }
