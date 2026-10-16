@@ -1701,7 +1701,7 @@ body.cs-shadematch .cs-sidebar .sub.active{ border-left-color:var(--accent); }
 .gap-compare{
   display:grid; grid-template-columns:auto auto auto; grid-template-rows:auto auto;
   justify-content:center; column-gap:clamp(24px,5vw,72px); row-gap:16px;
-  --big:min(540px,56vw); --small:calc(var(--big) * 0.555);
+  --big:min(420px,28vw); --small:calc(var(--big) * 0.555);
   margin:24px 0 0; padding:0; border:0; background:none;
 }
 .gap-compare .gs-small, .gap-compare .gs-big{
@@ -1794,9 +1794,13 @@ body.cs-shadematch .cs-sidebar .sub.active{ border-left-color:var(--accent); }
   .audit-table tr{ border-bottom:1px solid var(--line); padding:16px 0; }
   .audit-table td{ border:0; padding:0 0 8px; width:auto !important; }
 }
+@media (max-width:900px){
+  .gap-compare{ --big:44vw; }
+}
 @media (max-width:640px){
   .phone-row{ grid-template-columns:1fr; }
-  .gap-compare{ --big:62vw; }
+  .gap-compare{ column-gap:12px; }
+  .gap-compare .gs-vs{ letter-spacing:0.08em; }
 }
 
 /* this headline is longer than the tracker's, so it needs a smaller ceiling to
@@ -2319,7 +2323,7 @@ body:has(.cs-body) .comp-media figure, body:has(.cs-body) .fb-media figure{ marg
 body:has(.cs-body) .cs-content figure img, body:has(.cs-body) .cs-content figure video{ box-shadow:none; margin-left:auto; margin-right:auto; }
 body:has(.cs-body) .fb-media figure img.shot-img{ width:auto; max-width:100%; max-height:560px; border-radius:0; }
 body:has(.cs-body) .phone-step img{ border-radius:0; box-shadow:none; }
-body:has(.cs-body) .gap-compare + .figcap{ margin-top:24px; text-align:center; max-width:none; }
+body:has(.cs-body) .cs-section > .gap-compare + .figcap{ margin-top:24px; text-align:center; max-width:none; }
 body:has(.cs-body) .matrix-wrap{ margin:0; }
 body:has(.cs-body) .matrix-wrap .figcap{ margin-top:16px; }
 
