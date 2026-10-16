@@ -2698,3 +2698,20 @@ body:has(.cs-body) .cs-content .sm-row p{ grid-column:2; order:0; }
 .nl-zones .z-ok{ flex:3; color:#3F7D52; }
 .nl-zones .z-bad{ flex:7; color:var(--warn); padding-left:8px; }
 .guard-table .nl{ margin-top:32px; }
+
+/* how I'd validate: three plain columns, one divider between each */
+.vv{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:0; margin-top:24px; }
+.vv-col{ padding:0 24px; }
+.vv-col:first-child{ padding-left:0; }
+.vv-col:last-child{ padding-right:0; }
+.vv-col + .vv-col{ border-left:1px solid var(--line); }
+.vv-icon{ color:var(--accent); display:block; margin-bottom:16px; }
+.vv-lab{ font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-soft); }
+.vv-title{ font-size:17px; font-weight:600; color:var(--ink); margin-top:8px; }
+body:has(.cs-body) .cs-content .vv-col p{ font-size:15px; line-height:1.6; max-width:none; margin:8px 0 0; }
+@media (max-width:768px){
+  .vv{ grid-template-columns:1fr; }
+  .vv-col, .vv-col:first-child, .vv-col:last-child{ padding:0 0 24px; }
+  .vv-col + .vv-col{ border-left:0; border-top:1px solid var(--line); padding-top:24px; }
+  .vv-col:last-child{ padding-bottom:0; }
+}
