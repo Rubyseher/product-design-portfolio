@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=33">
+<link rel="stylesheet" href="style.css?v=34">
 </head>
 <body class="cs-shadematch">
 
@@ -42,7 +42,7 @@
 
     <div class="stage-center">
       <div class="cs-eyebrow">ShadeMatch · Product Design Case Study · 2026</div>
-      <h1 class="stage-statement grad g11">The best decision I made was a feature I didn't ship.</h1>
+      <h1 class="stage-statement grad grad-text g11">The best decision I made was a feature I didn't ship.</h1>
       <p class="stage-sub">I built ShadeMatch because I kept running late for my bus, unable to pick an outfit. It looks at one piece of clothing you own and tells you what goes with it. This is how I decided what it should do, and what it shouldn't.</p>
       <a class="live-btn" href="https://redux-ready-shadematch.onrender.com" target="_blank" rel="noopener">View the live app →</a>
     </div>
@@ -127,39 +127,39 @@
     <!-- ============ 1. PROBLEM ============ -->
     <section class="cs-section" id="sec-problem">
       <div class="sec-eyebrow">01 / The Problem</div>
-      <h2 class="grad g12">A full wardrobe and nothing to wear. I lived that every morning, and it's a design problem, not a joke.</h2>
+      <h2 class="grad grad-text g12">A full wardrobe and nothing to wear. I lived this every morning. It's a design problem.</h2>
 
       <p>Most of us own far more than we wear. It's not bad shopping. We just can't see what goes with what. A shirt stays in the cupboard because nobody ever showed us what to pair it with.</p>
       <p>So we repeat the same five outfits, and buy a new top because the old one "goes with nothing".</p>
 
-      <div class="statgrid dimgroup reveal">
+      <div class="statgrid dimgroup reveal" data-grad-row>
         <div class="stat">
-          <div class="stat-num" data-count="82" data-suffix="%">82%</div>
+          <div data-grad-num class="stat-num" data-count="82" data-suffix="%">82%</div>
           <div class="stat-label">of the average US wardrobe goes unworn, from a study of 18,000 households across 20 countries</div>
           <div class="stat-src">Movinga wardrobe</div>
         </div>
         <a class="stat stat-link" href="https://www.getthegloss.com/uncategorised/the-average-woman-spends-five-months-of-her-life-choosing-what-to-wear/" target="_blank" rel="noopener" title="https://www.getthegloss.com/uncategorised/the-average-woman-spends-five-months-of-her-life-choosing-what-to-wear/">
-          <div class="stat-num" data-count="5" data-suffix=" mo">5 mo</div>
+          <div data-grad-num class="stat-num" data-count="5" data-suffix=" mo">5 mo</div>
           <div class="stat-label">of a woman's working life spent deciding what to wear, over an hour a week</div>
           <div class="stat-src">Simon Jersey survey, 2019</div>
         </a>
         <a class="stat stat-link" href="https://www.scrippsnews.com/us-news/women-spend-5-months-of-their-working-lives-choosing-clothes" target="_blank" rel="noopener" title="https://www.scrippsnews.com/us-news/women-spend-5-months-of-their-working-lives-choosing-clothes">
-          <div class="stat-num" data-count="45" data-suffix="%">45%</div>
+          <div data-grad-num class="stat-num" data-count="45" data-suffix="%">45%</div>
           <div class="stat-label">find deciding what to wear for work actively stressful</div>
           <div class="stat-src">Simon Jersey survey, 2019, 2,000 UK women</div>
         </a>
         <a class="stat stat-link" href="https://nrf.com/research/2025-retail-returns-landscape" target="_blank" rel="noopener" title="https://nrf.com/research/2025-retail-returns-landscape">
-          <div class="stat-num">20 to 40%</div>
+          <div data-grad-num class="stat-num">20 to 40%</div>
           <div class="stat-label">online apparel return rate, against a 20% ecommerce average</div>
           <div class="stat-src">Industry-compiled apparel return benchmark (NRF, Statista, Appriss Retail) ↗</div>
         </a>
         <div class="stat">
-          <div class="stat-num" data-count="120" data-suffix="">120</div>
+          <div data-grad-num class="stat-num" data-count="120" data-suffix="">120</div>
           <div class="stat-label">garments owned by the primary persona, of which she wears about fifteen</div>
           <div class="stat-src">Illustrative, drawn from review research</div>
         </div>
         <div class="stat">
-          <div class="stat-num" data-count="1" data-suffix=" photo">1 photo</div>
+          <div data-grad-num class="stat-num" data-count="1" data-suffix=" photo">1 photo</div>
           <div class="stat-label">the entire setup cost of the product, and its whole competitive position</div>
           <div class="stat-src">The product as built</div>
         </div>
@@ -169,16 +169,12 @@
       <h3>The insight that reframes it</h3>
       <p>The most useful number here isn't 82%. It's the gap between the two.</p>
 
-      <div class="gap-stat reveal">
-        <div class="gs-side">
-          <div class="gs-small" data-count="26" data-suffix="%">26%</div>
-          <div class="gs-lab">what people in Belgium guessed goes unworn</div>
-        </div>
+      <div class="gap-compare reveal">
+        <div class="gs-small"><span class="gs-num" data-count="26" data-suffix="%">26%</span></div>
         <div class="gs-vs">versus</div>
-        <div class="gs-side">
-          <div class="gs-big" data-count="88" data-suffix="%">88%</div>
-          <div class="gs-lab">what actually went unworn</div>
-        </div>
+        <div class="gs-big"><span class="gs-num" data-count="88" data-suffix="%">88%</span></div>
+        <div class="gs-lab gs-lab-small">what people in Belgium guessed goes unworn</div>
+        <div class="gs-lab gs-lab-big">what actually went unworn</div>
       </div>
       <div class="figcap"><a class="figcap-link" href="https://www.energetskiportal.com/public-deluded-about-amount-they-need-to-own-and-how-much-they-waste/" target="_blank" rel="noopener" title="https://www.energetskiportal.com/public-deluded-about-amount-they-need-to-own-and-how-much-they-waste/">The distance between these two numbers is the product problem. Source: Movinga, 2018. ↗</a></div>
 
@@ -208,7 +204,7 @@
     <!-- ============ 2. SOLUTION ============ -->
     <section class="cs-section" id="sec-solution">
       <div class="sec-eyebrow">02 / The Solution</div>
-      <h2 class="grad g10">One item in. A wearable answer out. No setup.</h2>
+      <h2 class="grad grad-text g10 h-fit">One item in. An answer out.</h2>
 
       <p>Everything else either helped with that one job or got in its way. Working out which was which was the real design work.</p>
 
@@ -259,7 +255,7 @@
     <!-- ============ 3. COMPETITIVE ANALYSIS ============ -->
     <section class="cs-section" id="sec-comp">
       <div class="sec-eyebrow">03 / Research / Competitive Analysis</div>
-      <h2 class="grad g4">Everything either costs too much to start, or shows you clothes you don't own.</h2>
+      <h2 class="grad grad-text g4 h-fit">Setup first, or not your clothes.</h2>
 
       <p>Four kinds of product try to help. The fifth option is no product at all. What's missing is one that answers the question at the moment you ask it.</p>
 
@@ -385,7 +381,7 @@
     <!-- ============ 4. VOICES ============ -->
     <section class="cs-section" id="sec-voices">
       <div class="sec-eyebrow">04 / Research / Voices</div>
-      <h2 class="grad g7">I read what people said about the wardrobe apps they quit.</h2>
+      <h2 class="grad grad-text g7">I read what people said about the wardrobe apps they quit.</h2>
 
       <h3>Method</h3>
       <p>No interviews for this one. I used two sources instead.</p>
@@ -483,17 +479,17 @@
         <h3>The business case</h3>
         <p>India's fashion ecommerce market was worth roughly <span class="cite" tabindex="0" data-cite="ECDB, 2025. India fashion ecommerce market value."><strong>$25.6B in 2025</strong></span>, apparel at <span class="cite" tabindex="0" data-cite="ECDB, 2025. Apparel share of the India fashion ecommerce market."><strong>54%</strong></span> of it, Myntra alone at about <span class="cite" tabindex="0" data-cite="ECDB, 2025. Myntra gross merchandise value."><strong>$12.5B GMV</strong></span>. It's not a small pond, and there's obvious money in sending qualified traffic into it.</p>
 
-        <div class="market-row dimgroup">
+        <div class="market-row dimgroup" data-grad-row>
           <div class="market-stat">
-            <div class="ms-num">$25.6B</div>
+            <div data-grad-num class="ms-num">$25.6B</div>
             <div class="ms-lab">India fashion ecommerce, 2025</div>
           </div>
           <div class="market-stat">
-            <div class="ms-num">54%</div>
+            <div data-grad-num class="ms-num">54%</div>
             <div class="ms-lab">of that market is apparel</div>
           </div>
           <div class="market-stat">
-            <div class="ms-num">19%</div>
+            <div data-grad-num class="ms-num">19%</div>
             <div class="ms-lab">of online sales were expected to be returned in 2025</div>
           </div>
         </div>
@@ -527,7 +523,7 @@
     <!-- ============ 5. PERSONAS ============ -->
     <section class="cs-section" id="sec-personas">
       <div class="sec-eyebrow">05 / Research / Personas</div>
-      <h2 class="grad g11">Two people. One wardrobe problem, arrived at from opposite directions.</h2>
+      <h2 class="grad grad-text g11 h-fit">Two people, one problem.</h2>
 
       <p>The clusters resolved into two people. One owns too much and wears too little. The other keeps buying to solve a problem buying can't solve. They meet at the same question: what goes with this? Aditi asks it at her cupboard, Rohan at checkout.</p>
 
@@ -652,7 +648,7 @@
     <!-- ============ 6. IDEATION ============ -->
     <section class="cs-section" id="sec-ideation">
       <div class="sec-eyebrow">06 / Design / Ideation</div>
-      <h2 class="grad g1">The hardest part was subtraction.</h2>
+      <h2 class="grad grad-text g1">The hardest part was subtraction.</h2>
 
       <p>Most design projects start with nothing and add. This one started full. ShadeMatch already did five things, and my job was to decide which were the product and which were just clutter.</p>
       <p>The biggest cut was the wardrobe upload: it would have made ShadeMatch the same as the wardrobe apps.</p>
@@ -660,24 +656,24 @@
       <h3>The three questions everything had to pass</h3>
 
       <div class="gates reveal">
-        <div class="g-top">
-          <div class="g-start"><b>5</b><span>features as built</span></div>
-          <div class="g-end"><b>4</b><span>pass, 1 fails</span></div>
+        <div class="g-top" data-grad-row>
+          <div class="g-start"><b data-grad-num>5</b><span>features as built</span></div>
+          <div class="g-end"><b data-grad-num>4</b><span>pass, 1 fails</span></div>
         </div>
-        <div class="g-cols">
+        <div class="g-cols" data-grad-row>
           <div class="g-col">
             <span class="g-dot" aria-hidden="true"></span>
-            <div class="g-num">01</div>
+            <div data-grad-num class="g-num">01</div>
             <p><b>Does this serve the moment of getting dressed?</b> Not shopping, not browsing. If a feature's best use case was “while browsing Myntra,” it was out of the core however well it worked.</p>
           </div>
           <div class="g-col">
             <span class="g-dot" aria-hidden="true"></span>
-            <div class="g-num">02</div>
+            <div data-grad-num class="g-num">02</div>
             <p><b>Does it cost the user anything before it gives them something?</b> Setup cost is what kills this category. Accounts, uploads, quizzes and onboarding were out unless they earned their cost inside the same session.</p>
           </div>
           <div class="g-col">
             <span class="g-dot" aria-hidden="true"></span>
-            <div class="g-num">03</div>
+            <div data-grad-num class="g-num">03</div>
             <p><b>Does it survive the trust test?</b> Would Aditi believe this recommendation if she knew exactly how the product made money? If not, it was damaging the product even while working correctly.</p>
           </div>
         </div>
@@ -806,7 +802,7 @@
     <!-- ============ 7. EVALUATION ============ -->
     <section class="cs-section" id="sec-evaluation">
       <div class="sec-eyebrow">07 / Design / Evaluation</div>
-      <h2 class="grad g9">Checking my own app against what I'd learned.</h2>
+      <h2 class="grad grad-text g9 h-fit">Checking my app against research.</h2>
 
       <p>ShadeMatch had no recruited testers behind this section either. What I ran was a structured self evaluation, walking through the live app screen by screen and checking it against the research findings from the competitive analysis, the voices, and the personas.</p>
 
@@ -852,7 +848,7 @@
     <!-- ============ 8. MAIN FLOW ============ -->
     <section class="cs-section" id="sec-flow">
       <div class="sec-eyebrow">08 / Design / The Flow</div>
-      <h2 class="grad g12">One photo to an answer.</h2>
+      <h2 class="grad grad-text g12">One photo to an answer.</h2>
 
       <p>The whole product is one short loop. Aditi is at her cupboard with two minutes, and every extra screen is a chance to lose her.</p>
 
@@ -1043,7 +1039,7 @@
     <!-- ============ 9. MEASURING SUCCESS ============ -->
     <section class="cs-section" id="sec-measure">
       <div class="sec-eyebrow">09 / Evaluation / Measuring Success</div>
-      <h2 class="grad g4">The easiest number to track would have ruined this app.</h2>
+      <h2 class="grad grad-text g4 h-fit">The easy number was the wrong one.</h2>
 
       <div class="band">
         <p>The easiest thing to count is clicks to Amazon, Myntra and Flipkart. It's exact and it ties straight to money. And chasing it would undo everything that makes the app work.</p>
@@ -1070,10 +1066,10 @@
       </div>
 
       <h3>Supporting goals</h3>
-      <div class="sm-cols">
-          <div class="sm-col"><div class="sm-num">&gt; 85%</div><div class="sm-name">Gets a suggestion</div><p>Share of first visits that get a suggestion. If people leave before the first answer, the “no setup” promise failed.</p></div>
-          <div class="sm-col"><div class="sm-num">&lt; 30s</div><div class="sm-name">Fast enough</div><p>Typical time from opening the app to the first suggestion. Aditi has two minutes. Slower than that and the mirror wins.</p></div>
-          <div class="sm-col"><div class="sm-num">Rising</div><div class="sm-name">★ Real value</div><p>Number of different garments used in accepted suggestions, per person, per month. The only measure of the real problem, not a stand-in for it.</p><p class="sm-clar">Counts new garments getting worn, not repeat checks on ones she's already matched.</p></div>
+      <div class="sm-cols" data-grad-row>
+          <div class="sm-col"><div data-grad-num class="sm-num">&gt; 85%</div><div class="sm-name">Gets a suggestion</div><p>Share of first visits that get a suggestion. If people leave before the first answer, the “no setup” promise failed.</p></div>
+          <div class="sm-col"><div data-grad-num class="sm-num">&lt; 30s</div><div class="sm-name">Fast enough</div><p>Typical time from opening the app to the first suggestion. Aditi has two minutes. Slower than that and the mirror wins.</p></div>
+          <div class="sm-col"><div data-grad-num class="sm-num">Rising</div><div class="sm-name">★ Real value</div><p>Number of different garments used in accepted suggestions, per person, per month. The only measure of the real problem, not a stand-in for it.</p><p class="sm-clar">Counts new garments getting worn, not repeat checks on ones she's already matched.</p></div>
       </div>
       <details class="sm-more">
         <summary><span class="sm-open">Show 3 more measures</span><span class="sm-close">Hide</span></summary>
@@ -1155,7 +1151,7 @@
     <!-- ============ 10. RESULTS ============ -->
     <section class="cs-section" id="sec-results">
       <div class="sec-eyebrow">10 / Evaluation / Results</div>
-      <h2 class="grad g7">What I can claim, and what I can't.</h2>
+      <h2 class="grad grad-text g7">What I can claim, and what I can't.</h2>
 
       <p>ShadeMatch is live but it isn't a business, and there's no meaningful usage data behind it. Here's what the work actually produced.</p>
 
@@ -1213,7 +1209,7 @@
     <!-- ============ 11. WHAT I LEARNED ============ -->
     <section class="cs-section" id="sec-learned">
       <div class="sec-eyebrow">11 / Reflection</div>
-      <h2 class="grad g11">What auditing my own product taught me.</h2>
+      <h2 class="grad grad-text g11 h-fit">What the audit taught me.</h2>
 
       <ol class="lw">
         <li class="lw-item">
@@ -1285,7 +1281,7 @@
 <footer class="site-footer" id="contact">
   <div class="wrap">
     <div class="eyebrow reveal">// contact</div>
-    <h2 class="reveal grad g12">Thanks for reading.</h2>
+    <h2 class="reveal grad grad-text g12">Thanks for reading.</h2>
     <p class="reveal" style="color:var(--ink-soft); margin-bottom:22px;">Ruby Seher, Product Designer. Currently open to opportunities.</p>
     <a class="big-email reveal" href="mailto:ruby.seher000@gmail.com">ruby.seher000@gmail.com</a>
     <div class="foot-links reveal">
@@ -1300,6 +1296,6 @@
   </div>
 </footer>
 
-<script src="script.js?v=12"></script>
+<script src="script.js?v=13"></script>
 </body>
 </html>

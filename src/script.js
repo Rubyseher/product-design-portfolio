@@ -393,3 +393,9 @@
     });
   });
 })();
+
+// ---- one gradient across every row of big numbers ----
+function syncGradients(){document.querySelectorAll('[data-grad-row]').forEach(function(row){var r=row.getBoundingClientRect();row.querySelectorAll('[data-grad-num]').forEach(function(n){var b=n.getBoundingClientRect();n.style.setProperty('--row-w',r.width+'px');n.style.setProperty('--num-x',(-(b.left-r.left))+'px');});});}
+addEventListener('load',syncGradients);addEventListener('resize',syncGradients);if(document.fonts&&document.fonts.ready){document.fonts.ready.then(syncGradients);}
+// counters and reveals shift widths after load, so re-sync as they settle
+addEventListener('scroll',function(){clearTimeout(syncGradients.t);syncGradients.t=setTimeout(syncGradients,900);},{passive:true});
