@@ -2477,56 +2477,40 @@ body:has(.cs-body) .band > h3:first-child{ margin-top:0; }
 body:has(.cs-body) .cs-content .cs-section > * + h3{ margin-top:72px; }
 @media (max-width:900px){ body:has(.cs-body) .cs-content .cs-section > * + h3{ margin-top:56px; } }
 
-/* ---- persona cards: shared rows, plain stats, one bar ---- */
-body:has(.cs-body) .p-note{ font-size:13px; line-height:1.5; color:var(--ink-soft); margin-top:16px; }
-body:has(.cs-body) .persona-grid{ grid-template-rows:repeat(6, auto); row-gap:0; column-gap:24px; }
+/* ---- personas: two plain columns, one divider ---- */
+body:has(.cs-body) .persona-grid{ display:grid; grid-template-columns:1fr 1fr; grid-template-rows:repeat(7, auto); gap:0; margin:32px 0 0; }
 body:has(.cs-body) .persona-card{
-  display:grid; grid-row:span 6; grid-template-rows:subgrid; row-gap:0; padding:32px; position:relative;
+  display:grid; grid-row:span 7; grid-template-rows:subgrid; row-gap:24px; align-content:start;
+  background:none; border:0; border-radius:0; box-shadow:none; padding:0 32px 0 0; transform:none; position:static;
 }
-body:has(.cs-body) .p-head{ padding-bottom:24px; }
-body:has(.cs-body) .p-quote{ margin:0; padding-bottom:24px; }
-body:has(.cs-body) .p-statwrap{ padding-bottom:24px; }
-body:has(.cs-body) .p-stats{
-  display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:0; background:none; border:0; border-radius:0; overflow:visible; margin:0;
-}
-body:has(.cs-body) .p-stat{ background:none; padding:0 8px; text-align:center; }
-body:has(.cs-body) .p-stat + .p-stat{ border-left:1px solid var(--line); }
-body:has(.cs-body) .p-stat b{ font-size:22px; }
-body:has(.cs-body) .p-stat span{
-  font-family:'Inter', sans-serif; font-size:13px; text-transform:none; letter-spacing:0; line-height:1.4; margin-top:8px;
-}
-body:has(.cs-body) .p-bar{ height:8px; border-radius:999px; background:var(--line); margin-top:24px; overflow:hidden; }
-body:has(.cs-body) .p-bar-fill{ display:block; height:100%; background:var(--accent); border-radius:999px; }
-body:has(.cs-body) .p-bar-cap{ font-size:13px; color:var(--ink-soft); margin-top:8px; }
-body:has(.cs-body) .p-sec{ margin:0; padding-bottom:24px; }
-body:has(.cs-body) .p-sec .p-lbl{ color:var(--accent); font-size:13px; }
-body:has(.cs-body) .p-sec li{ font-size:15px; margin-bottom:8px; }
-body:has(.cs-body) .p-maps{ margin:0; padding-top:16px; border-top:1px solid var(--line); gap:0 8px; align-self:end; }
-body:has(.cs-body) .p-map{ font-size:13px; color:var(--ink-soft); }
-body:has(.cs-body) .p-map + .p-map::before{ content:"\00B7"; margin-right:8px; color:var(--ink-soft); }
+body:has(.cs-body) .persona-card + .persona-card{ padding:0 0 0 32px; border-left:1px solid var(--line); }
+body:has(.cs-body) .persona-card:hover{ transform:none; box-shadow:none; }
+.p-role{ font-family:'Inter', sans-serif; font-size:14px; font-weight:600; letter-spacing:0; text-transform:none; }
+.p-role.is-primary{ color:var(--accent); }
+.p-role.is-secondary{ color:var(--ink-soft); }
+.p-id{ display:flex; align-items:center; gap:16px; }
+body:has(.cs-body) .p-avatar{ width:80px; height:80px; margin:0; flex:none; }
+body:has(.cs-body) .persona-card h3{ text-align:left; margin:0 0 4px; font-size:22px; line-height:1.2; }
+body:has(.cs-body) .p-meta{ text-align:left; font-size:15px; line-height:1.4; color:var(--ink-soft); }
+body:has(.cs-body) .p-quote{ text-align:left; font-style:italic; font-size:18px; line-height:1.5; margin:0; }
+.p-line{ font-size:15px; color:var(--ink-soft); }
+.p-bar{ height:8px; border-radius:999px; background:var(--line); overflow:hidden; }
+.p-bar-fill{ display:block; height:100%; background:var(--accent); border-radius:999px; }
+.p-bar-cap{ font-size:14px; color:var(--ink-soft); margin-top:8px; }
+body:has(.cs-body) .p-sec{ margin:0; }
+body:has(.cs-body) .p-sec .p-lbl{ font-family:'Inter', sans-serif; font-size:14px; font-weight:600; letter-spacing:0; text-transform:none; color:var(--accent); margin-bottom:8px; }
+body:has(.cs-body) .p-sec ul{ list-style:none; margin:0; padding:0; }
+body:has(.cs-body) .p-sec li{ font-size:16px; line-height:1.6; color:var(--ink); margin:0 0 12px; }
+body:has(.cs-body) .p-sec li:last-child{ margin-bottom:0; }
+body:has(.cs-body) .p-maps{ margin:0; padding:0; border:0; display:flex; flex-wrap:wrap; gap:0 8px; align-items:baseline; font-size:14px; color:var(--ink-soft); }
+body:has(.cs-body) .p-maps .ml{ font-family:'Inter', sans-serif; font-size:14px; letter-spacing:0; text-transform:none; color:var(--ink-soft); margin:0; }
+body:has(.cs-body) .p-map{ font-size:14px; color:var(--ink-soft); }
+body:has(.cs-body) .p-map + .p-map::before{ content:"\00B7"; margin-right:8px; }
 @media (max-width:900px){
-  body:has(.cs-body) .persona-grid{ grid-template-rows:none; row-gap:24px; }
-  body:has(.cs-body) .persona-card{ grid-row:auto; grid-template-rows:none; }
+  body:has(.cs-body) .persona-grid{ grid-template-columns:1fr; grid-template-rows:none; }
+  body:has(.cs-body) .persona-card, body:has(.cs-body) .persona-card + .persona-card{ grid-row:auto; grid-template-rows:none; padding:0; }
+  body:has(.cs-body) .persona-card + .persona-card{ border-left:0; border-top:1px solid var(--line); margin-top:32px; padding-top:32px; }
 }
-body:has(.cs-body) .p-maps{ align-self:start; }
-body:has(.cs-body) .persona-card{ padding:32px 24px; }
-body:has(.cs-body) .p-stat{ padding:0 4px; }
-body:has(.cs-body) .persona-card{ padding:32px 16px; }
-body:has(.cs-body) .p-stat{ padding:0 2px; }
-@media (max-width:1100px){
-  body:has(.cs-body) .persona-grid{ grid-template-columns:1fr; grid-template-rows:none; row-gap:24px; }
-  body:has(.cs-body) .persona-card{ grid-row:auto; grid-template-rows:none; padding:32px 24px; }
-}
-@media (max-width:640px){
-  body:has(.cs-body) .p-stats{ grid-template-columns:repeat(2, minmax(0,1fr)); row-gap:24px; }
-  body:has(.cs-body) .p-stat:nth-child(3){ border-left:0; }
-}
-body:has(.cs-body) .p-stat{ padding:0 4px; }
-body:has(.cs-body) .p-stat span{ text-wrap:balance; }
-body:has(.cs-body) .p-stat{ padding:0 2px; }
-body:has(.cs-body) .persona-card{ padding-left:12px; padding-right:12px; }
-@media (max-width:1100px){ body:has(.cs-body) .persona-card{ padding-left:24px; padding-right:24px; } }
-body:has(.cs-body) .p-stat{ padding:0; }
 
 /* ---- why Aditi is primary: plain comparison, no boxes ---- */
 .why-primary{ --wp-cols:180px minmax(0,1fr) minmax(0,1fr); }
@@ -2566,3 +2550,4 @@ body:has(.cs-body) .cs-content .why-primary .wp-end{ color:var(--ink); }
   .wp-close{ padding-top:24px; }
 }
 .wp-close{ border-top:0; padding-top:0; margin-top:8px; }
+.p-role{ font-family:'IBM Plex Mono', monospace; font-size:13px; font-weight:400; letter-spacing:0.12em; text-transform:uppercase; }
