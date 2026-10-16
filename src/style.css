@@ -2414,3 +2414,6 @@ body:has(.cs-body) .cs-content .cl-right p{ font-size:16px; line-height:1.6; max
 .cl-need{ font-weight:600; color:var(--ink); }
 .cl-arrow{ color:var(--accent); margin-right:8px; }
 @media (max-width:760px){ .cl-row{ grid-template-columns:1fr; gap:16px; } }
+
+/* phone mockups carry their own device frame, so no box around them */
+body:has(.cs-body) :is(.phone-row, .fb-media figure, .feature-shot){ border:0; background:none; border-radius:0; padding:0; box-shadow:none; }
