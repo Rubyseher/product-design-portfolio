@@ -2715,3 +2715,82 @@ body:has(.cs-body) .cs-content .vv-col p{ font-size:15px; line-height:1.6; max-w
   .vv-col + .vv-col{ border-left:0; border-top:1px solid var(--line); padding-top:24px; }
   .vv-col:last-child{ padding-bottom:0; }
 }
+
+/* ==================================================== */
+/* ====== SYSTEM: one font, neutral text, group colour == */
+/* ==================================================== */
+body:has(.cs-body){
+  --font:"SF Pro Display","SF Pro Text",-apple-system,BlinkMacSystemFont,"Inter","Helvetica Neue",Arial,sans-serif;
+  --ink:#1d1d1f; --ink-soft:#6e6e73;
+  --g-intel:linear-gradient(90deg,#0e83e9,#9c64eb 25%,#de4ab9 50%,#ed406e 75%,#f0492c 100%);
+  --g-watch:linear-gradient(90deg,#0da7c3,#1a96fa 25%,#5085fb 50%,#6c6cfa 75%,#b250ea 100%);
+  --g-body:linear-gradient(90deg,#a857cc,#c44e9f 50%,#e04574 100%);
+  --g-blue:linear-gradient(180deg,#044f93,#096fb3);
+  --g-easy:linear-gradient(90deg,#7546b6,#626ad6);
+  --s-intel:#0e83e9; --s-watch:#1a96fa; --s-body:#c44e9f; --s-blue:#096fb3; --s-easy:#7546b6;
+  --warn:#6e6e73;
+}
+/* one font everywhere, monospace and display faces included */
+body:has(.cs-body), body:has(.cs-body) *, body:has(.cs-body) *::before, body:has(.cs-body) *::after{ font-family:var(--font) !important; }
+
+/* group colours, set per section so everything inside inherits them */
+body:has(.cs-body) :is(#sec-problem, #sec-solution){ --grp-grad:var(--g-intel); --grp-solid:var(--s-intel); --accent:#0e83e9; --accent-rgb:14,131,233; }
+body:has(.cs-body) :is(#sec-comp, #sec-voices, #sec-personas){ --grp-grad:var(--g-watch); --grp-solid:var(--s-watch); --accent:#1a96fa; --accent-rgb:26,150,250; }
+body:has(.cs-body) :is(#sec-ideation, #sec-evaluation, #sec-flow){ --grp-grad:var(--g-body); --grp-solid:var(--s-body); --accent:#c44e9f; --accent-rgb:196,78,159; }
+body:has(.cs-body) :is(#sec-measure, #sec-results){ --grp-grad:var(--g-blue); --grp-solid:var(--s-blue); --accent:#096fb3; --accent-rgb:9,111,179; --warn:#B0522B; }
+body:has(.cs-body) #sec-learned{ --grp-grad:var(--g-easy); --grp-solid:var(--s-easy); --accent:#7546b6; --accent-rgb:117,70,182; }
+
+/* left nav: one colour per group */
+body:has(.cs-body) .cs-sidebar .grp:nth-child(1){ --grp-solid:var(--s-intel); }
+body:has(.cs-body) .cs-sidebar .grp:nth-child(2){ --grp-solid:var(--s-watch); }
+body:has(.cs-body) .cs-sidebar .grp:nth-child(3){ --grp-solid:var(--s-body); }
+body:has(.cs-body) .cs-sidebar .grp:nth-child(4){ --grp-solid:var(--s-blue); }
+body:has(.cs-body) .cs-sidebar .grp:nth-child(5){ --grp-solid:var(--s-easy); }
+body:has(.cs-body) .cs-sidebar .grp-title.active, body:has(.cs-body) .cs-sidebar .sub.active{ border-left-color:var(--grp-solid); color:var(--ink); }
+body:has(.cs-body) .cs-sidebar .sub:hover{ color:var(--grp-solid); }
+body:has(.cs-body) .cs-sidebar .grp-title{ font-weight:600; font-size:15px; text-transform:none; letter-spacing:0; }
+
+/* headlines: gradient text, large only */
+body:has(.cs-body) .cs-content h2, body:has(.cs-body) .cs-content h2.grad{
+  font-size:clamp(32px,4.5vw,52px); font-weight:700; letter-spacing:-0.03em; line-height:1.08;
+  display:inline-block; max-width:100%; color:var(--grp-solid);
+  background-image:var(--grp-grad) !important; background-color:transparent;
+  -webkit-background-clip:text !important; background-clip:text !important; -webkit-text-fill-color:transparent !important;
+}
+body:has(.cs-body) .cs-content h2::after{ background:var(--grp-grad); }
+body:has(.cs-body) .cs-section > h2{ display:block; width:fit-content; }
+body:has(.cs-body) .cs-content h3, body:has(.cs-body) .cs-content h4{ font-weight:600; letter-spacing:-0.02em; color:var(--ink); }
+body:has(.cs-body) .cs-content h3{ font-size:24px; }
+body:has(.cs-body) .cs-content p{ font-size:17px; line-height:1.6; font-weight:400; }
+body:has(.cs-body) .cs-content > section > p, body:has(.cs-body) .cs-content .band > p{ font-size:17px; line-height:1.6; }
+body:has(.cs-body) .cs-content > section > h2 + p{ font-size:20px; font-weight:600; color:#6e6e73; line-height:1.5; }
+body:has(.cs-body) .sec-eyebrow{ font-size:17px; font-weight:600; letter-spacing:0; color:#1d1d1f; }
+
+/* small text: same sans, grey, never under 13px */
+body:has(.cs-body) :is(.figcap, .stat-src, .src, .ps-lab, .fl, .lbl, .tc-head, .gs-lab, .mx-lab, .mx-axis, .dot-key, .ms-lab, .fig-cap, th, .cl-label, .cl-lbl, .nsm-lbl, .nsm-small, .p-role, .p-map, .wp-pill, .wp-label span, .vv-lab, .id-lab, .id-rl, .sm-rname, .p-lbl, .nsm-catch-lbl, .dn-label){ font-size:13px; letter-spacing:0; text-transform:none; color:#6e6e73; }
+body:has(.cs-body) :is(.cl-label, .nsm-lbl, .p-role, .vv-lab, .wp-pill){ text-transform:none; font-weight:600; }
+body:has(.cs-body) :is(.cl-key, .p-role.is-primary, .wp-pill.is-a, .nsm-catch-lbl, .id-rl, .p-sec .p-lbl, .wp-label, .cl-need-lbl){ color:#6e6e73; }
+body:has(.cs-body) .nsm-catch-lbl, body:has(.cs-body) .id-rl, body:has(.cs-body) .p-sec .p-lbl, body:has(.cs-body) .sm-more summary{ font-size:14px; color:#1d1d1f; }
+
+/* big numbers: gradient text at 28px and above */
+body:has(.cs-body) :is(.stat-num, .ms-num, .sm-num, .g-end b, .g-num, .gs-big){
+  display:inline-block; color:var(--grp-solid);
+  background-image:var(--grp-grad); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+}
+body:has(.cs-body) .stat-num{ display:block; width:fit-content; }
+/* mid sized figures stay solid and neutral */
+body:has(.cs-body) :is(.nsm-metric, .sm-goal, .dn-mid b, .wp-arrow, .cl-need, .cl-arrow){ -webkit-text-fill-color:currentColor; }
+body:has(.cs-body) .nsm-metric{ color:#1d1d1f; }
+body:has(.cs-body) .sm-goal{ color:var(--grp-solid); }
+
+/* icons, arrows, dots, bars use the group colour */
+body:has(.cs-body) :is(.cl-icon, .wp-icon, .nsm-icon, .vv-icon, .f5-icon, .goal-icon, .cl-arrow, .wp-arrow, .id-n, .id-arrow){ color:var(--grp-solid); }
+body:has(.cs-body) :is(.g-dot, .wp-dot){ background:var(--grp-solid); }
+body:has(.cs-body) :is(.p-bar-fill, .dn-arc){ background:var(--grp-grad); stroke:var(--grp-solid); }
+body:has(.cs-body) .dn-arc.is-warn{ stroke:var(--grp-solid); }
+body:has(.cs-body) :is(.punchline){ border-left-color:var(--grp-solid); color:#1d1d1f; }
+body:has(.cs-body) :is(.cite){ border-bottom-color:var(--grp-solid); }
+
+/* meaning colours: no rust outside the Evaluation group */
+body:has(.cs-body) :is(#sec-problem, #sec-solution, #sec-comp, #sec-voices, #sec-personas, #sec-ideation, #sec-evaluation, #sec-flow, #sec-learned) .vchip-cut{ color:#6e6e73; border-color:rgba(110,110,115,0.4); background:rgba(110,110,115,0.07); }
+body:has(.cs-body) .vchip-keep{ color:var(--grp-solid); border-color:rgba(var(--accent-rgb),0.4); background:rgba(var(--accent-rgb),0.07); }
