@@ -2450,3 +2450,14 @@ body:has(.cs-body) .band.biz .punchline{ margin-top:48px; font-family:'Space Gro
   body:has(.cs-body) .band.biz .market-stat + .market-stat{ border-left:0; padding-left:0; border-top:1px solid var(--line); padding-top:24px; }
   body:has(.cs-body) .band.biz .donut-card{ flex-direction:column; align-items:flex-start; }
 }
+
+/* ---- one content width: every block fills the 896px column ---- */
+body:has(.cs-body){ --content-width:896px; --measure:100%; }
+body:has(.cs-body) .cs-content :is(p, h1, h2, h3, h4, ul, ol, blockquote, figcaption, .figcap, .pull-quote, .learnings, .closing-statement){ max-width:100%; }
+body:has(.cs-body) .cs-content > section > p,
+body:has(.cs-body) .cs-content .band > p{ font-size:18px; line-height:1.7; }
+
+/* ---- stat cards: gentler fade, and room under the source line ---- */
+.statgrid.dimgroup:has(> *:hover) > *:not(:hover) > *:not(.stat-src){ opacity:.6; }
+body:has(.cs-body) .statgrid .stat{ padding-bottom:60px; }
+body:has(.cs-body) .statgrid .stat-src{ bottom:28px; }
