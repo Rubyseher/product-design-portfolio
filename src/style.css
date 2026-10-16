@@ -2665,3 +2665,19 @@ body:has(.cs-body) .cs-content .sm-row p{ margin:0; order:2; }
   .sm-row p{ grid-column:1 / -1; order:3; }
   .sm-goal{ order:2; }
 }
+
+/* extra measures: name, description, goal on one line */
+.sm-row{ grid-template-columns:160px minmax(0,1fr) 90px; gap:24px; align-items:baseline; }
+.sm-rname{ grid-column:1; }
+body:has(.cs-body) .cs-content .sm-row p{ grid-column:2; order:0; }
+.sm-goal{ grid-column:3; order:0; text-align:right; }
+@media (max-width:640px){
+  .sm-row{ grid-template-columns:1fr; gap:8px; }
+  .sm-rname, body:has(.cs-body) .cs-content .sm-row p, .sm-goal{ grid-column:1; }
+  .sm-goal{ text-align:left; order:0; }
+  .sm-rname{ order:0; }
+}
+@media (min-width:641px){
+  .sm-rname, .sm-goal, body:has(.cs-body) .cs-content .sm-row p{ grid-row:1; }
+  body:has(.cs-body) .cs-content .sm-row p{ margin:0; }
+}
