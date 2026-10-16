@@ -2461,3 +2461,6 @@ body:has(.cs-body) .cs-content .band > p{ font-size:18px; line-height:1.7; }
 .statgrid.dimgroup:has(> *:hover) > *:not(:hover) > *:not(.stat-src){ opacity:.6; }
 body:has(.cs-body) .statgrid .stat{ padding-bottom:60px; }
 body:has(.cs-body) .statgrid .stat-src{ bottom:28px; }
+
+/* cluster titles fill their column rather than shrink to the text */
+.cl-title{ align-self:stretch; }
