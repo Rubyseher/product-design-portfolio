@@ -399,3 +399,91 @@ function syncGradients(){document.querySelectorAll('[data-grad-row]').forEach(fu
 addEventListener('load',syncGradients);addEventListener('resize',syncGradients);if(document.fonts&&document.fonts.ready){document.fonts.ready.then(syncGradients);}
 // counters and reveals shift widths after load, so re-sync as they settle
 addEventListener('scroll',function(){clearTimeout(syncGradients.t);syncGradients.t=setTimeout(syncGradients,900);},{passive:true});
+
+// ---- LinkedIn case study: rise on enter, stepper, year filter, one line headings ----
+(function(){
+  if (!document.body.classList.contains('cs-tracker')) return;
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement;
+
+  // fade and rise (12px, 400ms, ease-out) as each block enters the viewport
+  if (!reduced && 'IntersectionObserver' in window) {
+    root.classList.add('tk-js');
+    var rise = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting) return;
+        e.target.classList.add('tk-in');
+        rise.unobserve(e.target);
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
+    Array.prototype.forEach.call(document.querySelectorAll('.cs-content .cs-section > *, .cs-content .band > *'), function(el){
+      if (el.matches('.sec-eyebrow')) return;
+      el.classList.add('tk-rise');
+      rise.observe(el);
+    });
+  }
+
+  // status stepper: dots fill in one after another when it scrolls into view
+  var steppers = document.querySelectorAll('[data-stepper]');
+  Array.prototype.forEach.call(steppers, function(st){
+    var steps = Array.prototype.slice.call(st.querySelectorAll('.stp'));
+    function fill(){
+      steps.forEach(function(el, i){
+        if (!el.classList.contains('is-done') && !el.classList.contains('is-now')) return;
+        if (reduced) { el.classList.add('on'); return; }
+        setTimeout(function(){ el.classList.add('on'); }, i * 350);
+      });
+    }
+    if (reduced || !('IntersectionObserver' in window)) { fill(); return; }
+    var io = new IntersectionObserver(function(entries){
+      if (entries[0].isIntersecting) { fill(); io.disconnect(); }
+    }, { threshold: 0.6 });
+    io.observe(st);
+  });
+
+  // year filter: the chip you click lights up and the matching search cycle comes forward
+  Array.prototype.forEach.call(document.querySelectorAll('.timeline'), function(tl){
+    var chips = tl.querySelectorAll('.yc');
+    Array.prototype.forEach.call(chips, function(c){
+      c.addEventListener('click', function(){
+        Array.prototype.forEach.call(chips, function(o){
+          var on = o === c;
+          o.classList.toggle('is-on', on);
+          o.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        tl.setAttribute('data-view', c.getAttribute('data-yc'));
+      });
+    });
+  });
+
+  // headings sit on one line from 768px up: shrink to fit, but never below 28px
+  function fitHeadings(){
+    var heads = document.querySelectorAll('.cs-content h2, h1.stage-statement');
+    Array.prototype.forEach.call(heads, function(h){
+      h.classList.remove('tk-fit', 'tk-wrap');
+      h.style.fontSize = '';
+      if (window.innerWidth < 768) return;
+      var avail = h.parentElement.clientWidth;
+      var isH1 = h.tagName === 'H1';
+      var max = isH1 ? parseFloat(getComputedStyle(h).fontSize) : Math.min(56, Math.max(28, window.innerWidth * 0.044));
+      h.style.fontSize = max + 'px';
+      h.classList.add('tk-fit');
+      var w = h.scrollWidth;
+      if (w > avail) {
+        var size = Math.floor(max * avail / w);
+        if (size < 28) { size = 28; h.classList.remove('tk-fit'); h.classList.add('tk-wrap'); }
+        h.style.fontSize = size + 'px';
+      }
+    });
+    if (typeof syncGradients === 'function') syncGradients();
+  }
+  fitHeadings();
+  window.addEventListener('load', fitHeadings);
+  window.addEventListener('resize', fitHeadings);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitHeadings);
+
+  // reduced motion: nothing autoplays
+  if (reduced) {
+    Array.prototype.forEach.call(document.querySelectorAll('video'), function(v){ v.removeAttribute('autoplay'); v.pause(); });
+  }
+})();

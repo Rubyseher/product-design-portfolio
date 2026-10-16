@@ -17,9 +17,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=31">
+<link rel="stylesheet" href="style.css?v=35">
 </head>
-<body>
+<body class="cs-tracker">
 
 <div class="scroll-progress" id="scrollProgress"></div>
 
@@ -42,7 +42,7 @@
 
     <div class="stage-center">
       <div class="cs-eyebrow">The Application Black Hole · LinkedIn · Product Design Case Study · 2026</div>
-      <h1 class="stage-statement grad g4">A job search that finally talks back.</h1>
+      <h1 class="stage-statement grad grad-text g4">A job search that finally talks back.</h1>
       <p class="stage-sub">Turning the silence that follows LinkedIn's Apply button into a job search tracker that updates itself, built on signals the platform already has.</p>
     </div>
 
@@ -113,7 +113,7 @@
     <!-- ============ 1. PROBLEM ============ -->
     <section class="cs-section" id="sec-problem">
       <div class="sec-eyebrow">01 / The Problem</div>
-      <h2 class="grad g3">You hit Apply. Then nothing.</h2>
+      <h2 class="grad grad-text g3">You hit Apply. Then nothing.</h2>
 
       <p>LinkedIn is used by over a billion people to find work. The moment you hit Apply, you go blind.</p>
       <p>No tracking, no updates. The data exists, LinkedIn holds all of it, and it is simply never shown to the person who applied.</p>
@@ -148,38 +148,40 @@
 
       <p>For someone applying to two or three roles, that silence is annoying. For someone laid off, applying to sixty roles across four months with rent due, <mark class="sweep">that silence is the entire experience of unemployment</mark>.</p>
 
-      <div class="statgrid dimgroup reveal">
-        <div class="stat">
-          <div class="stat-num" data-count="1.1" data-suffix="M+">1.1M+</div>
-          <div class="stat-label">US job cuts, Jan to Nov 2025, the highest since 2020</div>
-          <div class="stat-src">Challenger, Gray &amp; Christmas, reported Dec 2025</div>
+      <div class="stat-hero-row reveal" data-grad-row>
+          <div class="stat stat-hero" tabindex="0">
+            <div data-grad-num class="stat-num" data-count="1.1" data-suffix="M+">1.1M+</div>
+            <div class="stat-label">US job cuts, Jan to Nov 2025, the highest since 2020</div>
+            <div class="stat-src">Challenger, Gray &amp; Christmas, reported Dec 2025</div>
+          </div>
         </div>
-        <div class="stat">
-          <div class="stat-num">32 to 100+</div>
-          <div class="stat-label">Research puts the number anywhere from 32 applications (Career.IO average, 2025) to over 100.</div>
-          <div class="stat-src">The Interview Guys, How Many Applications It Takes to Get Hired, 2025</div>
+      <div class="stat-row dimgroup reveal" data-grad-row>
+          <div class="stat" tabindex="0">
+            <div data-grad-num class="stat-num">32 to 100+</div>
+            <div class="stat-label">Research puts the number anywhere from 32 applications (Career.IO average, 2025) to over 100.</div>
+            <div class="stat-src">The Interview Guys, How Many Applications It Takes to Get Hired, 2025</div>
+          </div>
+          <div class="stat" tabindex="0">
+            <div data-grad-num class="stat-num" data-count="61" data-suffix="%">61%</div>
+            <div class="stat-label">of job seekers ghosted after an interview</div>
+            <div class="stat-src">Greenhouse, State of Job Hunting, 2024</div>
+          </div>
+          <div class="stat" tabindex="0">
+            <div data-grad-num class="stat-num" data-count="72" data-suffix="%">72%</div>
+            <div class="stat-label">say the job search damages their mental health</div>
+            <div class="stat-src">The Interview Guys, State of Job Search 2025</div>
+          </div>
+          <div class="stat" tabindex="0">
+            <div data-grad-num class="stat-num" data-count="70" data-suffix="%">70%</div>
+            <div class="stat-label">of repeat layoffs happen within 12 months of the first, based on community reported patterns</div>
+            <div class="stat-src">Zety, Repeat Layoff Index, based on Layoffs.fyi data</div>
+          </div>
+          <div class="stat" tabindex="0">
+            <div data-grad-num class="stat-num" data-count="27" data-suffix="%">27%</div>
+            <div class="stat-label">of tech companies that had at least one layoff ran a second round</div>
+            <div class="stat-src">Zety, Repeat Layoff Index, 2023 to 2025</div>
+          </div>
         </div>
-        <div class="stat">
-          <div class="stat-num" data-count="61" data-suffix="%">61%</div>
-          <div class="stat-label">of job seekers ghosted after an interview</div>
-          <div class="stat-src">Greenhouse, State of Job Hunting, 2024</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num" data-count="72" data-suffix="%">72%</div>
-          <div class="stat-label">say the job search damages their mental health</div>
-          <div class="stat-src">The Interview Guys, State of Job Search 2025</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num" data-count="70" data-suffix="%">70%</div>
-          <div class="stat-label">of repeat layoffs happen within 12 months of the first, based on community reported patterns</div>
-          <div class="stat-src">Zety, Repeat Layoff Index, based on Layoffs.fyi data</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num" data-count="27" data-suffix="%">27%</div>
-          <div class="stat-label">of tech companies that had at least one layoff ran a second round</div>
-          <div class="stat-src">Zety, Repeat Layoff Index, 2023 to 2025</div>
-        </div>
-      </div>
       <div class="figcap">Hover any figure to see where it came from.</div>
 
       <div class="quote-band reveal">
@@ -214,53 +216,37 @@
 
       <h3>The brief</h3>
       <figure class="reveal">
-        <img src="images/linkedin/problem_statement/old_problem_statement.svg"
+        <a href="images/linkedin/problem_statement/old_problem_statement.svg" target="_blank" rel="noopener"><img src="images/linkedin/problem_statement/old_problem_statement.svg"
           loading="lazy"
-          alt="The LinkedIn brief with every vague term marked in red and annotated. Improve, active job seekers, feel lost, no visibility, organised, transparent and motivating, and application black hole are each flagged, with arrows out to the questions they raise: what the opportunity is, who counts as an active job seeker, what users should see after submit, the business goal of reducing application anxiety, and the success criterion of moving someone from I have no idea what happened to any of my applications to I feel in control of my job search.">
+          alt="The LinkedIn brief with every vague term marked in red and annotated. Improve, active job seekers, feel lost, no visibility, organised, transparent and motivating, and application black hole are each flagged, with arrows out to the questions they raise: what the opportunity is, who counts as an active job seeker, what users should see after submit, the business goal of reducing application anxiety, and the success criterion of moving someone from I have no idea what happened to any of my applications to I feel in control of my job search."></a>
         <figcaption class="figcap">The brief as handed over, with every vague term highlighted. Marking them up was the first exercise.</figcaption>
       </figure>
 
       <h3>Unpacking the brief</h3>
       <p>Briefs use vague language. Before designing anything, I broke every ambiguous term down until it mapped to a specific user, a specific behaviour, or a specific outcome.</p>
 
-      <table class="deftable">
-        <tr>
-          <td>Active job seeker</td>
-          <td>5+ live applications in the last 30 days, checking LinkedIn 3+ times a week. Not a passive browser, not a casual “open to work” profile</td>
-        </tr>
-        <tr>
-          <td>Feel lost</td>
-          <td>No memory of what was applied to, no signal on what happened after, no sense of whether effort is producing movement</td>
-        </tr>
-        <tr>
-          <td>Organised</td>
-          <td>One surface holds the entire search, with no spreadsheet and no inbox archaeology</td>
-        </tr>
-        <tr>
-          <td>Transparent</td>
-          <td>The user sees the signals the system already has about their application</td>
-        </tr>
-        <tr>
-          <td>Motivating</td>
-          <td>The interface shows progress, not just accumulation</td>
-        </tr>
-        <tr>
-          <td>Success</td>
-          <td>Measurable reduction in “lost” behaviours: reapplying to the same role, abandoning the search, churning off Premium</td>
-        </tr>
-      </table>
+      <div class="def-rows">
+        <div class="def-row reveal"><div class="def-term">Active job seeker</div><svg class="ic ic-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg><p>5+ live applications in the last 30 days, checking LinkedIn 3+ times a week. Not a passive browser, not a casual “open to work” profile</p></div>
+        <div class="def-row reveal"><div class="def-term">Feel lost</div><svg class="ic ic-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg><p>No memory of what was applied to, no signal on what happened after, no sense of whether effort is producing movement</p></div>
+        <div class="def-row reveal"><div class="def-term">Organised</div><svg class="ic ic-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg><p>One surface holds the entire search, with no spreadsheet and no inbox archaeology</p></div>
+        <div class="def-row reveal"><div class="def-term">Transparent</div><svg class="ic ic-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg><p>The user sees the signals the system already has about their application</p></div>
+        <div class="def-row reveal"><div class="def-term">Motivating</div><svg class="ic ic-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg><p>The interface shows progress, not just accumulation</p></div>
+        <div class="def-row reveal"><div class="def-term">Success</div><svg class="ic ic-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg><p>Measurable reduction in “lost” behaviours: reapplying to the same role, abandoning the search, churning off Premium</p></div>
+      </div>
 
       <h3>From evidence to opportunity</h3>
       <p>The figures above only matter if they resolve into something buildable, so I ran each one along the same chain: what the data says, what it costs the business, what the user actually needs, and what that opens up for LinkedIn. The last column is what everything after this is built on, and the research behind the middle two is in the sections that follow.</p>
 
-      <figure class="reveal">
-        <a href="images/linkedin/content/user%20group_%20Laid%20off.png" target="_blank" rel="noopener">
-          <img src="images/linkedin/content/user%20group_%20Laid%20off.png"
-            loading="lazy"
-            alt="A four column synthesis for the laid off user group. Metrics and information: 1.1M US job cuts up 65% year over year, 27% of tech companies running repeat layoff rounds, 61% ghosted after interview, 32 to 200+ applications before an offer, 72% reporting mental health damage. Business industry problem: users default to generic tools and never switch, the market moves faster than those tools, people abandon or reapply blindly with no feedback loop, they re-enter the search with no saved context, engagement drops because tools are built for one time use, and purely functional tools ignore the emotional reality of job loss. User needs: a fast structured system from day one, something matching the pace and scale of the search, knowing what happened to every application, a tool that remembers their history, progress visibility over weeks, and feeling in control rather than overwhelmed. Opportunity: a LinkedIn native tracker for active searchers, real time application status tracking, surfacing LinkedIn's existing signals such as viewed status and role still active, persistent profile and search history across searches, a weekly progress view, and a from chaos to control framing.">
-        </a>
-        <figcaption class="figcap">The chain for the laid off user group, from evidence to named opportunity. Open it full size to read the columns.</figcaption>
-      </figure>
+      <div class="synth reveal" role="group" aria-label="From evidence to opportunity for the laid off user group">
+          <div class="sy-col"><h4>Metrics and information</h4><ul><li>1.1M+ US job cuts, Jan to Nov 2025, the highest since 2020</li><li>27% of tech companies that had at least one layoff ran a second round</li><li>61% of job seekers ghosted after an interview</li><li>32 to 100+ applications before an offer</li><li>72% say the job search damages their mental health</li></ul></div>
+          <span class="sy-arrow" aria-hidden="true"><svg class="ic ic-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+          <div class="sy-col"><h4>Business industry problem</h4><ul><li>If you don't capture these users early, they default to generic tools and don't switch later</li><li>The market is accelerating, so generic tools can't keep up with volume and urgency</li><li>Users abandon their search or reapply blindly with no feedback loop</li><li>Same users enter the job search again and again with no saved context</li><li>Engagement drops off, as most tools are built for one time use, not a sustained search</li><li>Purely functional tools ignore the emotional reality of job loss</li></ul></div>
+          <span class="sy-arrow" aria-hidden="true"><svg class="ic ic-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+          <div class="sy-col"><h4>User needs</h4><ul><li>Laid off professionals need a fast, structured system from day one</li><li>A tool that matches the pace and scale of their search</li><li>Know what's happening with every application, not just what they submitted</li><li>A tool that remembers their history so they don't start from zero</li><li>Progress visibility over weeks, not just a list of applications</li><li>Feel in control, not overwhelmed</li></ul></div>
+          <span class="sy-arrow" aria-hidden="true"><svg class="ic ic-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+          <div class="sy-col is-last"><h4>Opportunity</h4><ul><li>LinkedIn native job tracker built for active searchers</li><li>Real time application status tracking</li><li>Surface LinkedIn's existing signals, viewed status, role still active, response likelihood, that competitors currently ignore</li><li>Persistent profile and search history across job searches</li><li>Weekly progress view and milestone tracking</li><li>“From chaos to control” framing and tone</li></ul></div>
+        </div>
+      <div class="figcap">The chain for the laid off user group, from evidence to named opportunity.</div>
 
       <h3>The problem statement, rewritten</h3>
       <p>That last column is a different brief from the one I was handed. LinkedIn is not bad at finding jobs, it is bad at helping people <em>manage</em> a search once it starts. Job alerts, saved jobs, the Apply button: all built for the moment of discovery, nothing for the weeks that follow. So I rewrote the brief around that.</p>
@@ -279,7 +265,7 @@
     <!-- ============ 2. SOLUTION ============ -->
     <section class="cs-section" id="sec-solution">
       <div class="sec-eyebrow">02 / The Solution</div>
-      <h2 class="grad g5">Make visible what LinkedIn already knows.</h2>
+      <h2 class="grad grad-text g5">Make visible what LinkedIn already knows.</h2>
 
       <p>Every signal a job seeker needs already exists inside LinkedIn. It's just never surfaced to the person who applied.</p>
       <p>The design opportunity was never to build a new data source. <mark class="sweep">It was to surface an existing one.</mark></p>
@@ -294,106 +280,64 @@
         <figcaption class="figcap">The final tracker, one surface holding the whole search: overview bar, application list, signals panel.</figcaption>
       </figure>
 
-      <div class="feature-grid dimgroup">
-        <div class="feature">
-          <figure class="feature-shot"><img loading="lazy" src="images/linkedin/features/1.png" alt="An application row for an Amazon frontend engineer role, with a four stage track beneath it reading Submitted, Reviewed, Interview, Closed. Submitted is filled."></figure>
-          <div class="fnum">01</div>
-          <h4><a href="#flow-01">Real time application status tracking</a></h4>
-          <p>Applications move through stages on their own, driven by LinkedIn's recruiter side events. No dragging, no cards to maintain.</p>
-          <p>This works for anything applied to through LinkedIn. For jobs applied to elsewhere, you confirm the status yourself with one tap, the same effort as updating a spreadsheet, just inside one place instead of two.</p>
-        </div>
-        <div class="feature">
-          <figure class="feature-shot"><img loading="lazy" src="images/linkedin/features/2.png" alt="The same status track, with two signals below it: role still active reads Open in green, response likelihood reads low in orange, each with an info affordance."></figure>
-          <div class="fnum">02</div>
-          <h4><a href="#flow-02">Surfaced application signals</a></h4>
-          <p>A side panel exposes what was invisible: profile viewed, role still active, applicant pool position.</p>
-        </div>
-        <div class="feature">
-          <figure class="feature-shot"><img loading="lazy" src="images/linkedin/features/3.png" alt="A 2026 dropdown pill in the tracker header, sitting beside the job post and notes column headings."></figure>
-          <div class="fnum">03</div>
-          <h4><a href="#flow-03">Persistent search history</a></h4>
-          <p>A year filter separates search cycles, so a second or third layoff doesn't start from zero. Past searches become reference instead of loss.</p>
-        </div>
-        <div class="feature">
-          <figure class="feature-shot"><img loading="lazy" src="images/linkedin/features/4.png" alt="An overview line reading 2026, 8 applied, 3 active, 2 awaiting response, 2 closed, above the year pill in the tracker header."></figure>
-          <div class="fnum">04</div>
-          <h4><a href="#flow-04">From chaos to control</a></h4>
-          <p>Applied, active, awaiting, closed. One glance instead of a scroll through fifty rows.</p>
-        </div>
+      <div class="fx-list reveal">
+        <details class="fx-row">
+          <summary><svg class="ic fx-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 12h3M14 12h3"/></svg><span class="fx-n">01</span><span class="fx-t">Real time application status tracking</span><span class="fx-chev" aria-hidden="true"><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+          <div class="fx-body">
+            <div class="fx-shot"><a href="images/linkedin/features/1.png" target="_blank" rel="noopener"><img loading="lazy" src="images/linkedin/features/1.png" alt="An application row for an Amazon frontend engineer role, with a four stage track beneath it reading Submitted, Reviewed, Interview, Closed. Submitted is filled."></a></div>
+            <div class="fx-text"><p>Applications move through stages on their own, driven by LinkedIn's recruiter side events. No dragging, no cards to maintain.</p>
+          <p>This works for anything applied to through LinkedIn. For jobs applied to elsewhere, you confirm the status yourself with one tap, the same effort as updating a spreadsheet, just inside one place instead of two.</p><a class="fx-link" href="#flow-01" aria-label="See feature 01 in detail"><svg class="ic ic-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+        </details>
+        <details class="fx-row">
+          <summary><svg class="ic fx-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 12s3.8-6.5 10.5-6.5S22.5 12 22.5 12 18.7 18.5 12 18.5 1.5 12 1.5 12z"/><circle cx="12" cy="12" r="3"/></svg><span class="fx-n">02</span><span class="fx-t">Surfaced application signals</span><span class="fx-chev" aria-hidden="true"><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+          <div class="fx-body">
+            <div class="fx-shot"><a href="images/linkedin/features/2.png" target="_blank" rel="noopener"><img loading="lazy" src="images/linkedin/features/2.png" alt="The same status track, with two signals below it: role still active reads Open in green, response likelihood reads low in orange, each with an info affordance."></a></div>
+            <div class="fx-text"><p>A side panel exposes what was invisible: profile viewed, role still active, applicant pool position.</p><a class="fx-link" href="#flow-02" aria-label="See feature 02 in detail"><svg class="ic ic-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+        </details>
+        <details class="fx-row">
+          <summary><svg class="ic fx-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 12a8.5 8.5 0 1 0 2.6-6.1"/><path d="M3 4v4.5h4.5"/><path d="M12 7.5V12l3 2"/></svg><span class="fx-n">03</span><span class="fx-t">Persistent search history</span><span class="fx-chev" aria-hidden="true"><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+          <div class="fx-body">
+            <div class="fx-shot"><a href="images/linkedin/features/3.png" target="_blank" rel="noopener"><img loading="lazy" src="images/linkedin/features/3.png" alt="A 2026 dropdown pill in the tracker header, sitting beside the job post and notes column headings."></a></div>
+            <div class="fx-text"><p>A year filter separates search cycles, so a second or third layoff doesn't start from zero. Past searches become reference instead of loss.</p><a class="fx-link" href="#flow-03" aria-label="See feature 03 in detail"><svg class="ic ic-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+        </details>
+        <details class="fx-row">
+          <summary><svg class="ic fx-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg><span class="fx-n">04</span><span class="fx-t">From chaos to control</span><span class="fx-chev" aria-hidden="true"><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+          <div class="fx-body">
+            <div class="fx-shot"><a href="images/linkedin/features/4.png" target="_blank" rel="noopener"><img loading="lazy" src="images/linkedin/features/4.png" alt="An overview line reading 2026, 8 applied, 3 active, 2 awaiting response, 2 closed, above the year pill in the tracker header."></a></div>
+            <div class="fx-text"><p>Applied, active, awaiting, closed. One glance instead of a scroll through fifty rows.</p><a class="fx-link" href="#flow-04" aria-label="See feature 04 in detail"><svg class="ic ic-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+        </details>
       </div>
     </section>
 
     <!-- ============ 3. COMPETITIVE ANALYSIS ============ -->
     <section class="cs-section" id="sec-comp">
       <div class="sec-eyebrow">03 / Research / Competitive Analysis</div>
-      <h2 class="grad g2">Everyone solved a piece. Nobody connected them.</h2>
+      <h2 class="grad grad-text g2">Everyone solved a piece. Nobody connected them.</h2>
 
       <p>I mapped what already exists across the four problem areas the research surfaced, looking for what none of them had solved.</p>
 
-      <div class="reveal tscroll">
-        <table class="cover-table">
-          <thead>
-            <tr>
-              <th>Capability</th>
-              <th>Huntr /<br>Jobscan</th>
-              <th>LinkedIn<br>today</th>
-              <th>Extensions<br>&amp; DIY sheets</th>
-              <th class="is-us">This<br>solution</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Every application logged in one place</td>
-              <td><span class="mark full"></span></td>
-              <td><span class="mark half"></span></td>
-              <td><span class="mark full"></span></td>
-              <td class="is-us"><span class="mark full"></span></td>
-            </tr>
-            <tr>
-              <td>Status updates without the user touching it</td>
-              <td><span class="mark"></span></td>
-              <td><span class="mark"></span></td>
-              <td><span class="mark"></span></td>
-              <td class="is-us"><span class="mark full"></span></td>
-            </tr>
-            <tr>
-              <td>Recruiter side signals surfaced to the applicant</td>
-              <td><span class="mark"></span></td>
-              <td><span class="mark"></span></td>
-              <td><span class="mark"></span></td>
-              <td class="is-us"><span class="mark full"></span></td>
-            </tr>
-            <tr>
-              <td>History that survives into the next search</td>
-              <td><span class="mark half"></span></td>
-              <td><span class="mark"></span></td>
-              <td><span class="mark half"></span></td>
-              <td class="is-us"><span class="mark full"></span></td>
-            </tr>
-            <tr>
-              <td>The whole search readable at a glance</td>
-              <td><span class="mark half"></span></td>
-              <td><span class="mark"></span></td>
-              <td><span class="mark half"></span></td>
-              <td class="is-us"><span class="mark full"></span></td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="cover-key">
-          <span><i class="mark full"></i> solved</span>
-          <span><i class="mark half"></i> partly, with user effort</span>
-          <span><i class="mark"></i> absent</span>
-        </div>
-      </div>
+      <div class="cg reveal">
+<div class="cg-head" aria-hidden="true"><span></span><span class="">Huntr / Jobscan</span><span class="">LinkedIn today</span><span class="">Extensions &amp; DIY sheets</span><span class="is-us">This solution</span></div>
+<div class="cg-row"><div class="cg-what"><b>Every application logged in one place</b><span>Trackers and sheets do this. LinkedIn only partly.</span></div><span class="cg-cell" role="img" aria-label="Huntr / Jobscan: solved"><em class="cg-tool">Huntr / Jobscan</em><i class="mark full"></i></span><span class="cg-cell" role="img" aria-label="LinkedIn today: partly solved, with user effort"><em class="cg-tool">LinkedIn today</em><i class="mark half"></i></span><span class="cg-cell" role="img" aria-label="Extensions and DIY sheets: solved"><em class="cg-tool">Extensions &amp; DIY sheets</em><i class="mark full"></i></span><span class="cg-cell is-us" role="img" aria-label="This solution: solved"><em class="cg-tool">This solution</em><i class="mark full"></i></span></div>
+<div class="cg-row"><div class="cg-what"><b>Status updates without the user touching it</b><span>Every status update is manual.</span></div><span class="cg-cell" role="img" aria-label="Huntr / Jobscan: absent"><em class="cg-tool">Huntr / Jobscan</em><i class="mark "></i></span><span class="cg-cell" role="img" aria-label="LinkedIn today: absent"><em class="cg-tool">LinkedIn today</em><i class="mark "></i></span><span class="cg-cell" role="img" aria-label="Extensions and DIY sheets: absent"><em class="cg-tool">Extensions &amp; DIY sheets</em><i class="mark "></i></span><span class="cg-cell is-us" role="img" aria-label="This solution: solved"><em class="cg-tool">This solution</em><i class="mark full"></i></span></div>
+<div class="cg-row"><div class="cg-what"><b>Recruiter side signals surfaced to the applicant</b><span>Applicants see submission status. Recruiter activity is invisible.</span></div><span class="cg-cell" role="img" aria-label="Huntr / Jobscan: absent"><em class="cg-tool">Huntr / Jobscan</em><i class="mark "></i></span><span class="cg-cell" role="img" aria-label="LinkedIn today: absent"><em class="cg-tool">LinkedIn today</em><i class="mark "></i></span><span class="cg-cell" role="img" aria-label="Extensions and DIY sheets: absent"><em class="cg-tool">Extensions &amp; DIY sheets</em><i class="mark "></i></span><span class="cg-cell is-us" role="img" aria-label="This solution: solved"><em class="cg-tool">This solution</em><i class="mark full"></i></span></div>
+<div class="cg-row"><div class="cg-what"><b>History that survives into the next search</b><span>Data retained. Context lost.</span></div><span class="cg-cell" role="img" aria-label="Huntr / Jobscan: partly solved, with user effort"><em class="cg-tool">Huntr / Jobscan</em><i class="mark half"></i></span><span class="cg-cell" role="img" aria-label="LinkedIn today: absent"><em class="cg-tool">LinkedIn today</em><i class="mark "></i></span><span class="cg-cell" role="img" aria-label="Extensions and DIY sheets: partly solved, with user effort"><em class="cg-tool">Extensions &amp; DIY sheets</em><i class="mark half"></i></span><span class="cg-cell is-us" role="img" aria-label="This solution: solved"><em class="cg-tool">This solution</em><i class="mark full"></i></span></div>
+<div class="cg-row"><div class="cg-what"><b>The whole search readable at a glance</b><span>No single place to see your entire job search at a glance.</span></div><span class="cg-cell" role="img" aria-label="Huntr / Jobscan: partly solved, with user effort"><em class="cg-tool">Huntr / Jobscan</em><i class="mark half"></i></span><span class="cg-cell" role="img" aria-label="LinkedIn today: absent"><em class="cg-tool">LinkedIn today</em><i class="mark "></i></span><span class="cg-cell" role="img" aria-label="Extensions and DIY sheets: partly solved, with user effort"><em class="cg-tool">Extensions &amp; DIY sheets</em><i class="mark half"></i></span><span class="cg-cell is-us" role="img" aria-label="This solution: solved"><em class="cg-tool">This solution</em><i class="mark full"></i></span></div>
+<div class="cover-key"><span><i class="mark full"></i> solved</span><span><i class="mark half"></i> partly, with user effort</span><span><i class="mark"></i> absent</span></div>
+</div>
 
       <div class="comp-row reveal">
         <div class="comp-media">
           <figure>
             <div class="comp-grid">
               <a href="images/linkedin/competitor/Real-time_application_status/Huntr_1000.jpg" target="_blank" rel="noopener"><img loading="lazy" src="images/linkedin/competitor/Real-time_application_status/Huntr_1000.jpg" alt="Huntr's desktop kanban board with Wishlist, Applied, Phone and On site columns of coloured job cards"></a>
-              <a href="images/linkedin/competitor/Real-time_application_status/Screenshot-of-Job-Tracker-tool.png" target="_blank" rel="noopener"><img loading="lazy" src="images/linkedin/competitor/Real-time_application_status/Screenshot-of-Job-Tracker-tool.png" alt="Jobscan's job tracker, the same four column board with Saved, Applied, Interview and Offer, each card carrying a match score"></a>
+              <a class="is-contain" href="images/linkedin/competitor/Real-time_application_status/Screenshot-of-Job-Tracker-tool.png" target="_blank" rel="noopener"><img loading="lazy" src="images/linkedin/competitor/Real-time_application_status/Screenshot-of-Job-Tracker-tool.png" alt="Jobscan's job tracker, the same four column board with Saved, Applied, Interview and Offer, each card carrying a match score"></a>
               <a href="images/linkedin/competitor/Real-time_application_status/Screen-Shot-2022-08-19-at-5.30.14-PM.png" target="_blank" rel="noopener"><img loading="lazy" src="images/linkedin/competitor/Real-time_application_status/Screen-Shot-2022-08-19-at-5.30.14-PM.png" alt="A submitted applications list, each row carrying a labelled Applied to Screen to Interview to Offer progress track that the user advances by hand"></a>
-              <a href="images/linkedin/competitor/Real-time_application_status/app-ss-6.png" target="_blank" rel="noopener"><img loading="lazy" src="images/linkedin/competitor/Real-time_application_status/app-ss-6.png" alt="A mobile job search feed of self entered deadlines, follow ups and interviews arranged by date"></a>
+              <a class="is-contain" href="images/linkedin/competitor/Real-time_application_status/app-ss-6.png" target="_blank" rel="noopener"><img loading="lazy" src="images/linkedin/competitor/Real-time_application_status/app-ss-6.png" alt="A mobile job search feed of self entered deadlines, follow ups and interviews arranged by date"></a>
             </div>
             <figcaption class="figcap">The category at a glance: two kanban boards, a stage tracker, and a feed of self entered deadlines. Every card here moved because a user moved it.</figcaption>
           </figure>
@@ -513,15 +457,15 @@
         <div class="figcap">Positioning matrix. The empty quadrant is automatic status plus history that survives across searches.</div>
       </div>
 
-      <div class="centered-note">
-        <p><strong><mark class="sweep">None of them connect the moment of applying to what follows. That is the space this solution is built for.</mark></strong></p>
+      <div class="centered-note reveal">
+        <p class="grad-text"><strong><mark class="sweep">None of them connect the moment of applying to what follows. That is the space this solution is built for.</mark></strong></p>
       </div>
     </section>
 
     <!-- ============ 4. VOICES FROM THE FIELD ============ -->
     <section class="cs-section" id="sec-voices">
       <div class="sec-eyebrow">04 / Research / Voices from the Field</div>
-      <h2 class="grad g1">I couldn't interview 200 laid off people. So I read what 200 of them already wrote.</h2>
+      <h2 class="grad grad-text g1">I couldn't interview 200 laid off people. So I read what 200 of them already wrote.</h2>
 
       <h3>Method, and its honest limits</h3>
       <p>Instead of formal interviews, I read hundreds of threads across r/jobs and r/recruitinghell from 2024 to 2026, looking for patterns in how laid off professionals describe searching. A real method with a real tradeoff, so here are both sides.</p>
@@ -551,94 +495,103 @@
       <h3>Three patterns that held</h3>
       <p>Reading across the threads, I grouped what people said by the unmet need underneath it rather than the topic they were complaining about. Three groups came back again and again, and almost everything else was a variation on one of them.</p>
 
-      <div class="cluster reveal">
-        <div class="cluster-num">Cluster 01</div>
-        <h4>“I don't know if anything is happening.”</h4>
-        <span class="lbl">The signal</span>
-        <p>People describe applying into a void. The dominant emotion isn't rejection, it's not knowing whether they've been rejected. Several described refreshing their email at 2am for a role they applied to five weeks earlier.</p>
-        <span class="lbl">Representative voices</span>
-        <div class="qcard">“It's not the no that gets me. It's the nothing.”</div>
-        <div class="qcard">“I would genuinely rather get an automatic rejection in 24 hours than this.”</div>
-        <div class="qcard">“Is the job even still open? I have no way to know. The post is still up but that means nothing.”</div>
-        <div class="need"><b>The unmet need: feedback, or in its absence, a status.</b> Any signal at all is better than silence.</div>
+      <div class="cl-rows">
+      <div class="cl-row reveal">
+        <div class="cl-left">
+          <svg class="cl-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1.1.9-1.1 1.7"/><path d="M12 17v.1"/></svg>
+          <div class="cl-label">Cluster 01</div>
+          <h4 class="cl-title">“I don't know if anything is happening.”</h4>
+        </div>
+        <div class="cl-right">
+          <div class="cl-lbl">The signal</div>
+          <p>People describe applying into a void. The dominant emotion isn't rejection, it's not knowing whether they've been rejected. Several described refreshing their email at 2am for a role they applied to five weeks earlier.</p>
+          <div class="cl-lbl cl-voices-lbl">Representative voices</div>
+          <p class="cl-q">“It's not the no that gets me. It's the nothing.”</p><p class="cl-q">“I would genuinely rather get an automatic rejection in 24 hours than this.”</p><p class="cl-q">“Is the job even still open? I have no way to know. The post is still up but that means nothing.”</p>
+          <p class="cl-need"><span class="cl-arrow">→</span><b>The unmet need: feedback, or in its absence, a status.</b> Any signal at all is better than silence.</p>
+        </div>
       </div>
-
-      <div class="cluster reveal">
-        <div class="cluster-num">Cluster 02</div>
-        <h4>“I can't hold my own search in my head.”</h4>
-        <span class="lbl">The signal</span>
-        <p>At volume, the search becomes a second job. People lose track of what they applied to, reapply to the same role by accident, forget which resume went where, and maintain spreadsheets that become a burden of their own.</p>
-        <span class="lbl">Representative voices</span>
-        <div class="qcard">“I've applied to the same company twice by accident. Twice.”</div>
-        <div class="qcard">“My tracking spreadsheet has 500+ rows and I dread opening it more than I dread applying.”</div>
-        <div class="qcard">“Which resume did I send them? No idea. I have six versions.”</div>
-        <div class="need"><b>The unmet need: a single source of truth that maintains itself.</b> <mark class="sweep">The tracking should not be more work than the applying.</mark></div>
+      <div class="cl-row reveal">
+        <div class="cl-left">
+          <svg class="cl-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 6h14M5 12h14M5 18h9"/></svg>
+          <div class="cl-label">Cluster 02</div>
+          <h4 class="cl-title">“I can't hold my own search in my head.”</h4>
+        </div>
+        <div class="cl-right">
+          <div class="cl-lbl">The signal</div>
+          <p>At volume, the search becomes a second job. People lose track of what they applied to, reapply to the same role by accident, forget which resume went where, and maintain spreadsheets that become a burden of their own.</p>
+          <div class="cl-lbl cl-voices-lbl">Representative voices</div>
+          <p class="cl-q">“I've applied to the same company twice by accident. Twice.”</p><p class="cl-q">“My tracking spreadsheet has 500+ rows and I dread opening it more than I dread applying.”</p><p class="cl-q">“Which resume did I send them? No idea. I have six versions.”</p>
+          <p class="cl-need"><span class="cl-arrow">→</span><b>The unmet need: a single source of truth that maintains itself.</b> <mark class="sweep">The tracking should not be more work than the applying.</mark></p>
+        </div>
       </div>
-
-      <div class="cluster reveal">
-        <div class="cluster-num">Cluster 03 <span class="key-badge">★ Key insight</span></div>
-        <h4>“I've done this before and I learned nothing from it.”</h4>
-        <span class="lbl">The signal</span>
-        <p>The cluster I nearly missed, and the most differentiating insight in the project. People on their second or third layoff described starting from scratch every time. Old applications gone, old contacts forgotten, no sense of what worked last time.</p>
-        <span class="lbl">Representative voices</span>
-        <div class="qcard">“Third layoff in four years. I'm rebuilding the same spreadsheet for the third time.”</div>
-        <div class="qcard">“I know I talked to a recruiter at that company in 2023. I have no idea who or how it went.”</div>
-        <div class="qcard">“Every search feels like the first search. That's the part that breaks you.”</div>
-        <div class="need"><b>The unmet need: continuity.</b> A search history that persists and compounds instead of resetting.</div>
+      <div class="cl-row reveal">
+        <div class="cl-left">
+          <svg class="cl-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.7-5.6L20 8.5"/><path d="M20 4v4.5h-4.5"/><path d="M20 12a8 8 0 0 1-13.7 5.6L4 15.5"/><path d="M4 20v-4.5h4.5"/></svg>
+          <div class="cl-label">Cluster 03 <span class="cl-key">&nbsp;★ Key insight</span></div>
+          <h4 class="cl-title">“I've done this before and I learned nothing from it.”</h4>
+        </div>
+        <div class="cl-right">
+          <div class="cl-lbl">The signal</div>
+          <p>The cluster I nearly missed, and the most differentiating insight in the project. People on their second or third layoff described starting from scratch every time. Old applications gone, old contacts forgotten, no sense of what worked last time.</p>
+          <div class="cl-lbl cl-voices-lbl">Representative voices</div>
+          <p class="cl-q">“Third layoff in four years. I'm rebuilding the same spreadsheet for the third time.”</p><p class="cl-q">“I know I talked to a recruiter at that company in 2023. I have no idea who or how it went.”</p><p class="cl-q">“Every search feels like the first search. That's the part that breaks you.”</p>
+          <p class="cl-need"><span class="cl-arrow">→</span><b>The unmet need: continuity.</b> A search history that persists and compounds instead of resetting.</p>
+        </div>
+      </div>
       </div>
 
       <h3>The insights that reframed the problem</h3>
-      <div class="insight-grid dimgroup">
-        <div class="insight-card">
+      <div class="ins-rows">
+        <div class="ins-row">
           <h4>The feedback gap is structural, not accidental.</h4>
-          <div class="minichart">
-            <div class="dotgrid" data-dots="100" data-on="4" role="img" aria-label="Four dots in a hundred are highlighted: 4% of companies notified all rejected applicants"></div>
-            <div class="dot-key">
-              <span><i class="on"></i> 4% of the roughly 6,500 companies on Greenhouse contacted every rejected applicant, Q2 2024.</span>
+          <div class="minichart" data-grad-row>
+            <div class="minibar" role="img" aria-label="4% of companies notified all rejected applicants">
+              <div class="mb-top"><span>of the roughly 6,500 companies on Greenhouse contacted every rejected applicant, Q2 2024.</span><b data-grad-num>4%</b></div>
+              <div class="mb-track"><div class="mb-fill" style="width:4%"></div></div>
             </div>
           </div>
           <p>The rest didn't guarantee a response to everyone who applied. Not a communication failure, but the intended output of infrastructure built for recruiter efficiency rather than candidate experience. Which means <mark class="sweep">waiting for employers to start replying is not a strategy</mark>. The fix has to come from the platform.</p>
           <div class="src">Source: Axios / Greenhouse, September 2024</div>
         </div>
-        <div class="insight-card">
+        <div class="ins-row">
           <h4>Silence doesn't stop at application. It follows candidates into interviews.</h4>
-          <div class="minichart">
+          <div class="minichart" data-grad-row>
             <div class="minibar is-past">
-              <div class="mb-top"><span>Ghosted after an interview, April 2024</span><b>52%</b></div>
+              <div class="mb-top"><span>Ghosted after an interview, April 2024</span><b data-grad-num>52%</b></div>
               <div class="mb-track"><div class="mb-fill is-muted" style="width:52%"></div></div>
             </div>
             <div class="minibar">
-              <div class="mb-top"><span>Ghosted after an interview, 2024</span><b>61%</b></div>
+              <div class="mb-top"><span>Ghosted after an interview, 2024</span><b data-grad-num>61%</b></div>
               <div class="mb-track"><div class="mb-fill" style="width:61%"></div></div>
             </div>
           </div>
           <p>Nine points worse in a year. These are not people lost in a pile. They prepared, showed up, met humans, then heard nothing. Silence isn't a top of funnel bug. It compounds at every stage.</p>
           <div class="src">Source: Greenhouse State of Job Hunting, 2024</div>
         </div>
-        <div class="insight-card">
+        <div class="ins-row">
           <h4>The workaround already exists. The native solution doesn't.</h4>
-          <div class="minichart">
+          <div class="minichart" data-grad-row>
             <div class="minibar">
-              <div class="mb-top"><span>One widely shared post: applications tracked by hand in a spreadsheet</span><b>500+</b></div>
+              <div class="mb-top"><span>One widely shared post: applications tracked by hand in a spreadsheet</span><b data-grad-num>500+</b></div>
               <div class="mb-track"><div class="mb-fill" style="width:100%"></div></div>
             </div>
             <div class="minibar is-past">
-              <div class="mb-top"><span>Status detail LinkedIn shows today</span><b>Limited</b></div>
+              <div class="mb-top"><span>Status detail LinkedIn shows today</span><b data-grad-num>Limited</b></div>
               <div class="mb-track"><div class="mb-fill is-muted" style="width:6%"></div></div>
             </div>
           </div>
           <p>One widely shared post described tracking 500+ applications by hand in a spreadsheet. LinkedIn shows limited status today, nothing close to that level of detail. The opportunity isn't to invent a habit. It's to build the one they already have.</p>
           <div class="src">Source: Community observation, r/jobs, 2025 and 2026</div>
         </div>
-        <div class="insight-card">
+        <div class="ins-row">
           <h4>The damage isn't from volume. It's from silence.</h4>
-          <div class="minichart">
+          <div class="minichart" data-grad-row>
             <div class="minibar">
-              <div class="mb-top"><span>Job seekers who say the search hurts their mental health</span><b>72%</b></div>
+              <div class="mb-top"><span>Job seekers who say the search hurts their mental health</span><b data-grad-num>72%</b></div>
               <div class="mb-track"><div class="mb-fill" style="width:72%"></div></div>
             </div>
             <div class="minibar">
-              <div class="mb-top"><span>Separately, cite lack of feedback as a factor in burnout</span><b>66%</b></div>
+              <div class="mb-top"><span>Separately, cite lack of feedback as a factor in burnout</span><b data-grad-num>66%</b></div>
               <div class="mb-track"><div class="mb-fill" style="width:66%"></div></div>
             </div>
           </div>
@@ -652,21 +605,21 @@
         <p>When someone hits Apply, they are trusting LinkedIn to connect them with opportunity. Most of the time, the platform goes silent.</p>
         <p>That silence has a cost. LinkedIn's job seeker revenue depends on users believing the search works. When they stop believing it, Premium Career subscribers churn, engagement drops, and the recruiter side value proposition weakens with it.</p>
 
-        <div class="market-row dimgroup">
+        <div class="market-row dimgroup" data-grad-row>
           <div class="market-stat">
-            <div class="ms-num">↑ 58%</div>
+            <div data-grad-num class="ms-num">↑ 58%</div>
             <div class="ms-bar"><div class="ms-fill up" style="width:29%"></div></div>
             <div class="ms-scale"><span>−100%</span><span>0</span><span>+100%</span></div>
             <div class="ms-lab">more US job cuts year over year, 2025</div>
           </div>
           <div class="market-stat">
-            <div class="ms-num">↑ 45%</div>
+            <div data-grad-num class="ms-num">↑ 45%</div>
             <div class="ms-bar"><div class="ms-fill up" style="width:22.5%"></div></div>
             <div class="ms-scale"><span>−100%</span><span>0</span><span>+100%</span></div>
             <div class="ms-lab">more applications submitted, Q3 2024</div>
           </div>
           <div class="market-stat">
-            <div class="ms-num">↓ 11%</div>
+            <div data-grad-num class="ms-num">↓ 11%</div>
             <div class="ms-bar"><div class="ms-fill down" style="width:5.5%"></div></div>
             <div class="ms-scale"><span>−100%</span><span>0</span><span>+100%</span></div>
             <div class="ms-lab">fewer roles posted, same period</div>
@@ -681,7 +634,7 @@
     <!-- ============ 5. PERSONAS ============ -->
     <section class="cs-section" id="sec-personas">
       <div class="sec-eyebrow">05 / Research / Personas</div>
-      <h2 class="grad g6">Two people, one silence.</h2>
+      <h2 class="grad grad-text g6">Two people, one silence.</h2>
 
       <p>The three clusters mapped onto two people. Same trigger, an involuntary layoff, but they experience the silence differently and need different things from the same product.</p>
 
@@ -694,11 +647,11 @@
           <div class="p-meta">Software Engineer, 34 · Bengaluru · Laid off twice in three years</div>
           <div class="p-quote">“Every search feels like the first search. That's the part that breaks you.”</div>
 
-          <div class="p-stats">
-            <div class="p-stat"><b>2</b><span>layoffs / 3 yrs</span></div>
-            <div class="p-stat"><b>8 to 12</b><span>apps per sitting</span></div>
-            <div class="p-stat"><b>4 to 6</b><span>checks a day</span></div>
-            <div class="p-stat"><b>6</b><span>resume versions</span></div>
+          <div class="p-stats" data-grad-row>
+            <div class="p-stat"><b data-grad-num>2</b><span>layoffs / 3 yrs</span></div>
+            <div class="p-stat"><b data-grad-num>8 to 12</b><span>apps per sitting</span></div>
+            <div class="p-stat"><b data-grad-num>4 to 6</b><span>checks a day</span></div>
+            <div class="p-stat"><b data-grad-num>6</b><span>resume versions</span></div>
           </div>
 
           <div class="p-sec">
@@ -742,11 +695,11 @@
           <div class="p-meta">Marketing Manager, 28 · Pune · First layoff</div>
           <div class="p-quote">“I keep refreshing my email for a job I applied to five weeks ago. I know that's insane. I do it anyway.”</div>
 
-          <div class="p-stats">
-            <div class="p-stat"><b>1st</b><span>layoff</span></div>
-            <div class="p-stat"><b>2 to 3</b><span>apps a day</span></div>
-            <div class="p-stat"><b>6 wks</b><span>searching</span></div>
-            <div class="p-stat"><b>0</b><span>trackers used</span></div>
+          <div class="p-stats" data-grad-row>
+            <div class="p-stat"><b data-grad-num>1st</b><span>layoff</span></div>
+            <div class="p-stat"><b data-grad-num>2 to 3</b><span>apps a day</span></div>
+            <div class="p-stat"><b data-grad-num>6 wks</b><span>searching</span></div>
+            <div class="p-stat"><b data-grad-num>0</b><span>trackers used</span></div>
           </div>
 
           <div class="p-sec">
@@ -787,20 +740,43 @@
       <div class="closing-statement">
         <h4>Why prioritise Arjun</h4>
 
+        <div class="why-primary">
+        <div class="wp-head" aria-hidden="true">
+          <div></div>
+          <div class="wp-who"><img src="images/linkedin/personas/arjun-mehta.png" width="40" height="40" loading="lazy" alt=""><span class="wp-name">Arjun</span><span class="wp-pill is-a">Primary</span></div>
+          <div class="wp-who"><img src="images/linkedin/personas/nikita-rao.png" width="40" height="40" loading="lazy" alt=""><span class="wp-name">Nikita</span><span class="wp-pill is-r">Secondary</span></div>
+        </div>
+        <div class="wp-row">
+          <div class="wp-label"><svg class="wp-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><span>Frequency</span></div>
+          <div class="wp-cell"><span class="wp-tag is-a"><img src="images/linkedin/personas/arjun-mehta.png" width="24" height="24" loading="lazy" alt="">Arjun</span><p>8 to 12 apps per sitting, 4 to 6 checks a day</p></div>
+          <div class="wp-cell"><span class="wp-tag is-r"><img src="images/linkedin/personas/nikita-rao.png" width="24" height="24" loading="lazy" alt="">Nikita</span><p>2 to 3 apps a day</p></div>
+        </div>
+        <div class="wp-row">
+          <div class="wp-label"><svg class="wp-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6z"/></svg><span>Trust</span></div>
+          <div class="wp-cell"><span class="wp-tag is-a"><img src="images/linkedin/personas/arjun-mehta.png" width="24" height="24" loading="lazy" alt="">Arjun</span><p>Cannot tell an “in progress” application from a dead one</p></div>
+          <div class="wp-cell"><span class="wp-tag is-r"><img src="images/linkedin/personas/nikita-rao.png" width="24" height="24" loading="lazy" alt="">Nikita</span><p>Reads every silence as personal rejection</p></div>
+        </div>
+        <div class="wp-row">
+          <div class="wp-label"><svg class="wp-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/></svg><span>Coverage</span></div>
+          <div class="wp-cell"><span class="wp-tag is-a"><img src="images/linkedin/personas/arjun-mehta.png" width="24" height="24" loading="lazy" alt="">Arjun</span><p>A search history that survives into the next layoff</p></div>
+          <div class="wp-cell"><span class="wp-tag is-r"><img src="images/linkedin/personas/nikita-rao.png" width="24" height="24" loading="lazy" alt="">Nikita</span><p>Benchmarks: is this response rate normal?</p></div>
+        </div>
+        </div>
+
         <div class="venn reveal">
           <svg viewBox="0 0 620 250" role="img" aria-labelledby="vennTitle">
             <title id="vennTitle">Nikita's needs sit almost entirely inside Arjun's. Only benchmarking falls outside.</title>
-            <circle cx="250" cy="130" r="110" fill="rgba(214,69,93,0.09)" stroke="#D6455D" stroke-width="1.5"/>
-            <circle cx="390" cy="130" r="92" fill="rgba(62,124,177,0.09)" stroke="#3E7CB1" stroke-width="1.5"/>
-            <text x="196" y="20" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="1.4" fill="#D6455D">ARJUN · PRIMARY</text>
-            <text x="440" y="20" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="1.4" fill="#3E7CB1">NIKITA · CHECK</text>
-            <text x="196" y="124" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="600" fill="#14151A">Longitudinal</text>
-            <text x="196" y="146" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="600" fill="#14151A">history</text>
-            <text x="196" y="168" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" letter-spacing="0.8" fill="#55575E">HIS ALONE</text>
-            <text x="329" y="132" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="22" font-weight="700" fill="#14151A">4</text>
-            <text x="329" y="150" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" letter-spacing="0.6" fill="#55575E">SHARED</text>
-            <text x="418" y="130" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="600" fill="#14151A">Benchmarks</text>
-            <text x="418" y="152" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" letter-spacing="0.8" fill="#55575E">HERS ALONE</text>
+            <circle cx="230" cy="135" r="112" fill="rgba(26,150,250,0.10)" stroke="#1a96fa" stroke-width="1.5"/>
+            <circle cx="338" cy="135" r="92" fill="rgba(178,80,234,0.10)" stroke="#b250ea" stroke-width="1.5"/>
+            <text x="170" y="14" text-anchor="middle" font-size="13" fill="#1d1d1f">Arjun · Primary</text>
+            <text x="410" y="14" text-anchor="middle" font-size="13" fill="#1d1d1f">Nikita · Check</text>
+            <text x="165" y="130" text-anchor="middle" font-size="16" font-weight="600" fill="#1d1d1f">Longitudinal</text>
+            <text x="165" y="150" text-anchor="middle" font-size="16" font-weight="600" fill="#1d1d1f">history</text>
+            <text x="165" y="172" text-anchor="middle" font-size="13" fill="#6e6e73">His alone</text>
+            <text x="290" y="132" text-anchor="middle" font-size="26" font-weight="700" fill="#1d1d1f">4</text>
+            <text x="290" y="152" text-anchor="middle" font-size="13" fill="#6e6e73">Shared</text>
+            <text x="392" y="132" text-anchor="middle" font-size="14" font-weight="600" fill="#1d1d1f">Benchmarks</text>
+            <text x="392" y="152" text-anchor="middle" font-size="13" fill="#6e6e73">Hers alone</text>
           </svg>
           <div class="venn-legend">
             <div class="vl-a">
@@ -831,34 +807,21 @@
     <!-- ============ 6. IDEATION ============ -->
     <section class="cs-section" id="sec-ideation">
       <div class="sec-eyebrow">06 / Design / Ideation</div>
-      <h2 class="grad g7">Ten ideas, four survived.</h2>
+      <h2 class="grad grad-text g7">Ten ideas, four survived.</h2>
 
       <h3>How I narrowed</h3>
       <p>Every idea got measured against three questions, and had to pass all three:</p>
 
-      <div class="funnel reveal">
-        <div class="fn-end">
-          <b>10</b>
-          <span>ideas in</span>
+      <div class="fnl reveal">
+        <div class="fnl-end"><b data-grad-num>10</b><span>ideas in</span></div>
+        <div class="fnl-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="fnl-gates">
+          <div class="fnl-gate" style="--w:100%"><span class="gn">Gate 01</span><p>Does LinkedIn already have the data?</p></div>
+          <div class="fnl-gate" style="--w:78%"><span class="gn">Gate 02</span><p>Does it reduce work, or add work?</p></div>
+          <div class="fnl-gate" style="--w:56%"><span class="gn">Gate 03</span><p>Does it serve the search, or just one application?</p></div>
         </div>
-        <div class="fn-gates">
-          <div class="fn-gate">
-            <span class="gn">Gate 01</span>
-            <p>Does LinkedIn already have the data?</p>
-          </div>
-          <div class="fn-gate">
-            <span class="gn">Gate 02</span>
-            <p>Does it reduce work, or add work?</p>
-          </div>
-          <div class="fn-gate">
-            <span class="gn">Gate 03</span>
-            <p>Does it serve the search, or just one application?</p>
-          </div>
-        </div>
-        <div class="fn-end out">
-          <b>4</b>
-          <span>survived</span>
-        </div>
+        <div class="fnl-dots is-out" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+        <div class="fnl-end is-out"><b data-grad-num>4</b><span>survived</span></div>
       </div>
       <div class="figcap">Every idea had to clear all three gates. One failure anywhere ended it.</div>
 
@@ -878,67 +841,62 @@
       </div>
 
       <h3>What got cut, and why</h3>
-      <table class="cut-table">
-        <thead>
-          <tr><th>Idea</th><th>Why it didn't survive</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Prompt employers to send rejection notices<br><span class="crit-tag">fails gate 01</span></td>
-            <td>Depends on employer behaviour change. Out on criterion 1.</td>
-          </tr>
-          <tr>
-            <td>Estimated response time countdown<br><span class="crit-tag">fails gate 01</span></td>
-            <td>LinkedIn can't know this reliably, and a wrong number manufactures false hope.</td>
-          </tr>
-          <tr>
-            <td>Application quality score<br><span class="crit-tag">harms the goal</span></td>
-            <td>Judges the user at their most vulnerable moment. Actively harmful to the emotional goal.</td>
-          </tr>
-          <tr>
-            <td>Auto follow up message to recruiters<br><span class="crit-tag">spam risk</span></td>
-            <td>Recruiter side spam risk. Would have been killed in review at a real company, correctly.</td>
-          </tr>
-          <tr>
-            <td>Peer comparison (“you've applied to more roles than 80% of users”)<br><span class="crit-tag">failed against Nikita</span></td>
-            <td>I judged peer comparison would hurt Nikita, not something I user-tested. Turns anxiety into competition.</td>
-          </tr>
-          <tr class="is-deferred">
-            <td>Notes and tags per application<br><span class="crit-tag">fails gate 02</span> <span class="deferred-tag">→ deferred, not cut</span></td>
-            <td>Good idea, but adds maintenance work. Deferred to v2, not cut.</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="vd-list">
+  <div class="vd-row">
+    <span class="vd-chip is-cut"><svg class="vd-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Cut</span>
+    <div class="vd-idea"><div class="vd-title"><s>Prompt employers to send rejection notices</s></div><div class="vd-reason"><svg class="vd-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg><span class="crit-tag">fails gate 01</span></div></div>
+    <p class="vd-why">Depends on employer behaviour change. Out on criterion 1.</p>
+  </div>
+  <div class="vd-row">
+    <span class="vd-chip is-cut"><svg class="vd-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Cut</span>
+    <div class="vd-idea"><div class="vd-title"><s>Estimated response time countdown</s></div><div class="vd-reason"><svg class="vd-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg><span class="crit-tag">fails gate 01</span></div></div>
+    <p class="vd-why">LinkedIn can't know this reliably, and a wrong number manufactures false hope.</p>
+  </div>
+  <div class="vd-row">
+    <span class="vd-chip is-cut"><svg class="vd-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Cut</span>
+    <div class="vd-idea"><div class="vd-title"><s>Application quality score</s></div><div class="vd-reason"><svg class="vd-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9.5 17h-19z"/><path d="M12 10v4M12 17.5v.1"/></svg><span class="crit-tag">harms the goal</span></div></div>
+    <p class="vd-why">Judges the user at their most vulnerable moment. Actively harmful to the emotional goal.</p>
+  </div>
+  <div class="vd-row">
+    <span class="vd-chip is-cut"><svg class="vd-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Cut</span>
+    <div class="vd-idea"><div class="vd-title"><s>Auto follow up message to recruiters</s></div><div class="vd-reason"><svg class="vd-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span class="crit-tag">spam risk</span></div></div>
+    <p class="vd-why">Recruiter side spam risk. Would have been killed in review at a real company, correctly.</p>
+  </div>
+  <div class="vd-row">
+    <span class="vd-chip is-cut"><svg class="vd-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Cut</span>
+    <div class="vd-idea"><div class="vd-title"><s>Peer comparison (“you've applied to more roles than 80% of users”)</s></div><div class="vd-reason"><svg class="vd-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17.5" cy="9" r="2.5"/><path d="M17 14c2.7 0 4.5 1.8 4.5 4.5"/></svg><span class="crit-tag">failed against Nikita</span></div></div>
+    <p class="vd-why">I judged peer comparison would hurt Nikita, not something I user-tested. Turns anxiety into competition.</p>
+  </div>
+  <div class="vd-row is-deferred">
+    <span class="vd-chip is-def"><svg class="vd-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Deferred</span>
+    <div class="vd-idea"><div class="vd-title">Notes and tags per application</div><div class="vd-reason"><svg class="vd-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg><span class="crit-tag">fails gate 02</span> <span class="deferred-tag">→ deferred, not cut</span></div></div>
+    <p class="vd-why">Good idea, but adds maintenance work. Deferred to v2, not cut.</p>
+  </div>
+</div>
 
       <h3>Three decisions that set the structure</h3>
       <p>Before any layout existed, three questions had to be settled. Each one changed what the screen would be.</p>
-      <p><strong>Kanban died first.</strong> Every competitor uses a board, so it was the obvious starting point, and working it through made the contradiction immediate. Kanban is a <em>manual</em> metaphor. If the premise is that the system updates itself, <mark class="sweep">the interface can't be built on a gesture that requires the user to do the updating</mark>.</p>
-      <p><strong>The unit changed.</strong> I started out on the application and ended up on the search. That reframe is what produced the overview bar and the year filter. Neither exists if the application stays the unit.</p>
-      <p><strong>The signals panel had to be persistent.</strong> The signals are the entire differentiator, so putting them behind a click would bury the thing the product is for.</p>
+      <div class="ba-rows">
+        <div class="ba-row reveal">
+          <div class="ba-pair"><span class="ba-b">A board</span><span class="ba-arrow" aria-hidden="true"><svg class="ic ic-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span><span class="ba-a">A system that updates itself</span></div>
+          <p><strong>Kanban died first.</strong> Every competitor uses a board, so it was the obvious starting point, and working it through made the contradiction immediate. Kanban is a <em>manual</em> metaphor. If the premise is that the system updates itself, <mark class="sweep">the interface can't be built on a gesture that requires the user to do the updating</mark>.</p>
+        </div>
+        <div class="ba-row reveal">
+          <div class="ba-pair"><span class="ba-b">The application</span><span class="ba-arrow" aria-hidden="true"><svg class="ic ic-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span><span class="ba-a">The search</span></div>
+          <p><strong>The unit changed.</strong> I started out on the application and ended up on the search. That reframe is what produced the overview bar and the year filter. Neither exists if the application stays the unit.</p>
+        </div>
+        <div class="ba-row reveal">
+          <div class="ba-pair"><span class="ba-b">Behind a click</span><span class="ba-arrow" aria-hidden="true"><svg class="ic ic-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span><span class="ba-a">Always visible</span></div>
+          <p><strong>The signals panel had to be persistent.</strong> The signals are the entire differentiator, so putting them behind a click would bury the thing the product is for.</p>
+        </div>
+      </div>
 
       <h3>Getting the hierarchy right</h3>
       <p>With <em>what</em> settled, the remaining question was order: what the eye hits first, second, third. I worked that out in greyscale, to keep it away from colour.</p>
-      <div class="hierarchy reveal">
-        <div class="hz-main">
-          <div class="hz-block">
-            <span class="hz-n">1</span>
-            <div class="hz-t">The search</div>
-            <div class="hz-s">Overview bar: applied, active, awaiting, closed</div>
-            <div class="hz-cells"><i></i><i></i><i></i><i></i></div>
-          </div>
-          <div class="hz-block">
-            <span class="hz-n">2</span>
-            <div class="hz-t">The applications</div>
-            <div class="hz-s">One scannable row per application, status carried on the row</div>
-            <div class="hz-bars"><i></i><i></i><i></i><i></i></div>
-          </div>
-        </div>
-        <div class="hz-block is-panel">
-          <span class="hz-n">3</span>
-          <div class="hz-t">The signals</div>
-          <div class="hz-s">Persistent panel for the selected application</div>
-          <div class="hz-bars"><i></i><i></i><i></i><i></i></div>
-        </div>
+      <div class="stack-steps reveal">
+        <div class="ss" style="--k:0"><span class="ss-n" data-grad-num>1</span><div><div class="ss-t">The search</div><div class="ss-s">Overview bar: applied, active, awaiting, closed</div></div></div>
+        <div class="ss" style="--k:1"><span class="ss-n" data-grad-num>2</span><div><div class="ss-t">The applications</div><div class="ss-s">One scannable row per application, status carried on the row</div></div></div>
+        <div class="ss" style="--k:2"><span class="ss-n" data-grad-num>3</span><div><div class="ss-t">The signals</div><div class="ss-s">Persistent panel for the selected application</div></div></div>
       </div>
       <div class="figcap">Search first, applications second, signals third. That order is the argument of the product in one layout: a tool for managing a search, not a folder of applications.</div>
     </section>
@@ -946,7 +904,7 @@
     <!-- ============ 7. EVALUATION & REVISED GOALS ============ -->
     <section class="cs-section" id="sec-evaluation">
       <div class="sec-eyebrow">07 / Design / Evaluation</div>
-      <h2 class="grad g9">Auditing the design against the person it was built for.</h2>
+      <h2 class="grad grad-text g9">Auditing the design against the person it was built for.</h2>
 
       <p>I didn't recruit anyone to test this. No persona testing tool, no usability session. What I did instead was walk through the finished screens myself, deliberately using Arjun's persona as the lens rather than my own judgment: what would he notice first, what would confuse him, would this actually get him what he came for.</p>
 
@@ -968,62 +926,57 @@
       <div class="disclaimer">Stated plainly: this is a self conducted heuristic walkthrough, not a moderated usability study with recruited participants. It is good at catching things that don't hold up to scrutiny, like icon ambiguity or a control that breaks at scale. It cannot tell me whether a real user's anxiety actually goes down. That needs the usability study in Measuring success.</div>
 
       <h3>Two things it caught</h3>
-      <div class="friction-grid is-two dimgroup">
-        <div class="friction-card">
-          <div class="fbadge">1</div>
-          <svg class="fsvg" viewBox="0 0 240 88" role="img" aria-label="Two links with different destinations drawn with the same icon">
-            <rect class="fs-box" x="50" y="14" width="40" height="40" rx="10"/>
-            <rect class="fs-box" x="150" y="14" width="40" height="40" rx="10"/>
-            <path class="fs-line" d="M62 42 L78 26"/><path class="fs-line" d="M68 26 h10 v10"/>
-            <path class="fs-line" d="M162 42 L178 26"/><path class="fs-line" d="M168 26 h10 v10"/>
-            <text class="fs-q" x="120" y="40" text-anchor="middle" font-size="17">?</text>
-            <text class="fs-cap" x="70" y="72" text-anchor="middle">COMPANY SITE</text>
-            <text class="fs-cap" x="170" y="72" text-anchor="middle">JOB POST</text>
-          </svg>
-          <h4>The Company Site and Job Post icons are identical.</h4>
-          <p>Both use the same link glyph. In a list of four applications that's invisible. In a list of forty, it's forty small moments of “which one is this.”</p>
+      <div class="fr-list">
+        <div class="fr-row reveal">
+          <div class="fr-vis">
+            <svg viewBox="0 0 260 90" role="img" aria-label="Before: two links with different destinations drawn with the same icon. After: two different icons.">
+              <g class="fr-before"><g transform="translate(26 8) scale(1.5)" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M13 5h6v6M19 5l-8 8M17 14v4a1.5 1.5 0 0 1-1.5 1.5H6A1.5 1.5 0 0 1 4.5 18V8A1.5 1.5 0 0 1 6 6.5h4"/></g><g transform="translate(86 8) scale(1.5)" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M13 5h6v6M19 5l-8 8M17 14v4a1.5 1.5 0 0 1-1.5 1.5H6A1.5 1.5 0 0 1 4.5 18V8A1.5 1.5 0 0 1 6 6.5h4"/></g><text x="44" y="68" text-anchor="middle">COMPANY SITE</text><text x="104" y="68" text-anchor="middle">JOB POST</text></g>
+              <path class="fr-arr" d="M126 28h22M142 22l6 6-6 6"/>
+              <g class="fr-after"><g transform="translate(166 8) scale(1.5)" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V6l7-3 7 3v15"/><path d="M9.5 21v-5h5v5M9 9.5h1.5M13.5 9.5H15M9 12.5h1.5M13.5 12.5H15"/></g><g transform="translate(214 8) scale(1.5)" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="8" width="17" height="12" rx="1.5"/><path d="M8.5 8V5.5h7V8M3.5 13.5h17"/></g></g>
+            </svg>
+          </div>
+          <div class="fr-text">
+            <div class="fbadge">1</div>
+            <h4>The Company Site and Job Post icons are identical.</h4>
+            <p>Both use the same link glyph. In a list of four applications that's invisible. In a list of forty, it's forty small moments of “which one is this.”</p>
+          </div>
         </div>
-        <div class="friction-card">
-          <div class="fbadge">2</div>
-          <svg class="fsvg" viewBox="0 0 240 88" role="img" aria-label="A tracker header with no search field above a list that runs off the bottom">
-            <rect class="fs-box" x="20" y="8" width="200" height="16" rx="4"/>
-            <rect x="24" y="11" width="92" height="10" rx="5" fill="none" class="fs-accent-stroke" stroke-dasharray="3 3"/>
-            <text class="fs-cap" x="124" y="20">NO SEARCH FIELD</text>
-            <rect class="fs-box" x="20" y="34" width="200" height="6" rx="3" opacity="1.00"/><rect class="fs-box" x="20" y="45" width="200" height="6" rx="3" opacity="0.82"/><rect class="fs-box" x="20" y="56" width="200" height="6" rx="3" opacity="0.64"/><rect class="fs-box" x="20" y="67" width="200" height="6" rx="3" opacity="0.46"/>
-            <text class="fs-cap" x="20" y="84">40+ ROWS, ALL SCANNED BY EYE</text>
-          </svg>
-          <h4>There's no search, and the list won't survive real volume.</h4>
-          <p>At four rows it looks complete. Arjun has dozens of live applications at once. Past roughly fifty rows the list stops being scannable, and the tracker's entire premise, finding out what's happening with a specific application, breaks.</p>
+        <div class="fr-row reveal">
+          <div class="fr-vis">
+            <svg viewBox="0 0 260 90" role="img" aria-label="Before: a tracker header with no search field above a list that runs off the bottom. After: the same header with a search field.">
+              <g class="fr-before"><path d="M20 14h72" /><rect x="20" y="34" width="86" height="5" rx="2.5"/><rect x="20" y="46" width="86" height="5" rx="2.5"/><rect x="20" y="58" width="86" height="5" rx="2.5"/><text x="20" y="80">NO SEARCH FIELD</text></g>
+              <path class="fr-arr" d="M126 28h22M142 22l6 6-6 6"/>
+              <g class="fr-after"><rect x="166" y="8" width="80" height="16" rx="8"/><circle cx="178" cy="16" r="3.5"/><path d="M180.5 18.5l3 3"/><rect x="166" y="34" width="80" height="5" rx="2.5"/><rect x="166" y="46" width="80" height="5" rx="2.5"/><rect x="166" y="58" width="80" height="5" rx="2.5"/></g>
+            </svg>
+          </div>
+          <div class="fr-text">
+            <div class="fbadge">2</div>
+            <h4>There's no search, and the list won't survive real volume.</h4>
+            <p>At four rows it looks complete. Arjun has dozens of live applications at once. Past roughly fifty rows the list stops being scannable, and the tracker's entire premise, finding out what's happening with a specific application, breaks.</p>
+          </div>
         </div>
       </div>
 
       <h3>Revised design goals</h3>
 
-      <table class="goals-table">
-        <thead>
-          <tr><th>Original goal</th><th></th><th>Revised goal</th><th>Trigger</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="g-old">Show a link to the company site and the job post</td>
-            <td class="g-arrow">→</td>
-            <td class="g-new">Make the two links <b>visually distinct at a glance</b>, a different icon rather than just a different position</td>
-            <td class="g-trig">Icon collision</td>
-          </tr>
-          <tr>
-            <td class="g-old">Show every application in one list</td>
-            <td class="g-arrow">→</td>
-            <td class="g-new">Make the list usable <b>at real volume, not demo volume</b>. Search has to exist before row 50, not after</td>
-            <td class="g-trig">No search bar</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="cw">
+        <div class="cw-row reveal">
+          <div class="cw-find"><p class="cw-trig">Icon collision</p><h4>Show a link to the company site and the job post</h4></div>
+          <span class="cw-arrow"><svg class="ic ic-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+          <div class="cw-goal">Make the two links <b>visually distinct at a glance</b>, a different icon rather than just a different position</div>
+        </div>
+        <div class="cw-row reveal">
+          <div class="cw-find"><p class="cw-trig">No search bar</p><h4>Show every application in one list</h4></div>
+          <span class="cw-arrow"><svg class="ic ic-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+          <div class="cw-goal">Make the list usable <b>at real volume, not demo volume</b>. Search has to exist before row 50, not after</div>
+        </div>
+      </div>
     </section>
 
     <!-- ============ 8. MAIN FLOW ============ -->
     <section class="cs-section" id="sec-flow">
       <div class="sec-eyebrow">08 / Design / The Solution in Detail</div>
-      <h2 class="grad g10">One screen, four jobs.</h2>
+      <h2 class="grad grad-text g10">One screen, four jobs.</h2>
 
       <p>The whole product resolves to one surface. Adding a destination to LinkedIn's navigation would cost the user a habit they don't have, so the tracker lives where the applications already are.</p>
 
@@ -1057,17 +1010,13 @@
           <div class="fb-media"><figure>
             <div class="pipeline">
               <div class="dgm-lab is-accent">How one application moves</div>
-              <div class="pl-steps">
-                <span class="pl-step is-done">Submitted</span>
-                <span class="pl-arr">→</span>
-                <span class="pl-step is-done">Viewed by recruiter</span>
-                <span class="pl-arr">→</span>
-                <span class="pl-step is-now">In review</span>
-                <span class="pl-arr">→</span>
-                <span class="pl-step">Interview</span>
-                <span class="pl-arr">→</span>
-                <span class="pl-step">Closed</span>
-              </div>
+              <ol class="stepper" data-stepper>
+                <li class="stp is-done"><i></i><span>Submitted</span></li>
+                <li class="stp is-done"><i></i><span>Viewed by recruiter</span></li>
+                <li class="stp is-now"><i></i><span>In review</span></li>
+                <li class="stp"><i></i><span>Interview</span></li>
+                <li class="stp"><i></i><span>Closed</span></li>
+              </ol>
               <div class="pl-foot">
                 <span>Moved by: <b>LinkedIn's own recruiter side events</b></span>
                 <span>User actions required: <b>0</b></span>
@@ -1104,10 +1053,10 @@
           <div class="fb-media"><figure>
             <div class="panel-mock">
               <div class="pm-head">Signals · this application</div>
-              <div class="pm-row"><span class="pm-dot"></span><div><b>Viewed by a recruiter</b><span>2 days ago</span></div></div>
-              <div class="pm-row"><span class="pm-dot"></span><div><b>Posting still active</b><span>reposted 6 days ago</span></div></div>
-              <div class="pm-row"><span class="pm-dot"></span><div><b>1 of 214 applicants</b><span>top 10% on listed skills</span></div></div>
-              <div class="pm-row"><span class="pm-dot is-off"></span><div><b>No first degree connection here</b><span>2 second degree</span></div></div>
+              <div class="pm-row"><svg class="ic pm-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 12s3.8-6.5 10.5-6.5S22.5 12 22.5 12 18.7 18.5 12 18.5 1.5 12 1.5 12z"/><circle cx="12" cy="12" r="3"/></svg><div><b>Viewed by a recruiter</b><span>2 days ago</span></div></div>
+              <div class="pm-row"><svg class="ic pm-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>Posting still active</b><span>reposted 6 days ago</span></div></div>
+              <div class="pm-row"><svg class="ic pm-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 20V10M12 20V4M19 20v-7"/></svg><div><b>1 of 214 applicants</b><span>top 10% on listed skills</span></div></div>
+              <div class="pm-row is-off"><svg class="ic pm-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M17 8h5"/></svg><div><b>No first degree connection here</b><span>2 second degree</span></div></div>
               <div class="pm-never">
                 <em>What the panel never says</em>
                 <s>“High likelihood of a response”</s> · <s>“You're a strong match”</s>
@@ -1141,11 +1090,11 @@
             </div>
           </div>
           <div class="fb-media"><figure>
-            <div class="timeline">
-              <div class="tl-filters">
-                <span class="chip is-in">2026 · this search</span>
-                <span class="chip">2023</span>
-                <span class="chip">All time</span>
+            <div class="timeline" data-view="now">
+              <div class="tl-filters" role="group" aria-label="Search year">
+                <button type="button" class="yc is-on" data-yc="now" aria-pressed="true">2026 · this search</button>
+                <button type="button" class="yc" data-yc="2023" aria-pressed="false">2023</button>
+                <button type="button" class="yc" data-yc="all" aria-pressed="false">All time</button>
               </div>
               <div class="tl-track">
                 <div class="tl-cycle is-past">
@@ -1187,11 +1136,11 @@
             </div>
           </div>
           <div class="fb-media"><figure>
-            <div class="overview-mock">
-              <div class="ov-cell"><b>8</b><span>applied</span></div>
-              <div class="ov-cell is-live"><b>3</b><span>active</span></div>
-              <div class="ov-cell"><b>2</b><span>awaiting</span></div>
-              <div class="ov-cell is-closed"><b>2</b><span>closed</span></div>
+            <div class="overview-mock" data-grad-row>
+              <div class="ov-cell"><b data-grad-num data-count="8">8</b><span>applied</span></div>
+              <div class="ov-cell is-live"><b data-grad-num data-count="3">3</b><span>active</span></div>
+              <div class="ov-cell"><b data-grad-num data-count="2">2</b><span>awaiting</span></div>
+              <div class="ov-cell is-closed"><b data-grad-num data-count="2">2</b><span>closed</span></div>
             </div>
             <div class="versus">
               <div class="vs-cell is-cut">
@@ -1223,132 +1172,94 @@
     <!-- ============ 9. MEASURING SUCCESS ============ -->
     <section class="cs-section" id="sec-measure">
       <div class="sec-eyebrow">09 / Evaluation / Measuring Success</div>
-      <h2 class="grad g8">How I'd know if this worked.</h2>
+      <h2 class="grad grad-text g8">How I'd know if this worked.</h2>
 
       <p>No shipped numbers, since this is a concept. What I have is a definition of what I'd measure and why, because a design goal that can't be measured is a preference.</p>
 
       <div class="northstar reveal">
         <div class="ns-lbl">North star metric</div>
         <div class="ns-metric">Percentage of applications where the user views at least one post submission signal within 7 days of applying.</div>
-        <p>Not “time in tracker” or “sessions per week”, both of which go up when a product is anxiety inducing. This one only moves if the signals exist, are found, and are worth returning for, which is the value proposition.</p>
+        <p>Not “<s>time in tracker</s>” or “<s>sessions per week</s>”, both of which go up when a product is anxiety inducing. This one only moves if the signals exist, are found, and are worth returning for, which is the value proposition.</p>
       </div>
 
       <h3>Supporting metrics, mapped to design goals</h3>
-      <table class="metrics-table">
-        <thead>
-          <tr><th>Design goal</th><th>Metric</th><th>Target</th><th>Why this one</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Reduce post application uncertainty</td>
-            <td>% of live applications with a status other than “Submitted” after 14 days</td>
-            <td>&gt; 60%</td>
-            <td>Directly measures whether silence was actually broken</td>
-          </tr>
-          <tr>
-            <td>Eliminate manual tracking work</td>
-            <td>% of tracked applications requiring zero manual user input</td>
-            <td>&gt; 90%</td>
-            <td>If users are still editing rows, the automation failed</td>
-          </tr>
-          <tr>
-            <td>Give closure on dead applications</td>
-            <td>Median days between a role closing and the user seeing it marked closed</td>
-            <td>&lt; 3 days</td>
-            <td>Uncertainty is the harm, and speed of closure is the cure</td>
-          </tr>
-          <tr>
-            <td>Make the search feel like progress</td>
-            <td>Self reported “I feel in control of my job search” (5 point, in product survey at week 4)</td>
-            <td>+2 pts</td>
-            <td>The brief's success statement, measured directly</td>
-          </tr>
-          <tr>
-            <td>Continuity across searches</td>
-            <td>% of returning users (2nd+ search) who open the year filter within their first 3 sessions</td>
-            <td>&gt; 40%</td>
-            <td>Validates the most differentiated and riskiest feature</td>
-          </tr>
-          <tr>
-            <td>Business outcome</td>
-            <td>Premium Career 6 month retention, tracker users vs. control</td>
-            <td>+8%</td>
-            <td>Ties the emotional outcome to revenue</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="sm-cols" data-grad-row>
+          <div class="sm-col"><div data-grad-num class="sm-num">&gt; 60%</div><div class="sm-name">Reduce post application uncertainty</div><p>% of live applications with a status other than “Submitted” after 14 days</p><p class="sm-why">Directly measures whether silence was actually broken</p></div>
+          <div class="sm-col"><div data-grad-num class="sm-num">&gt; 90%</div><div class="sm-name">Eliminate manual tracking work</div><p>% of tracked applications requiring zero manual user input</p><p class="sm-why">If users are still editing rows, the automation failed</p></div>
+          <div class="sm-col"><div data-grad-num class="sm-num">&lt; 3 days</div><div class="sm-name">Give closure on dead applications</div><p>Median days between a role closing and the user seeing it marked closed</p><p class="sm-why">Uncertainty is the harm, and speed of closure is the cure</p></div>
+      </div>
+      <details class="sm-more">
+        <summary><span class="sm-open">Show 3 more measures</span><span class="sm-close">Hide</span></summary>
+        <div class="sm-rows">
+          <div class="sm-row"><div class="sm-rname">Make the search feel like progress</div><p>Self reported “I feel in control of my job search” (5 point, in product survey at week 4). The brief's success statement, measured directly</p><div class="sm-goal">+2 pts</div></div>
+          <div class="sm-row"><div class="sm-rname">Continuity across searches</div><p>% of returning users (2nd+ search) who open the year filter within their first 3 sessions. Validates the most differentiated and riskiest feature</p><div class="sm-goal">&gt; 40%</div></div>
+          <div class="sm-row"><div class="sm-rname">Business outcome</div><p>Premium Career 6 month retention, tracker users vs. control. Ties the emotional outcome to revenue</p><div class="sm-goal">+8%</div></div>
+        </div>
+      </details>
 
       <h3>Counter metrics: how I'd know it backfired</h3>
       <p>Any product that surfaces status can make anxiety worse. Three things I'd treat as failure, whatever the North Star did:</p>
 
-      <div class="guardrails">
-        <div class="gr-head">Guardrails</div>
-        <div class="guardrail">
-          <b>Sessions per day above 8</b>
-          <div class="gauge">
-            <div class="gauge-track" role="img" aria-label="Sessions per day: healthy up to 3, watch to 8, failure above 8">
-              <div class="gauge-mark" style="left:66%"></div>
-            </div>
-            <div class="gauge-scale"><span>0</span><span>healthy 1 to 3</span><span>trip line 8</span><span>12</span></div>
+      <div class="gr-head">Guardrails</div>
+      <div class="gr-list">
+        <div class="gr reveal">
+          <svg class="gr-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <div class="gr-main"><b>Sessions per day above 8</b><span class="gt-note">That's not engagement, that's compulsive checking. The goal is to replace ten anxious checks with one informative one.</span></div>
+          <div class="scale" role="img" aria-label="Sessions per day: healthy up to 3, watch to 8, failure above 8">
+            <div class="sc-track"><i class="sc-ok" style="left:8.3%;width:16.7%"></i><i class="sc-warn" style="left:66.6%"></i></div>
+            <div class="sc-ticks"><span style="left:0">0</span><span style="left:16.6%">healthy 1 to 3</span><span style="left:66.6%">trip line 8</span><span style="left:100%">12</span></div>
           </div>
-          <span>That's not engagement, that's compulsive checking. The goal is to replace ten anxious checks with one informative one.</span>
         </div>
-        <div class="guardrail">
-          <b>Increase in same day reapplications after seeing “not viewed”</b>
-          <div class="trend">↑ any rise = failure</div>
-          <span>Would mean the signal is being read as a verdict and triggering panic behaviour.</span>
+        <div class="gr reveal">
+          <svg class="gr-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.7-5.6L20 8.5"/><path d="M20 4v4.5h-4.5"/></svg>
+          <div class="gr-main"><b>Increase in same day reapplications after seeing “not viewed”</b><span class="gt-note">Would mean the signal is being read as a verdict and triggering panic behaviour.</span></div>
+          <div class="scale" role="img" aria-label="Any rise is a failure">
+            <div class="sc-track"><i class="sc-ok" style="left:0;width:50%"></i><i class="sc-warn" style="left:50%"></i></div>
+            <div class="sc-ticks"><span style="left:50%">↑ any rise = failure</span></div>
+          </div>
         </div>
-        <div class="guardrail">
-          <b>Drop in applications submitted per week</b>
-          <div class="trend">↓ any drop = failure</div>
-          <span>Would mean visibility is discouraging rather than orienting. Seeing the odds shouldn't make people stop.</span>
+        <div class="gr reveal">
+          <svg class="gr-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17l5-5 4 4 7-8"/><path d="M15 8h5v5"/></svg>
+          <div class="gr-main"><b>Drop in applications submitted per week</b><span class="gt-note">Would mean visibility is discouraging rather than orienting. Seeing the odds shouldn't make people stop.</span></div>
+          <div class="scale" role="img" aria-label="Any drop is a failure">
+            <div class="sc-track"><i class="sc-ok" style="left:50%;width:50%"></i><i class="sc-warn" style="left:50%"></i></div>
+            <div class="sc-ticks"><span style="left:50%">↓ any drop = failure</span></div>
+          </div>
         </div>
       </div>
 
       <h3>How I'd validate before shipping</h3>
-      <div class="val-cols">
-        <div class="val-col">
-          <span class="vchip">Qual</span>
-          <p><strong>Usability study.</strong> 5 to 8 laid off professionals in active search, moderated, on two questions: does the status panel reduce anxiety, and does the year filter make past searches feel useful rather than painful.</p>
-        </div>
-        <div class="val-col">
-          <span class="vchip">Longitudinal</span>
-          <p><strong>Diary study.</strong> 2 weeks, 6 participants, to catch the thing usability testing can't: whether the tracker becomes a habit or a new source of dread.</p>
-        </div>
-        <div class="val-col">
-          <span class="vchip">Quant</span>
-          <p><strong>Instrumented beta.</strong> A small cohort with the counter metrics wired up from day one, not retrofitted after launch.</p>
-        </div>
-      </div>
+      <ol class="vt reveal">
+        <li><span class="vt-dot">1</span><span class="vt-lab">Qual</span><p><strong>Usability study.</strong> 5 to 8 laid off professionals in active search, moderated, on two questions: does the status panel reduce anxiety, and does the year filter make past searches feel useful rather than painful.</p></li>
+        <li><span class="vt-dot">2</span><span class="vt-lab">Longitudinal</span><p><strong>Diary study.</strong> 2 weeks, 6 participants, to catch the thing usability testing can't: whether the tracker becomes a habit or a new source of dread.</p></li>
+        <li><span class="vt-dot">3</span><span class="vt-lab">Quant</span><p><strong>Instrumented beta.</strong> A small cohort with the counter metrics wired up from day one, not retrofitted after launch.</p></li>
+      </ol>
     </section>
 
     <!-- ============ 10. RESULTS ============ -->
     <section class="cs-section" id="sec-results">
       <div class="sec-eyebrow">10 / Evaluation / Results</div>
-      <h2 class="grad g3">What I can claim, and what I can't.</h2>
+      <h2 class="grad grad-text g3">What I can claim, and what I can't.</h2>
 
       <p>This concept hasn't shipped, so there is no engagement data, no retention curve, no A/B test. Claiming otherwise would be inventing evidence. Here's what the work produced.</p>
 
       <h3>What was validated</h3>
-      <div class="vlist">
-        <div class="vitem is-yes">
-          <div class="vmark">✓</div>
+      <div class="vr-list">
+        <div class="vr-item is-ok"><span class="vr-mark"><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
           <div>
             <b>The concept holds up to a structured read.</b>
             <span>Walking the screens as Arjun, the tracker reads as a job search tool without explanation and the intended hierarchy holds. This is my own read of my own design, which is the weakest version of this claim.</span>
             <div class="evid"><span class="evid-bars" role="img" aria-label="Evidence strength 1 of 3"><i class="on"></i><i></i><i></i></span><span class="evid-lab">Self audit · needs real users</span></div>
           </div>
         </div>
-        <div class="vitem is-yes">
-          <div class="vmark">✓</div>
+        <div class="vr-item is-ok"><span class="vr-mark"><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
           <div>
             <b>The job to be done is answerable from the interface.</b>
             <span>The core question, “can you tell which of your applications are still alive?”, can be answered off the screen without interpretation. Whether it <em>feels</em> answered to someone in the middle of a real search is untested.</span>
             <div class="evid"><span class="evid-bars" role="img" aria-label="Evidence strength 1 of 3"><i class="on"></i><i></i><i></i></span><span class="evid-lab">Self audit · needs real users</span></div>
           </div>
         </div>
-        <div class="vitem is-yes">
-          <div class="vmark">✓</div>
+        <div class="vr-item is-ok"><span class="vr-mark"><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
           <div>
             <b>Two interface failures were caught before they'd have shipped.</b>
             <span>Identical icons, and a missing search bar that becomes essential past 50 applications. Both fixed, and neither visible to me until I read the screens as someone else: <mark class="sweep">I could not see my own interface accurately.</mark></span>
@@ -1358,33 +1269,29 @@
       </div>
 
       <h3>What is not validated</h3>
-      <div class="vlist">
-        <div class="vitem is-no">
-          <div class="vmark">○</div>
+      <div class="vr-list">
+        <div class="vr-item is-open"><span class="vr-mark"><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/></svg></span>
           <div>
             <b>The emotional outcome.</b>
             <span>Unprovable without real users in real distress. A self audit can find a confusing icon. It cannot feel dread.</span>
             <div class="evid"><span class="evid-bars" role="img" aria-label="Evidence strength 0 of 3"><i></i><i></i><i></i></span><span class="evid-lab">No evidence · needs users in real distress</span></div>
           </div>
         </div>
-        <div class="vitem is-no">
-          <div class="vmark">○</div>
+        <div class="vr-item is-open"><span class="vr-mark"><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/></svg></span>
           <div>
             <b>Longitudinal value.</b>
             <span>The year filter is my most confident feature and my least tested one. Validating it needs a user across two separate layoffs, a research timeline of years.</span>
             <div class="evid"><span class="evid-bars" role="img" aria-label="Evidence strength 0 of 3"><i></i><i></i><i></i></span><span class="evid-lab">No evidence · needs two search cycles</span></div>
           </div>
         </div>
-        <div class="vitem is-no">
-          <div class="vmark">○</div>
+        <div class="vr-item is-open"><span class="vr-mark"><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/></svg></span>
           <div>
             <b>Technical feasibility of the signals.</b>
             <span>I assumed LinkedIn can surface recruiter view data to candidates. Defensible from the data model, but a privacy and policy question I can't answer from outside, and it might be what kills the feature.</span>
             <div class="evid"><span class="evid-bars" role="img" aria-label="Evidence strength 0 of 3"><i></i><i></i><i></i></span><span class="evid-lab">No evidence · a policy question, from outside</span></div>
           </div>
         </div>
-        <div class="vitem is-no">
-          <div class="vmark">○</div>
+        <div class="vr-item is-open"><span class="vr-mark"><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/></svg></span>
           <div>
             <b>Business impact.</b>
             <span>The Premium retention argument is reasoned, not measured.</span>
@@ -1394,13 +1301,10 @@
       </div>
 
       <h3>The outcome</h3>
-      <div class="outcome-pair">
-        <div>
-          <div class="ol">What this project delivered</div>
+      <div class="oc reveal">
+        <div class="oc-bar" aria-hidden="true"><span class="oc-yes">What this project delivered</span><span class="oc-no">What it didn't</span></div>
+        <div class="oc-text">
           <p>Four feature sets from research to high fidelity, a decision record for each, a measurement framework with counter metrics, and two interface fixes caught before they shipped.</p>
-        </div>
-        <div>
-          <div class="ol">What it didn't</div>
           <p><mark class="sweep">Proof that it works. That requires shipping it.</mark></p>
         </div>
       </div>
@@ -1409,45 +1313,45 @@
     <!-- ============ 11. WHAT I LEARNED ============ -->
     <section class="cs-section" id="sec-learned">
       <div class="sec-eyebrow">11 / Reflection</div>
-      <h2 class="grad g4">What I'd take into the next one.</h2>
+      <h2 class="grad grad-text g4">What I'd take into the next one.</h2>
 
-      <div class="learnings dimgroup">
-        <div class="learning">
-          <div class="lnum">01</div>
+      <ol class="lw">
+        <li class="lw-item reveal">
+          <span class="lw-n">01</span>
           <div>
-            <h3>Scope is a design decision, not a constraint on one.</h3>
-            <p>This started as a broad LinkedIn redesign and became a tracker for laid off professionals in repeat displacement. Every time I narrowed the user group the decisions got easier, not because there was less to do but because there was finally something to decide against. <mark class="sweep">A tool for everyone is a tool with no opinions.</mark></p>
+            <div class="lw-h">Scope is a design decision, not a constraint on one.</div>
+            <details class="lw-why"><summary>Why</summary><p>This started as a broad LinkedIn redesign and became a tracker for laid off professionals in repeat displacement. Every time I narrowed the user group the decisions got easier, not because there was less to do but because there was finally something to decide against. <mark class="sweep">A tool for everyone is a tool with no opinions.</mark></p></details>
           </div>
-        </div>
-        <div class="learning">
-          <div class="lnum">02</div>
+        </li>
+        <li class="lw-item reveal">
+          <span class="lw-n">02</span>
           <div>
-            <h3>Research without access is still research, if you're honest about the trade.</h3>
-            <p>Instead of interviews I had hundreds of unprompted Reddit accounts, quantitative data from Greenhouse and The Interview Guys, and a pattern that held across both. Community research isn't a shortcut version of interviews. It's a different method with a different bias profile, honest as long as you say which one you used and what it couldn't tell you. Next time, even three real conversations would let me probe the contradictions I could only observe.</p>
+            <div class="lw-h">Research without access is still research, if you're honest about the trade.</div>
+            <details class="lw-why"><summary>Why</summary><p>Instead of interviews I had hundreds of unprompted Reddit accounts, quantitative data from Greenhouse and The Interview Guys, and a pattern that held across both. Community research isn't a shortcut version of interviews. It's a different method with a different bias profile, honest as long as you say which one you used and what it couldn't tell you. Next time, even three real conversations would let me probe the contradictions I could only observe.</p></details>
           </div>
-        </div>
-        <div class="learning">
-          <div class="lnum">03</div>
+        </li>
+        <li class="lw-item reveal">
+          <span class="lw-n">03</span>
           <div>
-            <h3>The emotional layer is a feature, not a nice to have.</h3>
-            <p>Every competitor solved the functional problem and ignored the emotional one. The overview bar is the difference between a search that feels like a void and one that feels like it's going somewhere. Deciding to <em>count</em> closed applications rather than hide them was where that clicked: closure isn't a negative state to minimise, it's what lets someone stop waiting.</p>
+            <div class="lw-h">The emotional layer is a feature, not a nice to have.</div>
+            <details class="lw-why"><summary>Why</summary><p>Every competitor solved the functional problem and ignored the emotional one. The overview bar is the difference between a search that feels like a void and one that feels like it's going somewhere. Deciding to <em>count</em> closed applications rather than hide them was where that clicked: closure isn't a negative state to minimise, it's what lets someone stop waiting.</p></details>
           </div>
-        </div>
-        <div class="learning">
-          <div class="lnum">04</div>
+        </li>
+        <li class="lw-item reveal">
+          <span class="lw-n">04</span>
           <div>
-            <h3>I cannot see my own interface.</h3>
-            <p>Both friction points were invisible to me after weeks on the same screen. Identical icons I'd stopped seeing as identical. A list that worked beautifully at the four rows I'd populated it with. They only surfaced when I stopped reading the screens as their designer and read them as Arjun, which is a cheap thing to do and I had not once done it. That second one is the real lesson, and now I populate every design with the density the user actually lives at, from the first frame.</p>
+            <div class="lw-h">I cannot see my own interface.</div>
+            <details class="lw-why"><summary>Why</summary><p>Both friction points were invisible to me after weeks on the same screen. Identical icons I'd stopped seeing as identical. A list that worked beautifully at the four rows I'd populated it with. They only surfaced when I stopped reading the screens as their designer and read them as Arjun, which is a cheap thing to do and I had not once done it. That second one is the real lesson, and now I populate every design with the density the user actually lives at, from the first frame.</p></details>
           </div>
-        </div>
-        <div class="learning">
-          <div class="lnum">05</div>
+        </li>
+        <li class="lw-item reveal">
+          <span class="lw-n">05</span>
           <div>
-            <h3>Constraints are the argument.</h3>
-            <p>The strongest thing here isn't a feature. It's that nothing requires a recruiter to change their behaviour or an employer to start replying. That constraint killed half my ideas and made the surviving half shippable. 96% of companies don't notify rejected candidates. <mark class="sweep">A design that waits for that to change isn't a design. It's a wish.</mark></p>
+            <div class="lw-h">Constraints are the argument.</div>
+            <details class="lw-why"><summary>Why</summary><p>The strongest thing here isn't a feature. It's that nothing requires a recruiter to change their behaviour or an employer to start replying. That constraint killed half my ideas and made the surviving half shippable. 96% of companies don't notify rejected candidates. <mark class="sweep">A design that waits for that to change isn't a design. It's a wish.</mark></p></details>
           </div>
-        </div>
-      </div>
+        </li>
+      </ol>
 
       <hr class="rule">
 
@@ -1458,40 +1362,16 @@
 
       <details class="sources">
         <summary>Sources for the statistics</summary>
-        <table>
-          <tr>
-            <td>4% of the roughly 6,500 companies on Greenhouse contacted every rejected applicant, Q2 2024. The rest didn't guarantee a response to everyone who applied</td>
-            <td>Axios / Greenhouse, September 2024. Companies hiring through Greenhouse in Q2 2024.</td>
-          </tr>
-          <tr>
-            <td>61% ghosted after an interview, up from 52% a year earlier</td>
-            <td>Greenhouse, State of Job Hunting, 2024.</td>
-          </tr>
-          <tr>
-            <td>72% of job seekers say the search hurts their mental health. Separately, 66% cite lack of feedback as a factor in burnout</td>
-            <td>The Interview Guys, State of Job Search 2025.</td>
-          </tr>
-          <tr>
-            <td>Spreadsheets running past 500 rows, and the language people use about them</td>
-            <td>Community observation, r/jobs and r/recruitinghell, 2025 and 2026.</td>
-          </tr>
-          <tr>
-            <td>1.1M+ US job cuts, Jan to Nov 2025, and the 58% year over year rise in cuts</td>
-            <td>Challenger, Gray &amp; Christmas, reported Dec 2025</td>
-          </tr>
-          <tr>
-            <td>Research puts the number anywhere from 32 applications (Career.IO average, 2025) to over 100</td>
-            <td>The Interview Guys, How Many Applications It Takes to Get Hired, 2025</td>
-          </tr>
-          <tr>
-            <td>70% repeat layoffs within 12 months of the first</td>
-            <td>Zety, Repeat Layoff Index, based on Layoffs.fyi data</td>
-          </tr>
-          <tr>
-            <td>27% of tech companies that had at least one layoff ran a second round, 2023 to 2025</td>
-            <td>Zety, Repeat Layoff Index, 2023 to 2025 (based on Layoffs.fyi data)</td>
-          </tr>
-        </table>
+        <div class="src-rows">
+          <div class="src-row"><p>4% of the roughly 6,500 companies on Greenhouse contacted every rejected applicant, Q2 2024. The rest didn't guarantee a response to everyone who applied</p><p class="src-by">Axios / Greenhouse, September 2024. Companies hiring through Greenhouse in Q2 2024.</p></div>
+          <div class="src-row"><p>61% ghosted after an interview, up from 52% a year earlier</p><p class="src-by">Greenhouse, State of Job Hunting, 2024.</p></div>
+          <div class="src-row"><p>72% of job seekers say the search hurts their mental health. Separately, 66% cite lack of feedback as a factor in burnout</p><p class="src-by">The Interview Guys, State of Job Search 2025.</p></div>
+          <div class="src-row"><p>Spreadsheets running past 500 rows, and the language people use about them</p><p class="src-by">Community observation, r/jobs and r/recruitinghell, 2025 and 2026.</p></div>
+          <div class="src-row"><p>1.1M+ US job cuts, Jan to Nov 2025, and the 58% year over year rise in cuts</p><p class="src-by">Challenger, Gray &amp; Christmas, reported Dec 2025</p></div>
+          <div class="src-row"><p>Research puts the number anywhere from 32 applications (Career.IO average, 2025) to over 100</p><p class="src-by">The Interview Guys, How Many Applications It Takes to Get Hired, 2025</p></div>
+          <div class="src-row"><p>70% repeat layoffs within 12 months of the first</p><p class="src-by">Zety, Repeat Layoff Index, based on Layoffs.fyi data</p></div>
+          <div class="src-row"><p>27% of tech companies that had at least one layoff ran a second round, 2023 to 2025</p><p class="src-by">Zety, Repeat Layoff Index, 2023 to 2025 (based on Layoffs.fyi data)</p></div>
+        </div>
       </details>
     </section>
 
@@ -1508,7 +1388,7 @@
 <footer class="site-footer" id="contact">
   <div class="wrap">
     <div class="eyebrow reveal">// contact</div>
-    <h2 class="reveal grad g8">Thanks for reading.</h2>
+    <h2 class="reveal grad grad-text g8">Thanks for reading.</h2>
     <p class="reveal" style="color:var(--ink-soft); margin-bottom:22px;">Ruby Seher, Product Designer. Currently open to opportunities.</p>
     <a class="big-email reveal" href="mailto:ruby.seher000@gmail.com">ruby.seher000@gmail.com</a>
     <div class="foot-links reveal">
@@ -1522,6 +1402,6 @@
   </div>
 </footer>
 
-<script src="script.js?v=12"></script>
+<script src="script.js?v=14"></script>
 </body>
 </html>
