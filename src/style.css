@@ -2467,3 +2467,12 @@ body:has(.cs-body) .statgrid .stat-src{ bottom:28px; }
 
 /* no divider between the comp analysis closing line and Voices */
 body.cs-shadematch:has(.cs-body) .cs-content section#sec-voices{ border-top:0; }
+
+/* subheadings: more air above, and a touch more below */
+body:has(.cs-body) .cs-section > h3,
+body:has(.cs-body) .cs-section > :not(p, h2, h3, h4, .figcap, .sec-eyebrow) + h3{ margin-top:72px; }
+body:has(.cs-body) .cs-section > h3 + *{ margin-top:24px; }
+body:has(.cs-body) .band > h3:first-child{ margin-top:0; }
+@media (max-width:900px){ body:has(.cs-body) .cs-section > h3, body:has(.cs-body) .cs-section > :not(p, h2, h3, h4, .figcap, .sec-eyebrow) + h3{ margin-top:56px; } }
+body:has(.cs-body) .cs-content .cs-section > * + h3{ margin-top:72px; }
+@media (max-width:900px){ body:has(.cs-body) .cs-content .cs-section > * + h3{ margin-top:56px; } }
