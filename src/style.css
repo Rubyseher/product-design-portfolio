@@ -2527,3 +2527,42 @@ body:has(.cs-body) .p-stat{ padding:0 2px; }
 body:has(.cs-body) .persona-card{ padding-left:12px; padding-right:12px; }
 @media (max-width:1100px){ body:has(.cs-body) .persona-card{ padding-left:24px; padding-right:24px; } }
 body:has(.cs-body) .p-stat{ padding:0; }
+
+/* ---- why Aditi is primary: plain comparison, no boxes ---- */
+.why-primary{ --wp-cols:180px minmax(0,1fr) minmax(0,1fr); }
+.wp-head, .wp-row, .wp-close{ display:grid; grid-template-columns:var(--wp-cols); column-gap:24px; }
+.wp-head{ padding-bottom:24px; }
+.wp-who{ display:flex; align-items:center; gap:8px; }
+.wp-who img{ width:40px; height:40px; border-radius:50%; object-fit:cover; border:1px solid var(--line); background:var(--tint-2); }
+.wp-name{ font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:16px; color:var(--ink); }
+.wp-pill{ font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:0.12em; text-transform:uppercase; }
+.wp-pill.is-a{ color:var(--accent); }
+.wp-pill.is-r{ color:var(--ink-soft); }
+.wp-row{ padding:24px 0; border-top:1px solid var(--line); align-items:start; row-gap:16px; }
+.wp-label{ display:flex; align-items:center; gap:8px; color:var(--accent); }
+.wp-label span{ font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:0.14em; text-transform:uppercase; }
+.wp-icon{ flex:none; }
+body:has(.cs-body) .cs-content .why-primary p{ font-size:16px; line-height:1.6; max-width:none; margin:0; }
+.wp-cell p{ color:var(--ink); }
+.wp-tag{ display:none; }
+.wp-take{ grid-column:2 / -1; }
+body:has(.cs-body) .cs-content .why-primary .wp-take{ font-family:'Space Grotesk', sans-serif; font-size:18px; line-height:1.5; color:var(--ink); font-weight:500; }
+.wp-arrow{ color:var(--accent); margin-right:8px; font-size:16px; }
+.wp-close{ border-top:1px solid var(--line); padding-top:24px; margin-top:0; }
+.wp-end{ display:flex; align-items:flex-start; gap:8px; }
+.wp-end:first-child{ grid-column:2; }
+.wp-end:last-child{ grid-column:3; }
+.wp-dot{ flex:none; width:8px; height:8px; border-radius:50%; background:var(--accent); margin-top:8px; }
+body:has(.cs-body) .cs-content .why-primary .wp-end{ color:var(--ink); }
+.why-primary{ margin-top:32px; }
+@media (max-width:768px){
+  .wp-head{ display:none; }
+  .wp-row, .wp-close{ grid-template-columns:1fr; row-gap:16px; }
+  .wp-take, .wp-end:first-child, .wp-end:last-child{ grid-column:1; }
+  .wp-tag{ display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:8px; }
+  .wp-tag.is-a{ color:var(--accent); }
+  .wp-tag.is-r{ color:var(--ink-soft); }
+  .wp-tag img{ width:24px; height:24px; border-radius:50%; object-fit:cover; border:1px solid var(--line); }
+  .wp-close{ padding-top:24px; }
+}
+.wp-close{ border-top:0; padding-top:0; margin-top:8px; }
