@@ -2422,3 +2422,31 @@ body:has(.cs-body) :is(.phone-row, .fb-media figure, .feature-shot){ border:0; b
 body:has(.cs-body) .cs-body{ padding-top:96px; }
 body:has(.cs-body) .cs-content section.cs-section:first-child,
 body.cs-shadematch:has(.cs-body) .cs-content section.cs-section:first-child{ padding-top:8px; }
+
+/* ---- the business case: plain block, no panel ---- */
+body:has(.cs-body) .band.biz{ background:none; border:0; border-radius:0; padding:0; margin:0; }
+body:has(.cs-body) .cs-section > .band.biz{ margin-top:48px; }
+body:has(.cs-body) .band.biz .cite strong{ font-weight:400; }
+body:has(.cs-body) .band.biz .market-row{ grid-template-columns:repeat(3, minmax(0,1fr)); gap:24px; margin:32px 0 0; }
+body:has(.cs-body) .band.biz .market-stat{ padding:0; align-self:start; }
+body:has(.cs-body) .band.biz .market-stat + .market-stat{ border-left:1px solid var(--line); padding-left:24px; }
+body:has(.cs-body) .band.biz .ms-num{ color:var(--accent); font-size:clamp(32px,4vw,46px); letter-spacing:-0.02em; }
+body:has(.cs-body) .band.biz .ms-lab{ font-size:15px; color:var(--ink-soft); margin-top:12px; }
+body:has(.cs-body) .band.biz .market-row + p{ margin-top:32px; }
+body:has(.cs-body) .band.biz .donut-row{ display:block; margin:32px 0 0; padding-top:32px; border-top:1px solid var(--line); }
+body:has(.cs-body) .band.biz .donut-card{ display:flex; align-items:center; gap:32px; padding:0; border:0; border-radius:0; background:none; transform:none; box-shadow:none; }
+body:has(.cs-body) .band.biz .dn-visual{ display:flex; flex-direction:column; align-items:center; gap:8px; flex:none; }
+body:has(.cs-body) .band.biz .donut{ width:120px; height:120px; }
+body:has(.cs-body) .band.biz .dn-arc.is-warn{ stroke:var(--accent); }
+body:has(.cs-body) .band.biz .dn-mid b{ font-size:24px; font-weight:700; }
+body:has(.cs-body) .band.biz .dn-label{ font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:0.04em; text-transform:uppercase; color:var(--ink-soft); }
+body:has(.cs-body) .band.biz .dn-body{ flex:1; min-width:0; }
+body:has(.cs-body) .band.biz .dn-body h4{ font-family:'Space Grotesk',sans-serif; font-size:20px; line-height:1.3; font-weight:600; margin:0 0 16px; }
+body:has(.cs-body) .band.biz .dn-body p{ font-size:17px; line-height:1.65; color:var(--ink-soft); max-width:none; }
+body:has(.cs-body) .band.biz .dn-body .src{ margin-top:16px; }
+body:has(.cs-body) .band.biz .punchline{ margin-top:48px; font-family:'Space Grotesk',sans-serif; font-size:24px; font-weight:600; line-height:1.35; color:var(--ink); max-width:none; border-left:3px solid var(--accent); padding-left:16px; }
+@media (max-width:640px){
+  body:has(.cs-body) .band.biz .market-row{ grid-template-columns:1fr; }
+  body:has(.cs-body) .band.biz .market-stat + .market-stat{ border-left:0; padding-left:0; border-top:1px solid var(--line); padding-top:24px; }
+  body:has(.cs-body) .band.biz .donut-card{ flex-direction:column; align-items:flex-start; }
+}
