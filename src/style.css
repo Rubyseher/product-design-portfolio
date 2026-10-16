@@ -2417,3 +2417,8 @@ body:has(.cs-body) .cs-content .cl-right p{ font-size:16px; line-height:1.6; max
 
 /* phone mockups carry their own device frame, so no box around them */
 body:has(.cs-body) :is(.phone-row, .fb-media figure, .feature-shot){ border:0; background:none; border-radius:0; padding:0; box-shadow:none; }
+
+/* breathing room above the sidebar and first section; Overview and "01 / The Problem" start on the same line */
+body:has(.cs-body) .cs-body{ padding-top:96px; }
+body:has(.cs-body) .cs-content section.cs-section:first-child,
+body.cs-shadematch:has(.cs-body) .cs-content section.cs-section:first-child{ padding-top:8px; }
