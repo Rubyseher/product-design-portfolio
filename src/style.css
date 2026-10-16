@@ -2681,3 +2681,20 @@ body:has(.cs-body) .cs-content .sm-row p{ grid-column:2; order:0; }
   .sm-rname, .sm-goal, body:has(.cs-body) .cs-content .sm-row p{ grid-row:1; }
   body:has(.cs-body) .cs-content .sm-row p{ margin:0; }
 }
+
+/* sessions per day: a small 0 to 10 number line */
+.guard-table .nl{ position:relative; max-width:300px; margin:24px 0 0; font-size:13px; color:var(--ink-soft); }
+.nl-pin{ position:absolute; left:30%; top:-20px; transform:translateX(-50%); white-space:nowrap; font-size:13px; line-height:1.2; color:var(--warn); }
+.nl-pin::after{ content:""; position:absolute; left:50%; top:100%; width:2px; height:8px; margin-left:-1px; background:var(--warn); }
+.nl-bar{ display:flex; height:8px; border-radius:999px; overflow:hidden; }
+.nl-ok{ flex:3; background:rgba(63,125,82,0.4); }
+.nl-bad{ flex:7; background:rgba(176,82,43,0.3); }
+.nl-ticks{ position:relative; height:20px; margin-top:4px; }
+.nl-ticks span{ position:absolute; font-size:13px; line-height:20px; transform:translateX(-50%); }
+.nl-ticks span:nth-child(1){ left:0; transform:none; }
+.nl-ticks span:nth-child(2){ left:30%; }
+.nl-ticks span:nth-child(3){ left:auto; right:0; transform:none; }
+.nl-zones{ display:flex; font-size:13px; line-height:1.4; }
+.nl-zones .z-ok{ flex:3; color:#3F7D52; }
+.nl-zones .z-bad{ flex:7; color:var(--warn); padding-left:8px; }
+.guard-table .nl{ margin-top:32px; }
