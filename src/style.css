@@ -2370,6 +2370,20 @@ body.cs-shadematch .cs-content .matrix-wrap + p{ max-width:none; }
   body.cs-shadematch .cs-content section.cs-section{ padding-top:96px; }
 }
 
+/* ---- ShadeMatch: no outer boxes, more air ---- */
+body.cs-shadematch:has(.cs-body) .cs-content .cs-section > figure,
+body.cs-shadematch:has(.cs-body) .cs-content .comp-media figure,
+body.cs-shadematch:has(.cs-body) .matrix-wrap,
+body.cs-shadematch:has(.cs-body) .gap-stat{ border:0; border-radius:0; background:none; padding:0; }
+body.cs-shadematch:has(.cs-body) .cs-content section.cs-section{ padding-top:160px; }
+body.cs-shadematch:has(.cs-body) .cs-content .cs-section > .comp-row{ padding-top:0; }
+body.cs-shadematch:has(.cs-body) .cs-content .cs-section > .comp-row + .comp-row{ margin-top:0; padding-top:72px; }
+body.cs-shadematch:has(.cs-body) .cs-content .matrix-wrap{ width:100%; }
+body.cs-shadematch:has(.cs-body) .cs-content .matrix-wrap + p{ max-width:none; width:100%; }
+@media (max-width:900px){
+  body.cs-shadematch:has(.cs-body) .cs-content section.cs-section{ padding-top:112px; }
+}
+
 /* ---- voices: the two rating pills ---- */
 .vo-pills{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:24px; }
 .vo-pill{ display:flex; align-items:center; gap:8px; padding:12px; border-radius:12px; border:1px solid rgba(85,87,94,0.45); background:none; min-width:0; }
