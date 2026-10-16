@@ -2858,3 +2858,9 @@ body:has(.cs-body) .cs-content .cw-find p{ font-size:15px; line-height:1.5; colo
   .gr{ grid-template-columns:28px minmax(0,1fr); }
   .gr-ranges{ grid-column:1 / -1; }
 }
+
+/* cluster titles that are real quotes, and the illustrative caption */
+.cl-title.cl-real{ font-size:17px; font-weight:500; line-height:1.5; }
+.cl-title.cl-real a{ color:inherit; text-decoration:underline; text-decoration-color:var(--line); text-underline-offset:3px; }
+.cl-title.cl-real a:hover{ text-decoration-color:var(--grp-solid); }
+.cl-cap{ font-size:13px; line-height:1.4; color:#6e6e73; }
