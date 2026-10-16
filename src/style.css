@@ -2551,3 +2551,31 @@ body:has(.cs-body) .cs-content .why-primary .wp-end{ color:var(--ink); }
 }
 .wp-close{ border-top:0; padding-top:0; margin-top:8px; }
 .p-role{ font-family:'IBM Plex Mono', monospace; font-size:13px; font-weight:400; letter-spacing:0.12em; text-transform:uppercase; }
+
+/* ---- the three gates: one line, three dots, no boxes ---- */
+.gates{ display:flex; flex-direction:column; }
+.g-top{ display:flex; justify-content:space-between; align-items:baseline; gap:24px; margin-bottom:16px; }
+.g-start, .g-end{ display:flex; align-items:baseline; gap:8px; }
+.g-start b, .g-end b{ font-family:'Space Grotesk', sans-serif; font-size:36px; line-height:1; font-weight:700; color:var(--ink); }
+.g-end b{ color:var(--accent); }
+.g-start span, .g-end span{ font-size:15px; color:var(--ink-soft); }
+.g-cols{ position:relative; display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:24px; }
+.g-cols::before{ content:""; position:absolute; left:0; right:0; top:5px; height:2px; background:var(--line); }
+.g-cols::after{ content:""; position:absolute; right:0; top:0; width:12px; height:12px; border-top:2px solid var(--line); border-right:2px solid var(--line); transform:translateX(-1px) rotate(45deg) scale(.7); transform-origin:center; }
+.g-dot{ position:relative; z-index:1; display:block; width:12px; height:12px; border-radius:50%; background:var(--accent); margin-bottom:16px; }
+.g-num{ font-family:'Space Grotesk', sans-serif; font-size:28px; line-height:1.1; font-weight:700; color:var(--accent); margin-bottom:8px; }
+body:has(.cs-body) .cs-content .gates .g-col p{ font-size:16px; line-height:1.6; max-width:none; margin:0; color:var(--ink-soft); }
+.g-col p b{ color:var(--ink); font-weight:700; }
+body:has(.cs-body) .cs-content .gates .g-note{ font-family:'Inter', sans-serif; font-size:15px; line-height:1.6; color:var(--ink-soft); margin:32px 0 0; max-width:none; }
+@media (max-width:768px){
+  .g-top{ display:contents; }
+  .g-start{ order:0; margin-bottom:16px; }
+  .g-cols{ order:1; grid-template-columns:1fr; gap:32px; padding-left:32px; }
+  .g-end{ order:2; margin-top:16px; }
+  .g-note{ order:3; }
+  .g-cols::before{ left:5px; right:auto; top:0; bottom:0; width:2px; height:auto; }
+  .g-cols::after{ right:auto; left:0; top:auto; bottom:-2px; transform:rotate(135deg) scale(.7); }
+  .g-dot{ position:absolute; left:0; top:6px; margin:0; }
+  .g-col{ position:relative; }
+  .g-dot{ left:-32px; }
+}

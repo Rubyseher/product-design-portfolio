@@ -690,45 +690,29 @@
 
       <h3>The three questions everything had to pass</h3>
 
-      <div class="funnel reveal">
-        <div class="fn-end">
-          <b>5</b>
-          <span>features as built</span>
+      <div class="gates reveal">
+        <div class="g-top">
+          <div class="g-start"><b>5</b><span>features as built</span></div>
+          <div class="g-end"><b>4</b><span>kept</span></div>
         </div>
-        <div class="fn-gates">
-          <div class="fn-gate">
-            <span class="gn">Gate 01</span>
-            <p>Does it serve the moment of getting dressed?</p>
+        <div class="g-cols">
+          <div class="g-col">
+            <span class="g-dot" aria-hidden="true"></span>
+            <div class="g-num">01</div>
+            <p><b>Does this serve the moment of getting dressed?</b> Not shopping, not browsing. If a feature's best use case was “while browsing Myntra,” it was out of the core however well it worked.</p>
           </div>
-          <div class="fn-gate">
-            <span class="gn">Gate 02</span>
-            <p>Does it cost the user anything before it gives them something?</p>
+          <div class="g-col">
+            <span class="g-dot" aria-hidden="true"></span>
+            <div class="g-num">02</div>
+            <p><b>Does it cost the user anything before it gives them something?</b> Setup cost is what kills this category. Accounts, uploads, quizzes and onboarding were out unless they earned their cost inside the same session.</p>
           </div>
-          <div class="fn-gate">
-            <span class="gn">Gate 03</span>
-            <p>Does it survive the trust test?</p>
+          <div class="g-col">
+            <span class="g-dot" aria-hidden="true"></span>
+            <div class="g-num">03</div>
+            <p><b>Does it survive the trust test?</b> Would Aditi believe this recommendation if she knew exactly how the product made money? If not, it was damaging the product even while working correctly.</p>
           </div>
         </div>
-        <div class="fn-end out">
-          <b>4</b>
-          <span>kept, two of them rebuilt</span>
-        </div>
-      </div>
-      <div class="figcap">The audit below is these three gates applied to what shipped. One feature failed outright and left the core.</div>
-
-      <div class="criteria-row dimgroup">
-        <div class="criterion">
-          <div class="cnum">01</div>
-          <p><b>Does this serve the moment of getting dressed?</b> Not shopping, not browsing. If a feature's best use case was “while browsing Myntra,” it was out of the core however well it worked.</p>
-        </div>
-        <div class="criterion">
-          <div class="cnum">02</div>
-          <p><b>Does it cost the user anything before it gives them something?</b> Setup cost is what kills this category. Accounts, uploads, quizzes and onboarding were out unless they earned their cost inside the same session.</p>
-        </div>
-        <div class="criterion">
-          <div class="cnum">03</div>
-          <p><b>Does it survive the trust test?</b> Would Aditi believe this recommendation if she knew exactly how the product made money? If not, it was damaging the product even while working correctly.</p>
-        </div>
+        <p class="g-note">The audit below is these three gates applied to what shipped. One feature failed outright and left the core.</p>
       </div>
 
       <h3>Auditing what already existed</h3>
