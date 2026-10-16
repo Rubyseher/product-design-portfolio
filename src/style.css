@@ -2794,3 +2794,39 @@ body:has(.cs-body) :is(.cite){ border-bottom-color:var(--grp-solid); }
 /* meaning colours: no rust outside the Evaluation group */
 body:has(.cs-body) :is(#sec-problem, #sec-solution, #sec-comp, #sec-voices, #sec-personas, #sec-ideation, #sec-evaluation, #sec-flow, #sec-learned) .vchip-cut{ color:#6e6e73; border-color:rgba(110,110,115,0.4); background:rgba(110,110,115,0.07); }
 body:has(.cs-body) .vchip-keep{ color:var(--grp-solid); border-color:rgba(var(--accent-rgb),0.4); background:rgba(var(--accent-rgb),0.07); }
+
+/* ---- results and reflection ---- */
+.rv-cols{ display:grid; grid-template-columns:1fr 1fr; gap:48px; }
+body:has(.cs-body) .cs-section > .rv-cols{ margin-top:32px; }
+body:has(.cs-body) .rv-col > h3{ margin:0 0 24px; font-size:24px; }
+.rv-item{ display:flex; gap:16px; align-items:flex-start; padding:16px 0; border-top:1px solid var(--line); }
+.rv-item:last-child{ border-bottom:1px solid var(--line); }
+.rv-mark{ flex:none; margin-top:2px; }
+.rv-item.is-ok .rv-mark{ color:var(--grp-solid); }
+.rv-item.is-open .rv-mark{ color:#6e6e73; }
+.rv-item b{ display:block; font-size:17px; font-weight:600; color:#1d1d1f; }
+.rv-item span:not(.rv-mark){ display:block; font-size:15px; line-height:1.5; color:#6e6e73; margin-top:4px; }
+.oc{ margin-top:0; }
+.oc-bar{ display:grid; grid-template-columns:4fr 1fr; gap:8px; height:40px; }
+.oc-yes, .oc-no{ display:flex; align-items:center; padding:0 16px; font-size:14px; font-weight:600; border-radius:8px; }
+.oc-yes{ background:var(--grp-grad); color:#fff; }
+.oc-no{ border:1.5px solid var(--line); color:#6e6e73; justify-content:center; padding:0 8px; white-space:nowrap; }
+.oc-text{ display:grid; grid-template-columns:4fr 1fr; gap:8px; margin-top:16px; }
+body:has(.cs-body) .cs-content .oc-text p{ font-size:15px; line-height:1.5; color:#6e6e73; margin:0; max-width:none; }
+.lw{ list-style:none; margin:32px 0 0; padding:0; }
+.lw-item{ display:flex; gap:24px; padding:24px 0; border-top:1px solid var(--line); }
+.lw-item:last-child{ border-bottom:1px solid var(--line); }
+.lw-n{ flex:none; width:32px; font-size:17px; font-weight:700; color:var(--grp-solid); }
+.lw-h{ font-size:17px; font-weight:700; color:#1d1d1f; line-height:1.4; }
+.lw-why{ margin-top:8px; }
+.lw-why summary{ cursor:pointer; list-style:none; display:inline-block; font-size:14px; font-weight:600; color:var(--grp-solid); }
+.lw-why summary::-webkit-details-marker{ display:none; }
+.lw-why summary::after{ content:" +"; }
+.lw-why[open] summary::after{ content:" \2212"; }
+body:has(.cs-body) .cs-content .lw-why p{ font-size:16px; line-height:1.6; max-width:none; margin:8px 0 0; color:#6e6e73; }
+@media (max-width:768px){
+  .rv-cols{ grid-template-columns:1fr; gap:32px; }
+  .oc-bar, .oc-text{ grid-template-columns:1fr; }
+  .oc-bar{ height:auto; }
+  .oc-yes, .oc-no{ min-height:40px; }
+}
