@@ -188,8 +188,9 @@ footer.site-footer h2{ font-size:34px; margin-bottom:20px; }
 .foot-meta{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--ink-soft); }
 
 /* ============ REVEAL ============ */
-.reveal{ opacity:0; transform:translateY(16px); transition:opacity .55s ease, transform .55s ease; }
-.reveal.in{ opacity:1; transform:translateY(0); }
+/* the case studies run their own reveal (assets/reveal.css), so this one only serves pages without it */
+html:not(.js) .reveal{ opacity:0; transform:translateY(16px); transition:opacity .55s ease, transform .55s ease; }
+html:not(.js) .reveal.in{ opacity:1; transform:translateY(0); }
 @media (prefers-reduced-motion:reduce){ .reveal{ opacity:1; transform:none; transition:none; } html{ scroll-behavior:auto; } .carousel-track{ animation:none; } .carousel{ overflow-x:auto; } }
 
 /* ==================================================== */
@@ -2941,10 +2942,7 @@ body.cs-tracker .cs-content :is(.quote-band,.hmw)::before, body.cs-tracker .cs-c
 body.cs-tracker .cs-content h2::after{ display:none; }
 
 /* ---- motion: fade and rise, 12px, 400ms, ease-out. Nothing loops. ---- */
-body.cs-tracker .reveal, body.cs-tracker .stagger > *{ opacity:1; transform:none; transition:none; }
 body.cs-tracker .anim-wipe{ clip-path:none; }
-html.tk-js body.cs-tracker .tk-rise{ opacity:0; transform:translateY(12px); transition:opacity .4s ease-out, transform .4s ease-out; }
-html.tk-js body.cs-tracker .tk-rise.tk-in{ opacity:1; transform:none; }
 body.cs-tracker .scroll-cue span{ animation:none; }
 body.cs-tracker .matrix.is-in .mx-pt.is-us .mx-dot{ animation:none; }
 body.cs-tracker a, body.cs-tracker button, body.cs-tracker summary{ transition:color .2s ease-out, background-color .2s ease-out, opacity .2s ease-out; }
@@ -3275,7 +3273,6 @@ body.cs-tracker .stp.on i{ background:var(--grp-solid); border-color:var(--grp-s
 body.cs-tracker .stp.on::after{ transform:scaleX(1); }
 body.cs-tracker .stp.on span{ color:#1d1d1f; font-weight:600; }
 body.cs-tracker .stp.is-now.on i{ transform:scale(1.25); }
-html:not(.tk-js) body.cs-tracker .stp.is-done i, html:not(.tk-js) body.cs-tracker .stp.is-now i{ background:var(--grp-solid); border-color:var(--grp-solid); }
 @media (max-width:640px){
   body.cs-tracker .stepper{ flex-direction:column; gap:0; }
   body.cs-tracker .stp{ flex-direction:row; align-items:center; text-align:left; gap:16px; padding:8px 0; }
@@ -3414,7 +3411,6 @@ body.cs-tracker .cs-content img, body.cs-tracker .cs-content svg, body.cs-tracke
 /* ---- reduced motion: all of it off ---- */
 @media (prefers-reduced-motion:reduce){
   body.cs-tracker *, body.cs-tracker *::before, body.cs-tracker *::after{ animation:none !important; transition:none !important; scroll-behavior:auto !important; }
-  html.tk-js body.cs-tracker .tk-rise{ opacity:1; transform:none; }
   body.cs-tracker .stp i{ background:var(--grp-solid); border-color:var(--grp-solid); }
   body.cs-tracker .stp:not(.is-done):not(.is-now) i{ background:#fff; border-color:var(--line); }
   body.cs-tracker .stp.is-done::after, body.cs-tracker .stp.is-now::after{ transform:scaleX(1); }

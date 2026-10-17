@@ -1,0 +1,97 @@
+/* reveal.css: scroll reveal shared by the ShadeMatch and LinkedIn case studies.
+   Pairs with reveal.js. Everything that hides content sits behind html.js, a class
+   reveal.js sets, so without JavaScript the page is plain, fully visible HTML.
+   Only opacity and transform animate (plus a stroke draw on two SVG axes), so
+   nothing moves the layout. */
+
+:root{ --rv-ease:cubic-bezier(0.2, 0.7, 0.2, 1); }
+
+/* ---- no JavaScript: every start state in style.css is switched off ---- */
+html:not(.js) .reveal{ opacity:1; transform:none; transition:none; }
+html:not(.js) mark.sweep{ background-size:100% 42%; }
+html:not(.js) .chip.is-out::after{ transform:scaleX(1); }
+html:not(.js) .dn-arc{ stroke-dasharray:var(--pct) 100; }
+html:not(.js) body.cs-tracker .stp.is-done i,
+html:not(.js) body.cs-tracker .stp.is-now i{ background:var(--grp-solid); border-color:var(--grp-solid); }
+
+/* start states the old script used to release. reveal.js owns them now,
+   so they rest in their finished look and the new classes below do the hiding */
+.stage-statement,
+.stage-center .cs-eyebrow,
+.stage-center .stage-sub{ opacity:1; transform:none; transition:none; }
+.rf-grid i,
+.rf-grid i.is-reply{ opacity:1; transform:none; transition:none; }
+.matrix .mx-pt{ opacity:1; transition:none; }
+.matrix .mx-dot{ transform:none; transition:none; }
+.flow-block .fb-num{ letter-spacing:0.22em; transition:none; }
+.dn-arc{ transition:stroke-dasharray 900ms var(--rv-ease) 200ms; }
+.donut-row.rv-now .dn-arc{ transition:none; }
+
+/* until reveal.js has planned the page, what it is about to hide stays unpainted.
+   the box keeps its space, so nothing shifts when it lets go */
+html.js:not(.rv-ready) :is(.cs-intro, .cs-body, .swatch-strip, .cs-nextprev, .site-footer, h1.stage-statement, .stage-sub){ visibility:hidden; }
+
+/* ---- hidden states, one per kind ---- */
+html.js .rv-rise:not(.in){ opacity:0; transform:translateY(24px); }
+html.js .rv-media:not(.in){ opacity:0; transform:translateY(24px) scale(0.98); }
+html.js .rv-fade:not(.in){ opacity:0; }
+html.js .rv-bar{ transform-origin:left center; }
+html.js .rv-bar.rv-r{ transform-origin:right center; }
+html.js .rv-bar:not(.in){ transform:scaleX(0); }
+html.js .rv-pop:not(.in),
+html.js .rv-lit:not(.in){ opacity:0; scale:0.5; }
+html.js .rv-lit:not(.in){ opacity:0.25; scale:0.6; }
+html.js .rv-draw{ stroke-dasharray:var(--len); }
+html.js .rv-draw:not(.in){ stroke-dashoffset:var(--len); }
+html.js .rv-axes:not(.in)::before{ transform:scaleY(0); }
+html.js .rv-axes:not(.in)::after{ transform:scaleX(0); }
+svg .rv-pop, svg .rv-lit{ transform-box:fill-box; transform-origin:center; }
+
+/* ---- showing: the finished look is the element's own CSS, so each animation
+   only declares where it starts. that leaves hover states and transitions
+   on the same elements untouched once the animation has played ---- */
+html.js .rv-rise.in{ animation:rv-rise 600ms var(--rv-ease) var(--rv-d, 0ms) backwards; }
+html.js .rv-media.in{ animation:rv-media 600ms var(--rv-ease) var(--rv-d, 0ms) backwards; }
+html.js .rv-fade.in{ animation:rv-fade 600ms var(--rv-ease) var(--rv-d, 0ms) backwards; }
+html.js .rv-bar.in{ animation:rv-bar 900ms var(--rv-ease) var(--rv-d, 0ms) backwards; }
+html.js .rv-pop.in{ animation:rv-pop 500ms cubic-bezier(0.34, 1.4, 0.64, 1) var(--rv-d, 0ms) backwards; }
+html.js .rv-lit.in{ animation:rv-lit 450ms cubic-bezier(0.34, 1.4, 0.64, 1) var(--rv-d, 0ms) backwards; }
+html.js .rv-draw.in{ animation:rv-draw 800ms var(--rv-ease) var(--rv-d, 0ms) backwards; }
+html.js .rv-axes.in::before{ animation:rv-axis-y 800ms var(--rv-ease) var(--rv-d, 0ms) backwards; }
+html.js .rv-axes.in::after{ animation:rv-axis-x 800ms var(--rv-ease) var(--rv-d, 0ms) backwards; }
+
+@keyframes rv-rise{ from{ opacity:0; transform:translateY(24px); } }
+@keyframes rv-media{ from{ opacity:0; transform:translateY(24px) scale(0.98); } }
+@keyframes rv-fade{ from{ opacity:0; } }
+@keyframes rv-bar{ from{ transform:scaleX(0); } }
+@keyframes rv-pop{ from{ opacity:0; scale:0.5; } }
+@keyframes rv-lit{ from{ opacity:0.25; scale:0.6; } }
+@keyframes rv-draw{ from{ stroke-dashoffset:var(--len); } }
+@keyframes rv-axis-y{ from{ transform:scaleY(0); } }
+@keyframes rv-axis-x{ from{ transform:scaleX(0); } }
+
+/* shown with no animation: a jump to an anchor, or a block already scrolled past */
+html.js .reveal.rv-now,
+html.js .rv-axes.rv-now::before,
+html.js .rv-axes.rv-now::after{ animation:none; }
+
+/* section heading rule draws with a transform instead of a width */
+.cs-content h2.reveal::after{ width:56px; transform:scaleX(0); transform-origin:left center; transition:transform 700ms var(--rv-ease) 200ms; }
+.cs-content h2.reveal.in::after{ transform:scaleX(1); }
+.cs-content h2.reveal.rv-now::after{ transition:none; }
+
+/* a struck out chip draws its line once its row has arrived */
+.chip.is-out.is-struck::after{ transform:scaleX(1); }
+
+/* ---- print and reduced motion: everything already there, nothing moves ---- */
+@media print, (prefers-reduced-motion: reduce){
+  html.js .reveal{ opacity:1 !important; animation:none !important; transition:none !important; }
+  html.js .rv-rise, html.js .rv-media, html.js .rv-bar{ transform:none !important; }
+  html.js .rv-pop, html.js .rv-lit{ scale:none !important; }
+  html.js .rv-draw{ stroke-dashoffset:0 !important; }
+  html.js .rv-axes::before, html.js .rv-axes::after{ transform:none !important; animation:none !important; }
+  .cs-content h2.reveal::after{ transform:none; transition:none; }
+  .dn-arc{ stroke-dasharray:var(--pct) 100; transition:none; }
+  mark.sweep{ background-size:100% 42%; transition:none; }
+  .chip.is-out::after{ transform:scaleX(1); transition:none; }
+}

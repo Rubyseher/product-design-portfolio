@@ -19,8 +19,13 @@
   });
 })();
 
+// the case studies load assets/reveal.js, which sets "js" on <html> and owns
+// every scroll animation on those pages. the older layers below stand down there
+var REVEAL_JS = document.documentElement.classList.contains('js');
+
 // ---- scroll reveal ----
 (function(){
+  if (REVEAL_JS) return;
   var items = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function(entries){
@@ -252,6 +257,7 @@
 // only the cells carrying data-count animate; ranges like "32-200+" are left
 // alone because counting them up would be nonsense
 (function(){
+  if (REVEAL_JS) return;
   var nums = document.querySelectorAll('[data-count]');
   if (!nums.length) return;
 
@@ -319,6 +325,7 @@
 // enter view, and containers listed in STAGGER hand each child an index so the
 // CSS can cascade the delay. Nothing re-hides on scroll back up.
 (function(){
+  if (REVEAL_JS) return;
   var root = document.querySelector('.cs-content');
   if (!root && !document.querySelector('.stage-statement')) return;
 
@@ -407,7 +414,7 @@ addEventListener('scroll',function(){clearTimeout(syncGradients.t);syncGradients
   var root = document.documentElement;
 
   // fade and rise (12px, 400ms, ease-out) as each block enters the viewport
-  if (!reduced && 'IntersectionObserver' in window) {
+  if (!REVEAL_JS && !reduced && 'IntersectionObserver' in window) {
     root.classList.add('tk-js');
     var rise = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
@@ -424,7 +431,7 @@ addEventListener('scroll',function(){clearTimeout(syncGradients.t);syncGradients
   }
 
   // status stepper: dots fill in one after another when it scrolls into view
-  var steppers = document.querySelectorAll('[data-stepper]');
+  var steppers = REVEAL_JS ? [] : document.querySelectorAll('[data-stepper]');
   Array.prototype.forEach.call(steppers, function(st){
     var steps = Array.prototype.slice.call(st.querySelectorAll('.stp'));
     function fill(){

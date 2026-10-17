@@ -13,6 +13,7 @@ Source for my product design portfolio and case studies.
 | `src/case-study-tracker.html` | The Application Black Hole — job application tracker research & IA |
 | `src/style.css` | All styles, single stylesheet |
 | `src/script.js` | Scroll reveal, case-study scroll-spy, hero design↔code toggle |
+| `src/assets/reveal.css`, `src/assets/reveal.js` | Scroll reveal shared by both case studies: fade and rise, count ups, drawn bars, step by step flows. Plain visible HTML without JavaScript, in print, and with reduced motion |
 | `src/images/` | Logos, speaker photos, and the hero video |
 
 ## ShadeMatch
