@@ -3477,3 +3477,11 @@ body.cs-tracker :is(.rf-grid i.is-reply,.mx-dot,.mx-pt.is-us .mx-dot){ box-shado
 }
 body.cs-tracker .sources summary{ text-transform:none !important; letter-spacing:0 !important; border:0 !important; padding:0 !important; font-family:inherit; }
 body.cs-tracker .sources{ border:0 !important; }
+
+/* ShadeMatch problem opening: heading and lede take one line each from 768px up */
+body:has(.cs-body) .cs-section h2.problem-head{ max-width:none; }
+body:has(.cs-body) .cs-content p.problem-lede{ max-width:none; }
+@media (min-width:768px){
+  body:has(.cs-body) .cs-section h2.problem-head{ white-space:nowrap; font-size:clamp(28px,4.4vw,56px); }
+  body:has(.cs-body) .cs-content p.problem-lede{ white-space:nowrap; }
+}
