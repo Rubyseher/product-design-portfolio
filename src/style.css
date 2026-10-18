@@ -3618,3 +3618,13 @@ body.cs-tracker .src{ border:0 !important; padding-top:0 !important; }
 body.cs-tracker .p-badge{ position:static !important; top:auto; right:auto; left:auto; }
 body.cs-tracker .bh-arr{ color:#aeaeb2; }
 body.cs-tracker .comp-row, body.cs-tracker .pl-foot{ border-top:0 !important; }
+
+/* LinkedIn problem statement: same dark box as the ShadeMatch HMW */
+body.cs-tracker .cs-content .hmw.hmw-box{ background:var(--ink); color:#EDEAE3; border-radius:16px; padding:64px 48px; margin:48px 0 0; text-align:center; }
+body.cs-tracker .cs-content .hmw.hmw-box.is-in{ box-shadow:0 26px 60px rgba(20,21,26,0.20) !important; }
+body.cs-tracker .hmw-box .hmw-stmt{ font-family:'Space Grotesk', sans-serif; font-size:clamp(19px,2.5vw,27px); line-height:1.42; font-weight:500; letter-spacing:normal; max-width:900px; margin:0 auto; color:#FFFFFF; text-align:center; }
+body.cs-tracker .hmw-box .hmw-stmt .lead{ font-weight:400; background:none; -webkit-text-fill-color:currentColor; color:#A9AEB8; }
+body.cs-tracker .hmw-box .chiprow{ justify-content:center; margin:32px 0 0; }
+body.cs-tracker .hmw-box .chip{ background:transparent; border-color:rgba(255,255,255,0.24); color:#C9CDD4; }
+body.cs-tracker .hmw-box .chip.is-in{ background:var(--accent); border-color:var(--accent); color:#fff; }
+@media (max-width:768px){ body.cs-tracker .cs-content .hmw.hmw-box{ padding:48px 24px; } }
