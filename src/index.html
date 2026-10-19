@@ -1,171 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ruby Seher Product Designer</title>
-<script>
-  // claim the scroll position before the browser restores it, so the page
-  // always opens on the hero instead of wherever you last stopped reading
-  (function(){
-    var nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
-    if (nav && nav.type === 'back_forward') return;
-    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-  })();
-</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=18">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ruby Seher Product Designer</title>
+  <script>
+    // claim the scroll position before the browser restores it, so the page
+    // always opens on the hero instead of wherever you last stopped reading
+    (function () {
+      var nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+      if (nav && nav.type === 'back_forward') return;
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=18">
 </head>
+
 <body>
 
-<nav>
-  <div class="wrap">
-    <a class="nav-name" href="index.html">Ruby Seher</a>
-    <div class="nav-links">
-      <a href="https://rubyseher.vercel.app" target="_blank" rel="noopener">Dev Portfolio</a>
-      <a href="https://www.linkedin.com/in/ruby-s-885468205/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/Rubyseher" target="_blank" rel="noopener">GitHub</a>
-      <a href="#contact">Contact</a>
-      <a class="btn-mini" href="docs/RubySeher_ProductDesign_Resume.pdf" target="_blank" rel="noopener">Resume</a>
-    </div>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <div class="tag-row reveal">
-        <span class="tag"><b>product designer</b></span>
-        <span class="tag tag-alt"><b>ex full stack engineer</b></span>
-        <span class="tag">Speaker</span>
+  <nav>
+    <div class="wrap">
+      <a class="nav-name" href="index.html">Ruby Seher</a>
+      <div class="nav-links">
+        <a href="https://rubyseher.vercel.app" target="_blank" rel="noopener">Dev Portfolio</a>
+        <a href="https://www.linkedin.com/in/ruby-s-885468205/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/Rubyseher" target="_blank" rel="noopener">GitHub</a>
+        <a href="#contact">Contact</a>
+        <a class="btn-mini" href="docs/RubySeher_ProductDesign_Resume.pdf" target="_blank" rel="noopener">Resume</a>
       </div>
+    </div>
+  </nav>
 
-      <h1 class="reveal grad g1">Most designers hand off.<br><span class="h1-em grad g3">I ship.</span></h1>
-
-      <p class="sub reveal">I run the research, design the system, and write the React that ships it, so nothing gets lost in the last 10%.</p>
-
-      <div class="brand-logos reveal">
-        <div class="brand-label">Previously worked at</div>
-        <div class="brand-row">
-          <img src="images/logos/logo-change.png" alt="Let's Be The Change" class="brand-logo-img is-square">
-          <img src="images/logos/logo-jpmorgan.png" alt="JPMorgan Chase & Co" class="brand-logo-img">
-          <img src="images/logos/logo-nextup.png" alt="NextUp" class="brand-logo-img is-square">
-          <img src="images/logos/logo-nias.png" alt="National Institute of Advanced Studies" class="brand-logo-img">
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <div class="tag-row reveal">
+          <span class="tag"><b>product designer</b></span>
+          <span class="tag tag-alt"><b>ex full stack engineer</b></span>
+          <span class="tag">Speaker</span>
         </div>
-      </div>
-    </div>
 
-    <div class="hero-panel reveal">
-      <figure class="hero-video">
-        <video
-          src="images/rotato/portfolio-home.mp4"
-          autoplay muted playsinline
-          preload="auto"
-          aria-label="Screen recording of the ShadeMatch home screen"></video>
-      </figure>
-    </div>
-  </div>
-</header>
+        <h1 class="reveal grad g1">Most designers hand off.<br><span class="h1-em grad g3">I ship.</span></h1>
 
-<section class="work-list" id="work">
-  <div class="wrap">
-    <h2 class="reveal grad g2">Case studies</h2>
+        <p class="sub reveal">I run the research, design the system, and write the React that ships it, so nothing gets
+          lost in the last 10%.</p>
 
-    <a class="project-card reveal" href="case-study-tracker.html">
-      <div class="project-visual">
-        <video class="card-video"
-          data-src="images/linkedin/hero/linkedin.mp4"
-          muted playsinline
-          preload="none"
-          aria-label="Screen recording of the application tracker: every application in one table with status, links, and notes"></video>
-      </div>
-      <div class="project-meta">
-        <h3 class="grad g4">The Application Black Hole</h3>
-        <div class="cat mono">UX Research · Competitive Analysis · IA · Hi Fi UI</div>
-        <p>You hit Apply on LinkedIn, then go blind. A case study on turning that silence into a job search tracker that updates itself, built on signals the platform already holds.</p>
-      </div>
-    </a>
-
-    <a class="project-card reveal" href="case-study-shadematch.html">
-      <div class="project-visual">
-        <video class="card-video"
-          data-src="images/shadematch/hero/shadematch.mp4"
-          muted playsinline
-          preload="none"
-          aria-label="Screen recording of ShadeMatch matching an outfit to a colour palette"></video>
-      </div>
-      <div class="project-meta">
-        <h3 class="grad g11">ShadeMatch</h3>
-        <div class="cat mono">Product Design · Competitive Analysis · Live Product · Post Launch Audit</div>
-        <p>A live AI outfit colour matcher I designed and built solo. Then I audited every decision in it against research, and cut two of its five features.</p>
-      </div>
-    </a>
-  </div>
-</section>
-
-<section id="about">
-  <div class="wrap">
-    <div class="eyebrow reveal">// about</div>
-    <h2 class="reveal grad g6">Speaker at</h2>
-    <div class="about-body reveal">
-      <p>1. MIQ Bangalore and 2. ReactPlay both featured the ten percent problem. In both talks I explained how that problem is the same signal whether I am working on a product flow or presenting a design idea on stage.</p>
-      <p>That means I do not need two separate stories for the same lesson. I show how the ten percent problem appears in real product work and in the way teams communicate across design and engineering.</p>
-    </div>
-    <div class="carousel-section reveal">
-      <div class="carousel-header">
-      </div>
-      <div class="carousel">
-        <div class="carousel-track">
-          <div class="carousel-item active">
-            <img class="carousel-image" src="images/speaker/1782558137927.jpeg" alt="Opening The 10% Problem talk in front of a full room" loading="lazy">
-          </div>
-          <div class="carousel-item">
-            <img class="carousel-image" src="images/speaker/1783017832542.jpeg" alt="Presenting the title slide of The 10% Problem" loading="lazy">
-          </div>
-          <div class="carousel-item">
-            <img class="carousel-image" src="images/speaker/1778783329241.jpeg" alt="Walking through a mid fidelity flow on stage" loading="lazy">
-          </div>
-          <div class="carousel-item">
-            <img class="carousel-image" src="images/speaker/1783017840743.jpeg" alt="The rooftop venue during the talk" loading="lazy">
-          </div>
-          <div class="carousel-item">
-            <img class="carousel-image" src="images/speaker/1778783330762.jpeg" alt="A packed audience at the meetup" loading="lazy">
-          </div>
-          <div class="carousel-item">
-            <img class="carousel-image" src="images/speaker/1778783332410.jpeg" alt="Receiving the speaker gift after the talk" loading="lazy">
+        <div class="brand-logos reveal">
+          <div class="brand-label">Previously worked at</div>
+          <div class="brand-row">
+            <img src="images/logos/logo-change.png" alt="Let's Be The Change" class="brand-logo-img is-square">
+            <img src="images/logos/logo-jpmorgan.png" alt="JPMorgan Chase & Co" class="brand-logo-img">
+            <img src="images/logos/logo-nextup.png" alt="NextUp" class="brand-logo-img is-square">
+            <img src="images/logos/logo-nias.png" alt="National Institute of Advanced Studies" class="brand-logo-img">
           </div>
         </div>
       </div>
-    </div>
-    <div class="duo reveal">
-      <div class="duo-cell">
-        <span class="k">$ design</span>
-        <p>User research competitive analysis IA mid to high fidelity UI in Figma design systems.</p>
-      </div>
-      <div class="duo-cell">
-        <span class="k">$ build</span>
-        <p>React AWS PWAs API integration incl LLM APIs I ship what I design front to back.</p>
+
+      <div class="hero-panel reveal">
+        <figure class="hero-video">
+          <video src="images/rotato/portfolio-home.mp4" autoplay muted playsinline preload="auto"
+            aria-label="Screen recording of the ShadeMatch home screen"></video>
+        </figure>
       </div>
     </div>
-  </div>
-</section>
+  </header>
 
-<footer class="site-footer" id="contact">
-  <div class="wrap">
-    <div class="eyebrow reveal">// contact</div>
-    <h2 class="reveal grad g8">Let's talk.</h2>
-    <a class="big-email reveal" href="mailto:ruby.seher000@gmail.com">ruby.seher000@gmail.com</a>
-    <div class="foot-links reveal">
-      <a href="https://www.linkedin.com/in/ruby-s-885468205/" target="_blank" rel="noreferrer">LinkedIn</a>
-      <a href="https://github.com/Rubyseher" target="_blank" rel="noreferrer">GitHub</a>
-      <a href="docs/RubySeher_ProductDesign_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+  <section class="work-list" id="work">
+    <div class="wrap">
+      <h2 class="reveal grad g2">Case studies</h2>
+
+      <a class="project-card reveal" href="case-study-tracker.html">
+        <div class="project-visual">
+          <video class="card-video" data-src="images/linkedin/hero/linkedin.mp4" muted playsinline preload="none"
+            aria-label="Screen recording of the application tracker: every application in one table with status, links, and notes"></video>
+        </div>
+        <div class="project-meta">
+          <h3 class="grad g4">The Application Black Hole</h3>
+          <div class="cat mono">UX Research · Competitive Analysis · IA · Hi Fi UI</div>
+          <p>You hit Apply on LinkedIn, then go blind. A case study on turning that silence into a job search tracker
+            that updates itself, built on signals the platform already holds.</p>
+        </div>
+      </a>
+
+      <a class="project-card reveal" href="case-study-shadematch.html">
+        <div class="project-visual">
+          <video class="card-video" data-src="images/shadematch/hero/shadematch.mp4" muted playsinline preload="none"
+            aria-label="Screen recording of ShadeMatch matching an outfit to a colour palette"></video>
+        </div>
+        <div class="project-meta">
+          <h3 class="grad g11">ShadeMatch</h3>
+          <div class="cat mono">Product Design · Competitive Analysis · Live Product · Post Launch Audit</div>
+          <p>A live AI outfit colour matcher I designed and built solo. Then I audited every decision in it against
+            research, and cut two of its five features.</p>
+        </div>
+      </a>
     </div>
-    <div class="foot-meta reveal">Bangalore · will relocate</div>
-  </div>
-</footer>
+  </section>
 
-<script src="script.js?v=12"></script>
+  <section id="about">
+    <div class="wrap">
+      <div class="eyebrow reveal">// about</div>
+      <h2 class="reveal grad g6">Speaker at</h2>
+      <div class="about-body reveal">
+        <p>Only 10% of teams say the designer-developer handoff runs smoothly (Telerik 2024), and as a developer who
+          also learned design, I could see exactly where it breaks.</p>
+        <p>Nobody was explaining it to developers in their own language, so I decided to.</p>
+        <p>I built “The 10% Problem” from scratch, with the research, the script, the slides, five problems and five
+          fixes, and took the stage at a React meetup hosted at MIQ.</p>
+        <p>Developers came up afterward saying it matched what their teams were fighting right now, and several asked if I was a product designer.
+          That’s the work I want to do, closing the gap between design intent and what actually ships.</p>
+      </div>
+      <div class="carousel-section reveal">
+        <div class="carousel-header">
+        </div>
+        <div class="carousel">
+          <div class="carousel-track">
+            <div class="carousel-item active">
+              <img class="carousel-image" src="images/speaker/1782558137927.jpeg"
+                alt="Opening The 10% Problem talk in front of a full room" loading="lazy">
+            </div>
+            <div class="carousel-item">
+              <img class="carousel-image" src="images/speaker/1783017832542.jpeg"
+                alt="Presenting the title slide of The 10% Problem" loading="lazy">
+            </div>
+            <div class="carousel-item">
+              <img class="carousel-image" src="images/speaker/1778783329241.jpeg"
+                alt="Walking through a mid fidelity flow on stage" loading="lazy">
+            </div>
+            <div class="carousel-item">
+              <img class="carousel-image" src="images/speaker/1783017840743.jpeg"
+                alt="The rooftop venue during the talk" loading="lazy">
+            </div>
+            <div class="carousel-item">
+              <img class="carousel-image" src="images/speaker/1778783330762.jpeg" alt="A packed audience at the meetup"
+                loading="lazy">
+            </div>
+            <div class="carousel-item">
+              <img class="carousel-image" src="images/speaker/1778783332410.jpeg"
+                alt="Receiving the speaker gift after the talk" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="duo reveal">
+        <div class="duo-cell">
+          <span class="k">$ design</span>
+          <p>User research competitive analysis IA mid to high fidelity UI in Figma design systems.</p>
+        </div>
+        <div class="duo-cell">
+          <span class="k">$ build</span>
+          <p>React AWS PWAs API integration incl LLM APIs I ship what I design front to back.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer" id="contact">
+    <div class="wrap">
+      <div class="eyebrow reveal">// contact</div>
+      <h2 class="reveal grad g8">Let's talk.</h2>
+      <a class="big-email reveal" href="mailto:ruby.seher000@gmail.com">ruby.seher000@gmail.com</a>
+      <div class="foot-links reveal">
+        <a href="https://www.linkedin.com/in/ruby-s-885468205/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="https://github.com/Rubyseher" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="docs/RubySeher_ProductDesign_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      </div>
+      <div class="foot-meta reveal">Bangalore · will relocate</div>
+    </div>
+  </footer>
+
+  <script src="script.js?v=12"></script>
 </body>
+
 </html>
